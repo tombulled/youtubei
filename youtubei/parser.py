@@ -3,7 +3,11 @@ from typing import Any, Mapping, Set
 from .protocols import Parser
 from .renderers import parse_renderable
 
-IGNORE_FIELDS: Set[str] = {"responseContext", "trackingParams"}
+IGNORE_FIELDS: Set[str] = {
+    "responseContext",
+    "trackingParams",
+    "configs",
+}
 
 
 class InnerTubeParser(Parser):
