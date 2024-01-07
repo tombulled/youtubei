@@ -1,13 +1,11 @@
 from typing import Any, Mapping, MutableMapping, Optional, Sequence, TypeVar, Union
-from typing_extensions import Annotated, TypeAlias
 
 import humps
 import pydantic
-
-from .enums import ButtonStyle, IconType
+from typing_extensions import Annotated, TypeAlias
 
 from . import utils
-
+from .enums import ButtonStyle, IconType
 
 DataMap: TypeAlias = Mapping[str, Mapping[str, Any]]
 DataSeq: TypeAlias = Sequence[DataMap]

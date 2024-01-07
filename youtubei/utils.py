@@ -1,6 +1,7 @@
 import re
 from typing import Any, Mapping, Sequence
 
+
 def is_renderable(data: Any, /) -> bool:
     """
     >>> is_renderable({"FooRenderer": {}})

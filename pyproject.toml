@@ -11,6 +11,7 @@ python = "^3.8"
 innertube = "^2.1.10"
 pyhumps = "^3.8.0"
 pydantic = "^2.5.3"
+loguru = "^0.7.2"
 
 [tool.poetry.group.dev.dependencies]
 pylint = "^3.0.3"

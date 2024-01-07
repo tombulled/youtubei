@@ -1,6 +1,7 @@
-import pydantic
-import humps
 from typing import Optional, Sequence
+
+import humps
+import pydantic
 
 from .enums import SharePanelType
 
@@ -43,9 +44,11 @@ class ShareEntityEndpoint(BaseModel):
     serialized_share_entity: str
     share_panel_type: SharePanelType
 
+
 class Response(BaseModel):
     response_context: ResponseContext
     tracking_params: str
+
 
 # class GetBrowseArtistDetailPageResponse(Response):
 #     contents: SingleColumnBrowseResultsRenderer
