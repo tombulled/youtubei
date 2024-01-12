@@ -7,8 +7,6 @@ from typing_extensions import Annotated, TypeAlias
 from . import utils
 from .enums import (
     BackgroundPromoStyleType,
-    ButtonSize,
-    ButtonStyle,
     IconType,
     MusicPageType,
     ReelPlayerNavigationModel,
@@ -17,6 +15,8 @@ from .enums import (
     ReelWatchSequenceProvider,
     SignalActionSignal,
     SignalServiceSignal,
+    Size,
+    Style,
     Target,
     TargetId,
     WebPageType,
@@ -233,8 +233,8 @@ class Button(BaseModel):
     tracking_params: str
     text: Optional[Text] = None
     is_disabled: Optional[bool] = None
-    style: Optional[ButtonStyle] = None
-    size: Optional[ButtonSize] = None
+    style: Optional[Style] = None
+    size: Optional[Size] = None
     icon: Optional[Icon] = None
     accessibility: Optional[Accessibility] = None
     target_id: Optional[TargetId] = None

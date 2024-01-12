@@ -2,6 +2,8 @@ from innertube import InnerTube
 
 from youtubei import InnerTubeParser
 
+# BEFORE PROGRESSING, TIDY UP!
+
 # client = InnerTube("WEB", "2.20240105.01.00")
 # client = InnerTube("WEB_REMIX", "1.20231214.00.00")
 # client = InnerTube("IOS", "18.49.3")
