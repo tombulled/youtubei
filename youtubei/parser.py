@@ -1,7 +1,7 @@
 from typing import Any, Mapping, Set
 
+from .parse import parse_renderable
 from .protocols import Parser
-from .renderers import parse_renderable
 
 __all__ = ("InnerTubeParser",)
 

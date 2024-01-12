@@ -10,8 +10,6 @@ def is_renderable(data: Any, /) -> bool:
     False
     """
 
-    # print("is_renderable", data)
-
     if isinstance(data, Sequence):
         return all(map(is_renderable, data))
 
