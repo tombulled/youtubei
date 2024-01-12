@@ -3,6 +3,8 @@ from typing import Any, Mapping, Set
 from .protocols import Parser
 from .renderers import parse_renderable
 
+__all__ = ("InnerTubeParser",)
+
 IGNORE_FIELDS: Set[str] = {
     "responseContext",
     "trackingParams",
