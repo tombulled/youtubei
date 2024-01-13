@@ -28,7 +28,39 @@ from .models import (
 from .registry import renderer
 from .types import TrackingParams
 
+__all__ = (
+    "BackgroundPromo",
+    "Button",
+    "CompactLink",
+    "GuideEntry",
+    "GuideSection",
+    "GuideSigninPromo",
+    "MobileTopbar",
+    "MultiPageMenu",
+    "MultiPageMenuSection",
+    "MusicImmersiveHeaderRenderer",
+    "PivotBar",
+    "PivotBarItem",
+    "PrivacyTosFooter",
+    "ReelPlayerOverlay",
+    "SingleColumnBrowseResultsRenderer",
+    "TopbarButton",
+    "TopbarLogo",
+    "TopbarMenuButton",
+    "UploadProgressArrow",
+)
+
 Text: TypeAlias = Union[ComplexText, SimpleText]
+
+
+@renderer
+class BackgroundPromo(BaseModel):
+    title: Text
+    body_text: Text
+    tracking_params: str
+    cta_button: Renderable  # Button
+    style: BackgroundPromoStyle
+    themed_thumbnail: ThemedThumbnail
 
 
 @renderer
@@ -45,18 +77,11 @@ class Button(BaseModel):
 
 
 @renderer
-class SingleColumnBrowseResultsRenderer:
-    pass
-
-
-@renderer
-class SingleColumnBrowseResultsRenderer:
-    pass
-
-
-@renderer
-class MusicImmersiveHeaderRenderer:
-    pass
+class CompactLink(BaseModel):
+    icon: Icon
+    title: Text
+    navigation_endpoint: NavigationEndpoint
+    tracking_params: TrackingParams
 
 
 @renderer
@@ -86,16 +111,38 @@ class GuideSigninPromo(BaseModel):
 
 
 @renderer
-class ReelPlayerOverlay(BaseModel):
-    style: ReelPlayerOverlayStyle
-    tracking_params: str
-    reel_player_navigation_model: ReelPlayerNavigationModel
+class MobileTopbar(BaseModel):
+    placeholder_text: Text
+    tracking_params: TrackingParams
+    buttons: Sequence[
+        Renderable
+    ]  # Sequence[Union[TopbarButton, Button, TopbarMenuButton]]
+    controls_cast_button: bool
+    topbar_logo: Renderable
 
 
 @renderer
-class UploadProgressArrow(BaseModel):
-    completion_behavior_duration: CompletionBehaviorDuration
-    error_behavior_until_page_or_container_selected: ErrorBehaviorUntilPageOrContainerSelected
+class MultiPageMenu(BaseModel):
+    sections: Sequence[Renderable]
+    tracking_params: TrackingParams
+    footer: Renderable
+
+
+@renderer
+class MultiPageMenuSection(BaseModel):
+    tracking_params: TrackingParams
+    items: Sequence[Renderable]  # Union[BackgroundPromo, CompactLink]
+
+
+@renderer
+class MusicImmersiveHeaderRenderer:
+    pass
+
+
+@renderer
+class PivotBar(BaseModel):
+    tracking_params: str
+    items: Sequence[Renderable]  # Sequence[PivotBarItem]
 
 
 @renderer
@@ -111,26 +158,35 @@ class PivotBarItem(BaseModel):
 
 
 @renderer
-class PivotBar(BaseModel):
+class PrivacyTosFooter(BaseModel):
+    privacy_title: Text
+    tos_title: Text
+    privacy_command: PrivacyCommand
+    tos_command: TosCommand
+
+@renderer
+class ReelPlayerOverlay(BaseModel):
+    style: ReelPlayerOverlayStyle
     tracking_params: str
-    items: Sequence[Renderable]  # Sequence[PivotBarItem]
+    reel_player_navigation_model: ReelPlayerNavigationModel
 
 
 @renderer
-class MobileTopbar(BaseModel):
-    placeholder_text: Text
-    tracking_params: TrackingParams
-    buttons: Sequence[
-        Renderable
-    ]  # Sequence[Union[TopbarButton, Button, TopbarMenuButton]]
-    controls_cast_button: bool
-    topbar_logo: Renderable
+class SingleColumnBrowseResultsRenderer:
+    pass
 
 
 @renderer
 class TopbarButton(BaseModel):
     button_renderer: Renderable  # Button
     new_content_identifier: Sequence[str]
+
+
+@renderer
+class TopbarLogo(BaseModel):
+    icon_image: Icon
+    tracking_params: str
+    override_entity_key: str
 
 
 @renderer
@@ -142,46 +198,6 @@ class TopbarMenuButton(BaseModel):
 
 
 @renderer
-class TopbarLogo(BaseModel):
-    icon_image: Icon
-    tracking_params: str
-    override_entity_key: str
-
-
-@renderer
-class PrivacyTosFooter(BaseModel):
-    privacy_title: Text
-    tos_title: Text
-    privacy_command: PrivacyCommand
-    tos_command: TosCommand
-
-
-@renderer
-class CompactLink(BaseModel):
-    icon: Icon
-    title: Text
-    navigation_endpoint: NavigationEndpoint
-    tracking_params: TrackingParams
-
-
-@renderer
-class MultiPageMenuSection(BaseModel):
-    tracking_params: TrackingParams
-    items: Sequence[Renderable]  # Union[BackgroundPromo, CompactLink]
-
-
-@renderer
-class MultiPageMenu(BaseModel):
-    sections: Sequence[Renderable]
-    tracking_params: TrackingParams
-    footer: Renderable
-
-
-@renderer
-class BackgroundPromo(BaseModel):
-    title: Text
-    body_text: Text
-    tracking_params: str
-    cta_button: Renderable  # Button
-    style: BackgroundPromoStyle
-    themed_thumbnail: ThemedThumbnail
+class UploadProgressArrow(BaseModel):
+    completion_behavior_duration: CompletionBehaviorDuration
+    error_behavior_until_page_or_container_selected: ErrorBehaviorUntilPageOrContainerSelected
