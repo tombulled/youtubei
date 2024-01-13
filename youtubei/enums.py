@@ -4,6 +4,7 @@ __all__ = (
     "BackgroundPromoStyleType",
     "IconType",
     "MusicPageType",
+    "PlaybackMode",
     "ReelPlayerNavigationModel",
     "ReelPlayerOverlayStyle",
     "ReelWatchInputType",
@@ -78,6 +79,11 @@ class IconType(_StrEnum):
 # E.g., {"browseEndpointContextMusicConfig": {"pageType": "MUSIC_PAGE_TYPE_METRONOME"}}
 class MusicPageType(_StrEnum):
     METRONOME = "MUSIC_PAGE_TYPE_METRONOME"
+
+
+# E.g. {'miniplayerRenderer': {'playbackMode': 'PLAYBACK_MODE_ALLOW'}}
+class PlaybackMode(_StrEnum):
+    ALLOW = "PLAYBACK_MODE_ALLOW"
 
 
 # E.g., {"reelPlayerOverlayRenderer": {"reelPlayerNavigationModel": "REEL_PLAYER_NAVIGATION_MODEL_UNSPECIFIED"}}

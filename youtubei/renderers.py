@@ -3,6 +3,7 @@ from typing import Optional, Sequence, Union
 from typing_extensions import TypeAlias
 
 from .enums import (
+    PlaybackMode,
     ReelPlayerNavigationModel,
     ReelPlayerOverlayStyle,
     Size,
@@ -109,6 +110,10 @@ class GuideSigninPromo(BaseModel):
     descriptiveText: Text
     signInButton: Renderable
 
+@renderer
+class Miniplayer(BaseModel):
+    playback_mode: PlaybackMode
+
 
 @renderer
 class MobileTopbar(BaseModel):
@@ -163,6 +168,7 @@ class PrivacyTosFooter(BaseModel):
     tos_title: Text
     privacy_command: PrivacyCommand
     tos_command: TosCommand
+
 
 @renderer
 class ReelPlayerOverlay(BaseModel):
