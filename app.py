@@ -11,9 +11,9 @@ client = WEB
 
 parser = InnerTubeParser()
 
-data = client.guide()
+# data = client.guide()
 # data = client.config()
-# data = client.player("ENhfIeZF_AY")
+data = client.player("ENhfIeZF_AY")
 
 parsed = parser.parse(data)
 

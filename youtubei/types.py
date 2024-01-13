@@ -1,7 +1,7 @@
 from typing import Any
-from typing_extensions import Annotated, TypeAlias
 
 import pydantic
+from typing_extensions import Annotated, TypeAlias
 
 from youtubei.parse import parse
 

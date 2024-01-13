@@ -1,6 +1,7 @@
 import re
 from typing import Any, Mapping, Sequence, Union
 
+from rich.pretty import pprint
 from typing_extensions import TypeAlias
 
 from . import utils
@@ -64,17 +65,14 @@ def _is_renderable(data: Any, /) -> bool:
 def parse(data, /):
     if utils.is_primitive(data):
         return data
-    
+
     if isinstance(data, Sequence):
         return [parse(item) for item in data]
 
     assert isinstance(data, Mapping)
 
     if not _is_renderable(data):
-        return {
-            key: parse(value)
-            for key, value in data.items()
-        }
+        return {key: parse(value) for key, value in data.items()}
 
     key = next(iter(data))
     value = data[key]
@@ -83,8 +81,17 @@ def parse(data, /):
     from . import renderers
 
     if key not in RENDERERS:
+        # TODO: Remove me, or make DEBUG
+        pprint(value)
+
         raise ParseException(f"No renderer available for {key!r}")
 
     render_cls: type = RENDERERS[key]
 
-    return render_cls.model_validate(value)
+    try:
+        return render_cls.model_validate(value)
+    except Exception as error:
+        # TODO: Remove me, or make DEBUG
+        pprint(value)
+
+        raise error

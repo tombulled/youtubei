@@ -1,4 +1,5 @@
 from typing import Optional
+
 from ._base import BaseModel
 
 __all__ = (

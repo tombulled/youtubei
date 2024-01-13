@@ -1,6 +1,8 @@
-from typing import Optional, Sequence, Union
+from typing import Optional, Sequence
 
-from typing_extensions import TypeAlias
+from youtubei.models.other import AudioTrack, CaptionTrack, TranslationLanguage
+from youtubei.models._types import Text
+from youtubei.models.params import GutParams, PlayerAdParams
 
 from .enums import (
     PlaybackMode,
@@ -15,14 +17,12 @@ from .models import (
     BackgroundPromoStyle,
     BaseModel,
     CompletionBehaviorDuration,
-    ComplexText,
     ErrorBehaviorUntilPageOrContainerSelected,
     Icon,
     NavigationEndpoint,
     PrivacyCommand,
     Renderable,
     ServiceEndpoint,
-    SimpleText,
     ThemedThumbnail,
     TosCommand,
 )
@@ -50,8 +50,6 @@ __all__ = (
     "TopbarMenuButton",
     "UploadProgressArrow",
 )
-
-Text: TypeAlias = Union[ComplexText, SimpleText]
 
 
 @renderer
@@ -110,6 +108,7 @@ class GuideSigninPromo(BaseModel):
     descriptiveText: Text
     signInButton: Renderable
 
+
 @renderer
 class Miniplayer(BaseModel):
     playback_mode: PlaybackMode
@@ -160,6 +159,23 @@ class PivotBarItem(BaseModel):
     tracking_params: str
     target_id: TargetId
     progress_indicator: Optional[Renderable] = None
+
+
+@renderer
+class PlayerCaptionsTracklist(BaseModel):
+    caption_tracks: Sequence[CaptionTrack]
+    audio_tracks: Sequence[AudioTrack]
+    translation_languages: Sequence[TranslationLanguage]
+    default_audio_track_index: int
+
+
+@renderer
+class PlayerLegacyDesktopWatchAds(BaseModel):
+    playerAdParams: PlayerAdParams
+    gut_params: GutParams
+    show_companion: bool
+    show_instream: bool
+    use_gut: bool
 
 
 @renderer

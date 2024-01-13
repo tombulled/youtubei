@@ -1,5 +1,6 @@
 from youtubei.models.endpoints import UrlEndpoint, WebviewEndpoint
 from youtubei.types import ClickTrackingParams
+
 from ._base import BaseModel
 
 __all__ = (

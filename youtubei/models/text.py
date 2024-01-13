@@ -2,11 +2,8 @@ from typing import Sequence
 
 from ._base import BaseModel
 
-__all__ = (
-    "ComplexTextRun",
-    "ComplexText",
-    "SimpleText"
-)
+__all__ = ("ComplexTextRun", "ComplexText", "SimpleText")
+
 
 class ComplexTextRun(BaseModel):
     text: str

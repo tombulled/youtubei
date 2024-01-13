@@ -4,5 +4,6 @@ from .commands import *
 from .endpoints import *
 from .metadata import *
 from .other import *
+from .params import *
 from .text import *
 from .thumbnail import *

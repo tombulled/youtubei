@@ -1,6 +1,5 @@
 from typing import Optional, Sequence
 
-from youtubei.models.actions import SignalServiceAction
 from youtubei.enums import (
     MusicPageType,
     ReelWatchInputType,
@@ -8,8 +7,10 @@ from youtubei.enums import (
     SignalServiceSignal,
     Target,
 )
+from youtubei.models.actions import SignalServiceAction
 from youtubei.models.metadata import CommandMetadata
-from youtubei.models.other import LoggingContext, SkAdParameters
+from youtubei.models.other import LoggingContext
+from youtubei.models.params import SkAdParameters
 from youtubei.types import BrowseId, ClickTrackingParams, Renderable
 
 from ._base import BaseModel
@@ -67,9 +68,11 @@ class ReelWatchEndpoint(BaseModel):
 class SearchEndpoint(BaseModel):
     query: str
 
+
 class SignalServiceEndpoint(BaseModel):
     signal: SignalServiceSignal
     actions: Sequence[SignalServiceAction]
+
 
 class ServiceEndpoint(BaseModel):
     click_tracking_params: str
