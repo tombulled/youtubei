@@ -8,8 +8,8 @@ from youtubei.enums import (
     Target,
 )
 from youtubei.models.actions import SignalServiceAction
+from youtubei.models.contexts import LoggingContext
 from youtubei.models.metadata import CommandMetadata
-from youtubei.models.other import LoggingContext
 from youtubei.models.params import SkAdParameters
 from youtubei.types import BrowseId, ClickTrackingParams, Renderable
 
@@ -74,15 +74,29 @@ class SignalServiceEndpoint(BaseModel):
     actions: Sequence[SignalServiceAction]
 
 
+class SubscribeEndpoint(BaseModel):
+    channel_ids: Sequence[str]
+    params: str
+
+
+class UnsubscribeEndpoint(BaseModel):
+    channel_ids: Sequence[str]
+    params: str
+
+
 class ServiceEndpoint(BaseModel):
     click_tracking_params: str
     command_metadata: CommandMetadata
     signal_service_endpoint: Optional[SignalServiceEndpoint] = None
     reel_watch_endpoint: Optional[ReelWatchEndpoint] = None
+    subscribe_endpoint: Optional[SubscribeEndpoint] = None
+    unsubscribe_endpoint: Optional[UnsubscribeEndpoint] = None
 
 
 class SignInEndpoint(BaseModel):
-    hack: bool
+    click_tracking_params: Optional[str] = None
+    command_metadata: Optional[CommandMetadata] = None
+    hack: Optional[bool] = None
 
 
 class UrlEndpoint(BaseModel):

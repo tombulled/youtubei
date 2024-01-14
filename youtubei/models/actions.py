@@ -1,6 +1,7 @@
 from typing import Optional
 
-from youtubei.enums import SignalActionSignal
+from youtubei.enums import PopupType, SignalActionSignal
+from youtubei.types import Renderable
 
 from ._base import BaseModel
 
@@ -9,6 +10,10 @@ __all__ = (
     "SignalAction",
     "SignalServiceAction",
 )
+
+class OpenPopupAction(BaseModel):
+    popup: Renderable # ConfirmDialogRenderer
+    popup_type: PopupType
 
 
 class SendFeedbackAction(BaseModel):
@@ -23,3 +28,4 @@ class SignalServiceAction(BaseModel):
     click_tracking_params: str
     signal_action: Optional[SignalAction] = None
     send_feedback_action: Optional[SendFeedbackAction] = None
+    open_popup_action: Optional[OpenPopupAction] = None

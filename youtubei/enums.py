@@ -79,132 +79,134 @@ class IconType(_StrEnum):
     # YouTube Music iOS
     TAB_SAMPLES = "TAB_SAMPLES"
 
+
 class LanguageCode(_StrEnum):
-    AF = "af" # Afrikaans
-    AK = "ak" # Akan
-    SQ = "sq" # Albanian
-    AM = "am" # Amharic
-    AR = "ar" # Arabic
-    HY = "hy" # Armenian
-    AS = "as" # Assamese
-    AY = "ay" # Aymara
-    AZ = "az" # Azerbaijani
-    BN = "bn" # Bangla
-    EU = "eu" # Basque
-    BE = "be" # Belarusian
-    BHO = "bho" # Bhojpuri
-    BS = "bs" # Bosnian
-    BG = "bg" # Bulgarian
-    MY = "my" # Burmese
-    CA = "ca" # Catalan
-    CEB = "ceb" # Cebuano
-    ZH_HANS = "zh-Hans" # Chinese (Simplified)
-    ZH_HANT = "zh-Hant" # Chinese (Traditional)
-    CO = "co" # Corsican
-    HR = "hr" # Croatian
-    CS = "cs" # Czech
-    DA = "da" # Danish
-    DV = "dv" # Divehi
-    NL = "nl" # Dutch
-    EN = "en" # English
-    EO = "eo" # Esperanto
-    ET = "et" # Estonian
-    EE = "ee" # Ewe
-    FIL = "fil" # Filipino
-    FI = "fi" # Finnish
-    FR = "fr" # French
-    GL = "gl" # Galician
-    LG = "lg" # Ganda
-    KA = "ka" # Georgian
-    DE = "de" # German
-    EL = "el" # Greek
-    GN = "gn" # Guarani
-    GU = "gu" # Gujarati
-    HT = "ht" # Haitian Creole
-    HA = "ha" # Hausa
-    HAW = "haw" # Hawaiian
-    IW = "iw" # Hebrew
-    HI = "hi" # Hindi
-    HMN = "hmn" # Hmong
-    HU = "hu" # Hungarian
-    IS = "is" # Icelandic
-    IG = "ig" # Igbo
-    ID = "id" # Indonesian
-    GA = "ga" # Irish
-    IT = "it" # Italian
-    JA = "ja" # Japanese
-    JV = "jv" # Javanese
-    KN = "kn" # Kannada
-    KK = "kk" # Kazakh
-    KM = "km" # Khmer
-    RW = "rw" # Kinyarwanda
-    KO = "ko" # Korean
-    KRI = "kri" # Krio
-    KU = "ku" # Kurdish
-    KY = "ky" # Kyrgyz
-    LO = "lo" # Lao
-    LA = "la" # Latin
-    LV = "lv" # Latvian
-    LN = "ln" # Lingala
-    LT = "lt" # Lithuanian
-    LB = "lb" # Luxembourgish
-    MK = "mk" # Macedonian
-    MG = "mg" # Malagasy
-    MS = "ms" # Malay
-    ML = "ml" # Malayalam
-    MT = "mt" # Maltese
-    MI = "mi" # Māori
-    MR = "mr" # Marathi
-    MN = "mn" # Mongolian
-    NE = "ne" # Nepali
-    NSO = "nso" # Northern Sotho
-    NO = "no" # Norwegian
-    NY = "ny" # Nyanja
-    OR = "or" # Odia
-    OM = "om" # Oromo
-    PS = "ps" # Pashto
-    FA = "fa" # Persian
-    PL = "pl" # Polish
-    PT = "pt" # Portuguese
-    PA = "pa" # Punjabi
-    QU = "qu" # Quechua
-    RO = "ro" # Romanian
-    RU = "ru" # Russian
-    SM = "sm" # Samoan
-    SA = "sa" # Sanskrit
-    GD = "gd" # Scottish Gaelic
-    SR = "sr" # Serbian
-    SN = "sn" # Shona
-    SD = "sd" # Sindhi
-    SI = "si" # Sinhala
-    SK = "sk" # Slovak
-    SL = "sl" # Slovenian
-    SO = "so" # Somali
-    ST = "st" # Southern Sotho
-    ES = "es" # Spanish
-    SU = "su" # Sundanese
-    SW = "sw" # Swahili
-    SV = "sv" # Swedish
-    TG = "tg" # Tajik
-    TA = "ta" # Tamil
-    TT = "tt" # Tatar
-    TE = "te" # Telugu
-    TH = "th" # Thai
-    TI = "ti" # Tigrinya
-    TS = "ts" # Tsonga
-    TR = "tr" # Turkish
-    TK = "tk" # Turkmen
-    UK = "uk" # Ukrainian
-    UR = "ur" # Urdu
-    UG = "ug" # Uyghur
-    UZ = "uz" # Uzbek
-    VI = "vi" # Vietnamese
-    CY = "cy" # Welsh
-    FY = "fy" # Western Frisian
-    XH = "xh" # Xhosa
-    YI = "yi" # Yiddish
-    YO = "yo" # Yoruba
-    ZU = "zu" # Zulu
+    AF = "af"  # Afrikaans
+    AK = "ak"  # Akan
+    SQ = "sq"  # Albanian
+    AM = "am"  # Amharic
+    AR = "ar"  # Arabic
+    HY = "hy"  # Armenian
+    AS = "as"  # Assamese
+    AY = "ay"  # Aymara
+    AZ = "az"  # Azerbaijani
+    BN = "bn"  # Bangla
+    EU = "eu"  # Basque
+    BE = "be"  # Belarusian
+    BHO = "bho"  # Bhojpuri
+    BS = "bs"  # Bosnian
+    BG = "bg"  # Bulgarian
+    MY = "my"  # Burmese
+    CA = "ca"  # Catalan
+    CEB = "ceb"  # Cebuano
+    ZH_HANS = "zh-Hans"  # Chinese (Simplified)
+    ZH_HANT = "zh-Hant"  # Chinese (Traditional)
+    CO = "co"  # Corsican
+    HR = "hr"  # Croatian
+    CS = "cs"  # Czech
+    DA = "da"  # Danish
+    DV = "dv"  # Divehi
+    NL = "nl"  # Dutch
+    EN = "en"  # English
+    EO = "eo"  # Esperanto
+    ET = "et"  # Estonian
+    EE = "ee"  # Ewe
+    FIL = "fil"  # Filipino
+    FI = "fi"  # Finnish
+    FR = "fr"  # French
+    GL = "gl"  # Galician
+    LG = "lg"  # Ganda
+    KA = "ka"  # Georgian
+    DE = "de"  # German
+    EL = "el"  # Greek
+    GN = "gn"  # Guarani
+    GU = "gu"  # Gujarati
+    HT = "ht"  # Haitian Creole
+    HA = "ha"  # Hausa
+    HAW = "haw"  # Hawaiian
+    IW = "iw"  # Hebrew
+    HI = "hi"  # Hindi
+    HMN = "hmn"  # Hmong
+    HU = "hu"  # Hungarian
+    IS = "is"  # Icelandic
+    IG = "ig"  # Igbo
+    ID = "id"  # Indonesian
+    GA = "ga"  # Irish
+    IT = "it"  # Italian
+    JA = "ja"  # Japanese
+    JV = "jv"  # Javanese
+    KN = "kn"  # Kannada
+    KK = "kk"  # Kazakh
+    KM = "km"  # Khmer
+    RW = "rw"  # Kinyarwanda
+    KO = "ko"  # Korean
+    KRI = "kri"  # Krio
+    KU = "ku"  # Kurdish
+    KY = "ky"  # Kyrgyz
+    LO = "lo"  # Lao
+    LA = "la"  # Latin
+    LV = "lv"  # Latvian
+    LN = "ln"  # Lingala
+    LT = "lt"  # Lithuanian
+    LB = "lb"  # Luxembourgish
+    MK = "mk"  # Macedonian
+    MG = "mg"  # Malagasy
+    MS = "ms"  # Malay
+    ML = "ml"  # Malayalam
+    MT = "mt"  # Maltese
+    MI = "mi"  # Māori
+    MR = "mr"  # Marathi
+    MN = "mn"  # Mongolian
+    NE = "ne"  # Nepali
+    NSO = "nso"  # Northern Sotho
+    NO = "no"  # Norwegian
+    NY = "ny"  # Nyanja
+    OR = "or"  # Odia
+    OM = "om"  # Oromo
+    PS = "ps"  # Pashto
+    FA = "fa"  # Persian
+    PL = "pl"  # Polish
+    PT = "pt"  # Portuguese
+    PA = "pa"  # Punjabi
+    QU = "qu"  # Quechua
+    RO = "ro"  # Romanian
+    RU = "ru"  # Russian
+    SM = "sm"  # Samoan
+    SA = "sa"  # Sanskrit
+    GD = "gd"  # Scottish Gaelic
+    SR = "sr"  # Serbian
+    SN = "sn"  # Shona
+    SD = "sd"  # Sindhi
+    SI = "si"  # Sinhala
+    SK = "sk"  # Slovak
+    SL = "sl"  # Slovenian
+    SO = "so"  # Somali
+    ST = "st"  # Southern Sotho
+    ES = "es"  # Spanish
+    SU = "su"  # Sundanese
+    SW = "sw"  # Swahili
+    SV = "sv"  # Swedish
+    TG = "tg"  # Tajik
+    TA = "ta"  # Tamil
+    TT = "tt"  # Tatar
+    TE = "te"  # Telugu
+    TH = "th"  # Thai
+    TI = "ti"  # Tigrinya
+    TS = "ts"  # Tsonga
+    TR = "tr"  # Turkish
+    TK = "tk"  # Turkmen
+    UK = "uk"  # Ukrainian
+    UR = "ur"  # Urdu
+    UG = "ug"  # Uyghur
+    UZ = "uz"  # Uzbek
+    VI = "vi"  # Vietnamese
+    CY = "cy"  # Welsh
+    FY = "fy"  # Western Frisian
+    XH = "xh"  # Xhosa
+    YI = "yi"  # Yiddish
+    YO = "yo"  # Yoruba
+    ZU = "zu"  # Zulu
+
 
 # E.g., {"browseEndpointContextMusicConfig": {"pageType": "MUSIC_PAGE_TYPE_METRONOME"}}
 class MusicPageType(_StrEnum):
@@ -214,6 +216,11 @@ class MusicPageType(_StrEnum):
 # E.g. {'miniplayerRenderer': {'playbackMode': 'PLAYBACK_MODE_ALLOW'}}
 class PlaybackMode(_StrEnum):
     ALLOW = "PLAYBACK_MODE_ALLOW"
+
+
+# E.g., {"openPopupAction": {"type": "DIALOG"}}
+class PopupType(_StrEnum):
+    DIALOG = "DIALOG"
 
 
 # E.g., {"reelPlayerOverlayRenderer": {"reelPlayerNavigationModel": "REEL_PLAYER_NAVIGATION_MODEL_UNSPECIFIED"}}
@@ -257,6 +264,11 @@ class SignalServiceSignal(_StrEnum):
     CLIENT_SIGNAL: str = "CLIENT_SIGNAL"
 
 
+# E.g., {"subscribeButtonRenderer": {..., "type": "FREE"}}
+class SubscribeButtonType(_StrEnum):
+    FREE: str = "FREE"
+
+
 class Size(_StrEnum):
     DEFAULT: str = "SIZE_DEFAULT"
 
@@ -265,6 +277,8 @@ class Style(_StrEnum):
     DEFAULT: str = "STYLE_DEFAULT"
     SUGGESTIVE: str = "STYLE_SUGGESTIVE"
     PRIMARY: str = "STYLE_PRIMARY"
+    TEXT: str = "STYLE_TEXT"
+    BLUE_TEXT: str = "STYLE_BLUE_TEXT"
 
 
 # E.g., {"urlEndpoint": {"target": "TARGET_NEW_WINDOW"}}

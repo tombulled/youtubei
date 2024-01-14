@@ -1,6 +1,12 @@
 from typing import Optional, Sequence
+from youtubei.models.endpoints import SignInEndpoint
 
-from youtubei.models.other import AudioTrack, CaptionTrack, TranslationLanguage
+from youtubei.models.other import (
+    AudioTrack,
+    CaptionTrack,
+    FeaturedChannel,
+    TranslationLanguage,
+)
 from youtubei.models._types import Text
 from youtubei.models.params import GutParams, PlayerAdParams
 
@@ -10,6 +16,7 @@ from .enums import (
     ReelPlayerOverlayStyle,
     Size,
     Style,
+    SubscribeButtonType,
     TargetId,
 )
 from .models import (
@@ -52,6 +59,12 @@ __all__ = (
 )
 
 
+# TODO: Use me?
+# TODO: Suffix render class names with "Renderer"
+class _BaseRenderer(BaseModel):
+    pass
+
+
 @renderer
 class BackgroundPromo(BaseModel):
     title: Text
@@ -64,8 +77,9 @@ class BackgroundPromo(BaseModel):
 
 @renderer
 class Button(BaseModel):
-    navigation_endpoint: NavigationEndpoint
     tracking_params: str
+    service_endpoint: Optional[ServiceEndpoint] = None
+    navigation_endpoint: Optional[NavigationEndpoint] = None
     text: Optional[Text] = None
     is_disabled: Optional[bool] = None
     style: Optional[Style] = None
@@ -81,6 +95,15 @@ class CompactLink(BaseModel):
     title: Text
     navigation_endpoint: NavigationEndpoint
     tracking_params: TrackingParams
+
+
+@renderer
+class ConfirmDialog(BaseModel):
+    tracking_params: TrackingParams
+    dialog_messages: Sequence[Text]
+    confirm_button: Renderable  # Button
+    cancel_button: Renderable  # Button
+    primary_is_cancel: bool
 
 
 @renderer
@@ -139,11 +162,6 @@ class MultiPageMenuSection(BaseModel):
 
 
 @renderer
-class MusicImmersiveHeaderRenderer:
-    pass
-
-
-@renderer
 class PivotBar(BaseModel):
     tracking_params: str
     items: Sequence[Renderable]  # Sequence[PivotBarItem]
@@ -159,6 +177,13 @@ class PivotBarItem(BaseModel):
     tracking_params: str
     target_id: TargetId
     progress_indicator: Optional[Renderable] = None
+
+
+@renderer
+class PlayerAnnotationsExpanded(BaseModel):
+    featured_channel: FeaturedChannel
+    allow_swipe_dismiss: bool
+    annotation_id: str
 
 
 @renderer
@@ -194,8 +219,21 @@ class ReelPlayerOverlay(BaseModel):
 
 
 @renderer
-class SingleColumnBrowseResultsRenderer:
-    pass
+class SubscribeButton(BaseModel):
+    button_text: Text
+    subscribed: bool
+    enabled: bool
+    type: SubscribeButtonType
+    channel_id: str
+    show_preferences: bool
+    subscribed_button_text: Text
+    unsubscribed_button_text: Text
+    tracking_params: TrackingParams
+    unsubscribe_button_text: Text
+    service_endpoints: Sequence[ServiceEndpoint]
+    subscribe_accessibility: Accessibility
+    unsubscribe_accessibility: Accessibility
+    sign_in_endpoint: SignInEndpoint
 
 
 @renderer

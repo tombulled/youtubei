@@ -6,7 +6,9 @@ from youtubei.enums import (
     LanguageCode,
     Visibility,
 )
-from youtubei.types import BrowseId
+from youtubei.models.endpoints import NavigationEndpoint
+from youtubei.models.thumbnail import Thumbnails
+from youtubei.types import BrowseId, Renderable, TrackingParams
 
 from ._base import BaseModel
 from ._types import Text
@@ -42,17 +44,18 @@ class ErrorBehaviorUntilPageOrContainerSelected(BaseModel):
     browse_id: BrowseId
 
 
+class FeaturedChannel(BaseModel):
+    start_time_ms: str
+    end_time_ms: str
+    watermark: Thumbnails
+    tracking_params: TrackingParams
+    navigation_endpoint: NavigationEndpoint
+    channel_name: str
+    subscribe_button: Renderable  # SubscribeButtonRenderer
+
+
 class Icon(BaseModel):
     icon_type: IconType
-
-
-class LoggingContextContext(BaseModel):
-    serialized_context_data: str
-
-
-class LoggingContext(BaseModel):
-    vss_logging_context: LoggingContextContext
-    qoe_logging_context: LoggingContextContext
 
 
 class TranslationLanguage(BaseModel):
