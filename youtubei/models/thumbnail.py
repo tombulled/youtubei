@@ -16,6 +16,7 @@ class Thumbnail(BaseModel):
     height: int
 
 
+# Rename to `Image`?
 class Thumbnails(BaseModel):
     thumbnails: Sequence[Thumbnail]
 

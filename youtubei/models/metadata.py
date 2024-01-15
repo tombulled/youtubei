@@ -1,6 +1,7 @@
 from typing import Optional
 
 from youtubei.enums import WebPageType
+from youtubei.models.logging import LoggingExpectations
 
 from ._base import BaseModel
 
@@ -8,6 +9,10 @@ __all__ = (
     "WebCommandMetadata",
     "CommandMetadata",
 )
+
+
+class InteractionLoggingCommandMetadata(BaseModel):
+    logging_expectations: LoggingExpectations
 
 
 class WebCommandMetadata(BaseModel):
@@ -20,3 +25,4 @@ class WebCommandMetadata(BaseModel):
 
 class CommandMetadata(BaseModel):
     web_command_metadata: WebCommandMetadata
+    interaction_logging_command_metadata: Optional[InteractionLoggingCommandMetadata] = None

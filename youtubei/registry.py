@@ -8,7 +8,9 @@ RENDERERS: MutableMapping[str, type] = {}
 
 
 def renderer(cls: C, /) -> C:
-    renderer_id: str = humps.camelize(cls.__name__) + "Renderer"
+    renderer_id: str = humps.camelize(cls.__name__)
+
+    assert renderer_id.endswith("Renderer")
 
     RENDERERS[renderer_id] = cls
 

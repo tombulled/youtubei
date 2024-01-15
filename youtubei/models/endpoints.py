@@ -1,11 +1,13 @@
 from typing import Optional, Sequence
 
 from youtubei.enums import (
+    EngagementPanelVisibility,
     MusicPageType,
     ReelWatchInputType,
     ReelWatchSequenceProvider,
     SignalServiceSignal,
     Target,
+    TargetId,
 )
 from youtubei.models.actions import SignalServiceAction
 from youtubei.models.contexts import LoggingContext
@@ -43,6 +45,11 @@ class BrowseEndpoint(BaseModel):
     browse_endpoint_context_supported_configs: Optional[
         BrowseEndpointContextSupportedConfigs
     ] = None
+
+
+class ChangeEngagementPanelVisibilityAction(BaseModel):
+    target_id: TargetId
+    visibility: EngagementPanelVisibility
 
 
 class IosApplicationFallbackEndpoint(BaseModel):
@@ -104,17 +111,25 @@ class UrlEndpoint(BaseModel):
     target: Target
 
 
+class WatchEndpoint(BaseModel):
+    video_id: str
+    playlist_id: Optional[str] = None
+    logging_context: Optional[LoggingContext] = None
+
+
 class WebviewEndpoint(BaseModel):
     url: str
 
 
 class NavigationEndpoint(BaseModel):
     click_tracking_params: str
+    command_metadata: Optional[CommandMetadata] = None
     browse_endpoint: Optional[BrowseEndpoint] = None
     sign_in_endpoint: Optional[SignInEndpoint] = None
-    command_metadata: Optional[CommandMetadata] = None
     url_endpoint: Optional[UrlEndpoint] = None
     search_endpoint: Optional[SearchEndpoint] = None
     application_settings_endpoint: Optional[ApplicationSettingsEndpoint] = None
     application_help_endpoint: Optional[ApplicationHelpEndpoint] = None
     ios_application_endpoint: Optional[IosApplicationEndpoint] = None
+    # Unconfirmed endpoints
+    watch_endpoint: Optional[WatchEndpoint] = None

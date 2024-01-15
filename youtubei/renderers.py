@@ -1,16 +1,25 @@
+from datetime import datetime
 from typing import Optional, Sequence
+from youtubei.models.commands import OnTapCommand
 from youtubei.models.endpoints import SignInEndpoint
 
 from youtubei.models.other import (
     AudioTrack,
+    BotguardData,
     CaptionTrack,
+    CardCueRange,
+    Embed,
     FeaturedChannel,
     TranslationLanguage,
 )
 from youtubei.models._types import Text
 from youtubei.models.params import GutParams, PlayerAdParams
+from youtubei.models.thumbnail import Thumbnails
 
 from .enums import (
+    Category,
+    CountryCode,
+    EndscreenElementStyle,
     PlaybackMode,
     ReelPlayerNavigationModel,
     ReelPlayerOverlayStyle,
@@ -18,6 +27,7 @@ from .enums import (
     Style,
     SubscribeButtonType,
     TargetId,
+    ThumbnailOverlayTimeStatusStyle,
 )
 from .models import (
     Accessibility,
@@ -66,7 +76,7 @@ class _BaseRenderer(BaseModel):
 
 
 @renderer
-class BackgroundPromo(BaseModel):
+class BackgroundPromoRenderer(BaseModel):
     title: Text
     body_text: Text
     tracking_params: str
@@ -76,7 +86,7 @@ class BackgroundPromo(BaseModel):
 
 
 @renderer
-class Button(BaseModel):
+class ButtonRenderer(BaseModel):
     tracking_params: str
     service_endpoint: Optional[ServiceEndpoint] = None
     navigation_endpoint: Optional[NavigationEndpoint] = None
@@ -90,7 +100,25 @@ class Button(BaseModel):
 
 
 @renderer
-class CompactLink(BaseModel):
+class CardRenderer(BaseModel):
+    teaser: Renderable  # SimpleCardTeaserRenderer
+    cue_ranges: Sequence[CardCueRange]
+    tracking_params: TrackingParams
+
+
+@renderer
+class CardCollectionRenderer(BaseModel):
+    cards: Sequence[Renderable]  # CardRenderer
+    header_text: Text
+    icon: Renderable  # InfoCardIconRenderer
+    close_button: Renderable  # InfoCardIconRenderer
+    tracking_params: TrackingParams
+    allow_teaser_dismiss: bool
+    log_icon_visibility_updates: bool
+
+
+@renderer
+class CompactLinkRenderer(BaseModel):
     icon: Icon
     title: Text
     navigation_endpoint: NavigationEndpoint
@@ -98,7 +126,7 @@ class CompactLink(BaseModel):
 
 
 @renderer
-class ConfirmDialog(BaseModel):
+class ConfirmDialogRenderer(BaseModel):
     tracking_params: TrackingParams
     dialog_messages: Sequence[Text]
     confirm_button: Renderable  # Button
@@ -107,7 +135,35 @@ class ConfirmDialog(BaseModel):
 
 
 @renderer
-class GuideEntry(BaseModel):
+class EndscreenElementRenderer(BaseModel):
+    style: EndscreenElementStyle
+    image: Thumbnails
+    left: float
+    width: float
+    top: float
+    aspect_ratio: float
+    start_ms: str
+    end_ms: str
+    title: Text
+    metadata: Text
+    endpoint: NavigationEndpoint  # Note: guess taken that this was a NaviationEndpoint, as the field name is ambiguous
+    tracking_params: TrackingParams
+    id: str
+    thumbnail_overlays: Optional[Sequence[
+        Renderable
+    ]] = None  # Sequence[ThumbnailOverlayTimeStatusRenderer]
+    playlist_length: Optional[Text] = None
+
+
+@renderer
+class EndscreenRenderer(BaseModel):
+    elements: Sequence[Renderable]  # Sequence[EndscreenElementRenderer]
+    start_ms: str
+    tracking_params: TrackingParams
+
+
+@renderer
+class GuideEntryRenderer(BaseModel):
     icon: Icon
     tracking_params: str
     formatted_title: Text
@@ -119,26 +175,31 @@ class GuideEntry(BaseModel):
 
 
 @renderer
-class GuideSection(BaseModel):
+class GuideSectionRenderer(BaseModel):
     tracking_params: str
     items: Sequence[Renderable]
     formatted_title: Optional[Text] = None
 
 
 @renderer
-class GuideSigninPromo(BaseModel):
+class GuideSigninPromoRenderer(BaseModel):
     action_text: Text
     descriptiveText: Text
     signInButton: Renderable
 
 
 @renderer
-class Miniplayer(BaseModel):
+class InfoCardIconRenderer(BaseModel):
+    tracking_params: TrackingParams
+
+
+@renderer
+class MiniplayerRenderer(BaseModel):
     playback_mode: PlaybackMode
 
 
 @renderer
-class MobileTopbar(BaseModel):
+class MobileTopbarRenderer(BaseModel):
     placeholder_text: Text
     tracking_params: TrackingParams
     buttons: Sequence[
@@ -149,26 +210,26 @@ class MobileTopbar(BaseModel):
 
 
 @renderer
-class MultiPageMenu(BaseModel):
+class MultiPageMenuRenderer(BaseModel):
     sections: Sequence[Renderable]
     tracking_params: TrackingParams
     footer: Renderable
 
 
 @renderer
-class MultiPageMenuSection(BaseModel):
+class MultiPageMenuSectionRenderer(BaseModel):
     tracking_params: TrackingParams
     items: Sequence[Renderable]  # Union[BackgroundPromo, CompactLink]
 
 
 @renderer
-class PivotBar(BaseModel):
+class PivotBarRenderer(BaseModel):
     tracking_params: str
     items: Sequence[Renderable]  # Sequence[PivotBarItem]
 
 
 @renderer
-class PivotBarItem(BaseModel):
+class PivotBarItemRenderer(BaseModel):
     pivot_identifier: str
     navigation_endpoint: NavigationEndpoint
     title: Text
@@ -180,14 +241,20 @@ class PivotBarItem(BaseModel):
 
 
 @renderer
-class PlayerAnnotationsExpanded(BaseModel):
+class PlayerAnnotationsExpandedRenderer(BaseModel):
     featured_channel: FeaturedChannel
     allow_swipe_dismiss: bool
     annotation_id: str
 
 
 @renderer
-class PlayerCaptionsTracklist(BaseModel):
+class PlayerAttestationRenderer(BaseModel):
+    challenge: str
+    botguard_data: BotguardData
+
+
+@renderer
+class PlayerCaptionsTracklistRenderer(BaseModel):
     caption_tracks: Sequence[CaptionTrack]
     audio_tracks: Sequence[AudioTrack]
     translation_languages: Sequence[TranslationLanguage]
@@ -195,7 +262,7 @@ class PlayerCaptionsTracklist(BaseModel):
 
 
 @renderer
-class PlayerLegacyDesktopWatchAds(BaseModel):
+class PlayerLegacyDesktopWatchAdsRenderer(BaseModel):
     playerAdParams: PlayerAdParams
     gut_params: GutParams
     show_companion: bool
@@ -204,7 +271,34 @@ class PlayerLegacyDesktopWatchAds(BaseModel):
 
 
 @renderer
-class PrivacyTosFooter(BaseModel):
+class PlayerMicroformatRenderer(BaseModel):
+    thumbnail: Thumbnails
+    embed: Embed
+    title: Text
+    description: Text
+    length_seconds: str
+    owner_profile_url: str
+    external_channel_id: str
+    is_family_safe: bool
+    available_countries: Sequence[CountryCode]
+    is_unlisted: bool
+    has_ypc_metadata: bool
+    view_count: str
+    category: Category
+    publish_date: datetime
+    owner_channel_name: str
+    upload_date: datetime
+
+
+@renderer
+class PlayerStoryboardSpecRenderer(BaseModel):
+    spec: str
+    recommended_level: int
+    high_resolution_recommended_level: int
+
+
+@renderer
+class PrivacyTosFooterRenderer(BaseModel):
     privacy_title: Text
     tos_title: Text
     privacy_command: PrivacyCommand
@@ -212,14 +306,23 @@ class PrivacyTosFooter(BaseModel):
 
 
 @renderer
-class ReelPlayerOverlay(BaseModel):
+class ReelPlayerOverlayRenderer(BaseModel):
     style: ReelPlayerOverlayStyle
     tracking_params: str
     reel_player_navigation_model: ReelPlayerNavigationModel
 
 
 @renderer
-class SubscribeButton(BaseModel):
+class SimpleCardTeaserRenderer(BaseModel):
+    message: Text
+    tracking_params: TrackingParams
+    prominent: bool
+    log_visibility_updates: bool
+    onTapCommand: OnTapCommand
+
+
+@renderer
+class SubscribeButtonRenderer(BaseModel):
     button_text: Text
     subscribed: bool
     enabled: bool
@@ -237,20 +340,26 @@ class SubscribeButton(BaseModel):
 
 
 @renderer
-class TopbarButton(BaseModel):
+class ThumbnailOverlayTimeStatusRenderer(BaseModel):
+    text: Text
+    style: ThumbnailOverlayTimeStatusStyle
+
+
+@renderer
+class TopbarButtonRenderer(BaseModel):
     button_renderer: Renderable  # Button
     new_content_identifier: Sequence[str]
 
 
 @renderer
-class TopbarLogo(BaseModel):
+class TopbarLogoRenderer(BaseModel):
     icon_image: Icon
     tracking_params: str
     override_entity_key: str
 
 
 @renderer
-class TopbarMenuButton(BaseModel):
+class TopbarMenuButtonRenderer(BaseModel):
     icon: Icon
     menu_renderer: Renderable  # MultiPageMenu
     tracking_params: TrackingParams
@@ -258,6 +367,6 @@ class TopbarMenuButton(BaseModel):
 
 
 @renderer
-class UploadProgressArrow(BaseModel):
+class UploadProgressArrowRenderer(BaseModel):
     completion_behavior_duration: CompletionBehaviorDuration
     error_behavior_until_page_or_container_selected: ErrorBehaviorUntilPageOrContainerSelected

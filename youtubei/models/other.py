@@ -26,6 +26,16 @@ class BackgroundPromoStyle(BaseModel):
     value: BackgroundPromoStyleType
 
 
+class InterpreterSafeUrl(BaseModel):
+    private_do_not_access_or_else_trusted_resource_url_wrapped_value: str
+
+
+class BotguardData(BaseModel):
+    program: str
+    interpreter_safe_url: InterpreterSafeUrl
+    server_environment: int
+
+
 class CaptionTrack(BaseModel):
     base_url: str
     name: Text
@@ -36,8 +46,21 @@ class CaptionTrack(BaseModel):
     kind: Optional[str] = None
 
 
+class CardCueRange(BaseModel):
+    start_card_active_ms: str
+    end_card_active_ms: str
+    teaser_duration_ms: str
+    icon_after_teaser_ms: str
+
+
 class CompletionBehaviorDuration(BaseModel):
     seconds: int
+
+
+class Embed(BaseModel):
+    iframe_url: str
+    width: int
+    height: int
 
 
 class ErrorBehaviorUntilPageOrContainerSelected(BaseModel):
@@ -56,7 +79,6 @@ class FeaturedChannel(BaseModel):
 
 class Icon(BaseModel):
     icon_type: IconType
-
 
 class TranslationLanguage(BaseModel):
     languageCode: LanguageCode
