@@ -101,6 +101,24 @@ class Icon(BaseModel):
     icon_type: IconType
 
 
+class LinkAlternate(BaseModel):
+    href_url: str
+    title: Optional[str] = None
+    alternate_type: Optional[str] = None
+
+
+class PageOwnerDetails(BaseModel):
+    name: str
+    external_channel_id: str
+    youtube_profile_url: str
+
+
 class TranslationLanguage(BaseModel):
     languageCode: LanguageCode
     languageName: Text
+
+
+class VideoDetails(BaseModel):
+    external_video_id: str
+    duration_seconds: str
+    duration_iso8601: str

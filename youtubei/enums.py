@@ -44,6 +44,7 @@ class CaptionsInitialState(_StrEnum):
 # E.g., {"playerMicroformatRenderer": {"category": "Entertainment"}}
 class Category(_StrEnum):
     ENTERTAINMENT: str = "Entertainment"
+    MUSIC: str = "Music"
 
 
 # E.g., {"playerMicroformatRenderer": {"availableCountries": ["AD", "AE", ...]}}
@@ -309,12 +310,18 @@ class EngagementPanelVisibility(_StrEnum):
     EXPANDED: str = "ENGAGEMENT_PANEL_VISIBILITY_EXPANDED"
 
 
+# E.g., {"audioOnlyPlayabilityRenderer": {"audioOnlyAvailability": "FEATURE_AVAILABILITY_ALLOWED"}}
+class FeatureAvailability(_StrEnum):
+    ALLOWED = "FEATURE_AVAILABILITY_ALLOWED"
+
+
 # E.g., {"icon": {"iconType": "TAB_HOME"}}
 class IconType(_StrEnum):
-    # YouTube Music
+    # YouTube Music Web
     LIBRARY_MUSIC = "LIBRARY_MUSIC"
     TAB_EXPLORE = "TAB_EXPLORE"
     TAB_HOME = "TAB_HOME"
+    ERROR_OUTLINE = "ERROR_OUTLINE"
     # YouTube Web
     WHAT_TO_WATCH = "WHAT_TO_WATCH"
     TAB_SHORTS = "TAB_SHORTS"
