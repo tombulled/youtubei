@@ -25,6 +25,13 @@ class _StrEnum(str, Enum):
     pass
 
 
+# E.g., {"adPlacementConfig": {"kind": "AD_PLACEMENT_KIND_START"}}
+class AdPlacementKind(_StrEnum):
+    END = "AD_PLACEMENT_KIND_END"
+    MILLISECONDS = "AD_PLACEMENT_KIND_MILLISECONDS"
+    START = "AD_PLACEMENT_KIND_START"
+
+
 # E.g., {"backgroundPromoRenderer": {"style": {"value": "BACKGROUND_PROMO_STYLE_TYPE_EMPTY_STATE"}}}
 class BackgroundPromoStyleType(_StrEnum):
     EMPTY_STATE = "BACKGROUND_PROMO_STYLE_TYPE_EMPTY_STATE"

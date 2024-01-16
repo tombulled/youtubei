@@ -1,5 +1,6 @@
 from typing import Optional, Sequence
 from youtubei.enums import (
+    AdPlacementKind,
     BackgroundPromoStyleType,
     CaptionsInitialState,
     IconType,
@@ -77,8 +78,28 @@ class FeaturedChannel(BaseModel):
     subscribe_button: Renderable  # SubscribeButtonRenderer
 
 
+class AdTimeOffset(BaseModel):
+    offset_start_milliseconds: str
+    offset_end_milliseconds: str
+
+
+class AdPlacementConfig(BaseModel):
+    kind: AdPlacementKind
+    ad_time_offset: AdTimeOffset
+    hide_cue_range_marker: bool
+
+
+class AdSlotLoggingData(BaseModel):
+    serialized_slot_ad_serving_data_entry: str  # base64-encoded
+
+
+class HasAdPlacementConfig(BaseModel):
+    ad_placement_config: AdPlacementConfig
+
+
 class Icon(BaseModel):
     icon_type: IconType
+
 
 class TranslationLanguage(BaseModel):
     languageCode: LanguageCode

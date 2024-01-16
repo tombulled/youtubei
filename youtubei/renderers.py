@@ -4,12 +4,14 @@ from youtubei.models.commands import OnTapCommand
 from youtubei.models.endpoints import SignInEndpoint
 
 from youtubei.models.other import (
+    AdSlotLoggingData,
     AudioTrack,
     BotguardData,
     CaptionTrack,
     CardCueRange,
     Embed,
     FeaturedChannel,
+    HasAdPlacementConfig,
     TranslationLanguage,
 )
 from youtubei.models._types import Text
@@ -76,6 +78,19 @@ class _BaseRenderer(BaseModel):
 
 
 @renderer
+class AdBreakServiceRenderer(BaseModel):
+    prefetch_milliseconds: str
+    get_ad_break_url: str
+
+
+@renderer
+class AdPlacementRenderer(BaseModel):
+    config: HasAdPlacementConfig
+    renderer: Renderable  # ClientForecastingAdRenderer
+    ad_slot_logging_data: AdSlotLoggingData
+
+
+@renderer
 class BackgroundPromoRenderer(BaseModel):
     title: Text
     body_text: Text
@@ -118,6 +133,11 @@ class CardCollectionRenderer(BaseModel):
 
 
 @renderer
+class ClientForecastingAdRenderer(BaseModel):
+    pass
+
+
+@renderer
 class CompactLinkRenderer(BaseModel):
     icon: Icon
     title: Text
@@ -149,9 +169,9 @@ class EndscreenElementRenderer(BaseModel):
     endpoint: NavigationEndpoint  # Note: guess taken that this was a NaviationEndpoint, as the field name is ambiguous
     tracking_params: TrackingParams
     id: str
-    thumbnail_overlays: Optional[Sequence[
-        Renderable
-    ]] = None  # Sequence[ThumbnailOverlayTimeStatusRenderer]
+    thumbnail_overlays: Optional[
+        Sequence[Renderable]
+    ] = None  # Sequence[ThumbnailOverlayTimeStatusRenderer]
     playlist_length: Optional[Text] = None
 
 
