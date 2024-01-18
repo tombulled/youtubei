@@ -12,3 +12,7 @@ class ScreenCreatedLoggingExpectations(BaseModel):
 
 class LoggingExpectations(BaseModel):
     screen_created_logging_expectations: ScreenCreatedLoggingExpectations
+
+
+class AdLayoutLoggingData(BaseModel):
+    serialized_ad_serving_data_entry: str

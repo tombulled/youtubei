@@ -2,6 +2,7 @@ from datetime import datetime
 from typing import Optional, Sequence
 from youtubei.models.commands import OnTapCommand
 from youtubei.models.endpoints import SignInEndpoint
+from youtubei.models.logging import AdLayoutLoggingData
 
 from youtubei.models.other import (
     AdSlotLoggingData,
@@ -221,6 +222,33 @@ class GuideSigninPromoRenderer(BaseModel):
 @renderer
 class InfoCardIconRenderer(BaseModel):
     tracking_params: TrackingParams
+
+@renderer
+class InstreamAdPlayerOverlayRenderer(BaseModel):
+    tracking_params: str
+    skip_or_preview_renderer: Renderable # AdPreviewRenderer
+    visit_advertiser_renderer: Renderable # ButtonRenderer
+    ad_badge_renderer: Renderable # SimpleAdBadgeRenderer
+    ad_duration_remaining: Renderable # AdDurationRemainingRenderer
+    ad_info_renderer: Renderable # AdHoverTextButtonRenderer
+    ad_layout_logging_data: AdLayoutLoggingData
+    element_id: str
+    in_player_slot_id: str
+    in_player_layout_id: str
+
+
+
+@renderer
+class InstreamVideoAdRenderer(BaseModel):
+    player_overlay: Renderable  # InstreamAdPlayerOverlayRenderer
+    tracking_params: str
+    layout_id: str
+    associated_player_bytes_layout_id: str
+
+
+@renderer
+class LinearAdSequenceRenderer(BaseModel):
+    linear_ads: Sequence[Renderable]  # Sequence[InstreamVideoAdRenderer]
 
 
 @renderer
