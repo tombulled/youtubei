@@ -1,6 +1,6 @@
 from typing import Union
 from typing_extensions import TypeAlias
 
-from youtubei.models.text import ComplexText, SimpleText
+from youtubei.models.text import BasicText, ComplexText, SimpleText, TemplatedText
 
-Text: TypeAlias = Union[ComplexText, SimpleText]
+Text: TypeAlias = Union[BasicText, ComplexText, SimpleText, TemplatedText]

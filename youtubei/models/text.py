@@ -1,6 +1,7 @@
 from typing import Optional, Sequence
 
 from youtubei.models.accessibility import Accessibility
+from youtubei.types import TrackingParams
 
 from ._base import BaseModel
 
@@ -16,6 +17,11 @@ class Text(BaseModel):
     simple_text: Optional[str] = None
 """
 
+
+class BasicText(BaseModel):
+    text: str
+
+
 class ComplexTextRun(BaseModel):
     text: str
 
@@ -27,3 +33,9 @@ class ComplexText(BaseModel):
 class SimpleText(BaseModel):
     simple_text: str
     accessibility: Optional[Accessibility] = None
+
+
+class TemplatedText(BaseModel):
+    text: str
+    is_templated: bool
+    tracking_params: TrackingParams

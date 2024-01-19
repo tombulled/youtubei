@@ -9,7 +9,7 @@ from youtubei.enums import (
     Target,
     TargetId,
 )
-from youtubei.models.actions import SignalServiceAction
+from youtubei.models.actions import OpenPopupAction, SignalServiceAction
 from youtubei.models.contexts import LoggingContext
 from youtubei.models.metadata import CommandMetadata
 from youtubei.models.params import SkAdParameters
@@ -93,11 +93,12 @@ class UnsubscribeEndpoint(BaseModel):
 
 class ServiceEndpoint(BaseModel):
     click_tracking_params: str
-    command_metadata: CommandMetadata
+    command_metadata: Optional[CommandMetadata] = None
     signal_service_endpoint: Optional[SignalServiceEndpoint] = None
     reel_watch_endpoint: Optional[ReelWatchEndpoint] = None
     subscribe_endpoint: Optional[SubscribeEndpoint] = None
     unsubscribe_endpoint: Optional[UnsubscribeEndpoint] = None
+    open_popup_action: Optional[OpenPopupAction] = None
 
 
 class SignInEndpoint(BaseModel):
@@ -119,6 +120,11 @@ class WatchEndpoint(BaseModel):
 
 class WebviewEndpoint(BaseModel):
     url: str
+
+
+class ClickThroughEndpoint(BaseModel):
+    click_tracking_params: ClickTrackingParams
+    url_endpoint: UrlEndpoint
 
 
 class NavigationEndpoint(BaseModel):

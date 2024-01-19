@@ -1,26 +1,39 @@
 from datetime import datetime
 from typing import Optional, Sequence
+from youtubei.models.ad import (
+    AdLayoutMetadata,
+    AdSlotMetadata,
+    FulfillmentContent,
+    LayoutTrigger,
+    SlotTrigger,
+)
 from youtubei.models.commands import OnTapCommand
-from youtubei.models.endpoints import SignInEndpoint
+from youtubei.models.endpoints import ClickThroughEndpoint, SignInEndpoint
 from youtubei.models.logging import AdLayoutLoggingData
 
 from youtubei.models.other import (
     AdSlotLoggingData,
+    AdTemplatedCountdown,
     AudioTrack,
     BotguardData,
     CaptionTrack,
     CardCueRange,
+    CsiParameter,
     Embed,
     FeaturedChannel,
     HasAdPlacementConfig,
+    InterpreterSafeUrl,
     LinkAlternate,
     PageOwnerDetails,
+    Pings,
+    SodarExtensionData,
     TranslationLanguage,
     VideoDetails,
 )
 from youtubei.models._types import Text
 from youtubei.models.params import GutParams, PlayerAdParams
-from youtubei.models.thumbnail import Thumbnails
+from youtubei.models.text import TemplatedText
+from youtubei.models.thumbnail import AdThumbnail, Thumbnails
 
 from .enums import (
     Category,
@@ -83,9 +96,28 @@ class _BaseRenderer(BaseModel):
 
 
 @renderer
+class AboutThisAdRenderer(BaseModel):
+    url: InterpreterSafeUrl
+    tracking_params: TrackingParams
+
+
+@renderer
 class AdBreakServiceRenderer(BaseModel):
     prefetch_milliseconds: str
     get_ad_break_url: str
+
+
+@renderer
+class AdDurationRemainingRenderer(BaseModel):
+    templated_countdown: AdTemplatedCountdown
+    tracking_params: TrackingParams
+
+
+@renderer
+class AdHoverTextButtonRenderer(BaseModel):
+    button: Renderable  # ButtonRenderer
+    hover_text: Text  # ComplexText
+    tracking_params: TrackingParams
 
 
 @renderer
@@ -93,6 +125,24 @@ class AdPlacementRenderer(BaseModel):
     config: HasAdPlacementConfig
     renderer: Renderable  # ClientForecastingAdRenderer
     ad_slot_logging_data: AdSlotLoggingData
+
+
+@renderer
+class AdPreviewRenderer(BaseModel):
+    thumbnail: Optional[AdThumbnail] = None
+    tracking_params: TrackingParams
+    duration_milliseconds: Optional[int] = None
+    templated_countdown: Optional[AdTemplatedCountdown] = None
+    static_preview: Optional[Text] = None  # TemplatedText
+
+
+@renderer
+class AdSlotRenderer(BaseModel):
+    ad_slot_metadata: AdSlotMetadata
+    fulfillment_content: FulfillmentContent
+    slot_entry_trigger: SlotTrigger
+    slot_fulfillment_triggers: Sequence[SlotTrigger]
+    slot_expiration_triggers: Sequence[SlotTrigger]
 
 
 @renderer
@@ -122,6 +172,7 @@ class ButtonRenderer(BaseModel):
     size: Optional[Size] = None
     icon: Optional[Icon] = None
     accessibility: Optional[Accessibility] = None
+    accessibility_data: Optional[Accessibility] = None
     target_id: Optional[TargetId] = None
 
 
@@ -223,27 +274,37 @@ class GuideSigninPromoRenderer(BaseModel):
 class InfoCardIconRenderer(BaseModel):
     tracking_params: TrackingParams
 
+
 @renderer
 class InstreamAdPlayerOverlayRenderer(BaseModel):
     tracking_params: str
-    skip_or_preview_renderer: Renderable # AdPreviewRenderer
-    visit_advertiser_renderer: Renderable # ButtonRenderer
-    ad_badge_renderer: Renderable # SimpleAdBadgeRenderer
-    ad_duration_remaining: Renderable # AdDurationRemainingRenderer
-    ad_info_renderer: Renderable # AdHoverTextButtonRenderer
+    skip_or_preview_renderer: Renderable  # AdPreviewRenderer
+    visit_advertiser_renderer: Renderable  # ButtonRenderer
+    ad_badge_renderer: Renderable  # SimpleAdBadgeRenderer
+    ad_duration_remaining: Renderable  # AdDurationRemainingRenderer
+    ad_info_renderer: Renderable  # AdHoverTextButtonRenderer
     ad_layout_logging_data: AdLayoutLoggingData
     element_id: str
     in_player_slot_id: str
     in_player_layout_id: str
 
 
-
 @renderer
 class InstreamVideoAdRenderer(BaseModel):
-    player_overlay: Renderable  # InstreamAdPlayerOverlayRenderer
     tracking_params: str
     layout_id: str
-    associated_player_bytes_layout_id: str
+    associated_player_bytes_layout_id: Optional[str] = None
+    player_overlay: Optional[Renderable] = None  # InstreamAdPlayerOverlayRenderer
+    skip_offset_milliseconds: Optional[int] = None
+    pings: Optional[Pings] = None
+    clickthrough_endpoint: Optional[ClickThroughEndpoint] = None
+    csi_parameters: Optional[Sequence[CsiParameter]] = None
+    player_vars: Optional[str] = None
+    element_id: Optional[str] = None
+    legacy_info_card_vast_extension: Optional[str] = None
+    sodarExtensionData: Optional[SodarExtensionData] = None
+    external_video_id: Optional[str] = None
+    ad_layout_logging_data: Optional[AdLayoutLoggingData] = None
 
 
 @renderer
@@ -346,6 +407,20 @@ class PlayerAttestationRenderer(BaseModel):
 
 
 @renderer
+class PlayerBytesAdLayoutRenderer(BaseModel):
+    ad_layout_metadata: AdLayoutMetadata
+    rendering_content: Renderable  # Union[InstreamVideoAdRenderer, PlayerBytesSequentialLayoutRenderer]
+    layout_exit_normal_triggers: Optional[Sequence[LayoutTrigger]] = None
+    layout_exit_skip_triggers: Optional[Sequence[LayoutTrigger]] = None
+    layout_exit_mute_triggers: Optional[Sequence[LayoutTrigger]] = None
+
+
+@renderer
+class PlayerBytesSequentialLayoutRenderer(BaseModel):
+    sequential_layouts: Sequence[Renderable]  # Sequence[PlayerBytesAdLayoutRenderer]
+
+
+@renderer
 class PlayerCaptionsTracklistRenderer(BaseModel):
     caption_tracks: Sequence[CaptionTrack]
     audio_tracks: Sequence[AudioTrack]
@@ -412,12 +487,35 @@ class ReelPlayerOverlayRenderer(BaseModel):
 
 
 @renderer
+class SimpleAdBadgeRenderer(BaseModel):
+    text: Text  # ComplexText
+    navigation_endpoint: Optional[NavigationEndpoint] = None
+    tracking_params: TrackingParams
+    icon: Optional[Icon] = None
+    style: Optional[Style] = None
+
+
+@renderer
 class SimpleCardTeaserRenderer(BaseModel):
     message: Text
     tracking_params: TrackingParams
     prominent: bool
     log_visibility_updates: bool
     onTapCommand: OnTapCommand
+
+
+@renderer
+class SkipAdRenderer(BaseModel):
+    preskip_renderer: Renderable  # AdPreviewRenderer
+    skippable_renderer: Renderable  # SkipButtonRenderer
+    tracking_params: TrackingParams
+    skip_offset_milliseconds: int
+
+
+@renderer
+class SkipButtonRenderer(BaseModel):
+    message: TemplatedText
+    tracking_params: TrackingParams
 
 
 @renderer

@@ -16,3 +16,7 @@ class LoggingExpectations(BaseModel):
 
 class AdLayoutLoggingData(BaseModel):
     serialized_ad_serving_data_entry: str
+
+
+class AdSlotLoggingData(BaseModel):
+    serialized_slot_ad_serving_data_entry: str

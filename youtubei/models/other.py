@@ -1,18 +1,29 @@
 from typing import Optional, Sequence
 from youtubei.enums import (
+    ActiveViewTrafficType,
     AdPlacementKind,
     BackgroundPromoStyleType,
     CaptionsInitialState,
+    HeaderType,
     IconType,
     LanguageCode,
     Visibility,
 )
 from youtubei.models.endpoints import NavigationEndpoint
+from youtubei.models.text import TemplatedText
 from youtubei.models.thumbnail import Thumbnails
 from youtubei.types import BrowseId, Renderable, TrackingParams
 
 from ._base import BaseModel
 from ._types import Text
+
+
+class ActiveViewTracking(BaseModel):
+    traffic_type: ActiveViewTrafficType
+
+
+class AdTemplatedCountdown(BaseModel):
+    templated_ad_text: TemplatedText
 
 
 class AudioTrack(BaseModel):
@@ -56,6 +67,11 @@ class CardCueRange(BaseModel):
 
 class CompletionBehaviorDuration(BaseModel):
     seconds: int
+
+
+class CsiParameter(BaseModel):
+    key: str
+    value: str
 
 
 class Embed(BaseModel):
@@ -113,9 +129,51 @@ class PageOwnerDetails(BaseModel):
     youtube_profile_url: str
 
 
+class PingHeader(BaseModel):
+    header_type: HeaderType
+
+
+class Ping(BaseModel):
+    base_url: str
+    headers: Optional[Sequence[PingHeader]] = None
+    offset_milliseconds: Optional[int] = None
+
+
+class Pings(BaseModel):
+    activeViewTracking: ActiveViewTracking
+
+    impression_pings: Sequence[Ping]
+    error_pings: Sequence[Ping]
+    mute_pings: Sequence[Ping]
+    unmute_pings: Sequence[Ping]
+    pause_pings: Sequence[Ping]
+    rewind_pings: Sequence[Ping]
+    resume_pings: Sequence[Ping]
+    skip_pings: Sequence[Ping]
+    close_pings: Sequence[Ping]
+    progress_pings: Sequence[Ping]
+    clickthrough_pings: Optional[Sequence[Ping]] = None
+    fullscreen_pings: Sequence[Ping]
+    active_view_viewable_pings: Sequence[Ping]
+    end_fullscreen_pings: Sequence[Ping]
+    active_view_measurable_pings: Sequence[Ping]
+    abandon_pings: Sequence[Ping]
+    active_view_fully_viewable_audible_half_duration_pings: Sequence[Ping]
+    start_pings: Optional[Sequence[Ping]] = None
+    first_quartile_pings: Optional[Sequence[Ping]] = None
+    second_quartile_pings: Optional[Sequence[Ping]] = None
+    third_quartile_pings: Optional[Sequence[Ping]] = None
+    complete_pings: Sequence[Ping]
+
+class SodarExtensionData(BaseModel):
+    siub: str
+    bgub: str
+    scs: str
+    bgp: str
+
 class TranslationLanguage(BaseModel):
-    languageCode: LanguageCode
-    languageName: Text
+    language_code: LanguageCode
+    language_name: Text
 
 
 class VideoDetails(BaseModel):

@@ -1,5 +1,7 @@
 from typing import Sequence
 
+from youtubei.types import TrackingParams
+
 from ._base import BaseModel
 
 __all__ = (
@@ -28,3 +30,8 @@ class ThumbnailMapEntry(BaseModel):
 
 class ThemedThumbnail(BaseModel):
     thumbnail_map: Sequence[ThumbnailMapEntry]
+
+
+class AdThumbnail(BaseModel):
+    thumbnail: Thumbnails
+    tracking_params: TrackingParams

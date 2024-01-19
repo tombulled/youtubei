@@ -25,6 +25,10 @@ class _StrEnum(str, Enum):
     pass
 
 
+class ActiveViewTrafficType(_StrEnum):
+    VIDEO = "ACTIVE_VIEW_TRAFFIC_TYPE_VIDEO"
+
+
 # E.g., {"adPlacementConfig": {"kind": "AD_PLACEMENT_KIND_START"}}
 class AdPlacementKind(_StrEnum):
     END = "AD_PLACEMENT_KIND_END"
@@ -315,6 +319,12 @@ class FeatureAvailability(_StrEnum):
     ALLOWED = "FEATURE_AVAILABILITY_ALLOWED"
 
 
+class HeaderType(_StrEnum):
+    USER_AUTH: str = "USER_AUTH"
+    VISITOR_ID: str = "VISITOR_ID"
+    PLUS_PAGE_ID: str = "PLUS_PAGE_ID"
+
+
 # E.g., {"icon": {"iconType": "TAB_HOME"}}
 class IconType(_StrEnum):
     # YouTube Music Web
@@ -322,6 +332,8 @@ class IconType(_StrEnum):
     TAB_EXPLORE = "TAB_EXPLORE"
     TAB_HOME = "TAB_HOME"
     ERROR_OUTLINE = "ERROR_OUTLINE"
+    OPEN_IN_NEW = "OPEN_IN_NEW"
+    INFO_OUTLINE = "INFO_OUTLINE"
     # YouTube Web
     WHAT_TO_WATCH = "WHAT_TO_WATCH"
     TAB_SHORTS = "TAB_SHORTS"
@@ -490,6 +502,12 @@ class LanguageCode(_StrEnum):
     ZU = "zu"  # Zulu
 
 
+# E.g., {"adLayoutMetadata": {"layoutType": "LAYOUT_TYPE_COMPOSITE_PLAYER_BYTES"}}
+class LayoutType(_StrEnum):
+    COMPOSITE_PLAYER_BYTES = "LAYOUT_TYPE_COMPOSITE_PLAYER_BYTES"
+    MEDIA = "LAYOUT_TYPE_MEDIA"
+
+
 # E.g., {"browseEndpointContextMusicConfig": {"pageType": "MUSIC_PAGE_TYPE_METRONOME"}}
 class MusicPageType(_StrEnum):
     METRONOME = "MUSIC_PAGE_TYPE_METRONOME"
@@ -546,6 +564,16 @@ class SignalServiceSignal(_StrEnum):
     CLIENT_SIGNAL: str = "CLIENT_SIGNAL"
 
 
+# E.g., {"adSlotMetadata": {"triggerEvent": "SLOT_TRIGGER_EVENT_BEFORE_CONTENT"}}
+class SlotTriggerEvent(_StrEnum):
+    BEFORE_CONTENT = "SLOT_TRIGGER_EVENT_BEFORE_CONTENT"
+
+
+# E.g., {"adSlotMetadata": {"slotType": "SLOT_TYPE_PLAYER_BYTES"}}
+class SlotType(_StrEnum):
+    PLAYER_BYTES = "SLOT_TYPE_PLAYER_BYTES"
+
+
 # E.g., {"subscribeButtonRenderer": {..., "type": "FREE"}}
 class SubscribeButtonType(_StrEnum):
     FREE: str = "FREE"
@@ -556,11 +584,12 @@ class Size(_StrEnum):
 
 
 class Style(_StrEnum):
-    DEFAULT: str = "STYLE_DEFAULT"
-    SUGGESTIVE: str = "STYLE_SUGGESTIVE"
-    PRIMARY: str = "STYLE_PRIMARY"
-    TEXT: str = "STYLE_TEXT"
     BLUE_TEXT: str = "STYLE_BLUE_TEXT"
+    DEFAULT: str = "STYLE_DEFAULT"
+    PRIMARY: str = "STYLE_PRIMARY"
+    SUGGESTIVE: str = "STYLE_SUGGESTIVE"
+    TEXT: str = "STYLE_TEXT"
+    UNKNOWN: str = "STYLE_UNKNOWN"
 
 
 # E.g., {"urlEndpoint": {"target": "TARGET_NEW_WINDOW"}}
