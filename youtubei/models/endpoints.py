@@ -127,6 +127,10 @@ class ClickThroughEndpoint(BaseModel):
     url_endpoint: UrlEndpoint
 
 
+class YpcGetOfflineUpsellEndpoint(BaseModel):
+    params: str
+
+
 class NavigationEndpoint(BaseModel):
     click_tracking_params: str
     command_metadata: Optional[CommandMetadata] = None
@@ -137,5 +141,6 @@ class NavigationEndpoint(BaseModel):
     application_settings_endpoint: Optional[ApplicationSettingsEndpoint] = None
     application_help_endpoint: Optional[ApplicationHelpEndpoint] = None
     ios_application_endpoint: Optional[IosApplicationEndpoint] = None
+    ypc_get_offline_upsell_endpoint: Optional[YpcGetOfflineUpsellEndpoint] = None
     # Unconfirmed endpoints
     watch_endpoint: Optional[WatchEndpoint] = None
