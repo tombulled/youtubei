@@ -1,30 +1,16 @@
-from dataclasses import dataclass
-from typing import Any, Sequence, TypeVar, Union
+from typing import Sequence, TypeVar, Union
 import humps
 import pydantic
-from pydantic import BeforeValidator, TypeAdapter
+from pydantic import BeforeValidator
 from rich.pretty import pprint as pp
 from typing_extensions import TypeAlias, Annotated
+from youtubei.parser import Parser
 from youtubei.registry import Registry
-
-from youtubei.utils import first_entry
 
 T = TypeVar("T")
 
 
 renderers = Registry()
-
-@dataclass
-class Parser:
-    registry: Registry
-
-    def parse(self, data: Any, /) -> Any:
-        key, val = first_entry(data)
-
-        cls = self.registry.get(key)
-
-        return TypeAdapter(cls).validate_python(val)
-
 parser = Parser(renderers)
 
 Nested: TypeAlias = Annotated[T, BeforeValidator(parser.parse)]

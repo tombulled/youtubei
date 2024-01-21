@@ -1,0 +1,81 @@
+from enum import Enum
+
+
+class _StrEnum(str, Enum):
+    pass
+
+
+class IconType(_StrEnum):
+    WHAT_TO_WATCH = "WHAT_TO_WATCH"
+    TAB_SHORTS = "TAB_SHORTS"
+    SUBSCRIPTIONS = "SUBSCRIPTIONS"
+    HELP = "HELP"
+    SETTINGS = "SETTINGS"
+    VIDEO_LIBRARY_WHITE = "VIDEO_LIBRARY_WHITE"
+    WATCH_HISTORY = "WATCH_HISTORY"
+    YOUTUBE_ROUND = "YOUTUBE_ROUND"
+    AVATAR_LOGGED_OUT = "AVATAR_LOGGED_OUT"
+    TRENDING = "TRENDING"
+    SHOPPING_BAG = "SHOPPING_BAG"
+    MUSIC = "MUSIC"
+    CLAPPERBOARD = "CLAPPERBOARD"
+    LIVE = "LIVE"
+    GAMING_LOGO = "GAMING_LOGO"
+    NEWS = "NEWS"
+    TROPHY = "TROPHY"
+    COURSE = "COURSE"
+    FASHION_LOGO = "FASHION_LOGO"
+    BROADCAST = "BROADCAST"
+    ADD_CIRCLE = "ADD_CIRCLE"
+    UNPLUGGED_LOGO = "UNPLUGGED_LOGO"
+    YOUTUBE_MUSIC = "YOUTUBE_MUSIC"
+    YOUTUBE_KIDS_ROUND = "YOUTUBE_KIDS_ROUND"
+    FLAG = "FLAG"
+    FEEDBACK = "FEEDBACK"
+
+
+class ReelPlayerNavigationModel(_StrEnum):
+    UNSPECIFIED: str = "REEL_PLAYER_NAVIGATION_MODEL_UNSPECIFIED"
+
+
+class ReelPlayerOverlayStyle(_StrEnum):
+    SHORTS: str = "REEL_PLAYER_OVERLAY_STYLE_SHORTS"
+
+
+class ReelWatchInputType(_StrEnum):
+    SEEDLESS: str = "REEL_WATCH_INPUT_TYPE_SEEDLESS"
+
+
+class ReelWatchSequenceProvider(_StrEnum):
+    RPC: str = "REEL_WATCH_SEQUENCE_PROVIDER_RPC"
+
+
+class Signal(_StrEnum):
+    CLIENT_SIGNAL: str = "CLIENT_SIGNAL"
+    HELP: str = "HELP"
+
+
+class Size(_StrEnum):
+    DEFAULT: str = "SIZE_DEFAULT"
+
+
+class Style(_StrEnum):
+    BLUE_TEXT: str = "STYLE_BLUE_TEXT"
+    DEFAULT: str = "STYLE_DEFAULT"
+    PRIMARY: str = "STYLE_PRIMARY"
+    SUGGESTIVE: str = "STYLE_SUGGESTIVE"
+    TEXT: str = "STYLE_TEXT"
+    UNKNOWN: str = "STYLE_UNKNOWN"
+
+
+class Target(_StrEnum):
+    NEW_WINDOW: str = "TARGET_NEW_WINDOW"
+
+
+class WebPageType(_StrEnum):
+    BROWSE: str = "WEB_PAGE_TYPE_BROWSE"
+    CHANNEL: str = "WEB_PAGE_TYPE_CHANNEL"
+    SETTINGS: str = "WEB_PAGE_TYPE_SETTINGS"
+    SHORTS: str = "WEB_PAGE_TYPE_SHORTS"
+    UNKNOWN: str = "WEB_PAGE_TYPE_UNKNOWN"
+    WATCH: str = "WEB_PAGE_TYPE_WATCH"

@@ -1,9 +1,19 @@
-from .parse import parse
-from .protocols import Parser
+from dataclasses import dataclass
+from typing import Any
 
-__all__ = ("InnerTubeParser",)
+from pydantic import TypeAdapter
+
+from youtubei.registry import Registry
+from youtubei.utils import first_entry
 
 
-class InnerTubeParser(Parser):
-    def parse(self, data: dict, /) -> dict:
-        return parse(data)
+@dataclass
+class Parser:
+    registry: Registry
+
+    def parse(self, data: Any, /) -> Any:
+        key, val = first_entry(data)
+
+        cls = self.registry.get(key)
+
+        return TypeAdapter(cls).validate_python(val)

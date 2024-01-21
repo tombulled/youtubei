@@ -1,2 +1,1 @@
-# from .parser import InnerTubeParser
-# from .parsers import parse_guide
+from .web import WEB_PARSER as WEB

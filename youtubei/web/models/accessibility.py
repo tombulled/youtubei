@@ -1,11 +1,5 @@
 from typing import Optional
-
-from ._base import BaseModel
-
-__all__ = (
-    "AccessibilityData",
-    "Accessibility",
-)
+from youtubei.models import BaseModel
 
 
 class AccessibilityData(BaseModel):
