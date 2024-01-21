@@ -1,4 +1,4 @@
-from typing import Any
+from typing import Any, TypeVar
 
 import pydantic
 from typing_extensions import Annotated, TypeAlias
@@ -11,7 +11,10 @@ __all__ = (
     "TrackingParams",
 )
 
-Renderable = Annotated[Any, pydantic.BeforeValidator(parse)]
+T = TypeVar("T")
+
+Renderable: TypeAlias = Annotated[Any, pydantic.BeforeValidator(parse)]
+# KnownRenderable: TypeAlias = Annotated[T, pydantic.BeforeValidator(parse)]
 
 BrowseId: TypeAlias = str
 ClickTrackingParams: TypeAlias = str

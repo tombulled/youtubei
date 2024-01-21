@@ -1,17 +1,33 @@
+from dataclasses import dataclass, field
 from typing import MutableMapping, TypeVar
 
 import humps
 
 C = TypeVar("C", bound=type)
 
-RENDERERS: MutableMapping[str, type] = {}
+
+class RegistryException(Exception):
+    pass
 
 
-def renderer(cls: C, /) -> C:
-    renderer_id: str = humps.camelize(cls.__name__)
+@dataclass
+class Registry:
+    registry: MutableMapping[str, type] = field(default_factory=dict)
 
-    assert renderer_id.endswith("Renderer")
+    def __call__(self, typ: C, /) -> C:
+        self.add(typ)
 
-    RENDERERS[renderer_id] = cls
+        return typ
 
-    return cls
+    def add(self, typ: type, /) -> None:
+        key: str = humps.camelize(typ.__name__)
+
+        assert key.endswith("Renderer")
+
+        self.registry[key] = typ
+
+    def get(self, key: str, /) -> type:
+        if key not in self.registry:
+            raise RegistryException(f"No entry for {key!r}")
+
+        return self.registry[key]
