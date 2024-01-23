@@ -1,5 +1,5 @@
 from typing import Optional
-from youtubei.models import BaseModel
+from youtubei.models.base import BaseModel
 
 
 class AccessibilityData(BaseModel):
