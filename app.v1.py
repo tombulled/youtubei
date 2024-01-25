@@ -25,7 +25,7 @@ data = client.adaptor.dispatch("guide")
 # parsed = parser.parse(data)
 parsed = parse_guide(data)
 
-d=data
-p=parsed
+d = data
+p = parsed
 
 pp(parsed)

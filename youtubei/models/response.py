@@ -1,4 +1,5 @@
 from typing import Sequence
+
 from youtubei.models.base import BaseModel
 
 

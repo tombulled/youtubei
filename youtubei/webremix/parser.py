@@ -1,6 +1,7 @@
 from dataclasses import dataclass
 
 from youtubei.registry import Registry
+
 from .responses import WebRemixGuideResponse
 
 
@@ -9,4 +10,6 @@ class WebRemixParser:
     registry: Registry
 
     def parse_guide(self, response, /) -> WebRemixGuideResponse:
-        return WebRemixGuideResponse.model_validate(response, context={"registry": self.registry})
+        return WebRemixGuideResponse.model_validate(
+            response, context={"registry": self.registry}
+        )

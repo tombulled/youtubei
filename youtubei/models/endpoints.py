@@ -1,8 +1,21 @@
-from typing import Optional
+from typing import Optional, Sequence
 
-from youtubei.models.base import BaseModel
+from youtubei.enums import (
+    EngagementPanelVisibility,
+    MusicPageType,
+    ReelWatchInputType,
+    ReelWatchSequenceProvider,
+    SignalServiceSignal,
+    Target,
+    TargetId,
+)
+from youtubei.models.actions import OpenPopupAction, SignalServiceAction
+from youtubei.models.contexts import LoggingContext
+from youtubei.models.metadata import CommandMetadata
 from youtubei.models.params import SkAdParameters
-from youtubei.types import Renderer
+from youtubei.types import BrowseId, ClickTrackingParams, Renderer
+
+from .base import BaseModel
 
 
 class AppStoreEndpoint(BaseModel):
@@ -27,7 +40,7 @@ class BrowseEndpointContextSupportedConfigs(BaseModel):
 
 
 class BrowseEndpoint(BaseModel):
-    browse_id: str
+    browse_id: BrowseId
     params: Optional[str] = None
     browse_endpoint_context_supported_configs: Optional[
         BrowseEndpointContextSupportedConfigs
@@ -40,7 +53,7 @@ class ChangeEngagementPanelVisibilityAction(BaseModel):
 
 
 class IosApplicationFallbackEndpoint(BaseModel):
-    click_tracking_params: str
+    click_tracking_params: ClickTrackingParams
     app_store_endpoint: AppStoreEndpoint
 
 
@@ -96,7 +109,7 @@ class SignInEndpoint(BaseModel):
 
 class UrlEndpoint(BaseModel):
     url: str
-    target: Target
+    target: Optional[Target] = None
 
 
 class WatchEndpoint(BaseModel):
@@ -110,7 +123,7 @@ class WebviewEndpoint(BaseModel):
 
 
 class ClickThroughEndpoint(BaseModel):
-    click_tracking_params: str
+    click_tracking_params: ClickTrackingParams
     url_endpoint: UrlEndpoint
 
 

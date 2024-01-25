@@ -1,9 +1,11 @@
 from typing import Sequence, TypeVar, Union
+
 import humps
 import pydantic
 from pydantic import BeforeValidator
 from rich.pretty import pprint as pp
-from typing_extensions import TypeAlias, Annotated
+from typing_extensions import Annotated, TypeAlias
+
 from youtubei.parser import Parser
 from youtubei.registry import Registry
 

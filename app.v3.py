@@ -1,6 +1,7 @@
 from innertube import InnerTube
-import youtubei
 from rich.pretty import pprint as pp
+
+import youtubei
 
 """
 Notes:
@@ -8,9 +9,9 @@ Notes:
         both use GuideSectionRenderer
 """
 
-client, parser = InnerTube("WEB", "2.20240105.01.00"), youtubei.WEB
+# client, parser = InnerTube("WEB", "2.20240105.01.00"), youtubei.WEB
 # client, parser = InnerTube("WEB_REMIX", "1.20231214.00.00"), youtubei.WEB_REMIX
-# IOS = InnerTube("IOS", "18.49.3")
+client, parser = InnerTube("IOS", "18.49.3"), youtubei.IOS
 # IOS_MUSIC = InnerTube("IOS_MUSIC", "6.33.3")
 
 d = client.adaptor.dispatch("guide")

@@ -1,7 +1,7 @@
 from typing import Any, TypeVar
-from typing_extensions import Annotated, TypeAlias
 
 import pydantic
+from typing_extensions import Annotated, TypeAlias
 
 from youtubei.parser import Parser
 from youtubei.utils import first_entry
@@ -36,3 +36,7 @@ Renderer: TypeAlias = Annotated[
     T,
     pydantic.BeforeValidator(_parse),
 ]
+
+ClickTrackingParams: TypeAlias = str
+TrackingParams: TypeAlias = str
+BrowseId: TypeAlias = str
