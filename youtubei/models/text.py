@@ -14,4 +14,5 @@ class ComplexText(BaseModel):
 class SimpleText(BaseModel):
     simple_text: str
 
+
 Text: TypeAlias = Union[ComplexText, SimpleText]

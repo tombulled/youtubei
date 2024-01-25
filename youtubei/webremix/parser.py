@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 
 from youtubei.registry import Registry
-from youtubei.webremix.responses import WebRemixGuideResponse
+from .responses import WebRemixGuideResponse
 
 
 @dataclass

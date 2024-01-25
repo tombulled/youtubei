@@ -22,7 +22,6 @@ class GuideSectionRenderer(BaseModel):
     items: Sequence[Renderer[GuideEntryRenderer]]
     formatted_title: Optional[Text] = None
 
-
 class GuideSigninPromoRenderer(BaseModel):
     action_text: Text
     descriptiveText: Text

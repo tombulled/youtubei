@@ -4,10 +4,6 @@ from youtubei.models.response import Response, ResponseContext
 from youtubei.renderers.guide import GuideSectionRenderer, GuideSigninPromoRenderer
 from youtubei.types import Renderer
 
-# from youtubei.web.models import WebResponseContext
-# from youtubei.web.renderers import GuideSectionRenderer, GuideSigninPromoRenderer
-# from youtubei.web.types import WebRenderer
-
 GuideSection: TypeAlias = Renderer[GuideSectionRenderer]
 GuideSigninPromo: TypeAlias = Renderer[GuideSigninPromoRenderer]
 
