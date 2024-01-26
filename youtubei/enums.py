@@ -551,6 +551,7 @@ class Service(_StrEnum):
     GUIDED_HELP: str = "GUIDED_HELP"
     ECATCHER: str = "ECATCHER"
     BREAKPAD: str = "BREAKPAD"
+    GOOGLE_HELP: str = "GOOGLE_HELP"
 
 
 class SharePanelType(Enum):

@@ -10,10 +10,16 @@ from youtubei.types import Renderer, TrackingParams
 class MultiPageMenuSectionRenderer(BaseModel):
     tracking_params: TrackingParams
     items: Sequence[
-        Union[
-            Renderer[BackgroundPromoRenderer],
-            Renderer[CompactLinkRenderer],
-        ]
+        # Union[
+        #     Renderer[BackgroundPromoRenderer],
+        #     Renderer[CompactLinkRenderer],
+        # ]
+       Renderer[
+            Union[
+                BackgroundPromoRenderer,
+                CompactLinkRenderer,
+            ]
+        ] 
     ]
 
 

@@ -11,8 +11,8 @@ Notes:
 
 # client, parser = InnerTube("WEB", "2.20240105.01.00"), youtubei.WEB
 # client, parser = InnerTube("WEB_REMIX", "1.20231214.00.00"), youtubei.WEB_REMIX
-client, parser = InnerTube("IOS", "18.49.3"), youtubei.IOS
-# IOS_MUSIC = InnerTube("IOS_MUSIC", "6.33.3")
+# client, parser = InnerTube("IOS", "18.49.3"), youtubei.IOS
+client, parser = InnerTube("IOS_MUSIC", "6.33.3"), youtubei.IOS_MUSIC
 
 d = client.adaptor.dispatch("guide")
 p = parser.parse_guide(d)
