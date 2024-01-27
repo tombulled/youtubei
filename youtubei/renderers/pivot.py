@@ -6,20 +6,19 @@ from youtubei.models.base import BaseModel
 from youtubei.models.endpoints import NavigationEndpoint
 from youtubei.models.other import Icon
 from youtubei.models.text import Text
-from youtubei.types import Renderer
+from youtubei.types import Dynamic
+from ._base import BaseRenderer
 
 
-class PivotBarItemRenderer(BaseModel):
+class PivotBarItemRenderer(BaseRenderer):
     pivot_identifier: str
     navigation_endpoint: NavigationEndpoint
     title: Text
     accessibility: Accessibility
     icon: Icon
-    tracking_params: str
     target_id: TargetId
-    progress_indicator: Optional[Renderer] = None
+    progress_indicator: Optional[Dynamic] = None
 
 
-class PivotBarRenderer(BaseModel):
-    tracking_params: str
-    items: Sequence[Renderer[PivotBarItemRenderer]]
+class PivotBarRenderer(BaseRenderer):
+    items: Sequence[Dynamic[PivotBarItemRenderer]]

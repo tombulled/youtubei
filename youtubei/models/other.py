@@ -13,7 +13,7 @@ from youtubei.enums import (
 from youtubei.models.endpoints import NavigationEndpoint
 from youtubei.models.text import TemplatedText, Text
 from youtubei.models.thumbnail import Thumbnails
-from youtubei.types import BrowseId, Renderer, TrackingParams
+from youtubei.types import BrowseId, Dynamic, TrackingParams
 
 from .base import BaseModel
 
@@ -91,7 +91,7 @@ class FeaturedChannel(BaseModel):
     tracking_params: TrackingParams
     navigation_endpoint: NavigationEndpoint
     channel_name: str
-    subscribe_button: Renderer  # SubscribeButtonRenderer
+    subscribe_button: Dynamic  # SubscribeButtonRenderer
 
 
 class AdTimeOffset(BaseModel):

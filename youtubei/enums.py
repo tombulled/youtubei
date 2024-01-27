@@ -373,6 +373,9 @@ class IconType(_StrEnum):
     YOUTUBE_LOGO = "YOUTUBE_LOGO"
     # IOS_MUSIC
     TAB_SAMPLES = "TAB_SAMPLES"
+    # ANDROID
+    PIVOT_HOME = "PIVOT_HOME"
+    PIVOT_SUBSCRIPTIONS = "PIVOT_SUBSCRIPTIONS"
 
 
 class LanguageCode(_StrEnum):
@@ -552,6 +555,7 @@ class Service(_StrEnum):
     ECATCHER: str = "ECATCHER"
     BREAKPAD: str = "BREAKPAD"
     GOOGLE_HELP: str = "GOOGLE_HELP"
+    LISTNR: str = "LISTNR"
 
 
 class SharePanelType(Enum):
@@ -594,6 +598,8 @@ class Style(_StrEnum):
     SUGGESTIVE: str = "STYLE_SUGGESTIVE"
     TEXT: str = "STYLE_TEXT"
     UNKNOWN: str = "STYLE_UNKNOWN"
+    MONO_FILLED: str = "STYLE_MONO_FILLED"
+    MONO_TONAL: str = "STYLE_MONO_TONAL"
 
 
 # E.g., {"urlEndpoint": {"target": "TARGET_NEW_WINDOW"}}
@@ -639,3 +645,6 @@ class WebPageType(_StrEnum):
     SHORTS: str = "WEB_PAGE_TYPE_SHORTS"
     UNKNOWN: str = "WEB_PAGE_TYPE_UNKNOWN"
     WATCH: str = "WEB_PAGE_TYPE_WATCH"
+
+class WatchBreakType(_StrEnum):
+    DATA_REMINDER = "WATCH_BREAK_TYPE_DATA_REMINDER"

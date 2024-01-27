@@ -4,17 +4,13 @@ from youtubei.models.base import BaseModel
 from youtubei.renderers.background_promo import BackgroundPromoRenderer
 from youtubei.renderers.compact_link import CompactLinkRenderer
 from youtubei.renderers.privacy_tos_footer import PrivacyTosFooterRenderer
-from youtubei.types import Renderer, TrackingParams
+from youtubei.types import Dynamic, TrackingParams
+from ._base import BaseRenderer
 
 
-class MultiPageMenuSectionRenderer(BaseModel):
-    tracking_params: TrackingParams
+class MultiPageMenuSectionRenderer(BaseRenderer):
     items: Sequence[
-        # Union[
-        #     Renderer[BackgroundPromoRenderer],
-        #     Renderer[CompactLinkRenderer],
-        # ]
-       Renderer[
+       Dynamic[
             Union[
                 BackgroundPromoRenderer,
                 CompactLinkRenderer,
@@ -23,7 +19,6 @@ class MultiPageMenuSectionRenderer(BaseModel):
     ]
 
 
-class MultiPageMenuRenderer(BaseModel):
-    sections: Sequence[Renderer[MultiPageMenuSectionRenderer]]
-    tracking_params: TrackingParams
-    footer: Renderer[PrivacyTosFooterRenderer]
+class MultiPageMenuRenderer(BaseRenderer):
+    sections: Sequence[Dynamic[MultiPageMenuSectionRenderer]]
+    footer: Dynamic[PrivacyTosFooterRenderer]

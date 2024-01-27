@@ -4,7 +4,7 @@ from typing_extensions import TypeAlias
 
 from youtubei.models.response import Response, ResponseContext
 from youtubei.renderers.guide import GuideSectionRenderer, GuideSigninPromoRenderer
-from youtubei.types import Renderer
+from youtubei.types import Dynamic
 
 # GuideSection: TypeAlias = Renderer[GuideSectionRenderer]
 # GuideSigninPromo: TypeAlias = Renderer[GuideSigninPromoRenderer]
@@ -21,7 +21,7 @@ class WebRemixResponse(Response):
 
 class WebRemixGuideResponse(WebRemixResponse):
     items: Sequence[
-        Renderer[
+        Dynamic[
             Union[
                 GuideSectionRenderer,
                 GuideSigninPromoRenderer,

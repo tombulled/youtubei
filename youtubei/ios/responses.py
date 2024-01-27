@@ -6,9 +6,9 @@ from youtubei.models.other import HasNotificationResponseConfig
 from youtubei.models.response import Response, ResponseContext
 from youtubei.renderers.mobile import MobileTopbarRenderer
 from youtubei.renderers.pivot import PivotBarRenderer
-from youtubei.types import Renderer
+from youtubei.types import Dynamic
 
-GuideItem: TypeAlias = Renderer[Union[
+GuideItem: TypeAlias = Dynamic[Union[
     PivotBarRenderer,
     MobileTopbarRenderer,
 ]]

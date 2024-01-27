@@ -13,7 +13,7 @@ from youtubei.models.actions import OpenPopupAction, SignalServiceAction
 from youtubei.models.contexts import LoggingContext
 from youtubei.models.metadata import CommandMetadata
 from youtubei.models.params import SkAdParameters
-from youtubei.types import BrowseId, ClickTrackingParams, Renderer
+from youtubei.types import BrowseId, ClickTrackingParams, Dynamic
 
 from .base import BaseModel
 
@@ -21,6 +21,20 @@ from .base import BaseModel
 class AppStoreEndpoint(BaseModel):
     app_id: str
     sk_ad_parameters: Optional[SkAdParameters] = None
+    referrer: Optional[str] = None
+    android_deep_link: Optional[str] = None
+    android_overlay: Optional[bool] = None
+
+
+class AndroidAppFallbackEndpoint(BaseModel):
+    click_tracking_params: ClickTrackingParams
+    app_store_endpoint: AppStoreEndpoint
+
+
+class AndroidAppEndpoint(BaseModel):
+    android_package_name: str
+    android_class_name: str
+    fallback_endpoint: AndroidAppFallbackEndpoint
 
 
 class ApplicationHelpEndpoint(BaseModel):
@@ -51,6 +65,9 @@ class ChangeEngagementPanelVisibilityAction(BaseModel):
     target_id: TargetId
     visibility: EngagementPanelVisibility
 
+class HideEngagementPanelEndpoint(BaseModel):
+    panel_identifier: str
+
 
 class IosApplicationFallbackEndpoint(BaseModel):
     click_tracking_params: ClickTrackingParams
@@ -64,7 +81,7 @@ class IosApplicationEndpoint(BaseModel):
 
 class ReelWatchEndpoint(BaseModel):
     player_params: str
-    overlay: Renderer
+    overlay: Dynamic
     params: str
     sequence_provider: ReelWatchSequenceProvider
     input_type: ReelWatchInputType
@@ -99,6 +116,11 @@ class ServiceEndpoint(BaseModel):
     subscribe_endpoint: Optional[SubscribeEndpoint] = None
     unsubscribe_endpoint: Optional[UnsubscribeEndpoint] = None
     open_popup_action: Optional[OpenPopupAction] = None
+
+
+class ShowEngagementPanelEndpoint(BaseModel):
+    panel_identifier: str
+    engagement_panel: Dynamic # EngagementPanelSectionListRenderer
 
 
 class SignInEndpoint(BaseModel):
@@ -142,5 +164,6 @@ class NavigationEndpoint(BaseModel):
     application_help_endpoint: Optional[ApplicationHelpEndpoint] = None
     ios_application_endpoint: Optional[IosApplicationEndpoint] = None
     ypc_get_offline_upsell_endpoint: Optional[YpcGetOfflineUpsellEndpoint] = None
+    android_app_endpoint: Optional[AndroidAppEndpoint] = None
     # Unconfirmed endpoints
     watch_endpoint: Optional[WatchEndpoint] = None

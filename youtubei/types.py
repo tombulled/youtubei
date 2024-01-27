@@ -31,7 +31,7 @@ def _parse(value: Any, info: pydantic.ValidationInfo):
     return pydantic.TypeAdapter(cls).validate_python(val, context=context)
 
 
-Renderer: TypeAlias = Annotated[
+Dynamic: TypeAlias = Annotated[
     # T, pydantic.BeforeValidator(Parser(WEB_REMIX_REGISTRY).parse)
     T,
     pydantic.BeforeValidator(_parse),

@@ -1,8 +1,8 @@
 from youtubei.enums import ReelPlayerNavigationModel, ReelPlayerOverlayStyle
 from youtubei.models.base import BaseModel
+from ._base import BaseRenderer
 
 
-class ReelPlayerOverlayRenderer(BaseModel):
+class ReelPlayerOverlayRenderer(BaseRenderer):
     style: ReelPlayerOverlayStyle
-    tracking_params: str
     reel_player_navigation_model: ReelPlayerNavigationModel

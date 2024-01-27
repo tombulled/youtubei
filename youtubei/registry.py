@@ -22,8 +22,6 @@ class Registry:
     def add(self, typ: type, /) -> None:
         key: str = humps.camelize(typ.__name__)
 
-        assert key.endswith("Renderer")
-
         self.registry[key] = typ
 
     def get(self, key: str, /) -> type:

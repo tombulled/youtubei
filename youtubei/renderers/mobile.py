@@ -8,19 +8,14 @@ from youtubei.renderers.topbar import (
     TopbarLogoRenderer,
     TopbarMenuButtonRenderer,
 )
-from youtubei.types import Renderer, TrackingParams
+from youtubei.types import Dynamic, TrackingParams
+from ._base import BaseRenderer
 
 
-class MobileTopbarRenderer(BaseModel):
+class MobileTopbarRenderer(BaseRenderer):
     placeholder_text: Text
-    tracking_params: TrackingParams
     buttons: Sequence[
-        # Union[
-        #     Renderer[ButtonRenderer],
-        #     Renderer[TopbarButtonRenderer],
-        #     Renderer[TopbarMenuButtonRenderer],
-        # ]
-        Renderer[
+        Dynamic[
             Union[
                 ButtonRenderer,
                 TopbarButtonRenderer,
@@ -29,4 +24,4 @@ class MobileTopbarRenderer(BaseModel):
         ]
     ]
     controls_cast_button: bool
-    topbar_logo: Renderer[TopbarLogoRenderer]
+    topbar_logo: Dynamic[TopbarLogoRenderer]

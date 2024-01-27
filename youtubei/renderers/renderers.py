@@ -51,7 +51,6 @@ from ..enums import (
 from ..models import (
     Accessibility,
     BackgroundPromoStyle,
-    BaseModel,
     CompletionBehaviorDuration,
     ErrorBehaviorUntilPageOrContainerSelected,
     Icon,
@@ -61,37 +60,38 @@ from ..models import (
     ThemedThumbnail,
     TosCommand,
 )
-from ..types import Renderer, TrackingParams
+from ..types import Dynamic, TrackingParams
+from ._base import BaseRenderer
 
 
-class AboutThisAdRenderer(BaseModel):
+class AboutThisAdRenderer(BaseRenderer):
     url: InterpreterSafeUrl
     tracking_params: TrackingParams
 
 
-class AdBreakServiceRenderer(BaseModel):
+class AdBreakServiceRenderer(BaseRenderer):
     prefetch_milliseconds: str
     get_ad_break_url: str
 
 
-class AdDurationRemainingRenderer(BaseModel):
+class AdDurationRemainingRenderer(BaseRenderer):
     templated_countdown: AdTemplatedCountdown
     tracking_params: TrackingParams
 
 
-class AdHoverTextButtonRenderer(BaseModel):
-    button: Renderer  # ButtonRenderer
+class AdHoverTextButtonRenderer(BaseRenderer):
+    button: Dynamic  # ButtonRenderer
     hover_text: Text  # ComplexText
     tracking_params: TrackingParams
 
 
-class AdPlacementRenderer(BaseModel):
+class AdPlacementRenderer(BaseRenderer):
     config: HasAdPlacementConfig
-    renderer: Renderer  # ClientForecastingAdRenderer
+    renderer: Dynamic  # ClientForecastingAdRenderer
     ad_slot_logging_data: AdSlotLoggingData
 
 
-class AdPreviewRenderer(BaseModel):
+class AdPreviewRenderer(BaseRenderer):
     thumbnail: Optional[AdThumbnail] = None
     tracking_params: TrackingParams
     duration_milliseconds: Optional[int] = None
@@ -99,7 +99,7 @@ class AdPreviewRenderer(BaseModel):
     static_preview: Optional[Text] = None  # TemplatedText
 
 
-class AdSlotRenderer(BaseModel):
+class AdSlotRenderer(BaseRenderer):
     ad_slot_metadata: AdSlotMetadata
     fulfillment_content: FulfillmentContent
     slot_entry_trigger: SlotTrigger
@@ -107,40 +107,40 @@ class AdSlotRenderer(BaseModel):
     slot_expiration_triggers: Sequence[SlotTrigger]
 
 
-class AudioOnlyPlayabilityRenderer(BaseModel):
+class AudioOnlyPlayabilityRenderer(BaseRenderer):
     tracking_params: TrackingParams
     audio_only_availability: FeatureAvailability
 
 
-class CardRenderer(BaseModel):
-    teaser: Renderer  # SimpleCardTeaserRenderer
+class CardRenderer(BaseRenderer):
+    teaser: Dynamic  # SimpleCardTeaserRenderer
     cue_ranges: Sequence[CardCueRange]
     tracking_params: TrackingParams
 
 
-class CardCollectionRenderer(BaseModel):
-    cards: Sequence[Renderer]  # CardRenderer
+class CardCollectionRenderer(BaseRenderer):
+    cards: Sequence[Dynamic]  # CardRenderer
     header_text: Text
-    icon: Renderer  # InfoCardIconRenderer
-    close_button: Renderer  # InfoCardIconRenderer
+    icon: Dynamic  # InfoCardIconRenderer
+    close_button: Dynamic  # InfoCardIconRenderer
     tracking_params: TrackingParams
     allow_teaser_dismiss: bool
     log_icon_visibility_updates: bool
 
 
-class ClientForecastingAdRenderer(BaseModel):
+class ClientForecastingAdRenderer(BaseRenderer):
     pass
 
 
-class ConfirmDialogRenderer(BaseModel):
+class ConfirmDialogRenderer(BaseRenderer):
     tracking_params: TrackingParams
     dialog_messages: Sequence[Text]
-    confirm_button: Renderer  # Button
-    cancel_button: Renderer  # Button
+    confirm_button: Dynamic  # Button
+    cancel_button: Dynamic  # Button
     primary_is_cancel: bool
 
 
-class EndscreenElementRenderer(BaseModel):
+class EndscreenElementRenderer(BaseRenderer):
     style: EndscreenElementStyle
     image: Thumbnails
     left: float
@@ -155,39 +155,39 @@ class EndscreenElementRenderer(BaseModel):
     tracking_params: TrackingParams
     id: str
     thumbnail_overlays: Optional[
-        Sequence[Renderer]
+        Sequence[Dynamic]
     ] = None  # Sequence[ThumbnailOverlayTimeStatusRenderer]
     playlist_length: Optional[Text] = None
 
 
-class EndscreenRenderer(BaseModel):
-    elements: Sequence[Renderer]  # Sequence[EndscreenElementRenderer]
+class EndscreenRenderer(BaseRenderer):
+    elements: Sequence[Dynamic]  # Sequence[EndscreenElementRenderer]
     start_ms: str
     tracking_params: TrackingParams
 
 
-class InfoCardIconRenderer(BaseModel):
+class InfoCardIconRenderer(BaseRenderer):
     tracking_params: TrackingParams
 
 
-class InstreamAdPlayerOverlayRenderer(BaseModel):
+class InstreamAdPlayerOverlayRenderer(BaseRenderer):
     tracking_params: str
-    skip_or_preview_renderer: Renderer  # AdPreviewRenderer
-    visit_advertiser_renderer: Renderer  # ButtonRenderer
-    ad_badge_renderer: Renderer  # SimpleAdBadgeRenderer
-    ad_duration_remaining: Renderer  # AdDurationRemainingRenderer
-    ad_info_renderer: Renderer  # AdHoverTextButtonRenderer
+    skip_or_preview_renderer: Dynamic  # AdPreviewRenderer
+    visit_advertiser_renderer: Dynamic  # ButtonRenderer
+    ad_badge_renderer: Dynamic  # SimpleAdBadgeRenderer
+    ad_duration_remaining: Dynamic  # AdDurationRemainingRenderer
+    ad_info_renderer: Dynamic  # AdHoverTextButtonRenderer
     ad_layout_logging_data: AdLayoutLoggingData
     element_id: str
     in_player_slot_id: str
     in_player_layout_id: str
 
 
-class InstreamVideoAdRenderer(BaseModel):
+class InstreamVideoAdRenderer(BaseRenderer):
     tracking_params: str
     layout_id: str
     associated_player_bytes_layout_id: Optional[str] = None
-    player_overlay: Optional[Renderer] = None  # InstreamAdPlayerOverlayRenderer
+    player_overlay: Optional[Dynamic] = None  # InstreamAdPlayerOverlayRenderer
     skip_offset_milliseconds: Optional[int] = None
     pings: Optional[Pings] = None
     clickthrough_endpoint: Optional[ClickThroughEndpoint] = None
@@ -200,11 +200,11 @@ class InstreamVideoAdRenderer(BaseModel):
     ad_layout_logging_data: Optional[AdLayoutLoggingData] = None
 
 
-class LinearAdSequenceRenderer(BaseModel):
-    linear_ads: Sequence[Renderer]  # Sequence[InstreamVideoAdRenderer]
+class LinearAdSequenceRenderer(BaseRenderer):
+    linear_ads: Sequence[Dynamic]  # Sequence[InstreamVideoAdRenderer]
 
 
-class MicroformatDataRenderer(BaseModel):
+class MicroformatDataRenderer(BaseRenderer):
     url_canonical: str
     title: str
     description: str
@@ -237,58 +237,58 @@ class MicroformatDataRenderer(BaseModel):
     available_countries: Optional[Sequence[CountryCode]] = None
 
 
-class MiniplayerRenderer(BaseModel):
+class MiniplayerRenderer(BaseRenderer):
     playback_mode: PlaybackMode
 
 
-class MultiPageMenuRenderer(BaseModel):
-    sections: Sequence[Renderer]
+class MultiPageMenuRenderer(BaseRenderer):
+    sections: Sequence[Dynamic]
     tracking_params: TrackingParams
-    footer: Renderer
+    footer: Dynamic
 
 
-class MultiPageMenuSectionRenderer(BaseModel):
+class MultiPageMenuSectionRenderer(BaseRenderer):
     tracking_params: TrackingParams
-    items: Sequence[Renderer]  # Union[BackgroundPromo, CompactLink]
+    items: Sequence[Dynamic]  # Union[BackgroundPromo, CompactLink]
 
 
-class PlayerAnnotationsExpandedRenderer(BaseModel):
+class PlayerAnnotationsExpandedRenderer(BaseRenderer):
     featured_channel: FeaturedChannel
     allow_swipe_dismiss: bool
     annotation_id: str
 
 
-class PlayerAttestationRenderer(BaseModel):
+class PlayerAttestationRenderer(BaseRenderer):
     challenge: str
     botguard_data: BotguardData
 
 
-class PlayerBytesAdLayoutRenderer(BaseModel):
+class PlayerBytesAdLayoutRenderer(BaseRenderer):
     ad_layout_metadata: AdLayoutMetadata
-    rendering_content: Renderer  # Union[InstreamVideoAdRenderer, PlayerBytesSequentialLayoutRenderer]
+    rendering_content: Dynamic  # Union[InstreamVideoAdRenderer, PlayerBytesSequentialLayoutRenderer]
     layout_exit_normal_triggers: Optional[Sequence[LayoutTrigger]] = None
     layout_exit_skip_triggers: Optional[Sequence[LayoutTrigger]] = None
     layout_exit_mute_triggers: Optional[Sequence[LayoutTrigger]] = None
 
 
-class PlayerBytesSequentialLayoutRenderer(BaseModel):
-    sequential_layouts: Sequence[Renderer]  # Sequence[PlayerBytesAdLayoutRenderer]
+class PlayerBytesSequentialLayoutRenderer(BaseRenderer):
+    sequential_layouts: Sequence[Dynamic]  # Sequence[PlayerBytesAdLayoutRenderer]
 
 
-class PlayerCaptionsTracklistRenderer(BaseModel):
+class PlayerCaptionsTracklistRenderer(BaseRenderer):
     caption_tracks: Sequence[CaptionTrack]
     audio_tracks: Sequence[AudioTrack]
     translation_languages: Sequence[TranslationLanguage]
     default_audio_track_index: int
 
 
-class PlayerErrorMessageRenderer(BaseModel):
+class PlayerErrorMessageRenderer(BaseRenderer):
     reason: Text
     thumbnail: Thumbnails
     icon: Icon
 
 
-class PlayerLegacyDesktopWatchAdsRenderer(BaseModel):
+class PlayerLegacyDesktopWatchAdsRenderer(BaseRenderer):
     playerAdParams: PlayerAdParams
     gut_params: GutParams
     show_companion: bool
@@ -296,7 +296,7 @@ class PlayerLegacyDesktopWatchAdsRenderer(BaseModel):
     use_gut: bool
 
 
-class PlayerMicroformatRenderer(BaseModel):
+class PlayerMicroformatRenderer(BaseRenderer):
     thumbnail: Thumbnails
     embed: Embed
     title: Text
@@ -315,20 +315,20 @@ class PlayerMicroformatRenderer(BaseModel):
     upload_date: datetime
 
 
-class PlayerStoryboardSpecRenderer(BaseModel):
+class PlayerStoryboardSpecRenderer(BaseRenderer):
     spec: str
     recommended_level: int
     high_resolution_recommended_level: Optional[int] = None
 
 
-class PrivacyTosFooterRenderer(BaseModel):
+class PrivacyTosFooterRenderer(BaseRenderer):
     privacy_title: Text
     tos_title: Text
     privacy_command: PrivacyCommand
     tos_command: TosCommand
 
 
-class SimpleAdBadgeRenderer(BaseModel):
+class SimpleAdBadgeRenderer(BaseRenderer):
     text: Text  # ComplexText
     navigation_endpoint: Optional[NavigationEndpoint] = None
     tracking_params: TrackingParams
@@ -336,7 +336,7 @@ class SimpleAdBadgeRenderer(BaseModel):
     style: Optional[Style] = None
 
 
-class SimpleCardTeaserRenderer(BaseModel):
+class SimpleCardTeaserRenderer(BaseRenderer):
     message: Text
     tracking_params: TrackingParams
     prominent: bool
@@ -344,19 +344,19 @@ class SimpleCardTeaserRenderer(BaseModel):
     onTapCommand: OnTapCommand
 
 
-class SkipAdRenderer(BaseModel):
-    preskip_renderer: Renderer  # AdPreviewRenderer
-    skippable_renderer: Renderer  # SkipButtonRenderer
+class SkipAdRenderer(BaseRenderer):
+    preskip_renderer: Dynamic  # AdPreviewRenderer
+    skippable_renderer: Dynamic  # SkipButtonRenderer
     tracking_params: TrackingParams
     skip_offset_milliseconds: int
 
 
-class SkipButtonRenderer(BaseModel):
+class SkipButtonRenderer(BaseRenderer):
     message: TemplatedText
     tracking_params: TrackingParams
 
 
-class SubscribeButtonRenderer(BaseModel):
+class SubscribeButtonRenderer(BaseRenderer):
     button_text: Text
     subscribed: bool
     enabled: bool
@@ -373,11 +373,11 @@ class SubscribeButtonRenderer(BaseModel):
     sign_in_endpoint: SignInEndpoint
 
 
-class ThumbnailOverlayTimeStatusRenderer(BaseModel):
+class ThumbnailOverlayTimeStatusRenderer(BaseRenderer):
     text: Text
     style: ThumbnailOverlayTimeStatusStyle
 
 
-class UploadProgressArrowRenderer(BaseModel):
+class UploadProgressArrowRenderer(BaseRenderer):
     completion_behavior_duration: CompletionBehaviorDuration
     error_behavior_until_page_or_container_selected: ErrorBehaviorUntilPageOrContainerSelected

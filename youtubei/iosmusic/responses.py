@@ -6,9 +6,9 @@ from youtubei.models.base import BaseModel
 from youtubei.models.response import Response, ResponseContext
 from youtubei.renderers.guide import GuideSectionRenderer, GuideSigninPromoRenderer
 from youtubei.renderers.pivot import PivotBarRenderer
-from youtubei.types import Renderer
+from youtubei.types import Dynamic
 
-GuideItem: TypeAlias = Renderer[PivotBarRenderer]
+GuideItem: TypeAlias = Dynamic[PivotBarRenderer]
 
 
 class GlobalConfigGroup(BaseModel):

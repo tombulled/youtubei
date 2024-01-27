@@ -2,14 +2,14 @@ from typing import Optional
 
 from youtubei.enums import Size, Style, TargetId
 from youtubei.models.accessibility import Accessibility
-from youtubei.models.base import BaseModel
+from youtubei.models.commands import Command
 from youtubei.models.endpoints import NavigationEndpoint, ServiceEndpoint
 from youtubei.models.other import Icon
 from youtubei.models.text import Text
+from ._base import BaseRenderer
 
 
-class ButtonRenderer(BaseModel):
-    tracking_params: str
+class ButtonRenderer(BaseRenderer):
     service_endpoint: Optional[ServiceEndpoint] = None
     navigation_endpoint: Optional[NavigationEndpoint] = None
     text: Optional[Text] = None
@@ -20,3 +20,4 @@ class ButtonRenderer(BaseModel):
     accessibility: Optional[Accessibility] = None
     accessibility_data: Optional[Accessibility] = None
     target_id: Optional[TargetId] = None
+    command: Optional[Command] = None # HideEngagementPanelEndpoint

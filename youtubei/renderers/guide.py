@@ -6,12 +6,12 @@ from youtubei.models.endpoints import NavigationEndpoint, ServiceEndpoint
 from youtubei.models.other import Icon
 from youtubei.models.text import Text
 from youtubei.renderers.button import ButtonRenderer
-from youtubei.types import Renderer
+from youtubei.types import Dynamic
+from ._base import BaseRenderer
 
 
-class GuideEntryRenderer(BaseModel):
+class GuideEntryRenderer(BaseRenderer):
     icon: Icon
-    tracking_params: str
     formatted_title: Text
     accessibility: Accessibility
     navigation_endpoint: Optional[NavigationEndpoint] = None
@@ -20,13 +20,12 @@ class GuideEntryRenderer(BaseModel):
     target_id: Optional[str] = None
 
 
-class GuideSectionRenderer(BaseModel):
-    tracking_params: str
-    items: Sequence[Renderer[GuideEntryRenderer]]
+class GuideSectionRenderer(BaseRenderer):
+    items: Sequence[Dynamic[GuideEntryRenderer]]
     formatted_title: Optional[Text] = None
 
 
-class GuideSigninPromoRenderer(BaseModel):
+class GuideSigninPromoRenderer(BaseRenderer):
     action_text: Text
     descriptiveText: Text
-    signInButton: Renderer[ButtonRenderer]
+    signInButton: Dynamic[ButtonRenderer]

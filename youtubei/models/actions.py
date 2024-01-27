@@ -1,13 +1,13 @@
 from typing import Optional
 
 from youtubei.enums import PopupType, SignalActionSignal
-from youtubei.types import Renderer
+from youtubei.types import Dynamic
 
 from .base import BaseModel
 
 
 class OpenPopupAction(BaseModel):
-    popup: Renderer  # ConfirmDialogRenderer
+    popup: Dynamic  # ConfirmDialogRenderer
     popup_type: PopupType
 
 

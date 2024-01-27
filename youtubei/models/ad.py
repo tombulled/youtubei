@@ -2,7 +2,7 @@ from typing import Optional
 
 from youtubei.enums import LayoutType, SlotTriggerEvent, SlotType
 from youtubei.models.logging import AdLayoutLoggingData, AdSlotLoggingData
-from youtubei.types import Renderer
+from youtubei.types import Dynamic
 
 from .base import BaseModel
 
@@ -21,7 +21,7 @@ class AdLayoutMetadata(BaseModel):
 
 
 class FulfillmentContent(BaseModel):
-    fulfilledLayout: Renderer  # PlayerBytesAdLayoutRenderer
+    fulfilledLayout: Dynamic  # PlayerBytesAdLayoutRenderer
 
 
 class SlotIdTrigger(BaseModel):
