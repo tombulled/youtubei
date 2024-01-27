@@ -1,87 +1,126 @@
-from typing import Sequence, TypeVar, Union
+from typing import (
+    Any,
+    Final,
+    Mapping,
+    MutableMapping,
+    Optional,
+    Sequence,
+    Type,
+    TypeVar,
+    Union,
+)
 
-import humps
 import pydantic
-from pydantic import BeforeValidator
+from pydantic import BaseModel, BeforeValidator
 from rich.pretty import pprint as pp
 from typing_extensions import Annotated, TypeAlias
 
-from youtubei.parser import Parser
-from youtubei.registry import Registry
+CONTEXT_KEY_REGISTRY: Final[str] = "registry"
+
 
 T = TypeVar("T")
 
-
-renderers = Registry()
-parser = Parser(renderers)
-
-Nested: TypeAlias = Annotated[T, BeforeValidator(parser.parse)]
+RegistryMapping: TypeAlias = Mapping[str, type]
+MutableRegistryMapping: TypeAlias = MutableMapping[str, type]
 
 
-class BaseModel(pydantic.BaseModel):
-    model_config = pydantic.ConfigDict(
-        extra="forbid",
-        alias_generator=humps.camelize,
+class RegistryException(Exception):
+    pass
+
+
+REGISTRY: MutableRegistryMapping = {}
+
+
+def validate_dynamic(
+    value: Any,
+    validation_info: pydantic.ValidationInfo,
+) -> Any:
+    registry: RegistryMapping = (validation_info.context or {}).get(
+        CONTEXT_KEY_REGISTRY, REGISTRY
+    )
+
+    if not isinstance(value, Mapping):
+        return value
+
+    key, val = next(iter(value.items()))
+
+    if key not in registry:
+        raise RegistryException(f"No entry for key {key!r}")
+
+    cls = registry[key]
+
+    return pydantic.TypeAdapter(cls).validate_python(
+        val, context=validation_info.context
     )
 
 
-@renderers
-class PersonRenderer(BaseModel):
+def parse(
+    data: Mapping[str, Any],
+    typ: Type[BaseModel],
+    /,
+    *,
+    registry: Optional[RegistryMapping] = None,
+):
+    return typ.model_validate(
+        data,
+        context={
+            CONTEXT_KEY_REGISTRY: (registry if registry is not None else REGISTRY),
+        },
+    )
+
+
+Dynamic: TypeAlias = Annotated[T, BeforeValidator(validate_dynamic)]
+
+
+class Person(BaseModel):
     name: str
     age: int
 
 
-@renderers
-class DogRenderer(BaseModel):
+class Dog(BaseModel):
     name: str
     age: int
 
 
-@renderers
-class CatRenderer(BaseModel):
+class Cat(BaseModel):
     name: str
     age: int
 
 
-Person: TypeAlias = Nested[PersonRenderer]
-Dog: TypeAlias = Nested[DogRenderer]
-Cat: TypeAlias = Nested[CatRenderer]
-Pet: TypeAlias = Union[Dog, Cat]
+registry: Mapping[str, type] = {
+    "person": Person,
+    "dog": Dog,
+    "cat": Cat,
+}
 
 
 class Response(BaseModel):
-    person: Person
-    pets: Sequence[Pet]
+    father: Dynamic[Person]
+    pets: Sequence[Dynamic[Union[Dog, Cat]]]
 
 
-d = {
-    "person": {
-        "personRenderer": {
+raw_response = {
+    "father": {
+        "person": {
             "name": "Tom",
             "age": 25,
         },
     },
     "pets": [
         {
-            "dogRenderer": {
+            "dog": {
                 "name": "Luna",
                 "age": 3,
             },
         },
         {
-            "catRenderer": {
+            "cat": {
                 "name": "Pudserella",
                 "age": 7,
             },
         },
-        # {
-        #     "fishRenderer": {
-        #         "name": "Pudserella",
-        #         "age": 7,
-        #     },
-        # },
     ],
 }
-r = Response.model_validate(d)
+response: Response = parse(raw_response, Response, registry=registry)
 
-pp(r)
+pp(response)
