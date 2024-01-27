@@ -5,8 +5,8 @@ from youtubei.models.base import BaseModel
 from youtubei.models.endpoints import NavigationEndpoint, ServiceEndpoint
 from youtubei.models.other import Icon
 from youtubei.models.text import Text
+from youtubei.parse import Dynamic
 from youtubei.renderers.button import ButtonRenderer
-from youtubei.types import Dynamic
 
 from ._base import BaseRenderer
 

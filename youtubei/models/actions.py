@@ -1,7 +1,7 @@
 from typing import Optional
 
 from youtubei.enums import PopupType, SignalActionSignal
-from youtubei.types import Dynamic
+from youtubei.parse import Dynamic
 
 from .base import BaseModel
 

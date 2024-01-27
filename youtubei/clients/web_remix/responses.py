@@ -3,12 +3,15 @@ from typing import Sequence, Union
 from typing_extensions import TypeAlias
 
 from youtubei.models.response import Response, ResponseContext
+from youtubei.parse import Dynamic
 from youtubei.renderers.guide import GuideSectionRenderer, GuideSigninPromoRenderer
-from youtubei.types import Dynamic
 
-# GuideSection: TypeAlias = Renderer[GuideSectionRenderer]
-# GuideSigninPromo: TypeAlias = Renderer[GuideSigninPromoRenderer]
-# GuideItem: TypeAlias = Union[GuideSection, GuideSigninPromo]
+GuideItem: TypeAlias = Dynamic[
+    Union[
+        GuideSectionRenderer,
+        GuideSigninPromoRenderer,
+    ]
+]
 
 
 class WebRemixResponseContext(ResponseContext):
@@ -20,11 +23,4 @@ class WebRemixResponse(Response):
 
 
 class WebRemixGuideResponse(WebRemixResponse):
-    items: Sequence[
-        Dynamic[
-            Union[
-                GuideSectionRenderer,
-                GuideSigninPromoRenderer,
-            ]
-        ]
-    ]
+    items: Sequence[GuideItem]

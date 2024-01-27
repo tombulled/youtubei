@@ -3,13 +3,13 @@ from typing import Sequence, Union
 from typing_extensions import TypeAlias
 
 from youtubei.models.text import Text
+from youtubei.parse import Dynamic
 from youtubei.renderers.button import ButtonRenderer
 from youtubei.renderers.topbar import (
     TopbarButtonRenderer,
     TopbarLogoRenderer,
     TopbarMenuButtonRenderer,
 )
-from youtubei.types import Dynamic
 
 from ._base import BaseRenderer
 

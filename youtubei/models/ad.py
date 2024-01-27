@@ -2,7 +2,7 @@ from typing import Optional
 
 from youtubei.enums import LayoutType, SlotTriggerEvent, SlotType
 from youtubei.models.logging import AdLayoutLoggingData, AdSlotLoggingData
-from youtubei.types import Dynamic
+from youtubei.parse import Dynamic
 
 from .base import BaseModel
 

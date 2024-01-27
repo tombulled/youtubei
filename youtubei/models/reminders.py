@@ -1,7 +1,7 @@
 from youtubei.models.base import BaseModel
 from youtubei.models.commands import Command
+from youtubei.parse import Dynamic
 from youtubei.renderers.confirm_dialog import ConfirmDialogRenderer
-from youtubei.types import Dynamic
 
 
 class DataReminder(BaseModel):

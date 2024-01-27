@@ -1,10 +1,9 @@
 from typing import Sequence, Union
 
-from youtubei.models.base import BaseModel
+from youtubei.parse import Dynamic
 from youtubei.renderers.background_promo import BackgroundPromoRenderer
 from youtubei.renderers.compact_link import CompactLinkRenderer
 from youtubei.renderers.privacy_tos_footer import PrivacyTosFooterRenderer
-from youtubei.types import Dynamic, TrackingParams
 
 from ._base import BaseRenderer
 

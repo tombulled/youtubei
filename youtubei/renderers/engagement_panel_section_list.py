@@ -1,8 +1,8 @@
+from youtubei.parse import Dynamic
 from youtubei.renderers.engagement_panel_title_header import (
     EngagementPanelTitleHeaderRenderer,
 )
 from youtubei.renderers.section_list import SectionListRenderer
-from youtubei.types import Dynamic
 
 from ._base import BaseRenderer
 

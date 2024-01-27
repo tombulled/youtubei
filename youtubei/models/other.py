@@ -13,7 +13,8 @@ from youtubei.enums import (
 from youtubei.models.endpoints import NavigationEndpoint
 from youtubei.models.text import TemplatedText, Text
 from youtubei.models.thumbnail import Thumbnails
-from youtubei.types import BrowseId, Dynamic, TrackingParams
+from youtubei.parse import Dynamic
+from youtubei.types import BrowseId, TrackingParams
 
 from .base import BaseModel
 

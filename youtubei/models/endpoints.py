@@ -13,7 +13,8 @@ from youtubei.models.actions import OpenPopupAction, SignalServiceAction
 from youtubei.models.contexts import LoggingContext
 from youtubei.models.metadata import CommandMetadata
 from youtubei.models.params import SkAdParameters
-from youtubei.types import BrowseId, ClickTrackingParams, Dynamic
+from youtubei.parse import Dynamic
+from youtubei.types import BrowseId, ClickTrackingParams
 
 from .base import BaseModel
 
