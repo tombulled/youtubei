@@ -1,5 +1,6 @@
-from youtubei import WEB_REMIX
 from rich.pretty import pprint
+
+from youtubei import WEB_REMIX
 
 guide = WEB_REMIX.guide()
 

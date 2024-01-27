@@ -1,17 +1,8 @@
-from typing import Sequence, Union
-
-from typing_extensions import TypeAlias
+from typing import Sequence
 
 from youtubei.models.response import Response, ResponseContext
-from youtubei.parse import Dynamic
-from youtubei.renderers.guide import GuideSectionRenderer, GuideSigninPromoRenderer
 
-GuideItem: TypeAlias = Dynamic[
-    Union[
-        GuideSectionRenderer,
-        GuideSigninPromoRenderer,
-    ]
-]
+from .types import GuideItem
 
 
 class WebRemixResponseContext(ResponseContext):
