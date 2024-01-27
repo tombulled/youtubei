@@ -6,6 +6,7 @@ from youtubei.models.commands import Command
 from youtubei.models.endpoints import NavigationEndpoint, ServiceEndpoint
 from youtubei.models.other import Icon
 from youtubei.models.text import Text
+
 from ._base import BaseRenderer
 
 
@@ -20,4 +21,4 @@ class ButtonRenderer(BaseRenderer):
     accessibility: Optional[Accessibility] = None
     accessibility_data: Optional[Accessibility] = None
     target_id: Optional[TargetId] = None
-    command: Optional[Command] = None # HideEngagementPanelEndpoint
+    command: Optional[Command] = None  # HideEngagementPanelEndpoint

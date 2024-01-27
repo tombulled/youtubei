@@ -1,8 +1,8 @@
 from typing import Sequence, Union
 
 from typing_extensions import TypeAlias
-from youtubei.models.reminders import DataReminder
 
+from youtubei.models.reminders import DataReminder
 from youtubei.models.response import Response, ResponseContext
 from youtubei.renderers.guide import GuideSectionRenderer, GuideSigninPromoRenderer
 from youtubei.renderers.mobile import MobileTopbarRenderer

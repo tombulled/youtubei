@@ -1,4 +1,5 @@
 from typing import Optional
+
 from youtubei.models.endpoints import (
     ChangeEngagementPanelVisibilityAction,
     HideEngagementPanelEndpoint,
@@ -10,6 +11,7 @@ from youtubei.types import ClickTrackingParams
 
 from .base import BaseModel
 
+
 class Command(BaseModel):
     click_tracking_params: ClickTrackingParams
     # One of:
@@ -18,4 +20,6 @@ class Command(BaseModel):
     show_engagement_panel_endpoint: Optional[ShowEngagementPanelEndpoint] = None
     url_endpoint: Optional[UrlEndpoint] = None
     # Do actions belong here?
-    change_engagement_panel_visibility_action: Optional[ChangeEngagementPanelVisibilityAction] = None
+    change_engagement_panel_visibility_action: Optional[
+        ChangeEngagementPanelVisibilityAction
+    ] = None

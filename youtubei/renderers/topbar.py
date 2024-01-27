@@ -4,7 +4,8 @@ from youtubei.enums import TargetId
 from youtubei.models.other import Icon
 from youtubei.renderers.button import ButtonRenderer
 from youtubei.renderers.multi_page_menu import MultiPageMenuRenderer
-from youtubei.types import Dynamic, TrackingParams
+from youtubei.types import Dynamic
+
 from ._base import BaseRenderer
 
 

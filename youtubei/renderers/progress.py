@@ -3,6 +3,7 @@ from youtubei.models.other import (
     CompletionBehaviorDuration,
     ErrorBehaviorUntilPageOrContainerSelected,
 )
+
 from ._base import BaseRenderer
 
 

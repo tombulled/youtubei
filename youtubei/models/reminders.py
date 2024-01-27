@@ -5,5 +5,5 @@ from youtubei.types import Dynamic
 
 
 class DataReminder(BaseModel):
-    show_reminder_panel_command: Command # ShowEngagementPanelEndpoint
+    show_reminder_panel_command: Command  # ShowEngagementPanelEndpoint
     reminder_dialog: Dynamic[ConfirmDialogRenderer]

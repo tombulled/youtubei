@@ -4,6 +4,7 @@ from youtubei.models.text import ComplexText
 from youtubei.models.thumbnail import ThemedThumbnail
 from youtubei.renderers.button import ButtonRenderer
 from youtubei.types import Dynamic
+
 from ._base import BaseRenderer
 
 

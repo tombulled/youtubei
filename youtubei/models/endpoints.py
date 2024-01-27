@@ -65,6 +65,7 @@ class ChangeEngagementPanelVisibilityAction(BaseModel):
     target_id: TargetId
     visibility: EngagementPanelVisibility
 
+
 class HideEngagementPanelEndpoint(BaseModel):
     panel_identifier: str
 
@@ -120,7 +121,7 @@ class ServiceEndpoint(BaseModel):
 
 class ShowEngagementPanelEndpoint(BaseModel):
     panel_identifier: str
-    engagement_panel: Dynamic # EngagementPanelSectionListRenderer
+    engagement_panel: Dynamic  # EngagementPanelSectionListRenderer
 
 
 class SignInEndpoint(BaseModel):

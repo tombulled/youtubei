@@ -1,6 +1,7 @@
 from typing import Sequence, Union
 
-from youtubei.models.base import BaseModel
+from typing_extensions import TypeAlias
+
 from youtubei.models.text import Text
 from youtubei.renderers.button import ButtonRenderer
 from youtubei.renderers.topbar import (
@@ -8,20 +9,21 @@ from youtubei.renderers.topbar import (
     TopbarLogoRenderer,
     TopbarMenuButtonRenderer,
 )
-from youtubei.types import Dynamic, TrackingParams
+from youtubei.types import Dynamic
+
 from ._base import BaseRenderer
+
+TopbarButton: TypeAlias = Dynamic[
+    Union[
+        ButtonRenderer,
+        TopbarButtonRenderer,
+        TopbarMenuButtonRenderer,
+    ]
+]
 
 
 class MobileTopbarRenderer(BaseRenderer):
     placeholder_text: Text
-    buttons: Sequence[
-        Dynamic[
-            Union[
-                ButtonRenderer,
-                TopbarButtonRenderer,
-                TopbarMenuButtonRenderer,
-            ]
-        ]
-    ]
+    buttons: Sequence[TopbarButton]
     controls_cast_button: bool
     topbar_logo: Dynamic[TopbarLogoRenderer]

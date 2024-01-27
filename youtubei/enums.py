@@ -646,5 +646,6 @@ class WebPageType(_StrEnum):
     UNKNOWN: str = "WEB_PAGE_TYPE_UNKNOWN"
     WATCH: str = "WEB_PAGE_TYPE_WATCH"
 
+
 class WatchBreakType(_StrEnum):
     DATA_REMINDER = "WATCH_BREAK_TYPE_DATA_REMINDER"
