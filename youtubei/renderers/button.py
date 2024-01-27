@@ -6,10 +6,12 @@ from youtubei.models.commands import Command
 from youtubei.models.endpoints import NavigationEndpoint, ServiceEndpoint
 from youtubei.models.other import Icon
 from youtubei.models.text import Text
+from youtubei._registries import WEB_REMIX_REGISTRY
 
 from ._base import BaseRenderer
 
 
+@WEB_REMIX_REGISTRY
 class ButtonRenderer(BaseRenderer):
     service_endpoint: Optional[ServiceEndpoint] = None
     navigation_endpoint: Optional[NavigationEndpoint] = None

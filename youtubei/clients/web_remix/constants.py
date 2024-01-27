@@ -2,7 +2,7 @@ from typing import Final
 
 from innertube import InnerTube
 
-from youtubei.clients.web_remix.registry import WEB_REMIX_REGISTRY
+from youtubei._registries import WEB_REMIX_REGISTRY
 
 from .parser import WebRemixParser
 
