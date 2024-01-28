@@ -1,4 +1,4 @@
-from typing import Optional, Sequence
+from typing import Optional
 
 from youtubei._registries import IOS_REGISTRY
 from youtubei.enums import TargetId
@@ -20,8 +20,3 @@ class PivotBarItemRenderer(BaseRenderer):
     icon: Icon
     target_id: TargetId
     progress_indicator: Optional[Dynamic] = None
-
-
-@IOS_REGISTRY
-class PivotBarRenderer(BaseRenderer):
-    items: Sequence[Dynamic[PivotBarItemRenderer]]

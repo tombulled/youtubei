@@ -5,7 +5,7 @@ from typing_extensions import TypeAlias
 from youtubei.models.reminders import DataReminder
 from youtubei.models.response import Response, ResponseContext
 from youtubei.renderers.guide import GuideSectionRenderer, GuideSigninPromoRenderer
-from youtubei.renderers.mobile import MobileTopbarRenderer
+from youtubei.renderers.mobile_topbar import MobileTopbarRenderer
 from youtubei.renderers.pivot import PivotBarRenderer
 from youtubei.types import Dynamic
 
