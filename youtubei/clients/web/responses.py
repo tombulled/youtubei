@@ -4,8 +4,9 @@ from typing_extensions import TypeAlias
 
 from youtubei.models.base import BaseModel
 from youtubei.models.response import Response, ResponseContext
-from youtubei.renderers.guide import GuideSectionRenderer, GuideSigninPromoRenderer
-from youtubei.types import Dynamic
+from youtubei.parse import Dynamic
+from youtubei.renderers.guide_section import GuideSectionRenderer
+from youtubei.renderers.guide_signin_promo import GuideSigninPromoRenderer
 
 GuideSection: TypeAlias = Dynamic[GuideSectionRenderer]
 GuideSigninPromo: TypeAlias = Dynamic[GuideSigninPromoRenderer]

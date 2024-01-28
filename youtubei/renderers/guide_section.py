@@ -1,6 +1,6 @@
 from typing import Optional, Sequence
 
-from youtubei._registries import WEB_REMIX_REGISTRY
+from youtubei._registries import WEB_REGISTRY, WEB_REMIX_REGISTRY
 from youtubei.models.text import Text
 from youtubei.parse import Dynamic
 from youtubei.renderers.guide_entry import GuideEntryRenderer
@@ -8,6 +8,7 @@ from youtubei.renderers.guide_entry import GuideEntryRenderer
 from ._base import BaseRenderer
 
 
+@WEB_REGISTRY
 @WEB_REMIX_REGISTRY
 class GuideSectionRenderer(BaseRenderer):
     items: Sequence[Dynamic[GuideEntryRenderer]]

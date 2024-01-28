@@ -1,4 +1,8 @@
-from .parser import WebParser
-from .registry import WEB_REGISTRY
+from youtubei._registries import WEB_REGISTRY
 
-WEB_PARSER = WebParser(WEB_REGISTRY)
+from .constants import WEB_CLIENT, WEB_PARSER
+from .parser import WebParser
+from .responses import WebGuideResponse
+from .wrapper import Web
+
+WEB: Web = Web()
