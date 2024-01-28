@@ -1,5 +1,6 @@
 from youtubei.models.text import Text
 from youtubei.parse import Dynamic
+
 from ._base import BaseRenderer
 
 

@@ -1,10 +1,13 @@
 from typing import Optional, Sequence
+
 from youtubei.enums import EndscreenElementStyle
 from youtubei.models.endpoints import NavigationEndpoint
 from youtubei.models.text import Text
 from youtubei.models.thumbnail import Thumbnails
 from youtubei.parse import Dynamic
+
 from ._base import BaseRenderer
+
 
 class EndscreenElementRenderer(BaseRenderer):
     style: EndscreenElementStyle

@@ -1,9 +1,10 @@
 from typing import Optional, Sequence
+
 from youtubei.models.endpoints import ClickThroughEndpoint
 from youtubei.models.logging import AdLayoutLoggingData
 from youtubei.models.other import CsiParameter, Pings, SodarExtensionData
-
 from youtubei.parse import Dynamic
+
 from ._base import BaseRenderer
 
 

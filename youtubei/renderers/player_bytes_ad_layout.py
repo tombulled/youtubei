@@ -1,6 +1,8 @@
 from typing import Optional, Sequence
+
 from youtubei.models.ad import AdLayoutMetadata, LayoutTrigger
 from youtubei.parse import Dynamic
+
 from ._base import BaseRenderer
 
 

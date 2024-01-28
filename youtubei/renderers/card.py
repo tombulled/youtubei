@@ -1,6 +1,8 @@
 from typing import Sequence
+
 from youtubei.models.other import CardCueRange
 from youtubei.parse import Dynamic
+
 from ._base import BaseRenderer
 
 

@@ -1,6 +1,7 @@
 from typing import Sequence
 
 from youtubei.models.other import AudioTrack, CaptionTrack, TranslationLanguage
+
 from ._base import BaseRenderer
 
 

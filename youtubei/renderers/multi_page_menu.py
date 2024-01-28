@@ -7,6 +7,7 @@ from youtubei.renderers.privacy_tos_footer import PrivacyTosFooterRenderer
 
 from ._base import BaseRenderer
 
+
 @IOS_REGISTRY
 class MultiPageMenuRenderer(BaseRenderer):
     sections: Sequence[Dynamic[MultiPageMenuSectionRenderer]]

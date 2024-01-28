@@ -1,4 +1,5 @@
 from youtubei.models.text import TemplatedText
+
 from ._base import BaseRenderer
 
 

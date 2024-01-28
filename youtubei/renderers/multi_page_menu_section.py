@@ -1,4 +1,5 @@
 from typing import Sequence, Union
+
 from typing_extensions import TypeAlias
 
 from youtubei._registries import IOS_REGISTRY

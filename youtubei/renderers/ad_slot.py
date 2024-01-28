@@ -1,5 +1,7 @@
 from typing import Sequence
+
 from youtubei.models.ad import AdSlotMetadata, FulfillmentContent, SlotTrigger
+
 from ._base import BaseRenderer
 
 

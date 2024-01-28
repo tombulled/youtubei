@@ -1,5 +1,6 @@
 from youtubei.enums import ThumbnailOverlayTimeStatusStyle
 from youtubei.models.text import Text
+
 from ._base import BaseRenderer
 
 

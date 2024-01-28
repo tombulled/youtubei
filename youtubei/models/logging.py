@@ -20,4 +20,4 @@ class AdLayoutLoggingData(BaseModel):
 
 
 class AdSlotLoggingData(BaseModel):
-    serialized_slot_ad_serving_data_entry: str # base64-encoded
+    serialized_slot_ad_serving_data_entry: str  # base64-encoded

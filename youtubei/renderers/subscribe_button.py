@@ -1,8 +1,10 @@
 from typing import Sequence
+
 from youtubei.enums import SubscribeButtonType
 from youtubei.models.accessibility import Accessibility
 from youtubei.models.endpoints import ServiceEndpoint, SignInEndpoint
 from youtubei.models.text import Text
+
 from ._base import BaseRenderer
 
 

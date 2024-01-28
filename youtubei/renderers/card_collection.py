@@ -1,8 +1,10 @@
 from typing import Sequence
-from youtubei.models.text import Text
 
+from youtubei.models.text import Text
 from youtubei.parse import Dynamic
+
 from ._base import BaseRenderer
+
 
 class CardCollectionRenderer(BaseRenderer):
     cards: Sequence[Dynamic]  # CardRenderer

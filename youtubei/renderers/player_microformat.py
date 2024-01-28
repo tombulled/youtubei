@@ -1,9 +1,11 @@
 from datetime import datetime
 from typing import Sequence
+
 from youtubei.enums import Category, CountryCode
 from youtubei.models.other import Embed
 from youtubei.models.text import Text
 from youtubei.models.thumbnail import Thumbnails
+
 from ._base import BaseRenderer
 
 

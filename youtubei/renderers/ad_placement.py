@@ -1,6 +1,7 @@
 from youtubei.models.logging import AdSlotLoggingData
 from youtubei.models.other import HasAdPlacementConfig
 from youtubei.parse import Dynamic
+
 from ._base import BaseRenderer
 
 

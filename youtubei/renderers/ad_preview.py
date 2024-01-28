@@ -1,8 +1,9 @@
 from typing import Optional
+
 from youtubei.models.other import AdTemplatedCountdown
 from youtubei.models.text import Text
-
 from youtubei.models.thumbnail import AdThumbnail
+
 from ._base import BaseRenderer
 
 

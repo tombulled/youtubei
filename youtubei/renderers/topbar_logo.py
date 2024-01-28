@@ -3,6 +3,7 @@ from youtubei.models.other import Icon
 
 from ._base import BaseRenderer
 
+
 @IOS_REGISTRY
 class TopbarLogoRenderer(BaseRenderer):
     icon_image: Icon
