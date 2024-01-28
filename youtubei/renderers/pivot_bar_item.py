@@ -11,7 +11,9 @@ from youtubei.parse import Dynamic
 from ._base import BaseRenderer
 
 from youtubei._registries import ANDROID_REGISTRY
+from youtubei._registries import IOS_MUSIC_REGISTRY
 
+@IOS_MUSIC_REGISTRY
 @ANDROID_REGISTRY
 @IOS_REGISTRY
 class PivotBarItemRenderer(BaseRenderer):
