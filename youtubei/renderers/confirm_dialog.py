@@ -1,4 +1,4 @@
-from typing import Sequence
+from typing import Optional, Sequence
 
 from youtubei.models.text import ComplexText
 from youtubei.parse import Dynamic
@@ -8,7 +8,8 @@ from ._base import BaseRenderer
 
 
 class ConfirmDialogRenderer(BaseRenderer):
-    title: ComplexText
+    title: Optional[ComplexText] = None
     dialog_messages: Sequence[ComplexText]
     confirm_button: Dynamic[ButtonRenderer]
     cancel_button: Dynamic[ButtonRenderer]
+    primary_is_cancel: Optional[bool] = None

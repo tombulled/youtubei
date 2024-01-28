@@ -106,10 +106,6 @@ class AdPlacementConfig(BaseModel):
     hide_cue_range_marker: bool
 
 
-class AdSlotLoggingData(BaseModel):
-    serialized_slot_ad_serving_data_entry: str  # base64-encoded
-
-
 class HasAdPlacementConfig(BaseModel):
     ad_placement_config: AdPlacementConfig
 
