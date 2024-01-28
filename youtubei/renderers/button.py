@@ -1,6 +1,6 @@
 from typing import Optional
 
-from youtubei._registries import IOS_REGISTRY, WEB_REMIX_REGISTRY
+from youtubei._registries import ANDROID_REGISTRY, IOS_REGISTRY, WEB_REMIX_REGISTRY
 from youtubei.enums import Size, Style, TargetId
 from youtubei.models.accessibility import Accessibility
 from youtubei.models.commands import Command
@@ -10,7 +10,6 @@ from youtubei.models.text import Text
 
 from ._base import BaseRenderer
 
-from youtubei._registries import ANDROID_REGISTRY
 
 @ANDROID_REGISTRY
 @IOS_REGISTRY

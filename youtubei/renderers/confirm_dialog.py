@@ -1,12 +1,12 @@
 from typing import Optional, Sequence
 
+from youtubei._registries import ANDROID_REGISTRY
 from youtubei.models.text import ComplexText
 from youtubei.parse import Dynamic
 from youtubei.renderers.button import ButtonRenderer
 
 from ._base import BaseRenderer
 
-from youtubei._registries import ANDROID_REGISTRY
 
 @ANDROID_REGISTRY
 class ConfirmDialogRenderer(BaseRenderer):

@@ -1,6 +1,6 @@
 from typing import Optional
 
-from youtubei._registries import IOS_REGISTRY
+from youtubei._registries import ANDROID_REGISTRY, IOS_MUSIC_REGISTRY, IOS_REGISTRY
 from youtubei.enums import TargetId
 from youtubei.models.accessibility import Accessibility
 from youtubei.models.endpoints import NavigationEndpoint
@@ -10,8 +10,6 @@ from youtubei.parse import Dynamic
 
 from ._base import BaseRenderer
 
-from youtubei._registries import ANDROID_REGISTRY
-from youtubei._registries import IOS_MUSIC_REGISTRY
 
 @IOS_MUSIC_REGISTRY
 @ANDROID_REGISTRY

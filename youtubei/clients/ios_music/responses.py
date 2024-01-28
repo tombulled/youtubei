@@ -4,8 +4,8 @@ from typing_extensions import TypeAlias
 
 from youtubei.models.base import BaseModel
 from youtubei.models.response import Response, ResponseContext
-from youtubei.renderers.pivot_bar import PivotBarRenderer
 from youtubei.parse import Dynamic
+from youtubei.renderers.pivot_bar import PivotBarRenderer
 
 GuideItem: TypeAlias = Dynamic[PivotBarRenderer]
 
