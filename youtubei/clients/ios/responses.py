@@ -1,7 +1,9 @@
 from typing import Sequence
-from .types import GuideItem
+
 from youtubei.models.other import HasNotificationResponseConfig
 from youtubei.models.response import Response, ResponseContext
+
+from .types import GuideItem
 
 
 class IosResponseContext(ResponseContext):

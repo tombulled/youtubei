@@ -16,7 +16,7 @@ class WebRemix:
 
     def __repr__(self) -> str:
         client_version: str = self.client.adaptor.context.client_version
-        
+
         return f"{type(self).__name__}({client_version!r})"
 
     def guide(self) -> WebRemixGuideResponse:

@@ -1,11 +1,11 @@
-from youtubei.models.base import BaseModel
+from youtubei._registries import IOS_REGISTRY
 from youtubei.models.other import (
     CompletionBehaviorDuration,
     ErrorBehaviorUntilPageOrContainerSelected,
 )
-from youtubei._registries import IOS_REGISTRY
 
 from ._base import BaseRenderer
+
 
 @IOS_REGISTRY
 class UploadProgressArrowRenderer(BaseRenderer):

@@ -1,12 +1,12 @@
 from typing import Optional, Sequence
 
+from youtubei._registries import IOS_REGISTRY
 from youtubei.enums import TargetId
 from youtubei.models.accessibility import Accessibility
 from youtubei.models.endpoints import NavigationEndpoint
 from youtubei.models.other import Icon
 from youtubei.models.text import Text
 from youtubei.parse import Dynamic
-from youtubei._registries import IOS_REGISTRY
 
 from ._base import BaseRenderer
 

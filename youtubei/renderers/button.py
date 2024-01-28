@@ -1,14 +1,15 @@
 from typing import Optional
 
+from youtubei._registries import IOS_REGISTRY, WEB_REMIX_REGISTRY
 from youtubei.enums import Size, Style, TargetId
 from youtubei.models.accessibility import Accessibility
 from youtubei.models.commands import Command
 from youtubei.models.endpoints import NavigationEndpoint, ServiceEndpoint
 from youtubei.models.other import Icon
 from youtubei.models.text import Text
-from youtubei._registries import IOS_REGISTRY, WEB_REMIX_REGISTRY
 
 from ._base import BaseRenderer
+
 
 @IOS_REGISTRY
 @WEB_REMIX_REGISTRY

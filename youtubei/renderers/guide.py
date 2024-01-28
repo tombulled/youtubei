@@ -1,12 +1,11 @@
 from typing import Optional, Sequence
 
+from youtubei._registries import WEB_REMIX_REGISTRY
 from youtubei.models.accessibility import Accessibility
-from youtubei.models.base import BaseModel
 from youtubei.models.endpoints import NavigationEndpoint, ServiceEndpoint
 from youtubei.models.other import Icon
 from youtubei.models.text import Text
 from youtubei.parse import Dynamic
-from youtubei._registries import WEB_REMIX_REGISTRY
 from youtubei.renderers.button import ButtonRenderer
 
 from ._base import BaseRenderer

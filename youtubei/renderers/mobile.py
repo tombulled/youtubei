@@ -2,6 +2,7 @@ from typing import Sequence, Union
 
 from typing_extensions import TypeAlias
 
+from youtubei._registries import IOS_REGISTRY
 from youtubei.models.text import Text
 from youtubei.parse import Dynamic
 from youtubei.renderers.button import ButtonRenderer
@@ -11,7 +12,6 @@ from youtubei.renderers.topbar import (
     TopbarMenuButtonRenderer,
 )
 
-from youtubei._registries import IOS_REGISTRY
 from ._base import BaseRenderer
 
 TopbarButton: TypeAlias = Dynamic[
@@ -21,6 +21,7 @@ TopbarButton: TypeAlias = Dynamic[
         TopbarMenuButtonRenderer,
     ]
 ]
+
 
 @IOS_REGISTRY
 class MobileTopbarRenderer(BaseRenderer):

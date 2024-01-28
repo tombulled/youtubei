@@ -1,9 +1,9 @@
+from youtubei._registries import IOS_REGISTRY
 from youtubei.models.other import BackgroundPromoStyle
 from youtubei.models.text import ComplexText
 from youtubei.models.thumbnail import ThemedThumbnail
 from youtubei.parse import Dynamic
 from youtubei.renderers.button import ButtonRenderer
-from youtubei._registries import IOS_REGISTRY
 
 from ._base import BaseRenderer
 

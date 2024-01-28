@@ -1,5 +1,4 @@
 from youtubei.enums import ReelPlayerNavigationModel, ReelPlayerOverlayStyle
-from youtubei.models.base import BaseModel
 
 from ._base import BaseRenderer
 

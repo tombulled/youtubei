@@ -1,12 +1,13 @@
 from typing import Sequence, Union
 
+from youtubei._registries import IOS_REGISTRY
 from youtubei.parse import Dynamic
 from youtubei.renderers.background_promo import BackgroundPromoRenderer
 from youtubei.renderers.compact_link import CompactLinkRenderer
 from youtubei.renderers.privacy_tos_footer import PrivacyTosFooterRenderer
-from youtubei._registries import IOS_REGISTRY
 
 from ._base import BaseRenderer
+
 
 @IOS_REGISTRY
 class MultiPageMenuSectionRenderer(BaseRenderer):
@@ -18,6 +19,7 @@ class MultiPageMenuSectionRenderer(BaseRenderer):
             ]
         ]
     ]
+
 
 @IOS_REGISTRY
 class MultiPageMenuRenderer(BaseRenderer):
