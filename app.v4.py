@@ -1,7 +1,8 @@
 from rich.pretty import pprint
 
-from youtubei import WEB_REMIX
+import youtubei
 
-guide = WEB_REMIX.guide()
+guide = youtubei.IOS.guide()
+# guide = youtubei.WEB_REMIX.guide()
 
 pprint(guide)

@@ -1,4 +1,4 @@
-from .clients import WEB_REMIX
+from .clients import IOS, WEB_REMIX
 
 # from .android import ANDROID_PARSER as ANDROID
 # from .ios import IOS_PARSER as IOS

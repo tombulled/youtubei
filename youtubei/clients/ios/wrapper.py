@@ -2,24 +2,24 @@ from dataclasses import dataclass, field
 
 from innertube import InnerTube
 
-from .constants import WEB_REMIX_CLIENT, WEB_REMIX_PARSER
-from .parser import WebRemixParser
-from .responses import WebRemixGuideResponse
+from .constants import IOS_CLIENT, IOS_PARSER
+from .parser import IosParser
+from .responses import IosGuideResponse
 
-__all__ = ("WebRemix",)
+__all__ = ("Ios",)
 
 
 @dataclass
-class WebRemix:
-    parser: WebRemixParser = field(default=WEB_REMIX_PARSER)
-    client: InnerTube = field(default=WEB_REMIX_CLIENT)
+class Ios:
+    parser: IosParser = field(default=IOS_PARSER)
+    client: InnerTube = field(default=IOS_CLIENT)
 
     def __repr__(self) -> str:
         client_version: str = self.client.adaptor.context.client_version
         
         return f"{type(self).__name__}({client_version!r})"
 
-    def guide(self) -> WebRemixGuideResponse:
+    def guide(self) -> IosGuideResponse:
         response: dict = self.client.adaptor.dispatch("guide")
 
         return self.parser.guide(response)

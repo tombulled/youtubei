@@ -1,19 +1,7 @@
-from typing import Sequence, Union
-
-from typing_extensions import TypeAlias
-
+from typing import Sequence
+from .types import GuideItem
 from youtubei.models.other import HasNotificationResponseConfig
 from youtubei.models.response import Response, ResponseContext
-from youtubei.renderers.mobile import MobileTopbarRenderer
-from youtubei.renderers.pivot import PivotBarRenderer
-from youtubei.types import Dynamic
-
-GuideItem: TypeAlias = Dynamic[
-    Union[
-        PivotBarRenderer,
-        MobileTopbarRenderer,
-    ]
-]
 
 
 class IosResponseContext(ResponseContext):

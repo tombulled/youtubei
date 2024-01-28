@@ -11,6 +11,7 @@ from youtubei.renderers.topbar import (
     TopbarMenuButtonRenderer,
 )
 
+from youtubei._registries import IOS_REGISTRY
 from ._base import BaseRenderer
 
 TopbarButton: TypeAlias = Dynamic[
@@ -21,7 +22,7 @@ TopbarButton: TypeAlias = Dynamic[
     ]
 ]
 
-
+@IOS_REGISTRY
 class MobileTopbarRenderer(BaseRenderer):
     placeholder_text: Text
     buttons: Sequence[TopbarButton]

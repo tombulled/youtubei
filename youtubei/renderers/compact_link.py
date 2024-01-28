@@ -1,14 +1,13 @@
 from typing import Optional
 
-from youtubei.models.base import BaseModel
 from youtubei.models.endpoints import NavigationEndpoint
 from youtubei.models.other import Icon
 from youtubei.models.text import Text
-from youtubei.types import TrackingParams
+from youtubei._registries import IOS_REGISTRY
 
 from ._base import BaseRenderer
 
-
+@IOS_REGISTRY
 class CompactLinkRenderer(BaseRenderer):
     icon: Icon
     title: Text
