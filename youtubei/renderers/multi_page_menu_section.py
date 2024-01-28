@@ -8,6 +8,7 @@ from youtubei.renderers.background_promo import BackgroundPromoRenderer
 from youtubei.renderers.compact_link import CompactLinkRenderer
 
 from ._base import BaseRenderer
+from youtubei._registries import ANDROID_REGISTRY
 
 MultiPageMenuSectionItem: TypeAlias = Dynamic[
     Union[
@@ -17,6 +18,7 @@ MultiPageMenuSectionItem: TypeAlias = Dynamic[
 ]
 
 
+@ANDROID_REGISTRY
 @IOS_REGISTRY
 class MultiPageMenuSectionRenderer(BaseRenderer):
     items: Sequence[MultiPageMenuSectionItem]

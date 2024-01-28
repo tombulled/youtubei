@@ -10,7 +10,9 @@ from youtubei.parse import Dynamic
 
 from ._base import BaseRenderer
 
+from youtubei._registries import ANDROID_REGISTRY
 
+@ANDROID_REGISTRY
 @IOS_REGISTRY
 class PivotBarItemRenderer(BaseRenderer):
     pivot_identifier: str

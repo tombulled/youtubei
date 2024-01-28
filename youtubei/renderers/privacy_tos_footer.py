@@ -8,7 +8,9 @@ from youtubei.renderers.lugash_footer import LugashFooterRenderer
 
 from ._base import BaseRenderer
 
+from youtubei._registries import ANDROID_REGISTRY
 
+@ANDROID_REGISTRY
 @IOS_REGISTRY
 class PrivacyTosFooterRenderer(BaseRenderer):
     privacy_title: Text

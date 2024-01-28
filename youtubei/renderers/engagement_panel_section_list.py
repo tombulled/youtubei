@@ -6,7 +6,9 @@ from youtubei.renderers.section_list import SectionListRenderer
 
 from ._base import BaseRenderer
 
+from youtubei._registries import ANDROID_REGISTRY
 
+@ANDROID_REGISTRY
 class EngagementPanelSectionListRenderer(BaseRenderer):
     panel_identifier: str
     header: Dynamic[EngagementPanelTitleHeaderRenderer]

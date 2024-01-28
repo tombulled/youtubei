@@ -5,7 +5,9 @@ from youtubei.renderers.button import ButtonRenderer
 
 from ._base import BaseRenderer
 
+from youtubei._registries import ANDROID_REGISTRY
 
+@ANDROID_REGISTRY
 class WatchBreakRenderer(BaseRenderer):
     heading: ComplexText
     notice: ComplexText

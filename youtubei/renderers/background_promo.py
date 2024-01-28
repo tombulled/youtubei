@@ -7,7 +7,9 @@ from youtubei.renderers.button import ButtonRenderer
 
 from ._base import BaseRenderer
 
+from youtubei._registries import ANDROID_REGISTRY
 
+@ANDROID_REGISTRY
 @IOS_REGISTRY
 class BackgroundPromoRenderer(BaseRenderer):
     title: ComplexText

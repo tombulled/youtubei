@@ -1,20 +1,10 @@
-from typing import Sequence, Union
-
-from typing_extensions import TypeAlias
+from typing import Sequence
 
 from youtubei.models.reminders import DataReminder
 from youtubei.models.response import Response, ResponseContext
-from youtubei.renderers.guide import GuideSectionRenderer, GuideSigninPromoRenderer
-from youtubei.renderers.mobile_topbar import MobileTopbarRenderer
-from youtubei.renderers.pivot import PivotBarRenderer
-from youtubei.types import Dynamic
+from youtubei.parse import Dynamic
 
-GuideItem: TypeAlias = Dynamic[
-    Union[
-        PivotBarRenderer,
-        MobileTopbarRenderer,
-    ]
-]
+from .types import GuideItem
 
 
 class AndroidResponseContext(ResponseContext):

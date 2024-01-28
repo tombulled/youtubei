@@ -1,15 +1,10 @@
-from dataclasses import dataclass
-
-from youtubei.registry import Registry
+from youtubei.abc import ClientParser
 
 from .responses import AndroidGuideResponse
 
+__all__ = ("AndroidParser",)
 
-@dataclass
-class AndroidParser:
-    registry: Registry
 
-    def parse_guide(self, response, /) -> AndroidGuideResponse:
-        return AndroidGuideResponse.model_validate(
-            response, context={"registry": self.registry}
-        )
+class AndroidParser(ClientParser):
+    def guide(self, response, /) -> AndroidGuideResponse:
+        return self._parse(response, AndroidGuideResponse)
