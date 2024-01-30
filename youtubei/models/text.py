@@ -15,6 +15,8 @@ E.g:
 class Text(BaseModel):
     runs: Optional[TextRun] = None
     simple_text: Optional[str] = None
+
+I think YouTube might refer to "text" as a "FormattedString"
 """
 
 
