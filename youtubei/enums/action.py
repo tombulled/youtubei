@@ -1,5 +1,6 @@
 from ._other import _StrEnum
 
+
 class Action(_StrEnum):
     UNKNOWN = "ACTION_UNKNOWN"
     ADD = "ACTION_ADD"

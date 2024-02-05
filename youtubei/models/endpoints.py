@@ -1,62 +1,47 @@
-from typing import Optional, Sequence
+from typing import Optional, Union
 
-from youtubei.enums import (
-    EngagementPanelVisibility,
-    MusicPageType,
-    ReelWatchInputType,
-    ReelWatchSequenceProvider,
-    SignalServiceSignal,
-    Target,
-    TargetId,
-)
-from youtubei.models.actions import OpenPopupAction, SignalServiceAction
-from youtubei.models.contexts import LoggingContext
-from youtubei.models.metadata import CommandMetadata
-from youtubei.models.params import SkAdParameters
-from youtubei.parse import Dynamic
-from youtubei.types import BrowseId, ClickTrackingParams
+from typing_extensions import TypeAlias
+
+from youtubei.types import BrowseId
 
 from .base import BaseModel
 
 
-class AppStoreEndpoint(BaseModel):
-    app_id: str
-    sk_ad_parameters: Optional[SkAdParameters] = None
-    referrer: Optional[str] = None
-    android_deep_link: Optional[str] = None
-    android_overlay: Optional[bool] = None
+class AdFeedbackEndpoint(BaseModel):
+    pass
 
 
-# class AndroidAppFallbackEndpoint(BaseModel):
-#     click_tracking_params: ClickTrackingParams
-#     app_store_endpoint: AppStoreEndpoint
+class AdInfoDialogEndpoint(BaseModel):
+    pass
 
 
-class AndroidAppEndpoint(BaseModel):
-    android_package_name: str
-    android_class_name: str
-    fallback_endpoint: AndroidAppFallbackEndpoint
+class AdPingingEndpoint(BaseModel):
+    pass
 
 
-class ApplicationHelpEndpoint(BaseModel):
-    show_feedback: bool
+class AddToPlaylistEndpoint(BaseModel):
+    pass
 
 
-class ApplicationSettingsEndpoint(BaseModel):
-    hack: bool
+class AddToPlaylistServiceEndpoint(BaseModel):
+    pass
 
 
-class BrowseEndpointContextMusicConfig(BaseModel):
-    page_type: MusicPageType
+class AddUpcomingEventReminderEndpoint(BaseModel):
+    pass
 
 
-class BrowseEndpointContextSupportedConfigs(BaseModel):
-    browse_endpoint_context_music_config: BrowseEndpointContextMusicConfig
+class BackstageImageUploadEndpoint(BaseModel):
+    pass
 
 
 class BrowseEndpoint(BaseModel):
     browse_id: BrowseId
     params: Optional[str] = None
+
+    # canonicalBaseUrl
+    # query
+    # nofollow
 
     # Note: this looks like it should be Dynamic?
     browse_endpoint_context_supported_configs: Optional[
@@ -64,111 +49,478 @@ class BrowseEndpoint(BaseModel):
     ] = None
 
 
-class ChangeEngagementPanelVisibilityAction(BaseModel):
-    target_id: TargetId
-    visibility: EngagementPanelVisibility
+class CaptionPickerEndpoint(BaseModel):
+    pass
+
+
+class ChannelCreationFormEndpoint(BaseModel):
+    pass
+
+
+class ChannelCreationServiceEndpoint(BaseModel):
+    pass
+
+
+class ChannelThumbnailEndpoint(BaseModel):
+    pass
+
+
+class ClaimLegacyYoutubeChannelEndpoint(BaseModel):
+    pass
+
+
+class ClearSearchHistoryEndpoint(BaseModel):
+    pass
+
+
+class ClearWatchHistoryEndpoint(BaseModel):
+    pass
+
+
+class ConfirmDialogEndpoint(BaseModel):
+    pass
+
+
+class CopyTextEndpoint(BaseModel):
+    pass
+
+
+class CreateBackstagePostDialogEndpoint(BaseModel):
+    pass
+
+
+class CreateBackstagePostEndpoint(BaseModel):
+    pass
+
+
+class CreateCommentEndpoint(BaseModel):
+    pass
+
+
+class CreateCommentReplyDialogEndpoint(BaseModel):
+    pass
+
+
+class CreateCommentReplyEndpoint(BaseModel):
+    pass
+
+
+class CreateLiveChatPollEndpoint(BaseModel):
+    pass
+
+
+class CreatePlaylistServiceEndpoint(BaseModel):
+    pass
+
+
+class CrossAccountChannelTransferEndpoint(BaseModel):
+    pass
+
+
+class DecorateMessageEndpoint(BaseModel):
+    pass
+
+
+class DeletePlaylistEndpoint(BaseModel):
+    pass
+
+
+class DismissalEndpoint(BaseModel):
+    pass
+
+
+class FeedbackEndpoint(BaseModel):
+    pass
+
+
+class FlagEndpoint(BaseModel):
+    pass
+
+
+class GetAccountSwitcherEndpoint(BaseModel):
+    pass
+
+
+class GetAccountsListEndpoint(BaseModel):
+    pass
+
+
+class GetAccountsListInnertubeEndpoint(BaseModel):
+    pass
+
+
+class GetNotificationMenuEndpoint(BaseModel):
+    pass
+
+
+class GetPostVideoPreviewEndpoint(BaseModel):
+    pass
+
+
+class GetReportFormEndpoint(BaseModel):
+    pass
+
+
+class GetTranscriptEndpoint(BaseModel):
+    pass
 
 
 class HideEngagementPanelEndpoint(BaseModel):
-    panel_identifier: str
+    pass
 
 
-# class IosApplicationFallbackEndpoint(BaseModel):
-#     click_tracking_params: ClickTrackingParams
-#     app_store_endpoint: AppStoreEndpoint
+class LikeEndpoint(BaseModel):
+    pass
 
 
-class IosApplicationEndpoint(BaseModel):
-    external_app_url: str
-    fallback_endpoint: IosApplicationFallbackEndpoint
+class LiveChatActionEndpoint(BaseModel):
+    pass
+
+
+class LiveChatEndpoint(BaseModel):
+    pass
+
+
+class LiveChatItemContextMenuEndpoint(BaseModel):
+    pass
+
+
+class LiveChatPurchaseMessageEndpoint(BaseModel):
+    pass
+
+
+class LiveChatReplayEndpoint(BaseModel):
+    pass
+
+
+class ManageLiveChatUserEndpoint(BaseModel):
+    pass
+
+
+class MenuEndpoint(BaseModel):
+    pass
+
+
+class ModalEndpoint(BaseModel):
+    pass
+
+
+class ModerateLiveChatEndpoint(BaseModel):
+    pass
+
+
+class ModifyChannelNotificationPreferenceEndpoint(BaseModel):
+    pass
+
+
+class NotificationOptOutEndpoint(BaseModel):
+    pass
+
+
+class PerformCommentActionEndpoint(BaseModel):
+    pass
+
+
+class PhoneDialerEndpoint(BaseModel):
+    pass
+
+
+class PingingEndpoint(BaseModel):
+    pass
+
+
+class PlaylistEditEndpoint(BaseModel):
+    pass
+
+
+class PlaylistEditorEndpoint(BaseModel):
+    pass
+
+
+class RecordNotificationInteractionsEndpoint(BaseModel):
+    pass
+
+
+class ReelNonVideoContentEndpoint(BaseModel):
+    pass
 
 
 class ReelWatchEndpoint(BaseModel):
-    player_params: str
-    overlay: Dynamic
-    params: str
-    sequence_provider: ReelWatchSequenceProvider
-    input_type: ReelWatchInputType
-    logging_context: LoggingContext
-    ustreamer_config: str
+    pass
+
+
+class RefreshPanelEndpoint(BaseModel):
+    pass
+
+
+class RemoveUpcomingEventReminderEndpoint(BaseModel):
+    pass
+
+
+class ScrollToSectionEndpoint(BaseModel):
+    pass
 
 
 class SearchEndpoint(BaseModel):
-    query: str
+    pass
 
 
-class SignalServiceEndpoint(BaseModel):
-    signal: SignalServiceSignal
-    actions: Sequence[SignalServiceAction]
+class SelectActiveIdentityEndpoint(BaseModel):
+    pass
 
 
-class SubscribeEndpoint(BaseModel):
-    channel_ids: Sequence[str]
-    params: str
+class SendLiveChatMessageEndpoint(BaseModel):
+    pass
 
 
-class UnsubscribeEndpoint(BaseModel):
-    channel_ids: Sequence[str]
-    params: str
+class SendLiveChatVoteEndpoint(BaseModel):
+    pass
 
 
-# class ServiceEndpoint(BaseModel):
-#     click_tracking_params: str
-#     command_metadata: Optional[CommandMetadata] = None
-#     signal_service_endpoint: Optional[SignalServiceEndpoint] = None
-#     reel_watch_endpoint: Optional[ReelWatchEndpoint] = None
-#     subscribe_endpoint: Optional[SubscribeEndpoint] = None
-#     unsubscribe_endpoint: Optional[UnsubscribeEndpoint] = None
-#     open_popup_action: Optional[OpenPopupAction] = None
+class SendSmsEndpoint(BaseModel):
+    pass
+
+
+class SetSettingEndpoint(BaseModel):
+    pass
+
+
+class ShareEntityServiceEndpoint(BaseModel):
+    pass
 
 
 class ShowEngagementPanelEndpoint(BaseModel):
-    panel_identifier: str
-    engagement_panel: Dynamic  # EngagementPanelSectionListRenderer
+    pass
 
 
-# class SignInEndpoint(BaseModel):
-#     click_tracking_params: Optional[str] = None
-#     command_metadata: Optional[CommandMetadata] = None
-#     hack: Optional[bool] = None
+class SignInEndpoint(BaseModel):
+    pass
+
+
+class SignOutEndpoint(BaseModel):
+    pass
+
+
+class SignalServiceEndpoint(BaseModel):
+    pass
+
+
+class SubscribeEndpoint(BaseModel):
+    pass
+
+
+class UndoFeedbackEndpoint(BaseModel):
+    pass
+
+
+class UnlimitedCreateFamilyEndpoint(BaseModel):
+    pass
+
+
+class UnsubscribeEndpoint(BaseModel):
+    pass
+
+
+class UpdateBackstagePostEndpoint(BaseModel):
+    pass
+
+
+class UpdateChannelPageSettingsEndpoint(BaseModel):
+    pass
+
+
+class UpdateCommentDialogEndpoint(BaseModel):
+    pass
+
+
+class UpdateCommentEndpoint(BaseModel):
+    pass
+
+
+class UpdateCommentReplyDialogEndpoint(BaseModel):
+    pass
+
+
+class UpdateCommentReplyEndpoint(BaseModel):
+    pass
+
+
+class UpdateCommentsSettingsEndpoint(BaseModel):
+    pass
+
+
+class UpdateKidsBlacklistEndpoint(BaseModel):
+    pass
+
+
+class UpdatedMetadataEndpoint(BaseModel):
+    pass
 
 
 class UrlEndpoint(BaseModel):
-    url: str
-    target: Optional[Target] = None
+    pass
+
+
+class UserFeedbackEndpoint(BaseModel):
+    pass
+
+
+class VerifyAgeEndpoint(BaseModel):
+    pass
 
 
 class WatchEndpoint(BaseModel):
-    video_id: str
-    playlist_id: Optional[str] = None
-    logging_context: Optional[LoggingContext] = None
+    pass
 
 
-class WebviewEndpoint(BaseModel):
-    url: str
+class WatchPlaylistEndpoint(BaseModel):
+    pass
 
 
-# class ClickThroughEndpoint(BaseModel):
-#     click_tracking_params: ClickTrackingParams
-#     url_endpoint: UrlEndpoint
+class WebPlayerShareEntityServiceEndpoint(BaseModel):
+    pass
 
 
-class YpcGetOfflineUpsellEndpoint(BaseModel):
-    params: str
+class WhitelistEditEndpoint(BaseModel):
+    pass
 
 
-# This is actually a "Command"
-# class NavigationEndpoint(BaseModel):
-#     click_tracking_params: str
-#     command_metadata: Optional[CommandMetadata] = None
-#     browse_endpoint: Optional[BrowseEndpoint] = None
-#     sign_in_endpoint: Optional[SignInEndpoint] = None
-#     url_endpoint: Optional[UrlEndpoint] = None
-#     search_endpoint: Optional[SearchEndpoint] = None
-#     application_settings_endpoint: Optional[ApplicationSettingsEndpoint] = None
-#     application_help_endpoint: Optional[ApplicationHelpEndpoint] = None
-#     ios_application_endpoint: Optional[IosApplicationEndpoint] = None
-#     ypc_get_offline_upsell_endpoint: Optional[YpcGetOfflineUpsellEndpoint] = None
-#     android_app_endpoint: Optional[AndroidAppEndpoint] = None
-#     # Unconfirmed endpoints
-#     watch_endpoint: Optional[WatchEndpoint] = None
+class YpcCancelRecurrenceEndpoint(BaseModel):
+    pass
+
+
+class YpcCompleteTransactionEndpoint(BaseModel):
+    pass
+
+
+class YpcGetCartEndpoint(BaseModel):
+    pass
+
+
+class YpcGetOffersEndpoint(BaseModel):
+    pass
+
+
+class YpcHandleTransactionEndpoint(BaseModel):
+    pass
+
+
+class YpcLogWalletAnalyticDataEndpoint(BaseModel):
+    pass
+
+
+class YpcOffersEndpoint(BaseModel):
+    pass
+
+
+class YpcRedeemCodeEndpoint(BaseModel):
+    pass
+
+
+class YpcUpdateFopEndpoint(BaseModel):
+    pass
+
+
+Endpoint: TypeAlias = Union[
+    AdFeedbackEndpoint,
+    AdInfoDialogEndpoint,
+    AdPingingEndpoint,
+    AddToPlaylistEndpoint,
+    AddToPlaylistServiceEndpoint,
+    AddUpcomingEventReminderEndpoint,
+    BackstageImageUploadEndpoint,
+    BrowseEndpoint,
+    CaptionPickerEndpoint,
+    ChannelCreationFormEndpoint,
+    ChannelCreationServiceEndpoint,
+    ChannelThumbnailEndpoint,
+    ClaimLegacyYoutubeChannelEndpoint,
+    ClearSearchHistoryEndpoint,
+    ClearWatchHistoryEndpoint,
+    ConfirmDialogEndpoint,
+    CopyTextEndpoint,
+    CreateBackstagePostDialogEndpoint,
+    CreateBackstagePostEndpoint,
+    CreateCommentEndpoint,
+    CreateCommentReplyDialogEndpoint,
+    CreateCommentReplyEndpoint,
+    CreateLiveChatPollEndpoint,
+    CreatePlaylistServiceEndpoint,
+    CrossAccountChannelTransferEndpoint,
+    DecorateMessageEndpoint,
+    DeletePlaylistEndpoint,
+    DismissalEndpoint,
+    FeedbackEndpoint,
+    FlagEndpoint,
+    GetAccountSwitcherEndpoint,
+    GetAccountsListEndpoint,
+    GetAccountsListInnertubeEndpoint,
+    GetNotificationMenuEndpoint,
+    GetPostVideoPreviewEndpoint,
+    GetReportFormEndpoint,
+    GetTranscriptEndpoint,
+    HideEngagementPanelEndpoint,
+    LikeEndpoint,
+    LiveChatActionEndpoint,
+    LiveChatEndpoint,
+    LiveChatItemContextMenuEndpoint,
+    LiveChatPurchaseMessageEndpoint,
+    LiveChatReplayEndpoint,
+    ManageLiveChatUserEndpoint,
+    MenuEndpoint,
+    ModalEndpoint,
+    ModerateLiveChatEndpoint,
+    ModifyChannelNotificationPreferenceEndpoint,
+    NotificationOptOutEndpoint,
+    PerformCommentActionEndpoint,
+    PhoneDialerEndpoint,
+    PingingEndpoint,
+    PlaylistEditEndpoint,
+    PlaylistEditorEndpoint,
+    RecordNotificationInteractionsEndpoint,
+    ReelNonVideoContentEndpoint,
+    ReelWatchEndpoint,
+    RefreshPanelEndpoint,
+    RemoveUpcomingEventReminderEndpoint,
+    ScrollToSectionEndpoint,
+    SearchEndpoint,
+    SelectActiveIdentityEndpoint,
+    SendLiveChatMessageEndpoint,
+    SendLiveChatVoteEndpoint,
+    SendSmsEndpoint,
+    SetSettingEndpoint,
+    ShareEntityServiceEndpoint,
+    ShowEngagementPanelEndpoint,
+    SignInEndpoint,
+    SignOutEndpoint,
+    SignalServiceEndpoint,
+    SubscribeEndpoint,
+    UndoFeedbackEndpoint,
+    UnlimitedCreateFamilyEndpoint,
+    UnsubscribeEndpoint,
+    UpdateBackstagePostEndpoint,
+    UpdateChannelPageSettingsEndpoint,
+    UpdateCommentDialogEndpoint,
+    UpdateCommentEndpoint,
+    UpdateCommentReplyDialogEndpoint,
+    UpdateCommentReplyEndpoint,
+    UpdateCommentsSettingsEndpoint,
+    UpdateKidsBlacklistEndpoint,
+    UpdatedMetadataEndpoint,
+    UrlEndpoint,
+    UserFeedbackEndpoint,
+    VerifyAgeEndpoint,
+    WatchEndpoint,
+    WatchPlaylistEndpoint,
+    WebPlayerShareEntityServiceEndpoint,
+    WhitelistEditEndpoint,
+    YpcCancelRecurrenceEndpoint,
+    YpcCompleteTransactionEndpoint,
+    YpcGetCartEndpoint,
+    YpcGetOffersEndpoint,
+    YpcHandleTransactionEndpoint,
+    YpcLogWalletAnalyticDataEndpoint,
+    YpcOffersEndpoint,
+    YpcRedeemCodeEndpoint,
+    YpcUpdateFopEndpoint,
+]

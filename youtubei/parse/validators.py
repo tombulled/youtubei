@@ -20,7 +20,7 @@ def validate_dynamic(
 
     if not isinstance(obj, Mapping):
         return obj
-    
+
     assert len(obj) == 1, obj
 
     key, value = first_entry(obj)

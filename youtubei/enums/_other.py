@@ -11,7 +11,7 @@ __all__ = (
     "ReelWatchSequenceProvider",
     "Service",
     "SharePanelType",
-    "SignalActionSignal",
+    "Signal",
     "SignalServiceSignal",
     "Size",
     "Style",
@@ -563,12 +563,8 @@ class SharePanelType(Enum):
 
 
 # E.g., {"signalAction": {"signal": "HELP"}}
-class SignalActionSignal(_StrEnum):
+class Signal(_StrEnum):
     HELP: str = "HELP"
-
-
-# E.g., {"signalServiceEndpoint": {"signal": "CLIENT_SIGNAL"}}
-class SignalServiceSignal(_StrEnum):
     CLIENT_SIGNAL: str = "CLIENT_SIGNAL"
 
 
