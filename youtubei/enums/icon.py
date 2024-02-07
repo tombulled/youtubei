@@ -1,5 +1,7 @@
 from ._other import _StrEnum
 
+__all__ = ("IconType",)
+
 
 class IconType(_StrEnum):
     UNKNOWN = "UNKNOWN"

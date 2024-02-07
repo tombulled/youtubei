@@ -73,7 +73,7 @@ class HideEngagementPanelEndpoint(BaseModel):
 
 class IosApplicationEndpoint(BaseModel):
     external_app_url: str
-    fallback_endpoint: IosApplicationFallbackEndpoint
+    fallback_endpoint: Command  # AppStoreEndpoint
 
 
 class ReelWatchEndpoint(BaseModel):
@@ -111,25 +111,9 @@ class UnsubscribeEndpoint(BaseModel):
     params: str
 
 
-# class ServiceEndpoint(BaseModel):
-#     click_tracking_params: str
-#     command_metadata: Optional[CommandMetadata] = None
-#     signal_service_endpoint: Optional[SignalServiceEndpoint] = None
-#     reel_watch_endpoint: Optional[ReelWatchEndpoint] = None
-#     subscribe_endpoint: Optional[SubscribeEndpoint] = None
-#     unsubscribe_endpoint: Optional[UnsubscribeEndpoint] = None
-#     open_popup_action: Optional[OpenPopupAction] = None
-
-
 class ShowEngagementPanelEndpoint(BaseModel):
     panel_identifier: str
     engagement_panel: Dynamic  # EngagementPanelSectionListRenderer
-
-
-# class SignInEndpoint(BaseModel):
-#     click_tracking_params: Optional[str] = None
-#     command_metadata: Optional[CommandMetadata] = None
-#     hack: Optional[bool] = None
 
 
 class UrlEndpoint(BaseModel):
@@ -147,27 +131,5 @@ class WebviewEndpoint(BaseModel):
     url: str
 
 
-# class ClickThroughEndpoint(BaseModel):
-#     click_tracking_params: ClickTrackingParams
-#     url_endpoint: UrlEndpoint
-
-
 class YpcGetOfflineUpsellEndpoint(BaseModel):
     params: str
-
-
-# This is actually a "Command"
-# class NavigationEndpoint(BaseModel):
-#     click_tracking_params: str
-#     command_metadata: Optional[CommandMetadata] = None
-#     browse_endpoint: Optional[BrowseEndpoint] = None
-#     sign_in_endpoint: Optional[SignInEndpoint] = None
-#     url_endpoint: Optional[UrlEndpoint] = None
-#     search_endpoint: Optional[SearchEndpoint] = None
-#     application_settings_endpoint: Optional[ApplicationSettingsEndpoint] = None
-#     application_help_endpoint: Optional[ApplicationHelpEndpoint] = None
-#     ios_application_endpoint: Optional[IosApplicationEndpoint] = None
-#     ypc_get_offline_upsell_endpoint: Optional[YpcGetOfflineUpsellEndpoint] = None
-#     android_app_endpoint: Optional[AndroidAppEndpoint] = None
-#     # Unconfirmed endpoints
-#     watch_endpoint: Optional[WatchEndpoint] = None

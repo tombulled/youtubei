@@ -44,9 +44,9 @@ class BrowseEndpoint(BaseModel):
     # nofollow
 
     # Note: this looks like it should be Dynamic?
-    browse_endpoint_context_supported_configs: Optional[
-        BrowseEndpointContextSupportedConfigs
-    ] = None
+    # browse_endpoint_context_supported_configs: Optional[
+    #     BrowseEndpointContextSupportedConfigs
+    # ] = None
 
 
 class CaptionPickerEndpoint(BaseModel):

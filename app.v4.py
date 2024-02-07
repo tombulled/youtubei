@@ -42,6 +42,10 @@ Notes:
         Note: This is not exhaustive (e.g. no guide items?)
     * desktop_polymer.js looks more valuable than base.js
     * List (all?) known renderers/models using: grep -Po "(?<=new fl\(').+(?='\);)"  resources/desktop_polymer.js
+    * "Actions" are potentially Redux actions
+    * Commands can contain endpoints and actions
+    * Endpoints can contain actions
+    * serviceEndpoint's are commands that contain an endpoint!
 """
 
 # guide = youtubei.ANDROID.guide()

@@ -1,6 +1,7 @@
-from typing import Any, Mapping
+from dataclasses import dataclass
+from typing import Any, Collection, Mapping, Sequence, Tuple, Type
 
-from pydantic import TypeAdapter, ValidationInfo
+from pydantic import BaseModel, TypeAdapter, ValidationInfo
 
 from .constants import CONTEXT_KEY_REGISTRY, DEFAULT_REGISTRY
 from .exceptions import RegistryException
@@ -34,3 +35,47 @@ def validate_dynamic(
         value,
         context=validation_info.context,
     )
+
+
+@dataclass
+class ContainerValidator:
+    container_cls: Type[BaseModel]
+    field: str
+    suffixes: Collection[str]
+
+    def __call__(
+        self,
+        obj: Any,
+        validation_info: ValidationInfo,
+    ) -> Any:
+        print("Validating:", self, obj, validation_info)
+
+        registry: RegistryMapping = (validation_info.context or {}).get(
+            CONTEXT_KEY_REGISTRY, DEFAULT_REGISTRY
+        )
+
+        if not isinstance(obj, Mapping):
+            return obj
+
+        rich_matches: Sequence[Tuple[str, str]] = [
+            (key, suffix.lower())
+            for key in obj
+            for suffix in self.suffixes
+            if key.lower().endswith(suffix.lower())
+        ]
+
+        assert len(rich_matches) == 1
+
+        rich_key, suffix = rich_matches[0]
+        rich_value = obj[rich_key]
+        rich_obj = validate_dynamic({rich_key: rich_value}, validation_info)
+
+        new_obj = {key: value for key, value in obj.items() if key != rich_key}
+
+        new_obj[self.field] = rich_obj
+        # new_obj[suffix] = rich_obj
+
+        return self.container_cls.model_validate(
+            new_obj,
+            context=validation_info.context,
+        )
