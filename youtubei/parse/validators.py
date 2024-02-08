@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from typing import Any, Collection, Mapping, Sequence, Tuple, Type
+from typing import Any, Collection, Mapping, Sequence, Set, Tuple, Type
 
 from pydantic import BaseModel, TypeAdapter, ValidationInfo
 

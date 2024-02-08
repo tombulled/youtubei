@@ -37,30 +37,48 @@ class OpenDialogAction(BaseModel):
 #             return self.open_dialog_action
 #         return None
 
+# command: DynamicCommand[NavigationEndpoint]
 
 @registry
 class Response(BaseModel):
     # commands: Sequence[DynamicCommand[Union[NavigationEndpoint, OpenDialogAction]]]
     # commands: Sequence[DynamicCommand[NavigationEndpoint]]
-    commands: Sequence[DynamicCommand]
+    command: DynamicCommand[NavigationEndpoint]
+    # command: Command[NavigationEndpoint]
+    # commands: Sequence[DynamicCommand]
 
 
 raw_response = {
-    "commands": [
-        {
-            "tracking_params": "abc123",
-            "navigationEndpoint": {
-                "url": "http://localhost/",
-            },
-        },
-        # {
-        #     "tracking_params": "def456",
-        #     "openDialogAction": {
-        #         "message": "Ok!",
-        #     },
+    "command": {
+        "tracking_params": "abc123",
+        # "navigationEndpoint": {
+        #     "url": "http://localhost/",
         # },
-    ],
+        "openDialogAction": {
+            "message": "Ok!",
+        },
+        # "command": {
+        #     "message": "Ok!"
+        # }
+    },
 }
+
+# raw_response = {
+#     "commands": [
+#         {
+#             "tracking_params": "abc123",
+#             "navigationEndpoint": {
+#                 "url": "http://localhost/",
+#             },
+#         },
+#         # {
+#         #     "tracking_params": "def456",
+#         #     "openDialogAction": {
+#         #         "message": "Ok!",
+#         #     },
+#         # },
+#     ],
+# }
 
 response = parser.parse(raw_response, Response)
 

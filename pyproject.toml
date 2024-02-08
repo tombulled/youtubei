@@ -7,7 +7,7 @@ license = "MIT"
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.10"
 innertube = "^2.1.10"
 pyhumps = "^3.8.0"
 pydantic = "^2.5.3"
