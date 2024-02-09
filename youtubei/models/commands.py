@@ -128,488 +128,490 @@ __all__ = (
     "YpcResumeSubscriptionCommand",
 )
 
+class BaseCommand(BaseModel):
+    pass
 
-class AccountLinkCommand(BaseModel):
+class AccountLinkCommand(BaseCommand):
     pass
 
 
-class AccountLinkingStateChangedCommand(BaseModel):
+class AccountLinkingStateChangedCommand(BaseCommand):
     pass
 
 
-class AccountUnlinkCommand(BaseModel):
+class AccountUnlinkCommand(BaseCommand):
     pass
 
 
-class AcknowledgeChannelTouStrikeCommand(BaseModel):
+class AcknowledgeChannelTouStrikeCommand(BaseCommand):
     pass
 
 
-class AddFollowUpSurveyCommand(BaseModel):
+class AddFollowUpSurveyCommand(BaseCommand):
     pass
 
 
-class AdsControlFlowOpportunityReceivedCommand(BaseModel):
+class AdsControlFlowOpportunityReceivedCommand(BaseCommand):
     pass
 
 
-class AlertCommand(BaseModel):
+class AlertCommand(BaseCommand):
     pass
 
 
-class ChangeKeyedMarkersVisibilityCommand(BaseModel):
+class ChangeKeyedMarkersVisibilityCommand(BaseCommand):
     pass
 
 
-class ChangeMarkersVisibilityCommand(BaseModel):
+class ChangeMarkersVisibilityCommand(BaseCommand):
     pass
 
 
-class ChangeMiniAppPlayStateCommand(BaseModel):
+class ChangeMiniAppPlayStateCommand(BaseCommand):
     pass
 
 
-class ClearLocationCommand(BaseModel):
+class ClearLocationCommand(BaseCommand):
     pass
 
 
-class CommandExecutorCommand(BaseModel):
+class CommandExecutorCommand(BaseCommand):
     pass
 
 
-class CommerceActionCommand(BaseModel):
+class CommerceActionCommand(BaseCommand):
     pass
 
 
-class ContinuationCommand(BaseModel):
+class ContinuationCommand(BaseCommand):
     pass
 
 
-class CreateGpgProfileCommand(BaseModel):
+class CreateGpgProfileCommand(BaseCommand):
     pass
 
 
-class CreateImagePollCommand(BaseModel):
+class CreateImagePollCommand(BaseCommand):
     pass
 
 
-class CreateQuizCommand(BaseModel):
+class CreateQuizCommand(BaseCommand):
     pass
 
 
-class DeleteClipEngagementPanelCommand(BaseModel):
+class DeleteClipEngagementPanelCommand(BaseCommand):
     pass
 
 
-class DeleteLiveChatMessageCommand(BaseModel):
+class DeleteLiveChatMessageCommand(BaseCommand):
     pass
 
 
-class ElementsCommand(BaseModel):
+class ElementsCommand(BaseCommand):
     pass
 
 
-class EngagementPanelHeaderShowNavigationButtonCommand(BaseModel):
+class EngagementPanelHeaderShowNavigationButtonCommand(BaseCommand):
     pass
 
 
-class EntityUpdateCommand(BaseModel):
+class EntityUpdateCommand(BaseCommand):
     pass
 
 
-class FilterChipTransformCommand(BaseModel):
+class FilterChipTransformCommand(BaseCommand):
     pass
 
 
-class FlowNextStepCommand(BaseModel):
+class FlowNextStepCommand(BaseCommand):
     pass
 
 
-class FlowPrevStepCommand(BaseModel):
+class FlowPrevStepCommand(BaseCommand):
     pass
 
 
-class GetAnswerCommand(BaseModel):
+class GetAnswerCommand(BaseCommand):
     pass
 
 
-class GetCommentsFromInboxCommand(BaseModel):
+class GetCommentsFromInboxCommand(BaseCommand):
     pass
 
 
-class GetDownloadActionCommand(BaseModel):
+class GetDownloadActionCommand(BaseCommand):
     pass
 
 
-class GetFlowCommand(BaseModel):
+class GetFlowCommand(BaseCommand):
     pass
 
 
-class GetKidsBlocklistPickerCommand(BaseModel):
+class GetKidsBlocklistPickerCommand(BaseCommand):
     pass
 
 
-class GetLocationCommand(BaseModel):
+class GetLocationCommand(BaseCommand):
     pass
 
 
-class GetPaymentInstrumentsParamsCommand(BaseModel):
+class GetPaymentInstrumentsParamsCommand(BaseCommand):
     pass
 
 
-class GetPdgBuyFlowCommand(BaseModel):
+class GetPdgBuyFlowCommand(BaseCommand):
     pass
 
 
-class GetSearchInVideoCommand(BaseModel):
+class GetSearchInVideoCommand(BaseCommand):
     pass
 
 
-class GetSurveyCommand(BaseModel):
+class GetSurveyCommand(BaseCommand):
     pass
 
 
-class GooglePaymentBillingCommand(BaseModel):
+class GooglePaymentBillingCommand(BaseCommand):
     pass
 
 
-class HideItemSectionVideosByIdCommand(BaseModel):
+class HideItemSectionVideosByIdCommand(BaseCommand):
     pass
 
 
-class InnertubeCommand(BaseModel):
+class InnertubeCommand(BaseCommand):
     pass
 
 
-class InsertChannelTabCommand(BaseModel):
+class InsertChannelTabCommand(BaseCommand):
     pass
 
 
-class LoadMarkersCommand(BaseModel):
+class LoadMarkersCommand(BaseCommand):
     pass
 
 
-class LocationCollectionCommand(BaseModel):
+class LocationCollectionCommand(BaseCommand):
     pass
 
 
-class LogAccountLinkingEventCommand(BaseModel):
+class LogAccountLinkingEventCommand(BaseCommand):
     pass
 
 
-class LogFlowLoggingEventCommand(BaseModel):
+class LogFlowLoggingEventCommand(BaseCommand):
     pass
 
 
-class LogGtmCommand(BaseModel):
+class LogGtmCommand(BaseCommand):
     pass
 
 
-class LogYpcFlowDismissCommand(BaseModel):
+class LogYpcFlowDismissCommand(BaseCommand):
     pass
 
 
-class LogYpcFlowStartCommand(BaseModel):
+class LogYpcFlowStartCommand(BaseCommand):
     pass
 
 
-class LoopCommand(BaseModel):
+class LoopCommand(BaseCommand):
     pass
 
 
-class ManageLabsStateCommand(BaseModel):
+class ManageLabsStateCommand(BaseCommand):
     pass
 
 
-class MetadataUpdateCommand(BaseModel):
+class MetadataUpdateCommand(BaseCommand):
     pass
 
 
-class ModifyReportFormCommand(BaseModel):
+class ModifyReportFormCommand(BaseCommand):
     pass
 
 
-class MultipleInlinePlaybackCommand(BaseModel):
+class MultipleInlinePlaybackCommand(BaseCommand):
     pass
 
 
-class OfflineOrchestrationActionCommand(BaseModel):
+class OfflineOrchestrationActionCommand(BaseCommand):
     pass
 
 
-class OpenAdAllowlistInstructionCommand(BaseModel):
+class OpenAdAllowlistInstructionCommand(BaseCommand):
     pass
 
 
-class OpenOnePickAddVideoModalCommand(BaseModel):
+class OpenOnePickAddVideoModalCommand(BaseCommand):
     pass
 
 
-class OpenSuperStickerBuyFlowCommand(BaseModel):
+class OpenSuperStickerBuyFlowCommand(BaseCommand):
     pass
 
 
-class ParallelCommand(BaseModel):
+class ParallelCommand(BaseCommand):
     pass
 
 
-class PerformOnceCommand(BaseModel):
+class PerformOnceCommand(BaseCommand):
     pass
 
 
-class PersistSubscriptionsDisplayPreferencesCommand(BaseModel):
+class PersistSubscriptionsDisplayPreferencesCommand(BaseCommand):
     pass
 
 
-class PostWebToNativeMessageCommand(BaseModel):
+class PostWebToNativeMessageCommand(BaseCommand):
     pass
 
 
-class PrefetchWatchCommand(BaseModel):
+class PrefetchWatchCommand(BaseCommand):
     pass
 
 
-class ProfileCardCommand(BaseModel):
+class ProfileCardCommand(BaseCommand):
     pass
 
 
-class ReelNavigateCommand(BaseModel):
+class ReelNavigateCommand(BaseCommand):
     pass
 
 
-class ReelNonVideoContentDismissalCommand(BaseModel):
+class ReelNonVideoContentDismissalCommand(BaseCommand):
     pass
 
 
-class RegisterPromoCommand(BaseModel):
+class RegisterPromoCommand(BaseCommand):
     pass
 
 
-class RegisterTasksCommand(BaseModel):
+class RegisterTasksCommand(BaseCommand):
     pass
 
 
-class RelatedChipCommand(BaseModel):
+class RelatedChipCommand(BaseCommand):
     pass
 
 
-class ReloadContinuationItemsCommand(BaseModel):
+class ReloadContinuationItemsCommand(BaseCommand):
     pass
 
 
-class RepeatChapterCommand(BaseModel):
+class RepeatChapterCommand(BaseCommand):
     pass
 
 
-class ResetChannelUnreadCountCommand(BaseModel):
+class ResetChannelUnreadCountCommand(BaseCommand):
     pass
 
 
-class ResolveLocationCommand(BaseModel):
+class ResolveLocationCommand(BaseCommand):
     pass
 
 
-class RevealBusinessEmailCommand(BaseModel):
+class RevealBusinessEmailCommand(BaseCommand):
     pass
 
 
-class RunAttestationCommand(BaseModel):
+class RunAttestationCommand(BaseCommand):
     pass
 
 
-class ScrollToEngagementPanelCommand(BaseModel):
+class ScrollToEngagementPanelCommand(BaseCommand):
     pass
 
 
-class SelectChipCommand(BaseModel):
+class SelectChipCommand(BaseCommand):
     pass
 
 
-class SelectCountryCommand(BaseModel):
+class SelectCountryCommand(BaseCommand):
     pass
 
 
-class SelectLanguageCommand(BaseModel):
+class SelectLanguageCommand(BaseCommand):
     pass
 
 
-class SerialCommandserialCommand(BaseModel):
+class SerialCommandserialCommand(BaseCommand):
     pass
 
 
-class SetCookieCommand(BaseModel):
+class SetCookieCommand(BaseCommand):
     pass
 
 
-class SetLocalStorageCommand(BaseModel):
+class SetLocalStorageCommand(BaseCommand):
     pass
 
 
-class SetPrefStorageEntryCommand(BaseModel):
+class SetPrefStorageEntryCommand(BaseCommand):
     pass
 
 
-class SetPushNotificationsEnabledCommand(BaseModel):
+class SetPushNotificationsEnabledCommand(BaseCommand):
     pass
 
 
-class SettingsUpdateConnectedAppRendererCommand(BaseModel):
+class SettingsUpdateConnectedAppRendererCommand(BaseCommand):
     pass
 
 
-class ShowDialogCommand(BaseModel):
+class ShowDialogCommand(BaseCommand):
     pass
 
 
-class ShowDmaConsentFlowCommand(BaseModel):
+class ShowDmaConsentFlowCommand(BaseCommand):
     pass
 
 
-class ShowMiniplayerCommand(BaseModel):
+class ShowMiniplayerCommand(BaseCommand):
     pass
 
 
-class ShowMoreDrawerCommand(BaseModel):
+class ShowMoreDrawerCommand(BaseCommand):
     pass
 
 
-class ShowReelsCommentsOverlayCommand(BaseModel):
+class ShowReelsCommentsOverlayCommand(BaseCommand):
     pass
 
 
-class ShowReloadUiCommand(BaseModel):
+class ShowReloadUiCommand(BaseCommand):
     pass
 
 
-class ShowSchedulingPanelCommand(BaseModel):
+class ShowSchedulingPanelCommand(BaseCommand):
     pass
 
 
-class ShowSheetCommand(BaseModel):
+class ShowSheetCommand(BaseCommand):
     pass
 
 
-class ShowSponsorshipsGiftOfferDialogCommand(BaseModel):
+class ShowSponsorshipsGiftOfferDialogCommand(BaseCommand):
     pass
 
 
-class ShowSurveyCommand(BaseModel):
+class ShowSurveyCommand(BaseCommand):
     pass
 
 
-class TalkToRecsDeselectCommand(BaseModel):
+class TalkToRecsDeselectCommand(BaseCommand):
     pass
 
 
-class TalkToRecsNextCommand(BaseModel):
+class TalkToRecsNextCommand(BaseCommand):
     pass
 
 
-class TalkToRecsSelectCommand(BaseModel):
+class TalkToRecsSelectCommand(BaseCommand):
     pass
 
 
-class TalkToRecsUpdateTextCommand(BaseModel):
+class TalkToRecsUpdateTextCommand(BaseCommand):
     pass
 
 
-class TimedCommand(BaseModel):
+class TimedCommand(BaseCommand):
     pass
 
 
-class ToggleEngagementPanelCommand(BaseModel):
+class ToggleEngagementPanelCommand(BaseCommand):
     pass
 
 
-class TranscriptEditSegmentCommand(BaseModel):
+class TranscriptEditSegmentCommand(BaseCommand):
     pass
 
 
-class TranscriptSubmitCaptionCorrectionCommand(BaseModel):
+class TranscriptSubmitCaptionCorrectionCommand(BaseCommand):
     pass
 
 
-class TranscriptUpdateSegmentTextCommand(BaseModel):
+class TranscriptUpdateSegmentTextCommand(BaseCommand):
     pass
 
 
-class UpdateCardItemOnClickCommand(BaseModel):
+class UpdateCardItemOnClickCommand(BaseCommand):
     pass
 
 
-class UpdateCreatorChannelCommand(BaseModel):
+class UpdateCreatorChannelCommand(BaseCommand):
     pass
 
 
-class UpdateFlowCommand(BaseModel):
+class UpdateFlowCommand(BaseCommand):
     pass
 
 
-class UpdateLocalAppSettingCommand(BaseModel):
+class UpdateLocalAppSettingCommand(BaseCommand):
     pass
 
 
-class UpdatePdgFeatureEnablementCommand(BaseModel):
+class UpdatePdgFeatureEnablementCommand(BaseCommand):
     pass
 
 
-class UpdatePermissionRoleCommand(BaseModel):
+class UpdatePermissionRoleCommand(BaseCommand):
     pass
 
 
-class UpdatePlayerErrorMessageCommand(BaseModel):
+class UpdatePlayerErrorMessageCommand(BaseCommand):
     pass
 
 
-class UpdateSentimentBarStateCommand(BaseModel):
+class UpdateSentimentBarStateCommand(BaseCommand):
     pass
 
 
-class UpdateTextInputFormFieldRendererCommand(BaseModel):
+class UpdateTextInputFormFieldRendererCommand(BaseCommand):
     pass
 
 
-class UpdateToggleButtonStateCommand(BaseModel):
+class UpdateToggleButtonStateCommand(BaseCommand):
     pass
 
 
-class UpdateUpcomingEventReminderButtonStateCommand(BaseModel):
+class UpdateUpcomingEventReminderButtonStateCommand(BaseCommand):
     pass
 
 
-class UploadImageToScottyCommand(BaseModel):
+class UploadImageToScottyCommand(BaseCommand):
     pass
 
 
-class ValidateChannelHandleCommand(BaseModel):
+class ValidateChannelHandleCommand(BaseCommand):
     pass
 
 
-class WatchPlayerOverflowMenuCommand(BaseModel):
+class WatchPlayerOverflowMenuCommand(BaseCommand):
     pass
 
 
-class WebNativeShareCommand(BaseModel):
+class WebNativeShareCommand(BaseCommand):
     pass
 
 
-class YpcCancelRecurrenceCommand(BaseModel):
+class YpcCancelRecurrenceCommand(BaseCommand):
     pass
 
 
-class YpcGetCrossDeviceOfflineEnabledDevicesCommand(BaseModel):
+class YpcGetCrossDeviceOfflineEnabledDevicesCommand(BaseCommand):
     pass
 
 
-class YpcOfflineVideoOnDeviceCommand(BaseModel):
+class YpcOfflineVideoOnDeviceCommand(BaseCommand):
     pass
 
 
-class YpcPauseSubscriptionCommand(BaseModel):
+class YpcPauseSubscriptionCommand(BaseCommand):
     pass
 
 
-class YpcResumeSubscriptionCommand(BaseModel):
+class YpcResumeSubscriptionCommand(BaseCommand):
     pass
 
 

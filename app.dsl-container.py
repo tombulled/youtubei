@@ -1,18 +1,17 @@
-from typing import Optional, Sequence, Union
+from typing import Sequence, Union
 
 from pydantic import BaseModel
 from rich.pretty import pprint
-from typing_extensions import TypeAlias
 
-from youtubei.parse import Dynamic, Parser, Registry
-from youtubei.parse.validated_types import DynamicCommand, Command
+from youtubei.parse import Parser, Registry
+from youtubei.validated_types import DynamicCommand
 
 registry = Registry()
 parser = Parser(registry)
 
 
 @registry
-class NavigationEndpoint(BaseModel):
+class UrlEndpoint(BaseModel):
     url: str
 
 
@@ -21,64 +20,27 @@ class OpenDialogAction(BaseModel):
     message: str
 
 
-# @registry
-# class RawCommand(BaseModel):
-#     tracking_params: str
-
-#     # One of:
-#     navigation_endpoint: Optional[NavigationEndpoint] = None
-#     open_dialog_action: Optional[OpenDialogAction] = None
-
-#     @property
-#     def target(self):
-#         if self.navigation_endpoint is not None:
-#             return self.navigation_endpoint
-#         if self.open_dialog_action is not None:
-#             return self.open_dialog_action
-#         return None
-
-# command: DynamicCommand[NavigationEndpoint]
-
 @registry
 class Response(BaseModel):
-    # commands: Sequence[DynamicCommand[Union[NavigationEndpoint, OpenDialogAction]]]
-    # commands: Sequence[DynamicCommand[NavigationEndpoint]]
-    command: DynamicCommand[NavigationEndpoint]
-    # command: Command[NavigationEndpoint]
-    # commands: Sequence[DynamicCommand]
+    commands: Sequence[DynamicCommand[Union[UrlEndpoint, OpenDialogAction]]]
 
 
 raw_response = {
-    "command": {
-        "tracking_params": "abc123",
-        # "navigationEndpoint": {
-        #     "url": "http://localhost/",
-        # },
-        "openDialogAction": {
-            "message": "Ok!",
+    "commands": [
+        {
+            "clickTrackingParams": "abc123",
+            "urlEndpoint": {
+                "url": "http://localhost/",
+            },
         },
-        # "command": {
-        #     "message": "Ok!"
-        # }
-    },
+        # {
+        #     "tracking_params": "def456",
+        #     "openDialogAction": {
+        #         "message": "Ok!",
+        #     },
+        # },
+    ],
 }
-
-# raw_response = {
-#     "commands": [
-#         {
-#             "tracking_params": "abc123",
-#             "navigationEndpoint": {
-#                 "url": "http://localhost/",
-#             },
-#         },
-#         # {
-#         #     "tracking_params": "def456",
-#         #     "openDialogAction": {
-#         #         "message": "Ok!",
-#         #     },
-#         # },
-#     ],
-# }
 
 response = parser.parse(raw_response, Response)
 

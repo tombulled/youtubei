@@ -7,35 +7,39 @@ from youtubei.types import BrowseId
 from .base import BaseModel
 
 
-class AdFeedbackEndpoint(BaseModel):
+class BaseEndpoint(BaseModel):
     pass
 
 
-class AdInfoDialogEndpoint(BaseModel):
+class AdFeedbackEndpoint(BaseEndpoint):
     pass
 
 
-class AdPingingEndpoint(BaseModel):
+class AdInfoDialogEndpoint(BaseEndpoint):
     pass
 
 
-class AddToPlaylistEndpoint(BaseModel):
+class AdPingingEndpoint(BaseEndpoint):
     pass
 
 
-class AddToPlaylistServiceEndpoint(BaseModel):
+class AddToPlaylistEndpoint(BaseEndpoint):
     pass
 
 
-class AddUpcomingEventReminderEndpoint(BaseModel):
+class AddToPlaylistServiceEndpoint(BaseEndpoint):
     pass
 
 
-class BackstageImageUploadEndpoint(BaseModel):
+class AddUpcomingEventReminderEndpoint(BaseEndpoint):
     pass
 
 
-class BrowseEndpoint(BaseModel):
+class BackstageImageUploadEndpoint(BaseEndpoint):
+    pass
+
+
+class BrowseEndpoint(BaseEndpoint):
     browse_id: BrowseId
     params: Optional[str] = None
 
@@ -49,375 +53,375 @@ class BrowseEndpoint(BaseModel):
     # ] = None
 
 
-class CaptionPickerEndpoint(BaseModel):
+class CaptionPickerEndpoint(BaseEndpoint):
     pass
 
 
-class ChannelCreationFormEndpoint(BaseModel):
+class ChannelCreationFormEndpoint(BaseEndpoint):
     pass
 
 
-class ChannelCreationServiceEndpoint(BaseModel):
+class ChannelCreationServiceEndpoint(BaseEndpoint):
     pass
 
 
-class ChannelThumbnailEndpoint(BaseModel):
+class ChannelThumbnailEndpoint(BaseEndpoint):
     pass
 
 
-class ClaimLegacyYoutubeChannelEndpoint(BaseModel):
+class ClaimLegacyYoutubeChannelEndpoint(BaseEndpoint):
     pass
 
 
-class ClearSearchHistoryEndpoint(BaseModel):
+class ClearSearchHistoryEndpoint(BaseEndpoint):
     pass
 
 
-class ClearWatchHistoryEndpoint(BaseModel):
+class ClearWatchHistoryEndpoint(BaseEndpoint):
     pass
 
 
-class ConfirmDialogEndpoint(BaseModel):
+class ConfirmDialogEndpoint(BaseEndpoint):
     pass
 
 
-class CopyTextEndpoint(BaseModel):
+class CopyTextEndpoint(BaseEndpoint):
     pass
 
 
-class CreateBackstagePostDialogEndpoint(BaseModel):
+class CreateBackstagePostDialogEndpoint(BaseEndpoint):
     pass
 
 
-class CreateBackstagePostEndpoint(BaseModel):
+class CreateBackstagePostEndpoint(BaseEndpoint):
     pass
 
 
-class CreateCommentEndpoint(BaseModel):
+class CreateCommentEndpoint(BaseEndpoint):
     pass
 
 
-class CreateCommentReplyDialogEndpoint(BaseModel):
+class CreateCommentReplyDialogEndpoint(BaseEndpoint):
     pass
 
 
-class CreateCommentReplyEndpoint(BaseModel):
+class CreateCommentReplyEndpoint(BaseEndpoint):
     pass
 
 
-class CreateLiveChatPollEndpoint(BaseModel):
+class CreateLiveChatPollEndpoint(BaseEndpoint):
     pass
 
 
-class CreatePlaylistServiceEndpoint(BaseModel):
+class CreatePlaylistServiceEndpoint(BaseEndpoint):
     pass
 
 
-class CrossAccountChannelTransferEndpoint(BaseModel):
+class CrossAccountChannelTransferEndpoint(BaseEndpoint):
     pass
 
 
-class DecorateMessageEndpoint(BaseModel):
+class DecorateMessageEndpoint(BaseEndpoint):
     pass
 
 
-class DeletePlaylistEndpoint(BaseModel):
+class DeletePlaylistEndpoint(BaseEndpoint):
     pass
 
 
-class DismissalEndpoint(BaseModel):
+class DismissalEndpoint(BaseEndpoint):
     pass
 
 
-class FeedbackEndpoint(BaseModel):
+class FeedbackEndpoint(BaseEndpoint):
     pass
 
 
-class FlagEndpoint(BaseModel):
+class FlagEndpoint(BaseEndpoint):
     pass
 
 
-class GetAccountSwitcherEndpoint(BaseModel):
+class GetAccountSwitcherEndpoint(BaseEndpoint):
     pass
 
 
-class GetAccountsListEndpoint(BaseModel):
+class GetAccountsListEndpoint(BaseEndpoint):
     pass
 
 
-class GetAccountsListInnertubeEndpoint(BaseModel):
+class GetAccountsListInnertubeEndpoint(BaseEndpoint):
     pass
 
 
-class GetNotificationMenuEndpoint(BaseModel):
+class GetNotificationMenuEndpoint(BaseEndpoint):
     pass
 
 
-class GetPostVideoPreviewEndpoint(BaseModel):
+class GetPostVideoPreviewEndpoint(BaseEndpoint):
     pass
 
 
-class GetReportFormEndpoint(BaseModel):
+class GetReportFormEndpoint(BaseEndpoint):
     pass
 
 
-class GetTranscriptEndpoint(BaseModel):
+class GetTranscriptEndpoint(BaseEndpoint):
     pass
 
 
-class HideEngagementPanelEndpoint(BaseModel):
+class HideEngagementPanelEndpoint(BaseEndpoint):
     pass
 
 
-class LikeEndpoint(BaseModel):
+class LikeEndpoint(BaseEndpoint):
     pass
 
 
-class LiveChatActionEndpoint(BaseModel):
+class LiveChatActionEndpoint(BaseEndpoint):
     pass
 
 
-class LiveChatEndpoint(BaseModel):
+class LiveChatEndpoint(BaseEndpoint):
     pass
 
 
-class LiveChatItemContextMenuEndpoint(BaseModel):
+class LiveChatItemContextMenuEndpoint(BaseEndpoint):
     pass
 
 
-class LiveChatPurchaseMessageEndpoint(BaseModel):
+class LiveChatPurchaseMessageEndpoint(BaseEndpoint):
     pass
 
 
-class LiveChatReplayEndpoint(BaseModel):
+class LiveChatReplayEndpoint(BaseEndpoint):
     pass
 
 
-class ManageLiveChatUserEndpoint(BaseModel):
+class ManageLiveChatUserEndpoint(BaseEndpoint):
     pass
 
 
-class MenuEndpoint(BaseModel):
+class MenuEndpoint(BaseEndpoint):
     pass
 
 
-class ModalEndpoint(BaseModel):
+class ModalEndpoint(BaseEndpoint):
     pass
 
 
-class ModerateLiveChatEndpoint(BaseModel):
+class ModerateLiveChatEndpoint(BaseEndpoint):
     pass
 
 
-class ModifyChannelNotificationPreferenceEndpoint(BaseModel):
+class ModifyChannelNotificationPreferenceEndpoint(BaseEndpoint):
     pass
 
 
-class NotificationOptOutEndpoint(BaseModel):
+class NotificationOptOutEndpoint(BaseEndpoint):
     pass
 
 
-class PerformCommentActionEndpoint(BaseModel):
+class PerformCommentActionEndpoint(BaseEndpoint):
     pass
 
 
-class PhoneDialerEndpoint(BaseModel):
+class PhoneDialerEndpoint(BaseEndpoint):
     pass
 
 
-class PingingEndpoint(BaseModel):
+class PingingEndpoint(BaseEndpoint):
     pass
 
 
-class PlaylistEditEndpoint(BaseModel):
+class PlaylistEditEndpoint(BaseEndpoint):
     pass
 
 
-class PlaylistEditorEndpoint(BaseModel):
+class PlaylistEditorEndpoint(BaseEndpoint):
     pass
 
 
-class RecordNotificationInteractionsEndpoint(BaseModel):
+class RecordNotificationInteractionsEndpoint(BaseEndpoint):
     pass
 
 
-class ReelNonVideoContentEndpoint(BaseModel):
+class ReelNonVideoContentEndpoint(BaseEndpoint):
     pass
 
 
-class ReelWatchEndpoint(BaseModel):
+class ReelWatchEndpoint(BaseEndpoint):
     pass
 
 
-class RefreshPanelEndpoint(BaseModel):
+class RefreshPanelEndpoint(BaseEndpoint):
     pass
 
 
-class RemoveUpcomingEventReminderEndpoint(BaseModel):
+class RemoveUpcomingEventReminderEndpoint(BaseEndpoint):
     pass
 
 
-class ScrollToSectionEndpoint(BaseModel):
+class ScrollToSectionEndpoint(BaseEndpoint):
     pass
 
 
-class SearchEndpoint(BaseModel):
+class SearchEndpoint(BaseEndpoint):
     pass
 
 
-class SelectActiveIdentityEndpoint(BaseModel):
+class SelectActiveIdentityEndpoint(BaseEndpoint):
     pass
 
 
-class SendLiveChatMessageEndpoint(BaseModel):
+class SendLiveChatMessageEndpoint(BaseEndpoint):
     pass
 
 
-class SendLiveChatVoteEndpoint(BaseModel):
+class SendLiveChatVoteEndpoint(BaseEndpoint):
     pass
 
 
-class SendSmsEndpoint(BaseModel):
+class SendSmsEndpoint(BaseEndpoint):
     pass
 
 
-class SetSettingEndpoint(BaseModel):
+class SetSettingEndpoint(BaseEndpoint):
     pass
 
 
-class ShareEntityServiceEndpoint(BaseModel):
+class ShareEntityServiceEndpoint(BaseEndpoint):
     pass
 
 
-class ShowEngagementPanelEndpoint(BaseModel):
+class ShowEngagementPanelEndpoint(BaseEndpoint):
     pass
 
 
-class SignInEndpoint(BaseModel):
+class SignInEndpoint(BaseEndpoint):
     pass
 
 
-class SignOutEndpoint(BaseModel):
+class SignOutEndpoint(BaseEndpoint):
     pass
 
 
-class SignalServiceEndpoint(BaseModel):
+class SignalServiceEndpoint(BaseEndpoint):
     pass
 
 
-class SubscribeEndpoint(BaseModel):
+class SubscribeEndpoint(BaseEndpoint):
     pass
 
 
-class UndoFeedbackEndpoint(BaseModel):
+class UndoFeedbackEndpoint(BaseEndpoint):
     pass
 
 
-class UnlimitedCreateFamilyEndpoint(BaseModel):
+class UnlimitedCreateFamilyEndpoint(BaseEndpoint):
     pass
 
 
-class UnsubscribeEndpoint(BaseModel):
+class UnsubscribeEndpoint(BaseEndpoint):
     pass
 
 
-class UpdateBackstagePostEndpoint(BaseModel):
+class UpdateBackstagePostEndpoint(BaseEndpoint):
     pass
 
 
-class UpdateChannelPageSettingsEndpoint(BaseModel):
+class UpdateChannelPageSettingsEndpoint(BaseEndpoint):
     pass
 
 
-class UpdateCommentDialogEndpoint(BaseModel):
+class UpdateCommentDialogEndpoint(BaseEndpoint):
     pass
 
 
-class UpdateCommentEndpoint(BaseModel):
+class UpdateCommentEndpoint(BaseEndpoint):
     pass
 
 
-class UpdateCommentReplyDialogEndpoint(BaseModel):
+class UpdateCommentReplyDialogEndpoint(BaseEndpoint):
     pass
 
 
-class UpdateCommentReplyEndpoint(BaseModel):
+class UpdateCommentReplyEndpoint(BaseEndpoint):
     pass
 
 
-class UpdateCommentsSettingsEndpoint(BaseModel):
+class UpdateCommentsSettingsEndpoint(BaseEndpoint):
     pass
 
 
-class UpdateKidsBlacklistEndpoint(BaseModel):
+class UpdateKidsBlacklistEndpoint(BaseEndpoint):
     pass
 
 
-class UpdatedMetadataEndpoint(BaseModel):
+class UpdatedMetadataEndpoint(BaseEndpoint):
     pass
 
 
-class UrlEndpoint(BaseModel):
+class UrlEndpoint(BaseEndpoint):
     pass
 
 
-class UserFeedbackEndpoint(BaseModel):
+class UserFeedbackEndpoint(BaseEndpoint):
     pass
 
 
-class VerifyAgeEndpoint(BaseModel):
+class VerifyAgeEndpoint(BaseEndpoint):
     pass
 
 
-class WatchEndpoint(BaseModel):
+class WatchEndpoint(BaseEndpoint):
     pass
 
 
-class WatchPlaylistEndpoint(BaseModel):
+class WatchPlaylistEndpoint(BaseEndpoint):
     pass
 
 
-class WebPlayerShareEntityServiceEndpoint(BaseModel):
+class WebPlayerShareEntityServiceEndpoint(BaseEndpoint):
     pass
 
 
-class WhitelistEditEndpoint(BaseModel):
+class WhitelistEditEndpoint(BaseEndpoint):
     pass
 
 
-class YpcCancelRecurrenceEndpoint(BaseModel):
+class YpcCancelRecurrenceEndpoint(BaseEndpoint):
     pass
 
 
-class YpcCompleteTransactionEndpoint(BaseModel):
+class YpcCompleteTransactionEndpoint(BaseEndpoint):
     pass
 
 
-class YpcGetCartEndpoint(BaseModel):
+class YpcGetCartEndpoint(BaseEndpoint):
     pass
 
 
-class YpcGetOffersEndpoint(BaseModel):
+class YpcGetOffersEndpoint(BaseEndpoint):
     pass
 
 
-class YpcHandleTransactionEndpoint(BaseModel):
+class YpcHandleTransactionEndpoint(BaseEndpoint):
     pass
 
 
-class YpcLogWalletAnalyticDataEndpoint(BaseModel):
+class YpcLogWalletAnalyticDataEndpoint(BaseEndpoint):
     pass
 
 
-class YpcOffersEndpoint(BaseModel):
+class YpcOffersEndpoint(BaseEndpoint):
     pass
 
 
-class YpcRedeemCodeEndpoint(BaseModel):
+class YpcRedeemCodeEndpoint(BaseEndpoint):
     pass
 
 
-class YpcUpdateFopEndpoint(BaseModel):
+class YpcUpdateFopEndpoint(BaseEndpoint):
     pass
 
 
