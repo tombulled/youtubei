@@ -1,24 +1,7 @@
-from typing import Any, Generic, Optional, TypeVar
+from typing import Generic, Optional, TypeVar
 
 from pydantic.dataclasses import dataclass
 
-# from youtubei.models.actions import (
-#     ChangeEngagementPanelVisibilityAction,
-#     OpenPopupAction,
-# )
-# from youtubei.models.endpoints import (
-#     BrowseEndpoint,
-#     HideEngagementPanelEndpoint,
-#     ReelWatchEndpoint,
-#     SearchEndpoint,
-#     ShowEngagementPanelEndpoint,
-#     SignalServiceEndpoint,
-#     SignInEndpoint,
-#     SubscribeEndpoint,
-#     UnsubscribeEndpoint,
-#     UrlEndpoint,
-#     WatchEndpoint,
-# )
 from youtubei.models.metadata import CommandMetadata
 
 from .base import BaseModel

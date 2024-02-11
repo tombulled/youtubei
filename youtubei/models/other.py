@@ -1,4 +1,4 @@
-from typing import Optional, Sequence
+from typing import Any, Optional, Sequence
 
 from youtubei.enums import (
     ActiveViewTrafficType,
@@ -10,11 +10,12 @@ from youtubei.enums import (
     LanguageCode,
     Visibility,
 )
-from youtubei.models.endpoints import NavigationEndpoint
+from youtubei.models.command import Command
 from youtubei.models.text import TemplatedText, Text
 from youtubei.models.thumbnail import Thumbnails
 from youtubei.parse import Dynamic
 from youtubei.types import BrowseId, TrackingParams
+from youtubei.validated_types import DynamicCommand
 
 from .base import BaseModel
 
@@ -90,7 +91,7 @@ class FeaturedChannel(BaseModel):
     end_time_ms: str
     watermark: Thumbnails
     tracking_params: TrackingParams
-    navigation_endpoint: NavigationEndpoint
+    navigation_endpoint: DynamicCommand[Any] # TODO: Type which command(s) expected?
     channel_name: str
     subscribe_button: Dynamic  # SubscribeButtonRenderer
 
@@ -119,6 +120,9 @@ class HasNotificationResponseConfig(BaseModel):
 
 
 class Icon(BaseModel):
+    # def __repr__(self) -> str:
+    #     return f"{type(self).__name__}({self.icon_type.value!r})"
+    
     icon_type: IconType
 
 

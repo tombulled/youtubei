@@ -3,11 +3,16 @@ from typing import Optional, Union
 from typing_extensions import TypeAlias
 
 from youtubei.types import BrowseId
+from youtubei._registries import WEB_REMIX_REGISTRY
 
 from .base import BaseModel
 
 
 class BaseEndpoint(BaseModel):
+    pass
+
+
+class _HackEndpoint(BaseEndpoint):
     pass
 
 
@@ -39,6 +44,7 @@ class BackstageImageUploadEndpoint(BaseEndpoint):
     pass
 
 
+@WEB_REMIX_REGISTRY
 class BrowseEndpoint(BaseEndpoint):
     browse_id: BrowseId
     params: Optional[str] = None
@@ -297,6 +303,7 @@ class ShowEngagementPanelEndpoint(BaseEndpoint):
     pass
 
 
+@WEB_REMIX_REGISTRY
 class SignInEndpoint(BaseEndpoint):
     pass
 

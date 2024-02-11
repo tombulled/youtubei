@@ -1,10 +1,11 @@
-from typing import Optional, Sequence
+from typing import Any, Optional, Sequence
 
 from youtubei.enums import EndscreenElementStyle
-from youtubei.models.endpoints import NavigationEndpoint
+from youtubei.models.command import Command
 from youtubei.models.text import Text
 from youtubei.models.thumbnail import Thumbnails
 from youtubei.parse import Dynamic
+from youtubei.validated_types import DynamicCommand
 
 from ._base import BaseRenderer
 
@@ -20,7 +21,7 @@ class EndscreenElementRenderer(BaseRenderer):
     end_ms: str
     title: Text
     metadata: Text
-    endpoint: NavigationEndpoint  # Note: guess taken that this was a NaviationEndpoint, as the field name is ambiguous
+    endpoint: DynamicCommand[Any]  # TODO: Type which commands expected?
     id: str
     thumbnail_overlays: Optional[Sequence[Dynamic]] = (
         None  # Sequence[ThumbnailOverlayTimeStatusRenderer]

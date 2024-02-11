@@ -1,6 +1,7 @@
 from typing import Any, Mapping, Sequence, Set
 
 from pydantic import ValidationInfo
+from youtubei.models.endpoints import _HackEndpoint
 
 from youtubei.parse.validators import validate_dynamic
 
@@ -28,7 +29,11 @@ def validate_command(
 
     rich_key = rich_matches[0]
     rich_value = obj[rich_key]
-    rich_obj = validate_dynamic({rich_key: rich_value}, validation_info)
+
+    if rich_value.get("hack", False):
+        rich_obj = _HackEndpoint()
+    else:
+        rich_obj = validate_dynamic({rich_key: rich_value}, validation_info)
 
     new_obj = {key: value for key, value in obj.items() if key != rich_key}
 

@@ -10,5 +10,5 @@ from ._base import BaseRenderer
 @WEB_REMIX_REGISTRY
 class GuideSigninPromoRenderer(BaseRenderer):
     action_text: Text
-    descriptiveText: Text
-    signInButton: Dynamic[ButtonRenderer]
+    descriptive_text: Text
+    sign_in_button: Dynamic[ButtonRenderer]
