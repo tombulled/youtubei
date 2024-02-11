@@ -1,6 +1,7 @@
 from typing import Generic, Sequence, TypeVar
-from typing_extensions import Annotated
+
 from pydantic import BaseModel, BeforeValidator
+from typing_extensions import Annotated
 
 T = TypeVar("T")
 

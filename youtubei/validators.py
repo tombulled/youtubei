@@ -6,6 +6,7 @@ from youtubei.parse.validators import validate_dynamic
 
 __all__ = ("validate_command",)
 
+
 def validate_command(
     obj: Any,
     validation_info: ValidationInfo,

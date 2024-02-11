@@ -8,7 +8,9 @@ from ._base import BaseRenderer
 
 class PlayerBytesAdLayoutRenderer(BaseRenderer):
     ad_layout_metadata: AdLayoutMetadata
-    rendering_content: Dynamic  # Union[InstreamVideoAdRenderer, PlayerBytesSequentialLayoutRenderer]
+    rendering_content: (
+        Dynamic  # Union[InstreamVideoAdRenderer, PlayerBytesSequentialLayoutRenderer]
+    )
     layout_exit_normal_triggers: Optional[Sequence[LayoutTrigger]] = None
     layout_exit_skip_triggers: Optional[Sequence[LayoutTrigger]] = None
     layout_exit_mute_triggers: Optional[Sequence[LayoutTrigger]] = None

@@ -13,5 +13,5 @@ HappyContainer = Annotated[Container[T], "happy!"]
 # HappyContainer = Container[T]
 # HappyStrContainer = Annotated[Container[str], "happy!"]
 
-my_container: HappyContainer[str] # = Container(item="value")
+my_container: HappyContainer[str]  # = Container(item="value")
 # my_container: HappyStrContainer # = Container(item="value")

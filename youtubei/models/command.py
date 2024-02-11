@@ -1,5 +1,7 @@
 from typing import Any, Generic, Optional, TypeVar
 
+from pydantic.dataclasses import dataclass
+
 # from youtubei.models.actions import (
 #     ChangeEngagementPanelVisibilityAction,
 #     OpenPopupAction,
@@ -21,9 +23,8 @@ from youtubei.models.metadata import CommandMetadata
 
 from .base import BaseModel
 
-from pydantic.dataclasses import dataclass
-
 T = TypeVar("T")
+
 
 # Note: This is a custom container type
 # Note: This is deliberately not extending BaseModel
@@ -44,7 +45,9 @@ class Command(Generic[T]):
     click_tracking_params: str
     command_metadata: Optional[CommandMetadata] = None
     hack: Optional[bool] = None
-    command: Optional[T] = None # Todo: Change to Union[BaseEndpoint, BaseAction, BaseCommand]?
+    command: Optional[T] = (
+        None  # Todo: Change to Union[BaseEndpoint, BaseAction, BaseCommand]?
+    )
 
     # # Endpoints
     # android_app_endpoint: Optional[AndroidAppEndpoint] = None

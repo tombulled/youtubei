@@ -29,6 +29,6 @@ class ResponseContext(BaseModel):
     service_tracking_params: Sequence[ServiceTrackingParams]
     max_age_seconds: Optional[int] = None
     main_app_web_response_context: Optional[MainAppWebResponseContext] = None
-    web_response_context_extension_data: Optional[
-        WebResponseContextExtensionData
-    ] = None
+    web_response_context_extension_data: Optional[WebResponseContextExtensionData] = (
+        None
+    )

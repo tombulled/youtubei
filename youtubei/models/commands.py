@@ -128,8 +128,10 @@ __all__ = (
     "YpcResumeSubscriptionCommand",
 )
 
+
 class BaseCommand(BaseModel):
     pass
+
 
 class AccountLinkCommand(BaseCommand):
     pass

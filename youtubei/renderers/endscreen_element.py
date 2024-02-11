@@ -22,7 +22,7 @@ class EndscreenElementRenderer(BaseRenderer):
     metadata: Text
     endpoint: NavigationEndpoint  # Note: guess taken that this was a NaviationEndpoint, as the field name is ambiguous
     id: str
-    thumbnail_overlays: Optional[
-        Sequence[Dynamic]
-    ] = None  # Sequence[ThumbnailOverlayTimeStatusRenderer]
+    thumbnail_overlays: Optional[Sequence[Dynamic]] = (
+        None  # Sequence[ThumbnailOverlayTimeStatusRenderer]
+    )
     playlist_length: Optional[Text] = None
