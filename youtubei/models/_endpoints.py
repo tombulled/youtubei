@@ -44,22 +44,22 @@ class ApplicationSettingsEndpoint(BaseModel):
     hack: bool
 
 
-class BrowseEndpointContextMusicConfig(BaseModel):
-    page_type: MusicPageType
+# class BrowseEndpointContextMusicConfig(BaseModel):
+#     page_type: MusicPageType
 
 
-class BrowseEndpointContextSupportedConfigs(BaseModel):
-    browse_endpoint_context_music_config: BrowseEndpointContextMusicConfig
+# class BrowseEndpointContextSupportedConfigs(BaseModel):
+#     browse_endpoint_context_music_config: BrowseEndpointContextMusicConfig
 
 
-class BrowseEndpoint(BaseModel):
-    browse_id: BrowseId
-    params: Optional[str] = None
+# class BrowseEndpoint(BaseModel):
+#     browse_id: BrowseId
+#     params: Optional[str] = None
 
-    # Note: this looks like it should be Dynamic?
-    browse_endpoint_context_supported_configs: Optional[
-        BrowseEndpointContextSupportedConfigs
-    ] = None
+#     # Note: this looks like it should be Dynamic?
+#     browse_endpoint_context_supported_configs: Optional[
+#         BrowseEndpointContextSupportedConfigs
+#     ] = None
 
 
 class HideEngagementPanelEndpoint(BaseModel):

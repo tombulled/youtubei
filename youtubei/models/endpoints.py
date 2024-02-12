@@ -2,8 +2,9 @@ from typing import Any, Optional, Sequence, Union
 
 from typing_extensions import TypeAlias
 
-from youtubei._registries import WEB_REGISTRY, WEB_REMIX_REGISTRY
+from youtubei._registries import IOS_MUSIC_REGISTRY, WEB_REGISTRY, WEB_REMIX_REGISTRY
 from youtubei.enums import ReelWatchInputType, ReelWatchSequenceProvider, Signal, Target
+from youtubei.models.config import BrowseEndpointContextMusicConfig
 from youtubei.models.contexts import LoggingContext
 from youtubei.parse.validated_types import Dynamic
 from youtubei.types import BrowseId
@@ -44,6 +45,7 @@ class BackstageImageUploadEndpoint(BaseEndpoint):
     pass
 
 
+@IOS_MUSIC_REGISTRY
 @WEB_REGISTRY
 @WEB_REMIX_REGISTRY
 class BrowseEndpoint(BaseEndpoint):
@@ -55,9 +57,9 @@ class BrowseEndpoint(BaseEndpoint):
     # nofollow
 
     # Note: this looks like it should be Dynamic?
-    # browse_endpoint_context_supported_configs: Optional[
-    #     BrowseEndpointContextSupportedConfigs
-    # ] = None
+    browse_endpoint_context_supported_configs: Optional[
+        Dynamic[BrowseEndpointContextMusicConfig]
+    ] = None
 
 
 class CaptionPickerEndpoint(BaseEndpoint):
@@ -259,7 +261,9 @@ class ReelNonVideoContentEndpoint(BaseEndpoint):
 @WEB_REGISTRY
 class ReelWatchEndpoint(BaseEndpoint):
     player_params: str
-    overlay: Dynamic[Any]  # Note: Is a ReelPlayerOverlayRenderer, but import causes cyclic dependency
+    overlay: Dynamic[
+        Any
+    ]  # Note: Is a ReelPlayerOverlayRenderer, but import causes cyclic dependency
     params: str
     sequence_provider: ReelWatchSequenceProvider
     input_type: ReelWatchInputType

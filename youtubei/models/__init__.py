@@ -4,6 +4,7 @@ from .ad import *
 from .base import *
 from .command import *
 from .commands import *
+from .config import *
 from .contexts import *
 from .endpoints import *
 from .logging import *
