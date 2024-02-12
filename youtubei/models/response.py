@@ -3,14 +3,14 @@ from typing import Sequence
 from youtubei.models.base import BaseModel
 
 
-class Param(BaseModel):
+class Parameter(BaseModel):
     key: str
     value: str
 
 
 class ServiceTrackingParams(BaseModel):
     service: str
-    params: Sequence[Param]
+    params: Sequence[Parameter]
 
 
 class ResponseContext(BaseModel):

@@ -76,14 +76,14 @@ class IosApplicationEndpoint(BaseModel):
     fallback_endpoint: Command  # AppStoreEndpoint
 
 
-class ReelWatchEndpoint(BaseModel):
-    player_params: str
-    overlay: Dynamic
-    params: str
-    sequence_provider: ReelWatchSequenceProvider
-    input_type: ReelWatchInputType
-    logging_context: LoggingContext
-    ustreamer_config: str
+# class ReelWatchEndpoint(BaseModel):
+#     player_params: str
+#     overlay: Dynamic
+#     params: str
+#     sequence_provider: ReelWatchSequenceProvider
+#     input_type: ReelWatchInputType
+#     logging_context: LoggingContext
+#     ustreamer_config: str
 
 
 class SearchEndpoint(BaseModel):

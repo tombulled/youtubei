@@ -1,11 +1,19 @@
 from typing import Any, Mapping, Sequence, Set
 
 from pydantic import ValidationInfo
-from youtubei.models.endpoints import _HackEndpoint
 
+from youtubei.models.base import BaseModel
 from youtubei.parse.validators import validate_dynamic
 
+# from youtubei.models.endpoints import _HackEndpoint
+
+
 __all__ = ("validate_command",)
+
+
+# FIXME: This probably shouldn't live here.
+class _HackEndpoint(BaseModel):
+    pass
 
 
 def validate_command(

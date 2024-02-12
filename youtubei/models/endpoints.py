@@ -1,18 +1,18 @@
-from typing import Optional, Union
+from typing import Any, Optional, Sequence, Union
 
 from typing_extensions import TypeAlias
 
+from youtubei._registries import WEB_REGISTRY, WEB_REMIX_REGISTRY
+from youtubei.enums import ReelWatchInputType, ReelWatchSequenceProvider, Signal, Target
+from youtubei.models.contexts import LoggingContext
+from youtubei.parse.validated_types import Dynamic
 from youtubei.types import BrowseId
-from youtubei._registries import WEB_REMIX_REGISTRY
+from youtubei.validated_types import DynamicCommand
 
 from .base import BaseModel
 
 
 class BaseEndpoint(BaseModel):
-    pass
-
-
-class _HackEndpoint(BaseEndpoint):
     pass
 
 
@@ -44,6 +44,7 @@ class BackstageImageUploadEndpoint(BaseEndpoint):
     pass
 
 
+@WEB_REGISTRY
 @WEB_REMIX_REGISTRY
 class BrowseEndpoint(BaseEndpoint):
     browse_id: BrowseId
@@ -255,8 +256,15 @@ class ReelNonVideoContentEndpoint(BaseEndpoint):
     pass
 
 
+@WEB_REGISTRY
 class ReelWatchEndpoint(BaseEndpoint):
-    pass
+    player_params: str
+    overlay: Dynamic[Any]  # Note: Is a ReelPlayerOverlayRenderer, but import causes cyclic dependency
+    params: str
+    sequence_provider: ReelWatchSequenceProvider
+    input_type: ReelWatchInputType
+    logging_context: LoggingContext
+    ustreamer_config: str
 
 
 class RefreshPanelEndpoint(BaseEndpoint):
@@ -312,8 +320,12 @@ class SignOutEndpoint(BaseEndpoint):
     pass
 
 
+@WEB_REGISTRY
 class SignalServiceEndpoint(BaseEndpoint):
-    pass
+    signal: Signal
+    actions: Sequence[
+        DynamicCommand[Any]
+    ]  # TODO: Be more specific? (observed: signalAction, sendFeedbackAction)
 
 
 class SubscribeEndpoint(BaseEndpoint):
@@ -368,8 +380,10 @@ class UpdatedMetadataEndpoint(BaseEndpoint):
     pass
 
 
+@WEB_REGISTRY
 class UrlEndpoint(BaseEndpoint):
-    pass
+    url: str
+    target: Optional[Target] = None
 
 
 class UserFeedbackEndpoint(BaseEndpoint):

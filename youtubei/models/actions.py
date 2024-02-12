@@ -2,6 +2,7 @@ from typing import Union
 
 from typing_extensions import TypeAlias
 
+from youtubei._registries import WEB_REGISTRY
 from youtubei.enums import EngagementPanelVisibility, PopupType, Signal, TargetId
 from youtubei.parse import Dynamic
 
@@ -163,6 +164,7 @@ class SaveConsentAction(BaseModel):
     pass
 
 
+@WEB_REGISTRY
 class SendFeedbackAction(BaseModel):
     bucket: str
 
@@ -179,6 +181,7 @@ class ShowEngagementPanelScrimAction(BaseModel):
     pass
 
 
+@WEB_REGISTRY
 class SignalAction(BaseModel):
     signal: Signal
 

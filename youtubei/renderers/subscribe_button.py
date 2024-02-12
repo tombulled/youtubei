@@ -19,7 +19,9 @@ class SubscribeButtonRenderer(BaseRenderer):
     subscribed_button_text: Text
     unsubscribed_button_text: Text
     unsubscribe_button_text: Text
-    service_endpoints: Sequence[DynamicCommand[Any]] # TODO: Type which commands expected
+    service_endpoints: Sequence[
+        DynamicCommand[Any]
+    ]  # TODO: Type which commands expected
     subscribe_accessibility: Accessibility
     unsubscribe_accessibility: Accessibility
-    sign_in_endpoint: DynamicCommand[Any] # TODO: Type which commands expected
+    sign_in_endpoint: DynamicCommand[Any]  # TODO: Type which commands expected

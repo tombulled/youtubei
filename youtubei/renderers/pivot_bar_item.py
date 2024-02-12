@@ -17,7 +17,7 @@ from ._base import BaseRenderer
 @IOS_REGISTRY
 class PivotBarItemRenderer(BaseRenderer):
     pivot_identifier: str
-    navigation_endpoint: DynamicCommand[Any] # TODO: Type which commands expected?
+    navigation_endpoint: DynamicCommand[Any]  # TODO: Type which commands expected?
     title: Text
     accessibility: Accessibility
     icon: Icon

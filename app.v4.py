@@ -53,12 +53,14 @@ Notes:
 # guide = youtubei.IOS_MUSIC.guide()
 # guide = youtubei.WEB.guide()
 # guide = youtubei.WEB_REMIX.guide()
+c = youtubei.WEB
+# c = youtubei.WEB_REMIX
 
-d = youtubei.WEB_REMIX.client.adaptor.dispatch("guide")
+d = c.client.adaptor.dispatch("guide")
 
 pp(d)
 
-p = youtubei.WEB_REMIX.parser.guide(d)
+p = c.parser.guide(d)
 
 pp(p)
 

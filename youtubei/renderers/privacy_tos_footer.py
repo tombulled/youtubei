@@ -15,6 +15,6 @@ from ._base import BaseRenderer
 class PrivacyTosFooterRenderer(BaseRenderer):
     privacy_title: Text
     tos_title: Text
-    privacy_command: DynamicCommand[Any] # TODO: Type which command(s) expected?
-    tos_command: DynamicCommand[Any] # TODO: Type which command(s) expected?
+    privacy_command: DynamicCommand[Any]  # TODO: Type which command(s) expected?
+    tos_command: DynamicCommand[Any]  # TODO: Type which command(s) expected?
     footer: Optional[Dynamic[LugashFooterRenderer]] = None

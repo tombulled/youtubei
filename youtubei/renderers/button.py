@@ -20,8 +20,12 @@ from ._base import BaseRenderer
 @IOS_REGISTRY
 @WEB_REMIX_REGISTRY
 class ButtonRenderer(BaseRenderer):
-    service_endpoint: Optional[DynamicCommand[Any]] = None # TODO: Type which commands expected?
-    navigation_endpoint: Optional[DynamicCommand[Any]] = None # TODO: Type which commands expected?
+    service_endpoint: Optional[DynamicCommand[Any]] = (
+        None  # TODO: Type which commands expected?
+    )
+    navigation_endpoint: Optional[DynamicCommand[Any]] = (
+        None  # TODO: Type which commands expected?
+    )
     text: Optional[Text] = None
     is_disabled: Optional[bool] = None
     style: Optional[Style] = None

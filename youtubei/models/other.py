@@ -91,7 +91,7 @@ class FeaturedChannel(BaseModel):
     end_time_ms: str
     watermark: Thumbnails
     tracking_params: TrackingParams
-    navigation_endpoint: DynamicCommand[Any] # TODO: Type which command(s) expected?
+    navigation_endpoint: DynamicCommand[Any]  # TODO: Type which command(s) expected?
     channel_name: str
     subscribe_button: Dynamic  # SubscribeButtonRenderer
 
@@ -122,7 +122,7 @@ class HasNotificationResponseConfig(BaseModel):
 class Icon(BaseModel):
     # def __repr__(self) -> str:
     #     return f"{type(self).__name__}({self.icon_type.value!r})"
-    
+
     icon_type: IconType
 
 
