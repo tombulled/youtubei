@@ -7,6 +7,7 @@ from youtubei._registries import (
     WEB_REGISTRY,
     WEB_REMIX_REGISTRY,
     IOS_REGISTRY,
+    ANDROID_REGISTRY,
 )
 from youtubei.enums import ReelWatchInputType, ReelWatchSequenceProvider, Signal, Target
 from youtubei.models.config import BrowseEndpointContextMusicConfig
@@ -47,6 +48,14 @@ class AddUpcomingEventReminderEndpoint(BaseEndpoint):
     pass
 
 
+@ANDROID_REGISTRY
+class AndroidAppEndpoint(BaseModel):
+    android_package_name: str
+    android_class_name: str
+    fallback_endpoint: DynamicCommand[Any]  # TODO: Be more specific?
+
+
+@ANDROID_REGISTRY
 @IOS_REGISTRY
 class AppStoreEndpoint(BaseModel):
     app_id: str
@@ -56,6 +65,7 @@ class AppStoreEndpoint(BaseModel):
     android_overlay: Optional[bool] = None
 
 
+@ANDROID_REGISTRY
 @IOS_REGISTRY
 class ApplicationHelpEndpoint(BaseModel):
     show_feedback: bool
@@ -65,6 +75,7 @@ class BackstageImageUploadEndpoint(BaseEndpoint):
     pass
 
 
+@ANDROID_REGISTRY
 @IOS_REGISTRY
 @IOS_MUSIC_REGISTRY
 @WEB_REGISTRY
@@ -199,8 +210,9 @@ class GetTranscriptEndpoint(BaseEndpoint):
     pass
 
 
+@ANDROID_REGISTRY
 class HideEngagementPanelEndpoint(BaseEndpoint):
-    pass
+    panel_identifier: str
 
 
 @IOS_REGISTRY
@@ -310,6 +322,7 @@ class ScrollToSectionEndpoint(BaseEndpoint):
     pass
 
 
+@ANDROID_REGISTRY
 @IOS_REGISTRY
 class SearchEndpoint(BaseEndpoint):
     query: str
@@ -339,8 +352,10 @@ class ShareEntityServiceEndpoint(BaseEndpoint):
     pass
 
 
+@ANDROID_REGISTRY
 class ShowEngagementPanelEndpoint(BaseEndpoint):
-    pass
+    panel_identifier: str
+    engagement_panel: Dynamic[Any]  # EngagementPanelSectionListRenderer
 
 
 @WEB_REMIX_REGISTRY
@@ -412,6 +427,7 @@ class UpdatedMetadataEndpoint(BaseEndpoint):
     pass
 
 
+@ANDROID_REGISTRY
 @IOS_REGISTRY
 @WEB_REGISTRY
 class UrlEndpoint(BaseEndpoint):
@@ -438,6 +454,8 @@ class WatchPlaylistEndpoint(BaseEndpoint):
 class WebPlayerShareEntityServiceEndpoint(BaseEndpoint):
     pass
 
+
+@ANDROID_REGISTRY
 @IOS_REGISTRY
 class WebviewEndpoint(BaseModel):
     url: str

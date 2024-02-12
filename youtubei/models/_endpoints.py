@@ -30,10 +30,10 @@ from .base import BaseModel
 #     app_store_endpoint: AppStoreEndpoint
 
 
-class AndroidAppEndpoint(BaseModel):
-    android_package_name: str
-    android_class_name: str
-    fallback_endpoint: AndroidAppFallbackEndpoint
+# class AndroidAppEndpoint(BaseModel):
+#     android_package_name: str
+#     android_class_name: str
+#     fallback_endpoint: AndroidAppFallbackEndpoint
 
 
 # class ApplicationHelpEndpoint(BaseModel):
@@ -62,8 +62,8 @@ class ApplicationSettingsEndpoint(BaseModel):
 #     ] = None
 
 
-class HideEngagementPanelEndpoint(BaseModel):
-    panel_identifier: str
+# class HideEngagementPanelEndpoint(BaseModel):
+#     panel_identifier: str
 
 
 # class IosApplicationFallbackEndpoint(BaseModel):
@@ -111,9 +111,9 @@ class UnsubscribeEndpoint(BaseModel):
     params: str
 
 
-class ShowEngagementPanelEndpoint(BaseModel):
-    panel_identifier: str
-    engagement_panel: Dynamic  # EngagementPanelSectionListRenderer
+# class ShowEngagementPanelEndpoint(BaseModel):
+#     panel_identifier: str
+#     engagement_panel: Dynamic  # EngagementPanelSectionListRenderer
 
 
 class UrlEndpoint(BaseModel):
