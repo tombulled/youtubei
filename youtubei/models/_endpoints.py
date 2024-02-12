@@ -16,7 +16,6 @@ from youtubei.types import BrowseId, ClickTrackingParams
 
 from .base import BaseModel
 
-
 # class AppStoreEndpoint(BaseModel):
 #     app_id: str
 #     sk_ad_parameters: Optional[SkAdParameters] = None
