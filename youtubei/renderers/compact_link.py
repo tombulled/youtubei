@@ -15,4 +15,4 @@ class CompactLinkRenderer(BaseRenderer):
     icon: Icon
     title: Text
     navigation_endpoint: DynamicCommand[Any]  # TODO: Type which commands expected?
-    shouldTintIcon: Optional[bool] = None
+    should_tint_icon: Optional[bool] = None

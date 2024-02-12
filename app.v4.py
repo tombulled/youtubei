@@ -53,7 +53,8 @@ Notes:
 # guide = youtubei.IOS_MUSIC.guide()
 # guide = youtubei.WEB.guide()
 # guide = youtubei.WEB_REMIX.guide()
-c = youtubei.IOS_MUSIC
+c = youtubei.IOS
+# c = youtubei.IOS_MUSIC
 # c = youtubei.WEB
 # c = youtubei.WEB_REMIX
 

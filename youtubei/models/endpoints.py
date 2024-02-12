@@ -2,10 +2,16 @@ from typing import Any, Optional, Sequence, Union
 
 from typing_extensions import TypeAlias
 
-from youtubei._registries import IOS_MUSIC_REGISTRY, WEB_REGISTRY, WEB_REMIX_REGISTRY
+from youtubei._registries import (
+    IOS_MUSIC_REGISTRY,
+    WEB_REGISTRY,
+    WEB_REMIX_REGISTRY,
+    IOS_REGISTRY,
+)
 from youtubei.enums import ReelWatchInputType, ReelWatchSequenceProvider, Signal, Target
 from youtubei.models.config import BrowseEndpointContextMusicConfig
 from youtubei.models.contexts import LoggingContext
+from youtubei.models.params import SkAdParameters
 from youtubei.parse.validated_types import Dynamic
 from youtubei.types import BrowseId
 from youtubei.validated_types import DynamicCommand
@@ -41,10 +47,25 @@ class AddUpcomingEventReminderEndpoint(BaseEndpoint):
     pass
 
 
+@IOS_REGISTRY
+class AppStoreEndpoint(BaseModel):
+    app_id: str
+    sk_ad_parameters: Optional[SkAdParameters] = None
+    referrer: Optional[str] = None
+    android_deep_link: Optional[str] = None
+    android_overlay: Optional[bool] = None
+
+
+@IOS_REGISTRY
+class ApplicationHelpEndpoint(BaseModel):
+    show_feedback: bool
+
+
 class BackstageImageUploadEndpoint(BaseEndpoint):
     pass
 
 
+@IOS_REGISTRY
 @IOS_MUSIC_REGISTRY
 @WEB_REGISTRY
 @WEB_REMIX_REGISTRY
@@ -182,6 +203,12 @@ class HideEngagementPanelEndpoint(BaseEndpoint):
     pass
 
 
+@IOS_REGISTRY
+class IosApplicationEndpoint(BaseModel):
+    external_app_url: str
+    fallback_endpoint: DynamicCommand[Any]  # AppStoreEndpoint
+
+
 class LikeEndpoint(BaseEndpoint):
     pass
 
@@ -283,8 +310,9 @@ class ScrollToSectionEndpoint(BaseEndpoint):
     pass
 
 
+@IOS_REGISTRY
 class SearchEndpoint(BaseEndpoint):
-    pass
+    query: str
 
 
 class SelectActiveIdentityEndpoint(BaseEndpoint):
@@ -384,6 +412,7 @@ class UpdatedMetadataEndpoint(BaseEndpoint):
     pass
 
 
+@IOS_REGISTRY
 @WEB_REGISTRY
 class UrlEndpoint(BaseEndpoint):
     url: str
@@ -408,6 +437,10 @@ class WatchPlaylistEndpoint(BaseEndpoint):
 
 class WebPlayerShareEntityServiceEndpoint(BaseEndpoint):
     pass
+
+@IOS_REGISTRY
+class WebviewEndpoint(BaseModel):
+    url: str
 
 
 class WhitelistEditEndpoint(BaseEndpoint):

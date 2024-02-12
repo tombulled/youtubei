@@ -17,12 +17,12 @@ from youtubei.types import BrowseId, ClickTrackingParams
 from .base import BaseModel
 
 
-class AppStoreEndpoint(BaseModel):
-    app_id: str
-    sk_ad_parameters: Optional[SkAdParameters] = None
-    referrer: Optional[str] = None
-    android_deep_link: Optional[str] = None
-    android_overlay: Optional[bool] = None
+# class AppStoreEndpoint(BaseModel):
+#     app_id: str
+#     sk_ad_parameters: Optional[SkAdParameters] = None
+#     referrer: Optional[str] = None
+#     android_deep_link: Optional[str] = None
+#     android_overlay: Optional[bool] = None
 
 
 # class AndroidAppFallbackEndpoint(BaseModel):
@@ -36,8 +36,8 @@ class AndroidAppEndpoint(BaseModel):
     fallback_endpoint: AndroidAppFallbackEndpoint
 
 
-class ApplicationHelpEndpoint(BaseModel):
-    show_feedback: bool
+# class ApplicationHelpEndpoint(BaseModel):
+#     show_feedback: bool
 
 
 class ApplicationSettingsEndpoint(BaseModel):
@@ -71,9 +71,9 @@ class HideEngagementPanelEndpoint(BaseModel):
 #     app_store_endpoint: AppStoreEndpoint
 
 
-class IosApplicationEndpoint(BaseModel):
-    external_app_url: str
-    fallback_endpoint: Command  # AppStoreEndpoint
+# class IosApplicationEndpoint(BaseModel):
+#     external_app_url: str
+#     fallback_endpoint: Command  # AppStoreEndpoint
 
 
 # class ReelWatchEndpoint(BaseModel):
@@ -86,8 +86,8 @@ class IosApplicationEndpoint(BaseModel):
 #     ustreamer_config: str
 
 
-class SearchEndpoint(BaseModel):
-    query: str
+# class SearchEndpoint(BaseModel):
+#     query: str
 
 
 class SignalServiceEndpoint(BaseModel):
@@ -127,8 +127,8 @@ class WatchEndpoint(BaseModel):
     logging_context: Optional[LoggingContext] = None
 
 
-class WebviewEndpoint(BaseModel):
-    url: str
+# class WebviewEndpoint(BaseModel):
+#     url: str
 
 
 class YpcGetOfflineUpsellEndpoint(BaseModel):
