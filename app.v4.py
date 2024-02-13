@@ -59,11 +59,13 @@ Notes:
 # c = youtubei.WEB
 c = youtubei.WEB_REMIX
 
-d = c.client.adaptor.dispatch("guide")
+d = c.client.adaptor.dispatch("config")
+# d = c.client.adaptor.dispatch("guide")
 
 pp(d)
 
-p = c.parser.guide(d)
+p = c.parser.config(d)
+# p = c.parser.guide(d)
 
 pp(p)
 

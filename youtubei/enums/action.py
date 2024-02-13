@@ -7,7 +7,7 @@ class Action(_StrEnum):
     @staticmethod
     def _generate_next_value_(name: str, *_):
         return f"ACTION_{name}"
-    
+
     UNKNOWN = auto()
     ADD = auto()
     REMOVE = auto()

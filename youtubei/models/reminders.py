@@ -8,7 +8,5 @@ from youtubei.validated_types import DynamicCommand
 
 @ANDROID_REGISTRY
 class DataReminder(BaseModel):
-    show_reminder_panel_command: DynamicCommand[
-        ShowEngagementPanelEndpoint
-    ]
+    show_reminder_panel_command: DynamicCommand[ShowEngagementPanelEndpoint]
     reminder_dialog: Dynamic[ConfirmDialogRenderer]

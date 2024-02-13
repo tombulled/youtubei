@@ -4,7 +4,7 @@ from innertube import InnerTube
 
 from .constants import WEB_REMIX_CLIENT, WEB_REMIX_PARSER
 from .parser import WebRemixParser
-from .responses import WebRemixGuideResponse
+from .responses import WebRemixConfigResponse, WebRemixGuideResponse
 
 __all__ = ("WebRemix",)
 
@@ -18,6 +18,11 @@ class WebRemix:
         client_version: str = self.client.adaptor.context.client_version
 
         return f"{type(self).__name__}({client_version!r})"
+
+    def config(self) -> WebRemixConfigResponse:
+        response: dict = self.client.adaptor.dispatch("config")
+
+        return self.parser.config(response)
 
     def guide(self) -> WebRemixGuideResponse:
         response: dict = self.client.adaptor.dispatch("guide")

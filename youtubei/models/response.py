@@ -1,4 +1,4 @@
-from typing import Sequence
+from typing import Optional, Sequence
 
 from youtubei.models.base import BaseModel
 
@@ -19,5 +19,5 @@ class ResponseContext(BaseModel):
 
 
 class Response(BaseModel):
-    tracking_params: str
+    tracking_params: Optional[str] = None
     response_context: ResponseContext
