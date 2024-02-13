@@ -1,24 +1,30 @@
+from enum import auto
+
 from ._other import _StrEnum
 
 
 class Action(_StrEnum):
-    UNKNOWN = "ACTION_UNKNOWN"
-    ADD = "ACTION_ADD"
-    REMOVE = "ACTION_REMOVE"
-    REMOVE_WITH_PROMPT = "ACTION_REMOVE_WITH_PROMPT"
-    PAUSE = "ACTION_PAUSE"
-    RETRY = "ACTION_RETRY"
-    RESUME = "ACTION_RESUME"
-    SYNC = "ACTION_SYNC"
-    APPROVE = "ACTION_APPROVE"
-    INFER_AUTOMATICALLY = "ACTION_INFER_AUTOMATICALLY"
-    TOGGLE_AUTO_DOWNLOAD = "ACTION_TOGGLE_AUTO_DOWNLOAD"
-    DOWNLOAD_IMMEDIATELY = "ACTION_DOWNLOAD_IMMEDIATELY"
-    REDOWNLOAD = "ACTION_REDOWNLOAD"
-    RENEW = "ACTION_RENEW"
-    RENEW_WITH_PROMPT = "ACTION_RENEW_WITH_PROMPT"
-    ROUTER_TOKEN = "ACTION_ROUTER_TOKEN"
-    ADD_VIDEO = "ACTION_ADD_VIDEO"
-    MOVE_VIDEO_AFTER = "ACTION_MOVE_VIDEO_AFTER"
-    REMOVE_VIDEO = "ACTION_REMOVE_VIDEO"
-    REMOVE_VIDEO_BY_VIDEO_ID = "ACTION_REMOVE_VIDEO_BY_VIDEO_ID"
+    @staticmethod
+    def _generate_next_value_(name: str, *_):
+        return f"ACTION_{name}"
+    
+    UNKNOWN = auto()
+    ADD = auto()
+    REMOVE = auto()
+    REMOVE_WITH_PROMPT = auto()
+    PAUSE = auto()
+    RETRY = auto()
+    RESUME = auto()
+    SYNC = auto()
+    APPROVE = auto()
+    INFER_AUTOMATICALLY = auto()
+    TOGGLE_AUTO_DOWNLOAD = auto()
+    DOWNLOAD_IMMEDIATELY = auto()
+    REDOWNLOAD = auto()
+    RENEW = auto()
+    RENEW_WITH_PROMPT = auto()
+    ROUTER_TOKEN = auto()
+    ADD_VIDEO = auto()
+    MOVE_VIDEO_AFTER = auto()
+    REMOVE_VIDEO = auto()
+    REMOVE_VIDEO_BY_VIDEO_ID = auto()

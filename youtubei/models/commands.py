@@ -1,7 +1,3 @@
-from typing import Union
-
-from typing_extensions import TypeAlias
-
 from .base import BaseModel
 
 __all__ = (

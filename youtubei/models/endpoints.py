@@ -376,7 +376,8 @@ class SignalServiceEndpoint(BaseEndpoint):
 
 
 class SubscribeEndpoint(BaseEndpoint):
-    pass
+    channel_ids: Sequence[str]
+    params: str
 
 
 class UndoFeedbackEndpoint(BaseEndpoint):
@@ -388,7 +389,8 @@ class UnlimitedCreateFamilyEndpoint(BaseEndpoint):
 
 
 class UnsubscribeEndpoint(BaseEndpoint):
-    pass
+    channel_ids: Sequence[str]
+    params: str
 
 
 class UpdateBackstagePostEndpoint(BaseEndpoint):
@@ -444,7 +446,9 @@ class VerifyAgeEndpoint(BaseEndpoint):
 
 
 class WatchEndpoint(BaseEndpoint):
-    pass
+    video_id: str
+    playlist_id: Optional[str] = None
+    logging_context: Optional[LoggingContext] = None
 
 
 class WatchPlaylistEndpoint(BaseEndpoint):
@@ -479,6 +483,10 @@ class YpcGetCartEndpoint(BaseEndpoint):
 
 class YpcGetOffersEndpoint(BaseEndpoint):
     pass
+
+
+class YpcGetOfflineUpsellEndpoint(BaseModel):
+    params: str
 
 
 class YpcHandleTransactionEndpoint(BaseEndpoint):

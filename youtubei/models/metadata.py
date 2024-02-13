@@ -9,7 +9,6 @@ from .base import BaseModel
 __all__ = (
     "InteractionLoggingCommandMetadata",
     "WebCommandMetadata",
-    # "CommandMetadata",
 )
 
 
@@ -24,10 +23,3 @@ class WebCommandMetadata(BaseModel):
     root_ve: Optional[int] = None
     api_url: Optional[str] = None
     send_post: Optional[bool] = None
-
-
-# class CommandMetadata(BaseModel):
-#     web_command_metadata: WebCommandMetadata
-#     interaction_logging_command_metadata: Optional[
-#         InteractionLoggingCommandMetadata
-#     ] = None
