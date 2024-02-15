@@ -1,8 +1,8 @@
-from typing import Union
+from typing import Any, Union
 
 from typing_extensions import TypeAlias
 
-from youtubei._registries import WEB_REGISTRY
+from youtubei._registries import WEB_REGISTRY, WEB_REMIX_REGISTRY
 from youtubei.enums import EngagementPanelVisibility, PopupType, Signal, TargetId
 from youtubei.parse import Dynamic
 
@@ -66,8 +66,9 @@ class AddToRemoteQueueAction(BaseModel):
     pass
 
 
+@WEB_REMIX_REGISTRY
 class AddToToastAction(BaseModel):
-    pass
+    item: Dynamic[Any] # NotificationTextRenderer
 
 
 class AddVideoLinkAction(BaseModel):

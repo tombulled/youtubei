@@ -6,6 +6,7 @@ from .command import *
 from .commands import *
 from .config import *
 from .contexts import *
+from .data_bound import *
 from .endpoints import *
 from .logging import *
 from .metadata import *

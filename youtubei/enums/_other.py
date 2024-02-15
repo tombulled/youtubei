@@ -530,6 +530,11 @@ class PopupType(_StrEnum):
     DIALOG = "DIALOG"
 
 
+class QueueInsertPosition(_StrEnum):
+    INSERT_AFTER_CURRENT_VIDEO: str = "INSERT_AFTER_CURRENT_VIDEO"
+    INSERT_AT_END: str = "INSERT_AT_END"
+
+
 # E.g., {"reelPlayerOverlayRenderer": {"reelPlayerNavigationModel": "REEL_PLAYER_NAVIGATION_MODEL_UNSPECIFIED"}}
 class ReelPlayerNavigationModel(_StrEnum):
     UNSPECIFIED: str = "REEL_PLAYER_NAVIGATION_MODEL_UNSPECIFIED"

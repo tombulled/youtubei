@@ -9,7 +9,14 @@ from youtubei._registries import (
     WEB_REGISTRY,
     WEB_REMIX_REGISTRY,
 )
-from youtubei.enums import ReelWatchInputType, ReelWatchSequenceProvider, Signal, Target
+from youtubei.enums import (
+    ReelWatchInputType,
+    ReelWatchSequenceProvider,
+    Signal,
+    Target,
+    QueueInsertPosition,
+)
+from youtubei.models.actions import AddToToastAction
 from youtubei.models.config import BrowseEndpointContextMusicConfig
 from youtubei.models.contexts import LoggingContext
 from youtubei.models.params import SkAdParameters
@@ -252,9 +259,9 @@ class ManageLiveChatUserEndpoint(BaseEndpoint):
 class MenuEndpoint(BaseEndpoint):
     pass
 
-
+@WEB_REMIX_REGISTRY
 class ModalEndpoint(BaseEndpoint):
-    pass
+    modal: Dynamic[Any]  # ModalWithTitleAndButtonRenderer
 
 
 class ModerateLiveChatEndpoint(BaseEndpoint):
@@ -287,6 +294,12 @@ class PlaylistEditEndpoint(BaseEndpoint):
 
 class PlaylistEditorEndpoint(BaseEndpoint):
     pass
+
+
+@WEB_REMIX_REGISTRY
+class QueueAddEndpoint(BaseEndpoint):
+    queue_insert_position: QueueInsertPosition
+    commands: Sequence[DynamicCommand[AddToToastAction]]
 
 
 class RecordNotificationInteractionsEndpoint(BaseEndpoint):
@@ -351,6 +364,10 @@ class SetSettingEndpoint(BaseEndpoint):
 class ShareEntityServiceEndpoint(BaseEndpoint):
     pass
 
+@WEB_REMIX_REGISTRY
+class ShareEntityEndpoint(BaseEndpoint):
+    hack: bool
+
 
 @ANDROID_REGISTRY
 class ShowEngagementPanelEndpoint(BaseEndpoint):
@@ -360,7 +377,7 @@ class ShowEngagementPanelEndpoint(BaseEndpoint):
 
 @WEB_REMIX_REGISTRY
 class SignInEndpoint(BaseEndpoint):
-    pass
+    hack: bool
 
 
 class SignOutEndpoint(BaseEndpoint):
@@ -445,10 +462,12 @@ class VerifyAgeEndpoint(BaseEndpoint):
     pass
 
 
+@WEB_REMIX_REGISTRY
 class WatchEndpoint(BaseEndpoint):
-    video_id: str
+    video_id: Optional[str] = None
     playlist_id: Optional[str] = None
     logging_context: Optional[LoggingContext] = None
+    continue_playback: Optional[bool] = None
 
 
 class WatchPlaylistEndpoint(BaseEndpoint):
