@@ -2,6 +2,7 @@ from .accessibility import *
 from .actions import *
 from .ad import *
 from .base import *
+from .colour import *
 from .command import *
 from .commands import *
 from .config import *

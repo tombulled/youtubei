@@ -10,11 +10,11 @@ from youtubei._registries import (
     WEB_REMIX_REGISTRY,
 )
 from youtubei.enums import (
+    QueueInsertPosition,
     ReelWatchInputType,
     ReelWatchSequenceProvider,
     Signal,
     Target,
-    QueueInsertPosition,
 )
 from youtubei.models.actions import AddToToastAction
 from youtubei.models.config import BrowseEndpointContextMusicConfig
@@ -259,6 +259,7 @@ class ManageLiveChatUserEndpoint(BaseEndpoint):
 class MenuEndpoint(BaseEndpoint):
     pass
 
+
 @WEB_REMIX_REGISTRY
 class ModalEndpoint(BaseEndpoint):
     modal: Dynamic[Any]  # ModalWithTitleAndButtonRenderer
@@ -288,6 +289,7 @@ class PingingEndpoint(BaseEndpoint):
     pass
 
 
+@WEB_REGISTRY
 class PlaylistEditEndpoint(BaseEndpoint):
     pass
 
@@ -361,8 +363,10 @@ class SetSettingEndpoint(BaseEndpoint):
     pass
 
 
+@WEB_REGISTRY
 class ShareEntityServiceEndpoint(BaseEndpoint):
     pass
+
 
 @WEB_REMIX_REGISTRY
 class ShareEntityEndpoint(BaseEndpoint):
@@ -375,6 +379,7 @@ class ShowEngagementPanelEndpoint(BaseEndpoint):
     engagement_panel: Dynamic[Any]  # EngagementPanelSectionListRenderer
 
 
+@WEB_REGISTRY
 @WEB_REMIX_REGISTRY
 class SignInEndpoint(BaseEndpoint):
     hack: bool
@@ -462,6 +467,7 @@ class VerifyAgeEndpoint(BaseEndpoint):
     pass
 
 
+@WEB_REGISTRY
 @WEB_REMIX_REGISTRY
 class WatchEndpoint(BaseEndpoint):
     video_id: Optional[str] = None

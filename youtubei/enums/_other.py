@@ -43,6 +43,13 @@ class AdPlacementKind(_StrEnum):
 class BackgroundPromoStyleType(_StrEnum):
     EMPTY_STATE = "BACKGROUND_PROMO_STYLE_TYPE_EMPTY_STATE"
 
+class BadgeStyleType(_StrEnum):
+    PREMIUM: str = "BADGE_STYLE_TYPE_PREMIUM"
+    SIMPLE: str = "BADGE_STYLE_TYPE_SIMPLE"
+    AD: str = "BADGE_STYLE_TYPE_AD"
+    LIVE_NOW: str = "BADGE_STYLE_TYPE_LIVE_NOW"
+    UNIFIED_VERIFIED: str = "BADGE_STYLE_TYPE_UNIFIED_VERIFIED"
+    SHORTS_PLAYER: str = "BADGE_STYLE_TYPE_SHORTS_PLAYER"
 
 class CaptionsInitialState(_StrEnum):
     OFF_RECOMMENDED = "CAPTIONS_INITIAL_STATE_OFF_RECOMMENDED"
@@ -528,6 +535,10 @@ class PlaybackMode(_StrEnum):
 # E.g., {"openPopupAction": {"type": "DIALOG"}}
 class PopupType(_StrEnum):
     DIALOG = "DIALOG"
+
+
+class Privacy(_StrEnum):
+    UNLISTED: str = "UNLISTED"
 
 
 class QueueInsertPosition(_StrEnum):

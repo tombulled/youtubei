@@ -1,6 +1,7 @@
 from datetime import datetime
 from typing import Optional, Sequence
 
+from youtubei._registries import WEB_REGISTRY
 from youtubei.enums import Category, CountryCode
 from youtubei.models.other import LinkAlternate, PageOwnerDetails, VideoDetails
 from youtubei.models.thumbnail import Thumbnails
@@ -8,6 +9,7 @@ from youtubei.models.thumbnail import Thumbnails
 from ._base import BaseRenderer
 
 
+@WEB_REGISTRY
 class MicroformatDataRenderer(BaseRenderer):
     url_canonical: str
     title: str
@@ -19,6 +21,7 @@ class MicroformatDataRenderer(BaseRenderer):
     ios_app_store_id: str
     ios_app_arguments: str
     og_type: str
+    url_applinks_web: Optional[str] = None
     url_applinks_ios: str
     url_applinks_android: str
     url_twitter_ios: str
@@ -28,14 +31,14 @@ class MicroformatDataRenderer(BaseRenderer):
     schema_dot_org_type: str
     noindex: bool
     unlisted: bool
-    paid: bool
-    family_safe: bool
-    tags: Sequence[str]
-    page_owner_details: PageOwnerDetails
-    video_details: VideoDetails
+    paid: Optional[bool] = None
+    family_safe: Optional[bool] = None
+    tags: Optional[Sequence[str]] = None
+    page_owner_details: Optional[PageOwnerDetails] = None
+    video_details: Optional[VideoDetails] = None
     link_alternates: Sequence[LinkAlternate]
-    view_count: str
-    publish_date: datetime
-    category: Category
-    upload_date: datetime
+    view_count: Optional[str] = None
+    publish_date: Optional[datetime] = None
+    category: Optional[Category] = None
+    upload_date: Optional[datetime] = None
     available_countries: Optional[Sequence[CountryCode]] = None

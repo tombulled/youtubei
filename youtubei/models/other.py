@@ -76,6 +76,10 @@ class CsiParameter(BaseModel):
     value: str
 
 
+class EditableDetails(BaseModel):
+    can_delete: bool
+
+
 class Embed(BaseModel):
     iframe_url: str
     width: int
@@ -173,6 +177,10 @@ class Pings(BaseModel):
     second_quartile_pings: Optional[Sequence[Ping]] = None
     third_quartile_pings: Optional[Sequence[Ping]] = None
     complete_pings: Sequence[Ping]
+
+
+class ShareData(BaseModel):
+    can_share: bool
 
 
 class SodarExtensionData(BaseModel):

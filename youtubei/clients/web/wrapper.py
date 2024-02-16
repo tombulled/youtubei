@@ -19,6 +19,14 @@ class Web:
 
         return f"{type(self).__name__}({client_version!r})"
 
+    def browse(self, browse_id: str) -> WebGuideResponse:
+        response: dict = self.client.adaptor.dispatch(
+            "browse",
+            {"browseId": browse_id},
+        )
+
+        return self.parser.browse(response)
+
     def guide(self) -> WebGuideResponse:
         response: dict = self.client.adaptor.dispatch("guide")
 

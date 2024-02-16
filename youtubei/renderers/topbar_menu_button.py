@@ -1,4 +1,4 @@
-from youtubei._registries import ANDROID_REGISTRY, IOS_REGISTRY
+from youtubei._registries import ANDROID_REGISTRY, IOS_REGISTRY, WEB_REGISTRY
 from youtubei.enums import TargetId
 from youtubei.models.other import Icon
 from youtubei.parse import Dynamic
@@ -7,6 +7,7 @@ from youtubei.renderers.multi_page_menu import MultiPageMenuRenderer
 from ._base import BaseRenderer
 
 
+@WEB_REGISTRY
 @ANDROID_REGISTRY
 @IOS_REGISTRY
 class TopbarMenuButtonRenderer(BaseRenderer):

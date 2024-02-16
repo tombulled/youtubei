@@ -68,7 +68,7 @@ class AddToRemoteQueueAction(BaseModel):
 
 @WEB_REMIX_REGISTRY
 class AddToToastAction(BaseModel):
-    item: Dynamic[Any] # NotificationTextRenderer
+    item: Dynamic[Any]  # NotificationTextRenderer
 
 
 class AddVideoLinkAction(BaseModel):

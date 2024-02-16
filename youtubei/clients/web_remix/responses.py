@@ -1,6 +1,6 @@
 from typing import Mapping, Optional, Sequence
-from youtubei.clients.web_remix.models import GlobalConfigGroup
 
+from youtubei.clients.web_remix.models import GlobalConfigGroup
 from youtubei.models.response import Response, ResponseContext
 
 from .types import GuideItem
@@ -16,7 +16,7 @@ class WebRemixResponse(Response):
 
 class WebRemixConfigResponse(WebRemixResponse):
     config_data: str
-    global_config: Mapping[None, None] # Warn: only ever observed as a literal {}
+    global_config: Mapping[None, None]  # Warn: only ever observed as a literal {}
 
 
 class WebRemixGuideResponse(WebRemixResponse):

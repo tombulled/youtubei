@@ -1,5 +1,6 @@
-from typing import Sequence
+from typing import Optional, Sequence
 
+from youtubei.models.colour import Colour, ColourPalette
 from youtubei.types import TrackingParams
 
 from .base import BaseModel
@@ -21,6 +22,9 @@ class Thumbnail(BaseModel):
 # Rename to `Image`?
 class Thumbnails(BaseModel):
     thumbnails: Sequence[Thumbnail]
+    sampled_thumbnail_color: Optional[Colour] = None
+    dark_color_palette: Optional[ColourPalette] = None
+    vibrant_color_palette: Optional[ColourPalette] = None
 
 
 class ThumbnailMapEntry(BaseModel):
