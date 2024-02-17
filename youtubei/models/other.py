@@ -1,5 +1,6 @@
 from typing import Any, Optional, Sequence
 
+from youtubei import enums
 from youtubei.enums import (
     ActiveViewTrafficType,
     AdPlacementKind,
@@ -10,6 +11,7 @@ from youtubei.enums import (
     LanguageCode,
     Visibility,
 )
+from youtubei.enums.action import Action
 from youtubei.models.command import Command
 from youtubei.models.text import TemplatedText, Text
 from youtubei.models.thumbnail import Thumbnails
@@ -178,6 +180,10 @@ class Pings(BaseModel):
     third_quartile_pings: Optional[Sequence[Ping]] = None
     complete_pings: Sequence[Ping]
 
+class PlaylistEditAction(BaseModel):
+    action: Action
+    source_playlist_id: str
+
 
 class ShareData(BaseModel):
     can_share: bool
@@ -188,6 +194,14 @@ class SodarExtensionData(BaseModel):
     bgub: str
     scs: str
     bgp: str
+
+
+class Style(BaseModel):
+    style_type: enums.Style
+
+
+class Size(BaseModel):
+    size_type: enums.Size
 
 
 class TranslationLanguage(BaseModel):

@@ -28,3 +28,4 @@ class Action(_StrEnum):
     MOVE_VIDEO_AFTER = auto()
     REMOVE_VIDEO = auto()
     REMOVE_VIDEO_BY_VIDEO_ID = auto()
+    COPY_FROM_PLAYLIST = auto()

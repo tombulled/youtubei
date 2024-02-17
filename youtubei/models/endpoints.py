@@ -17,8 +17,12 @@ from youtubei.enums import (
     Target,
 )
 from youtubei.models.actions import AddToToastAction
-from youtubei.models.config import BrowseEndpointContextMusicConfig
+from youtubei.models.config import (
+    BrowseEndpointContextMusicConfig,
+    Html5PlaybackOnesieConfig,
+)
 from youtubei.models.contexts import LoggingContext
+from youtubei.models.other import PlaylistEditAction
 from youtubei.models.params import SkAdParameters
 from youtubei.parse.validated_types import Dynamic
 from youtubei.types import BrowseId
@@ -260,6 +264,7 @@ class MenuEndpoint(BaseEndpoint):
     pass
 
 
+@WEB_REGISTRY
 @WEB_REMIX_REGISTRY
 class ModalEndpoint(BaseEndpoint):
     modal: Dynamic[Any]  # ModalWithTitleAndButtonRenderer
@@ -291,7 +296,7 @@ class PingingEndpoint(BaseEndpoint):
 
 @WEB_REGISTRY
 class PlaylistEditEndpoint(BaseEndpoint):
-    pass
+    actions: Sequence[PlaylistEditAction]
 
 
 class PlaylistEditorEndpoint(BaseEndpoint):
@@ -337,6 +342,7 @@ class ScrollToSectionEndpoint(BaseEndpoint):
     pass
 
 
+@WEB_REGISTRY
 @ANDROID_REGISTRY
 @IOS_REGISTRY
 class SearchEndpoint(BaseEndpoint):
@@ -365,7 +371,8 @@ class SetSettingEndpoint(BaseEndpoint):
 
 @WEB_REGISTRY
 class ShareEntityServiceEndpoint(BaseEndpoint):
-    pass
+    serialized_share_entity: str
+    commands: Sequence[DynamicCommand[Any]]  # OpenPopupAction
 
 
 @WEB_REMIX_REGISTRY
@@ -382,7 +389,9 @@ class ShowEngagementPanelEndpoint(BaseEndpoint):
 @WEB_REGISTRY
 @WEB_REMIX_REGISTRY
 class SignInEndpoint(BaseEndpoint):
-    hack: bool
+    hack: Optional[bool] = None
+    next_endpoint: Optional[DynamicCommand[BrowseEndpoint]] = None
+    idam_tag: Optional[str] = None
 
 
 class SignOutEndpoint(BaseEndpoint):
@@ -472,8 +481,13 @@ class VerifyAgeEndpoint(BaseEndpoint):
 class WatchEndpoint(BaseEndpoint):
     video_id: Optional[str] = None
     playlist_id: Optional[str] = None
+    params: Optional[str] = None
+    player_params: Optional[str] = None
     logging_context: Optional[LoggingContext] = None
     continue_playback: Optional[bool] = None
+    watch_endpoint_supported_onesie_config: Optional[
+        Dynamic[Html5PlaybackOnesieConfig]
+    ] = None
 
 
 class WatchPlaylistEndpoint(BaseEndpoint):

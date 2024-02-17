@@ -25,6 +25,8 @@ from .guide_section import GuideSectionRenderer
 from .guide_signin_promo import GuideSigninPromoRenderer
 from .hero_playlist_thumbnail import HeroPlaylistThumbnailRenderer
 from .hotkey_dialog import HotkeyDialogRenderer
+from .hotkey_dialog_section import HotkeyDialogSectionRenderer
+from .hotkey_dialog_section_option import HotkeyDialogSectionOptionRenderer
 from .info_card_icon import InfoCardIconRenderer
 from .instream_ad_player_overlay import InstreamAdPlayerOverlayRenderer
 from .instream_video_ad import InstreamVideoAdRenderer
@@ -32,9 +34,9 @@ from .item_section import ItemSectionRenderer
 from .like_button import LikeButtonRenderer
 from .linear_ad_sequence import LinearAdSequenceRenderer
 from .lugash_footer import LugashFooterRenderer
+from .menu import MenuRenderer
 from .menu_navigation_item import MenuNavigationItemRenderer
 from .menu_service_item import MenuServiceItemRenderer
-from .menu import MenuRenderer
 from .metadata_badge import MetadataBadgeRenderer
 from .microformat_data import MicroformatDataRenderer
 from .miniplayer import MiniplayerRenderer
@@ -56,11 +58,11 @@ from .player_legacy_desktop_watch_ads import PlayerLegacyDesktopWatchAdsRenderer
 from .player_microformat import PlayerMicroformatRenderer
 from .player_storyboard_spec import PlayerStoryboardSpecRenderer
 from .playlist_byline import PlaylistBylineRenderer
+from .playlist_custom_thumbnail import PlaylistCustomThumbnailRenderer
 from .playlist_header import PlaylistHeaderRenderer
 from .playlist_metadata import PlaylistMetadataRenderer
-from .playlist_sidebar_primary_info import PlaylistSidebarPrimaryInfoRenderer
-from .playlist_custom_thumbnail import PlaylistCustomThumbnailRenderer
 from .playlist_sidebar import PlaylistSidebarRenderer
+from .playlist_sidebar_primary_info import PlaylistSidebarPrimaryInfoRenderer
 from .playlist_video_list import PlaylistVideoListRenderer
 from .privacy_tos_footer import PrivacyTosFooterRenderer
 from .reel_player_overlay import ReelPlayerOverlayRenderer
@@ -71,6 +73,7 @@ from .skip_ad import SkipAdRenderer
 from .skip_button import SkipButtonRenderer
 from .subscribe_button import SubscribeButtonRenderer
 from .tab import TabRenderer
+from .thumbnail_overlay_hover_text import ThumbnailOverlayHoverTextRenderer
 from .thumbnail_overlay_side_panel import ThumbnailOverlaySidePanelRenderer
 from .thumbnail_overlay_time_status import ThumbnailOverlayTimeStatusRenderer
 from .toggle_button import ToggleButtonRenderer
@@ -78,5 +81,6 @@ from .topbar_button import TopbarButtonRenderer
 from .topbar_logo import TopbarLogoRenderer
 from .topbar_menu_button import TopbarMenuButtonRenderer
 from .two_column_browse_results import TwoColumnBrowseResultsRenderer
+from .unified_share_panel import UnifiedSharePanelRenderer
 from .upload_progress_arrow import UploadProgressArrowRenderer
 from .watch_break import WatchBreakRenderer

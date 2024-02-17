@@ -6,6 +6,6 @@ from ._base import BaseRenderer
 
 
 @WEB_REGISTRY
-class ThumbnailOverlaySidePanelRenderer(BaseRenderer):
+class ThumbnailOverlayHoverTextRenderer(BaseRenderer):
     text: SimpleText
     icon: Icon

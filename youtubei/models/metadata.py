@@ -23,3 +23,4 @@ class WebCommandMetadata(BaseModel):
     root_ve: Optional[int] = None
     api_url: Optional[str] = None
     send_post: Optional[bool] = None
+    ignore_navigation: Optional[bool] = None

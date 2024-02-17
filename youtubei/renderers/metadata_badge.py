@@ -1,6 +1,6 @@
 from youtubei._registries import WEB_REGISTRY
-from youtubei.models.other import Icon
 from youtubei.enums import BadgeStyleType
+from youtubei.models.other import Icon
 
 from ._base import BaseRenderer
 

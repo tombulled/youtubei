@@ -1,4 +1,4 @@
-from typing import Any, Union
+from typing import Any, Optional, Union
 
 from typing_extensions import TypeAlias
 
@@ -132,9 +132,11 @@ class NavigateAction(BaseModel):
     pass
 
 
+@WEB_REGISTRY
 class OpenPopupAction(BaseModel):
     popup: Dynamic  # ConfirmDialogRenderer
     popup_type: PopupType
+    be_reused: Optional[bool] = None
 
 
 class OpenUpdateCommentDialogAction(BaseModel):

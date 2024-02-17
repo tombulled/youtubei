@@ -43,6 +43,7 @@ class AdPlacementKind(_StrEnum):
 class BackgroundPromoStyleType(_StrEnum):
     EMPTY_STATE = "BACKGROUND_PROMO_STYLE_TYPE_EMPTY_STATE"
 
+
 class BadgeStyleType(_StrEnum):
     PREMIUM: str = "BADGE_STYLE_TYPE_PREMIUM"
     SIMPLE: str = "BADGE_STYLE_TYPE_SIMPLE"
@@ -50,6 +51,7 @@ class BadgeStyleType(_StrEnum):
     LIVE_NOW: str = "BADGE_STYLE_TYPE_LIVE_NOW"
     UNIFIED_VERIFIED: str = "BADGE_STYLE_TYPE_UNIFIED_VERIFIED"
     SHORTS_PLAYER: str = "BADGE_STYLE_TYPE_SHORTS_PLAYER"
+
 
 class CaptionsInitialState(_StrEnum):
     OFF_RECOMMENDED = "CAPTIONS_INITIAL_STATE_OFF_RECOMMENDED"
@@ -522,6 +524,11 @@ class LayoutType(_StrEnum):
     MEDIA = "LAYOUT_TYPE_MEDIA"
 
 
+class MultiPageMenuStyleType(_StrEnum):
+    SYSTEM = "MULTI_PAGE_MENU_STYLE_TYPE_SYSTEM"
+    REPORT_CHANNEL = "MULTI_PAGE_MENU_STYLE_TYPE_REPORT_CHANNEL"
+
+
 # E.g., {"browseEndpointContextMusicConfig": {"pageType": "MUSIC_PAGE_TYPE_METRONOME"}}
 class MusicPageType(_StrEnum):
     METRONOME = "MUSIC_PAGE_TYPE_METRONOME"
@@ -535,6 +542,7 @@ class PlaybackMode(_StrEnum):
 # E.g., {"openPopupAction": {"type": "DIALOG"}}
 class PopupType(_StrEnum):
     DIALOG = "DIALOG"
+    DROPDOWN = "DROPDOWN"
 
 
 class Privacy(_StrEnum):
@@ -585,6 +593,18 @@ class SharePanelType(Enum):
 class Signal(_StrEnum):
     HELP: str = "HELP"
     CLIENT_SIGNAL: str = "CLIENT_SIGNAL"
+    HISTORY_BACK: str = "HISTORY_BACK"
+    HISTORY_FORWARD: str = "HISTORY_FORWARD"
+    SKIP_NAVIGATION: str = "SKIP_NAVIGATION"
+    LOAD_GUIDE: str = "LOAD_GUIDE"
+    DELETE_PLAYLIST_DOWNLOAD: str = "DELETE_PLAYLIST_DOWNLOAD"
+    DELETE_DOWNLOAD: str = "DELETE_DOWNLOAD"
+    UNDO_DELETE_DOWNLOAD: str = "UNDO_DELETE_DOWNLOAD"
+    SOFT_RELOAD_PAGE: str = "SOFT_RELOAD_PAGE"
+    SCROLL_TO_COMMENTS: str = "SCROLL_TO_COMMENTS"
+    DELETE_ALL_DOWNLOADS: str = "DELETE_ALL_DOWNLOADS"
+    GET_DATASYNC_IDS: str = "GET_DATASYNC_IDS"
+    GET_ACCOUNT_MENU: str = "GET_ACCOUNT_MENU"
 
 
 # E.g., {"adSlotMetadata": {"triggerEvent": "SLOT_TRIGGER_EVENT_BEFORE_CONTENT"}}
@@ -604,6 +624,7 @@ class SubscribeButtonType(_StrEnum):
 
 class Size(_StrEnum):
     DEFAULT: str = "SIZE_DEFAULT"
+    SMALL: str = "SIZE_SMALL"
 
 
 class Style(_StrEnum):
@@ -615,6 +636,9 @@ class Style(_StrEnum):
     UNKNOWN: str = "STYLE_UNKNOWN"
     MONO_FILLED: str = "STYLE_MONO_FILLED"
     MONO_TONAL: str = "STYLE_MONO_TONAL"
+    BRAND: str = "STYLE_BRAND"
+    MONO_TONAL_OVERLAY: str = "STYLE_MONO_TONAL_OVERLAY"
+    MONO_FILLED_OVERLAY: str = "STYLE_MONO_FILLED_OVERLAY"
 
 
 # E.g., {"urlEndpoint": {"target": "TARGET_NEW_WINDOW"}}
@@ -628,6 +652,7 @@ class TargetId(_StrEnum):
     # YouTube Web
     LIBRARY_GUIDE_ITEM = "library-guide-item"
     ENGAGEMENT_PANEL_ERROR_CORRECTIONS = "engagement-panel-error-corrections"
+    TOPBAR_SIGNIN = "topbar-signin"
     # YouTube iOS
     PIVOT_W2W = "pivot-w2w"
     PIVOT_EXPLORE = "pivot-explore"
@@ -660,6 +685,10 @@ class WebPageType(_StrEnum):
     SHORTS: str = "WEB_PAGE_TYPE_SHORTS"
     UNKNOWN: str = "WEB_PAGE_TYPE_UNKNOWN"
     WATCH: str = "WEB_PAGE_TYPE_WATCH"
+    PLAYLIST: str = "WEB_PAGE_TYPE_PLAYLIST"
+    SEARCH: str = "WEB_PAGE_TYPE_SEARCH"
+    OPEN_IN_APP: str = "WEB_PAGE_TYPE_OPEN_IN_APP"
+    MINI_APP: str = "WEB_PAGE_TYPE_MINI_APP"
 
 
 class WatchBreakType(_StrEnum):
