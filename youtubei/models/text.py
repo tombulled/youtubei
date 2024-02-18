@@ -32,6 +32,7 @@ class ComplexTextRun(BaseModel):
 
 class ComplexText(BaseModel):
     runs: Sequence[ComplexTextRun]
+    accessibility: Optional[Accessibility] = None
 
 
 class SimpleText(BaseModel):

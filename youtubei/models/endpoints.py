@@ -95,7 +95,7 @@ class BrowseEndpoint(BaseEndpoint):
     browse_id: BrowseId
     params: Optional[str] = None
 
-    # canonicalBaseUrl
+    canonical_base_url: Optional[str] = None
     # query
     # nofollow
 
@@ -165,8 +165,10 @@ class CreateLiveChatPollEndpoint(BaseEndpoint):
     pass
 
 
+@WEB_REGISTRY
 class CreatePlaylistServiceEndpoint(BaseEndpoint):
-    pass
+    video_ids: Sequence[str]
+    params: str
 
 
 class CrossAccountChannelTransferEndpoint(BaseEndpoint):
@@ -403,7 +405,7 @@ class SignalServiceEndpoint(BaseEndpoint):
     signal: Signal
     actions: Sequence[
         DynamicCommand[Any]
-    ]  # TODO: Be more specific? (observed: signalAction, sendFeedbackAction)
+    ]  # TODO: Be more specific? (observed: signalAction, sendFeedbackAction, addToPlaylistCommand)
 
 
 class SubscribeEndpoint(BaseEndpoint):
@@ -481,6 +483,7 @@ class VerifyAgeEndpoint(BaseEndpoint):
 class WatchEndpoint(BaseEndpoint):
     video_id: Optional[str] = None
     playlist_id: Optional[str] = None
+    index: Optional[int] = None
     params: Optional[str] = None
     player_params: Optional[str] = None
     logging_context: Optional[LoggingContext] = None

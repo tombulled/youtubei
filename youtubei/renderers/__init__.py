@@ -64,6 +64,7 @@ from .playlist_metadata import PlaylistMetadataRenderer
 from .playlist_sidebar import PlaylistSidebarRenderer
 from .playlist_sidebar_primary_info import PlaylistSidebarPrimaryInfoRenderer
 from .playlist_video_list import PlaylistVideoListRenderer
+from .playlist_video import PlaylistVideoRenderer
 from .privacy_tos_footer import PrivacyTosFooterRenderer
 from .reel_player_overlay import ReelPlayerOverlayRenderer
 from .section_list import SectionListRenderer
@@ -74,6 +75,7 @@ from .skip_button import SkipButtonRenderer
 from .subscribe_button import SubscribeButtonRenderer
 from .tab import TabRenderer
 from .thumbnail_overlay_hover_text import ThumbnailOverlayHoverTextRenderer
+from .thumbnail_overlay_now_playing import ThumbnailOverlayNowPlayingRenderer
 from .thumbnail_overlay_side_panel import ThumbnailOverlaySidePanelRenderer
 from .thumbnail_overlay_time_status import ThumbnailOverlayTimeStatusRenderer
 from .toggle_button import ToggleButtonRenderer

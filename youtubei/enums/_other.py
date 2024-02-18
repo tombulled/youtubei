@@ -538,6 +538,9 @@ class MusicPageType(_StrEnum):
 class PlaybackMode(_StrEnum):
     ALLOW = "PLAYBACK_MODE_ALLOW"
 
+class PlaylistEditListType(_StrEnum):
+    QUEUE = "PLAYLIST_EDIT_LIST_TYPE_QUEUE"
+
 
 # E.g., {"openPopupAction": {"type": "DIALOG"}}
 class PopupType(_StrEnum):

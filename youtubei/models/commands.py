@@ -1,3 +1,8 @@
+from typing import Sequence
+from youtubei.models.endpoints import CreatePlaylistServiceEndpoint
+from youtubei.validated_types import DynamicCommand
+from youtubei._registries import WEB_REGISTRY
+from youtubei.enums import PlaylistEditListType
 from .base import BaseModel
 
 __all__ = (
@@ -147,6 +152,15 @@ class AcknowledgeChannelTouStrikeCommand(BaseCommand):
 
 class AddFollowUpSurveyCommand(BaseCommand):
     pass
+
+
+@WEB_REGISTRY
+class AddToPlaylistCommand(BaseCommand):
+    open_miniplayer: bool
+    video_id: str
+    list_type: PlaylistEditListType
+    on_create_list_command: DynamicCommand[CreatePlaylistServiceEndpoint]
+    video_ids: Sequence[str]
 
 
 class AdsControlFlowOpportunityReceivedCommand(BaseCommand):
