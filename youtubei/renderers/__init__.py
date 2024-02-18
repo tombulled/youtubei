@@ -63,8 +63,8 @@ from .playlist_header import PlaylistHeaderRenderer
 from .playlist_metadata import PlaylistMetadataRenderer
 from .playlist_sidebar import PlaylistSidebarRenderer
 from .playlist_sidebar_primary_info import PlaylistSidebarPrimaryInfoRenderer
-from .playlist_video_list import PlaylistVideoListRenderer
 from .playlist_video import PlaylistVideoRenderer
+from .playlist_video_list import PlaylistVideoListRenderer
 from .privacy_tos_footer import PrivacyTosFooterRenderer
 from .reel_player_overlay import ReelPlayerOverlayRenderer
 from .section_list import SectionListRenderer

@@ -180,6 +180,7 @@ class Pings(BaseModel):
     third_quartile_pings: Optional[Sequence[Ping]] = None
     complete_pings: Sequence[Ping]
 
+
 class PlaylistEditAction(BaseModel):
     action: Action
     source_playlist_id: str

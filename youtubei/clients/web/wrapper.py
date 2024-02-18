@@ -4,7 +4,7 @@ from innertube import InnerTube
 
 from .constants import WEB_CLIENT, WEB_PARSER
 from .parser import WebParser
-from .responses import WebGuideResponse
+from .responses import WebBrowseResponse, WebGuideResponse
 
 __all__ = ("Web",)
 
@@ -19,10 +19,10 @@ class Web:
 
         return f"{type(self).__name__}({client_version!r})"
 
-    def browse(self, browse_id: str) -> WebGuideResponse:
+    def browse(self, browse_id: str) -> WebBrowseResponse:
         response: dict = self.client.adaptor.dispatch(
             "browse",
-            {"browseId": browse_id},
+            body={"browseId": browse_id},
         )
 
         return self.parser.browse(response)

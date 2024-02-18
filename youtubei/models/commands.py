@@ -1,8 +1,10 @@
 from typing import Sequence
-from youtubei.models.endpoints import CreatePlaylistServiceEndpoint
-from youtubei.validated_types import DynamicCommand
+
 from youtubei._registries import WEB_REGISTRY
 from youtubei.enums import PlaylistEditListType
+from youtubei.models.endpoints import CreatePlaylistServiceEndpoint
+from youtubei.validated_types import DynamicCommand
+
 from .base import BaseModel
 
 __all__ = (

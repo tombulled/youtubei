@@ -14,7 +14,7 @@ class ServiceTrackingParams(BaseModel):
 
 
 class ResponseContext(BaseModel):
-    visitor_data: str
+    visitor_data: Optional[str] = None
     service_tracking_params: Sequence[ServiceTrackingParams]
 
 

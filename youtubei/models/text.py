@@ -34,10 +34,22 @@ class ComplexText(BaseModel):
     runs: Sequence[ComplexTextRun]
     accessibility: Optional[Accessibility] = None
 
+    def __str__(self) -> str:
+        return "".join(run.text for run in self.runs)
+
+    def __repr__(self) -> str:
+        return f"{type(self).__name__}({str(self)!r})"
+
 
 class SimpleText(BaseModel):
     simple_text: str
     accessibility: Optional[Accessibility] = None
+
+    def __str__(self) -> str:
+        return self.simple_text
+
+    def __repr__(self) -> str:
+        return f"{type(self).__name__}({str(self)!r})"
 
 
 class TemplatedText(BaseModel):

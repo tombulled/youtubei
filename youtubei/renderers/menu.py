@@ -14,7 +14,9 @@ from ._base import BaseRenderer
 @WEB_REGISTRY
 @WEB_REMIX_REGISTRY
 class MenuRenderer(BaseRenderer):
-    items: Optional[Sequence[Dynamic[Union[MenuNavigationItemRenderer, MenuServiceItemRenderer]]]] = None
+    items: Optional[
+        Sequence[Dynamic[Union[MenuNavigationItemRenderer, MenuServiceItemRenderer]]]
+    ] = None
     open_immediately: Optional[bool] = None
     top_level_buttons: Optional[
         Sequence[Dynamic[Union[ToggleButtonRenderer, ButtonRenderer]]]

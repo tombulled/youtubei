@@ -5,7 +5,6 @@ from pydantic import ValidationInfo
 from youtubei.models.base import BaseModel
 from youtubei.parse.validators import validate_dynamic
 
-
 __all__ = ("validate_command",)
 
 

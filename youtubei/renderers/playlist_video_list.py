@@ -1,4 +1,5 @@
 from typing import Sequence
+
 from youtubei._registries import WEB_REGISTRY
 from youtubei.parse.validated_types import Dynamic
 from youtubei.renderers.playlist_video import PlaylistVideoRenderer
