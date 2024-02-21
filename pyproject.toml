@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "youtubei"
+version = "0.1.0"
+description = ""
+authors = ["Tom Bulled <26026015+tombulled@users.noreply.github.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+innertube = "^2.1.10"
+pyhumps = "^3.8.0"
+pydantic = "^2.5.3"
+typing-extensions = "^4.9.0"
+
+[tool.poetry.group.dev.dependencies]
+pylint = "^3.0.3"
+mypy = "^1.8.0"
+black = "^23.12.1"
+pytest = "^7.4.4"
+isort = "^5.13.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
