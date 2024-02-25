@@ -7,6 +7,7 @@ class MusicThumbnailCrop(_StrEnum):
 
 class MusicThumbnailScale(_StrEnum):
     ASPECT_FIT: str = "MUSIC_THUMBNAIL_SCALE_ASPECT_FIT"
+    UNSPECIFIED: str = "MUSIC_THUMBNAIL_SCALE_UNSPECIFIED"
 
 
 class MusicItemThumbnailOverlayContentPosition(_StrEnum):
@@ -36,3 +37,4 @@ class MusicResponsiveListItemFixedColumnSize(_StrEnum):
 
 class MusicVideoType(_StrEnum):
     ATV: str = "MUSIC_VIDEO_TYPE_ATV"
+    OMV: str = "MUSIC_VIDEO_TYPE_OMV"

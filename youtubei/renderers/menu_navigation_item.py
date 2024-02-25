@@ -21,6 +21,7 @@ class MenuNavigationItemRenderer(BaseRenderer):
             #     WatchEndpoint,
             #     BrowseEndpoint,
             #     ShareEntityEndpoint,
+            #     WatchPlaylistEndpoint,
             # ]
         ]
     ] = None

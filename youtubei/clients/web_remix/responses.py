@@ -3,6 +3,8 @@ from typing import Mapping, Optional, Sequence, Union
 from youtubei.clients.web_remix.models import GlobalConfigGroup
 from youtubei.models.response import Response, ResponseContext
 from youtubei.parse.validated_types import Dynamic
+from youtubei.renderers.music_detail_header import MusicDetailHeaderRenderer
+from youtubei.renderers.music_thumbnail import MusicThumbnailRenderer
 from youtubei.renderers.single_column_browse_results import SingleColumnBrowseResultsRenderer
 from youtubei.renderers.two_column_browse_results import TwoColumnBrowseResultsRenderer
 
@@ -11,10 +13,12 @@ from .types import GuideItem
 
 class WebRemixResponseContext(ResponseContext):
     global_config_group: Optional[GlobalConfigGroup] = None
+    max_age_seconds: Optional[int] = None
 
 
 class WebRemixResponse(Response):
     response_context: WebRemixResponseContext
+    # max_age_store_seconds: Optional[int] = None
 
 
 class WebRemixConfigResponse(WebRemixResponse):
@@ -33,3 +37,5 @@ class WebRemixBrowseResponse(WebRemixResponse):
             SingleColumnBrowseResultsRenderer,
         ]
     ]
+    header: Optional[Dynamic[MusicDetailHeaderRenderer]] = None
+    # background: Optional[MusicThumbnailRenderer] = None

@@ -1,4 +1,4 @@
-from typing import Any, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 
 from typing_extensions import TypeAlias
 
@@ -20,6 +20,7 @@ class Text(BaseModel):
 I think YouTube might refer to "text" as a "FormattedString"
 """
 
+NoText: TypeAlias = Mapping[None, None] # Literal: {}
 
 class BasicText(BaseModel):
     text: str

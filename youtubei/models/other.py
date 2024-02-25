@@ -217,7 +217,8 @@ class VideoDetails(BaseModel):
 
 
 class QueueTarget(BaseModel):
-    video_id: str
+    video_id: Optional[str] = None
+    playlist_id: Optional[str] = None
     on_empty_queue: DynamicCommand[Any]  # Observed: WatchEndpoint
 
 

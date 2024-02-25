@@ -502,8 +502,10 @@ class WatchEndpoint(BaseEndpoint):
     ] = None
 
 
+@WEB_REMIX_REGISTRY
 class WatchPlaylistEndpoint(BaseEndpoint):
-    pass
+    playlist_id: str
+    params: str
 
 
 class WebPlayerShareEntityServiceEndpoint(BaseEndpoint):

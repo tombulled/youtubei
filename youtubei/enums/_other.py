@@ -651,6 +651,7 @@ class Style(_StrEnum):
     BRAND: str = "STYLE_BRAND"
     MONO_TONAL_OVERLAY: str = "STYLE_MONO_TONAL_OVERLAY"
     MONO_FILLED_OVERLAY: str = "STYLE_MONO_FILLED_OVERLAY"
+    DARK_ON_WHITE: str = "STYLE_DARK_ON_WHITE"
 
 
 # E.g., {"urlEndpoint": {"target": "TARGET_NEW_WINDOW"}}
