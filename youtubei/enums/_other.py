@@ -63,6 +63,10 @@ class Category(_StrEnum):
     MUSIC: str = "Music"
 
 
+class CheckboxCheckedState(_StrEnum):
+    UNCHECKED: str = "CHECKBOX_CHECKED_STATE_UNCHECKED"
+
+
 # E.g., {"playerMicroformatRenderer": {"availableCountries": ["AD", "AE", ...]}}
 class CountryCode(_StrEnum):
     AD: str = "AD"
@@ -523,6 +527,8 @@ class LayoutType(_StrEnum):
     COMPOSITE_PLAYER_BYTES = "LAYOUT_TYPE_COMPOSITE_PLAYER_BYTES"
     MEDIA = "LAYOUT_TYPE_MEDIA"
 
+class LikeStatus(_StrEnum):
+    INDIFFERENT: str = "INDIFFERENT"
 
 class MultiPageMenuStyleType(_StrEnum):
     SYSTEM = "MULTI_PAGE_MENU_STYLE_TYPE_SYSTEM"
@@ -532,6 +538,8 @@ class MultiPageMenuStyleType(_StrEnum):
 # E.g., {"browseEndpointContextMusicConfig": {"pageType": "MUSIC_PAGE_TYPE_METRONOME"}}
 class MusicPageType(_StrEnum):
     METRONOME = "MUSIC_PAGE_TYPE_METRONOME"
+    ALBUM = "MUSIC_PAGE_TYPE_ALBUM"
+    ARTIST = "MUSIC_PAGE_TYPE_ARTIST"
 
 
 # E.g. {'miniplayerRenderer': {'playbackMode': 'PLAYBACK_MODE_ALLOW'}}

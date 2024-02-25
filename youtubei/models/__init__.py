@@ -11,6 +11,7 @@ from .data_bound import *
 from .endpoints import *
 from .logging import *
 from .metadata import *
+from .music import *
 from .other import *
 from .params import *
 from .reminders import *

@@ -1,5 +1,6 @@
-from youtubei._registries import IOS_MUSIC_REGISTRY, WEB_REGISTRY
+from youtubei._registries import WEB_REMIX_REGISTRY, IOS_MUSIC_REGISTRY, WEB_REGISTRY
 from youtubei.enums import MusicPageType
+from youtubei.enums.music import MusicVideoType
 from youtubei.models.thumbnail import Thumbnails
 
 from .base import BaseModel
@@ -9,6 +10,7 @@ class BackgroundImageConfig(BaseModel):
     thumbnail: Thumbnails
 
 
+@WEB_REMIX_REGISTRY
 @IOS_MUSIC_REGISTRY
 class BrowseEndpointContextMusicConfig(BaseModel):
     page_type: MusicPageType
@@ -42,3 +44,8 @@ class WebSearchboxConfig(BaseModel):
     request_domain: str
     has_onscreen_keyboard: bool
     focus_searchbox: bool
+
+
+@WEB_REMIX_REGISTRY
+class WatchEndpointMusicConfig(BaseModel):
+    music_video_type: MusicVideoType
