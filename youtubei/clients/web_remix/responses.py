@@ -3,6 +3,7 @@ from typing import Mapping, Optional, Sequence, Union
 from youtubei.clients.web_remix.models import GlobalConfigGroup
 from youtubei.models.response import Response, ResponseContext
 from youtubei.parse.validated_types import Dynamic
+from youtubei.renderers.microformat_data import MicroformatDataRenderer
 from youtubei.renderers.music_detail_header import MusicDetailHeaderRenderer
 from youtubei.renderers.music_thumbnail import MusicThumbnailRenderer
 from youtubei.renderers.single_column_browse_results import SingleColumnBrowseResultsRenderer
@@ -38,4 +39,5 @@ class WebRemixBrowseResponse(WebRemixResponse):
         ]
     ]
     header: Optional[Dynamic[MusicDetailHeaderRenderer]] = None
+    microformat: Optional[Dynamic[MicroformatDataRenderer]] = None
     # background: Optional[MusicThumbnailRenderer] = None

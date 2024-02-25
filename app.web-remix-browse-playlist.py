@@ -1,11 +1,11 @@
 from rich.pretty import pprint as pp
 from youtubei import WEB_REMIX
 
-PLAYLIST_ID: str = "OLAK5uy_k-nVhxfuIQFO2ZE9EvqPKKM4__S3aOb_Y" # Amber Run - Philophobia
+# PLAYLIST_ID: str = "OLAK5uy_k-nVhxfuIQFO2ZE9EvqPKKM4__S3aOb_Y" # Amber Run - Philophobia
 # PLAYLIST_ID: str = "OLAK5uy_khNLsz9s6ueH8YHdzORuy4PORu6tWvMrY" # Aquilo - Silhouettes
 # PLAYLIST_ID: str = "RDCLAK5uy_mfdqvCAl8wodlx2P2_Ai2gNkiRDAufkkI"  # Happy Pop Hits
-BROWSE_ID: str = "VL" + PLAYLIST_ID
-
+# BROWSE_ID: str = "VL" + PLAYLIST_ID
+BROWSE_ID: str = "MPREb_Xt0H2hDGuqA" # Amber Run - The Search (Act I)
 
 def web_remix_browse_playlist(playlist_id: str, /):
     playlist_browse_id: str = "VL" + playlist_id
@@ -92,6 +92,7 @@ def web_remix_browse_playlist(playlist_id: str, /):
 #     )
 
 # d = web_remix_browse_playlist(PLAYLIST_ID)
+# d = WEB_REMIX.browse(BROWSE_ID)
 
 d = WEB_REMIX.client.adaptor.dispatch("browse", body={"browseId": BROWSE_ID})
 p = WEB_REMIX.parser.browse(d)

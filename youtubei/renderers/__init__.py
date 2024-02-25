@@ -53,6 +53,8 @@ from .music_play_button import MusicPlayButtonRenderer
 from .music_playlist_shelf import MusicPlaylistShelfRenderer
 from .music_responsive_list_item import MusicResponsiveListItemRenderer
 from .music_responsive_list_item_flex_column import MusicResponsiveListItemFlexColumnRenderer
+from .music_shelf_divider import MusicShelfDividerRenderer
+from .music_shelf import MusicShelfRenderer
 from .music_thumbnail import MusicThumbnailRenderer
 from .notification_text import NotificationTextRenderer
 from .pivot_bar import PivotBarRenderer

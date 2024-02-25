@@ -1,3 +1,4 @@
+from typing import Optional
 from youtubei.models.text import ComplexText
 from youtubei.parse.validated_types import Dynamic
 from youtubei.renderers.cropped_square_thumbnail import CroppedSquareThumbnailRenderer
@@ -13,6 +14,6 @@ class MusicDetailHeaderRenderer(BaseRenderer):
     subtitle: ComplexText
     menu: Dynamic[MenuRenderer]
     thumbnail: Dynamic[CroppedSquareThumbnailRenderer]
-    description: ComplexText
+    description: Optional[ComplexText] = None
     more_button: Dynamic[ToggleButtonRenderer]
     second_subtitle: ComplexText

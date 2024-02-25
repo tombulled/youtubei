@@ -38,3 +38,7 @@ class MusicResponsiveListItemFixedColumnSize(_StrEnum):
 class MusicVideoType(_StrEnum):
     ATV: str = "MUSIC_VIDEO_TYPE_ATV"
     OMV: str = "MUSIC_VIDEO_TYPE_OMV"
+
+
+class MusicResponsiveListItemHeight(_StrEnum):
+    MEDIUM: str = "MUSIC_RESPONSIVE_LIST_ITEM_HEIGHT_MEDIUM"

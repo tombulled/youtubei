@@ -6,6 +6,7 @@ from youtubei.parse import Dynamic
 from youtubei.renderers.item_section import ItemSectionRenderer
 from youtubei.renderers.music_carousel_shelf import MusicCarouselShelfRenderer
 from youtubei.renderers.music_playlist_shelf import MusicPlaylistShelfRenderer
+from youtubei.renderers.music_shelf import MusicShelfRenderer
 
 from ._base import BaseRenderer
 
@@ -20,6 +21,7 @@ class SectionListRenderer(BaseRenderer):
                 ItemSectionRenderer,
                 MusicPlaylistShelfRenderer,
                 MusicCarouselShelfRenderer,
+                MusicShelfRenderer,
             ]
         ]
     ]

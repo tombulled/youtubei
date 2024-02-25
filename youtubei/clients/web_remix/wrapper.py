@@ -30,6 +30,8 @@ class WebRemix:
         )
 
         return self.parser.browse(response)
+    
+    # def browse_album(...) -> GetBrowseAlbumDetailPage_rid
 
     def config(self) -> WebRemixConfigResponse:
         response: dict = self.client.adaptor.dispatch("config")
