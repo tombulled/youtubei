@@ -28,7 +28,13 @@ class BasicText(BaseModel):
 
 class ComplexTextRun(BaseModel):
     text: str
-    navigation_endpoint: Optional[DynamicCommand[Any]] = None  # WatchEndpoint
+    navigation_endpoint: Optional[DynamicCommand[Any]] = None  # Observed: WatchEndpoint
+
+    def __str__(self) -> str:
+        return self.text
+
+    def __repr__(self) -> str:
+        return f"{type(self).__name__}({str(self)!r})"
 
 
 class ComplexText(BaseModel):

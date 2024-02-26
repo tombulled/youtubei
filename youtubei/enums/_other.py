@@ -25,7 +25,8 @@ from enum import Enum
 
 
 class _StrEnum(str, Enum):
-    pass
+    def __str__(self) -> str:
+        return self.value
 
 
 class ActiveViewTrafficType(_StrEnum):
