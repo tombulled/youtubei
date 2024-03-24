@@ -8,6 +8,8 @@ from youtubei.models.thumbnail import Thumbnails
 
 from ._base import BaseRenderer
 
+__all__ = ("MicroformatDataRenderer",)
+
 
 @WEB_REMIX_REGISTRY
 @WEB_REGISTRY

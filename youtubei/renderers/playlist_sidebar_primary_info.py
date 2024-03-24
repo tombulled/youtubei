@@ -14,6 +14,8 @@ from youtubei.validated_types import DynamicCommand
 
 from ._base import BaseRenderer
 
+__all__ = ("PlaylistSidebarPrimaryInfoRenderer",)
+
 
 @WEB_REGISTRY
 class PlaylistSidebarPrimaryInfoRenderer(BaseRenderer):

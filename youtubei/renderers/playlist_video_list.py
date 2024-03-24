@@ -6,6 +6,8 @@ from youtubei.renderers.playlist_video import PlaylistVideoRenderer
 
 from ._base import BaseRenderer
 
+__all__ = ("PlaylistVideoListRenderer",)
+
 
 @WEB_REGISTRY
 class PlaylistVideoListRenderer(BaseRenderer):

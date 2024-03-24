@@ -5,6 +5,8 @@ from youtubei.renderers.button import ButtonRenderer
 
 from ._base import BaseRenderer
 
+__all__ = ("GuideSigninPromoRenderer",)
+
 
 @WEB_REGISTRY
 @WEB_REMIX_REGISTRY

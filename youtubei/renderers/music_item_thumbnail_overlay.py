@@ -9,6 +9,8 @@ from youtubei.renderers.music_play_button import MusicPlayButtonRenderer
 from .._registries import WEB_REMIX_REGISTRY
 from ._base import BaseRenderer
 
+__all__ = ("MusicItemThumbnailOverlayRenderer",)
+
 
 @WEB_REMIX_REGISTRY
 class MusicItemThumbnailOverlayRenderer(BaseRenderer):

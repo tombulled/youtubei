@@ -9,6 +9,8 @@ from youtubei.renderers.toggle_button import ToggleButtonRenderer
 from .._registries import WEB_REMIX_REGISTRY
 from ._base import BaseRenderer
 
+__all__ = ("MusicDetailHeaderRenderer",)
+
 
 @WEB_REMIX_REGISTRY
 class MusicDetailHeaderRenderer(BaseRenderer):

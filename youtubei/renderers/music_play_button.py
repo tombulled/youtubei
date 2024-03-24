@@ -7,6 +7,8 @@ from youtubei.validated_types import DynamicCommand
 from .._registries import WEB_REMIX_REGISTRY
 from ._base import BaseRenderer
 
+__all__ = ("MusicPlayButtonRenderer",)
+
 
 @WEB_REMIX_REGISTRY
 class MusicPlayButtonRenderer(BaseRenderer):

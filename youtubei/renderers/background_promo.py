@@ -7,6 +7,8 @@ from youtubei.renderers.button import ButtonRenderer
 
 from ._base import BaseRenderer
 
+__all__ = ("BackgroundPromoRenderer",)
+
 
 @ANDROID_REGISTRY
 @IOS_REGISTRY

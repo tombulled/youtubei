@@ -9,6 +9,8 @@ from youtubei.renderers.hotkey_dialog_section_option import (
 
 from ._base import BaseRenderer
 
+__all__ = ("HotkeyDialogSectionRenderer",)
+
 
 @WEB_REGISTRY
 class HotkeyDialogSectionRenderer(BaseRenderer):

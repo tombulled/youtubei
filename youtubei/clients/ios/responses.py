@@ -11,6 +11,7 @@ __all__ = (
     "IosGuideResponse",
 )
 
+
 class IosResponseContext(ResponseContext):
     max_age_seconds: int
 

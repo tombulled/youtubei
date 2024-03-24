@@ -7,6 +7,8 @@ from youtubei.renderers.button import ButtonRenderer
 
 from ._base import BaseRenderer
 
+__all__ = ("ConfirmDialogRenderer",)
+
 
 @ANDROID_REGISTRY
 class ConfirmDialogRenderer(BaseRenderer):

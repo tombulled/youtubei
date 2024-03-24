@@ -11,6 +11,7 @@ __all__ = (
     "GlobalConfigGroup",
 )
 
+
 class MusicDisplayConfig(BaseModel):
     track_context_menu: Dynamic[MusicDataBoundMenuRenderer]
 

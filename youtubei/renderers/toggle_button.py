@@ -9,6 +9,8 @@ from youtubei.validated_types import DynamicCommand
 
 from ._base import BaseRenderer
 
+__all__ = ("ToggleButtonRenderer",)
+
 
 @WEB_REMIX_REGISTRY
 @WEB_REGISTRY

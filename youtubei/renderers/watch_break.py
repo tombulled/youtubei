@@ -6,6 +6,8 @@ from youtubei.renderers.button import ButtonRenderer
 
 from ._base import BaseRenderer
 
+__all__ = ("WatchBreakRenderer",)
+
 
 @ANDROID_REGISTRY
 class WatchBreakRenderer(BaseRenderer):

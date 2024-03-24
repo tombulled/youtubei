@@ -9,6 +9,8 @@ from youtubei.renderers.compact_link import CompactLinkRenderer
 
 from ._base import BaseRenderer
 
+__all__ = ("MultiPageMenuSectionRenderer",)
+
 MultiPageMenuSectionItem: TypeAlias = Dynamic[
     Union[
         BackgroundPromoRenderer,

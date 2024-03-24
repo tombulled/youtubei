@@ -12,6 +12,7 @@ __all__ = (
     "AndroidGuideResponse",
 )
 
+
 class AndroidResponseContext(ResponseContext):
     max_age_seconds: int
 

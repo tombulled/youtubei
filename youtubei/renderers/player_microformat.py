@@ -8,6 +8,8 @@ from youtubei.models.thumbnail import Thumbnails
 
 from ._base import BaseRenderer
 
+__all__ = ("PlayerMicroformatRenderer",)
+
 
 class PlayerMicroformatRenderer(BaseRenderer):
     thumbnail: Thumbnails

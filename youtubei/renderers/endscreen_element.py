@@ -1,13 +1,14 @@
 from typing import Any, Optional, Sequence
 
 from youtubei.enums import EndscreenElementStyle
-from youtubei.models.command import Command
 from youtubei.models.text import Text
 from youtubei.models.thumbnail import Thumbnails
 from youtubei.parse import Dynamic
 from youtubei.validated_types import DynamicCommand
 
 from ._base import BaseRenderer
+
+__all__ = ("EndscreenElementRenderer",)
 
 
 class EndscreenElementRenderer(BaseRenderer):
@@ -21,9 +22,9 @@ class EndscreenElementRenderer(BaseRenderer):
     end_ms: str
     title: Text
     metadata: Text
-    endpoint: DynamicCommand[Any]  # TODO: Type which commands expected?
+    endpoint: DynamicCommand[Any]
     id: str
     thumbnail_overlays: Optional[
-        Sequence[Dynamic]
-    ] = None  # Sequence[ThumbnailOverlayTimeStatusRenderer]
+        Sequence[Dynamic[Any]]
+    ] = None  # Observed: Sequence[ThumbnailOverlayTimeStatusRenderer]
     playlist_length: Optional[Text] = None

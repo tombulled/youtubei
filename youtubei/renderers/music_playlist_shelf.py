@@ -8,6 +8,8 @@ from youtubei.renderers.music_responsive_list_item import (
 from .._registries import WEB_REMIX_REGISTRY
 from ._base import BaseRenderer
 
+__all__ = ("MusicPlaylistShelfRenderer",)
+
 
 @WEB_REMIX_REGISTRY
 class MusicPlaylistShelfRenderer(BaseRenderer):

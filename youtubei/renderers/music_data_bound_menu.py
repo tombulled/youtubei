@@ -7,6 +7,8 @@ from youtubei.renderers.menu import MenuRenderer
 
 from ._base import BaseRenderer
 
+__all__ = ("MusicDataBoundMenuRenderer",)
+
 
 @WEB_REMIX_REGISTRY
 class MusicDataBoundMenuRenderer(BaseRenderer):

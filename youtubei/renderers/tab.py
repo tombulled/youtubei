@@ -6,6 +6,8 @@ from youtubei.renderers.section_list import SectionListRenderer
 
 from ._base import BaseRenderer
 
+__all__ = ("TabRenderer",)
+
 
 @WEB_REGISTRY
 @WEB_REMIX_REGISTRY

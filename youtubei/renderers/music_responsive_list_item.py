@@ -20,6 +20,8 @@ from youtubei.renderers.music_thumbnail import MusicThumbnailRenderer
 from .._registries import WEB_REMIX_REGISTRY
 from ._base import BaseRenderer
 
+__all__ = ("MusicResponsiveListItemRenderer",)
+
 
 @WEB_REMIX_REGISTRY
 class MusicResponsiveListItemRenderer(BaseRenderer):

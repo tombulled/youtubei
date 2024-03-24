@@ -6,6 +6,8 @@ from youtubei.renderers.tab import TabRenderer
 from .._registries import WEB_REMIX_REGISTRY
 from ._base import BaseRenderer
 
+__all__ = ("SingleColumnBrowseResultsRenderer",)
+
 
 @WEB_REMIX_REGISTRY
 class SingleColumnBrowseResultsRenderer(BaseRenderer):

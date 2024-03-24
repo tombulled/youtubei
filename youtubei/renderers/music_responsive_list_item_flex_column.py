@@ -6,6 +6,8 @@ from youtubei.models.text import ComplexText, NoText
 from .._registries import WEB_REMIX_REGISTRY
 from ._base import BaseRenderer
 
+__all__ = ("MusicResponsiveListItemFlexColumnRenderer",)
+
 
 @WEB_REMIX_REGISTRY
 class MusicResponsiveListItemFlexColumnRenderer(BaseRenderer):

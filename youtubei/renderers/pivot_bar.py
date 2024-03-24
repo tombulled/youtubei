@@ -6,6 +6,8 @@ from youtubei.renderers.pivot_bar_item import PivotBarItemRenderer
 
 from ._base import BaseRenderer
 
+__all__ = ("PivotBarRenderer",)
+
 
 @IOS_MUSIC_REGISTRY
 @ANDROID_REGISTRY

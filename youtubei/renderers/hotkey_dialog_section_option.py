@@ -6,6 +6,8 @@ from youtubei.models.text import ComplexText
 
 from ._base import BaseRenderer
 
+__all__ = ("HotkeyDialogSectionOptionRenderer",)
+
 
 @WEB_REGISTRY
 class HotkeyDialogSectionOptionRenderer(BaseRenderer):

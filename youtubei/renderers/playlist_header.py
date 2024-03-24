@@ -16,6 +16,8 @@ from youtubei.validated_types import DynamicCommand
 
 from ._base import BaseRenderer
 
+__all__ = ("PlaylistHeaderRenderer",)
+
 
 @WEB_REGISTRY
 class PlaylistHeaderRenderer(BaseRenderer):

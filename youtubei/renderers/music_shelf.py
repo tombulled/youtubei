@@ -9,6 +9,8 @@ from youtubei.renderers.music_shelf_divider import MusicShelfDividerRenderer
 from .._registries import WEB_REMIX_REGISTRY
 from ._base import BaseRenderer
 
+__all__ = ("MusicShelfRenderer",)
+
 
 @WEB_REMIX_REGISTRY
 class MusicShelfRenderer(BaseRenderer):

@@ -2,6 +2,8 @@ from typing import Optional
 
 from ._base import BaseRenderer
 
+__all__ = ("PlayerStoryboardSpecRenderer",)
+
 
 class PlayerStoryboardSpecRenderer(BaseRenderer):
     spec: str

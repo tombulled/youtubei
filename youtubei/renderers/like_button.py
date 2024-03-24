@@ -6,6 +6,8 @@ from youtubei.validated_types import DynamicCommand
 
 from ._base import BaseRenderer
 
+__all__ = ("LikeButtonRenderer",)
+
 
 @WEB_REMIX_REGISTRY
 class LikeButtonRenderer(BaseRenderer):

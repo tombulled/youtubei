@@ -2,6 +2,8 @@ from youtubei.models.other import FeaturedChannel
 
 from ._base import BaseRenderer
 
+__all__ = ("PlayerAnnotationsExpandedRenderer",)
+
 
 class PlayerAnnotationsExpandedRenderer(BaseRenderer):
     featured_channel: FeaturedChannel

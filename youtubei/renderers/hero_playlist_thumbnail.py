@@ -9,6 +9,8 @@ from youtubei.validated_types import DynamicCommand
 
 from ._base import BaseRenderer
 
+__all__ = ("HeroPlaylistThumbnailRenderer",)
+
 
 @WEB_REGISTRY
 class HeroPlaylistThumbnailRenderer(BaseRenderer):

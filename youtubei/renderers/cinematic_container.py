@@ -9,6 +9,8 @@ from youtubei.models.config import (
 
 from ._base import BaseRenderer
 
+__all__ = ("CinematicContainerRenderer",)
+
 
 @WEB_REGISTRY
 class CinematicContainerRenderer(BaseRenderer):

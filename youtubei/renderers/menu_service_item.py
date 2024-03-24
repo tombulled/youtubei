@@ -7,6 +7,8 @@ from youtubei.validated_types import DynamicCommand
 
 from ._base import BaseRenderer
 
+__all__ = ("MenuServiceItemRenderer",)
+
 
 @WEB_REGISTRY
 @WEB_REMIX_REGISTRY

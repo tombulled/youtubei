@@ -4,6 +4,8 @@ from youtubei.models.thumbnail import Thumbnails
 from .._registries import WEB_REMIX_REGISTRY
 from ._base import BaseRenderer
 
+__all__ = ("MusicThumbnailRenderer",)
+
 
 @WEB_REMIX_REGISTRY
 class MusicThumbnailRenderer(BaseRenderer):
