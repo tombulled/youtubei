@@ -6,21 +6,18 @@ from youtubei.models.accessibility import Accessibility
 from youtubei.types import TrackingParams
 from youtubei.validated_types import DynamicCommand
 
-from .base import BaseModel
+from ._base import BaseModel
 
-"""
-Is it worth grouping ComplexText and SimpleText into a single
-Text class?
-
-E.g:
-class Text(BaseModel):
-    runs: Optional[TextRun] = None
-    simple_text: Optional[str] = None
-
-I think YouTube might refer to "text" as a "FormattedString"
-"""
-
-NoText: TypeAlias = Mapping[None, None]  # Literal: {}
+__all__ = (
+    "BasicText",
+    "ComplexTextRun",
+    "ComplexText",
+    "SimpleText",
+    "TemplatedText",
+    "NoText",
+    "AnyText",
+    "Text",
+)
 
 
 class BasicText(BaseModel):
@@ -60,11 +57,13 @@ class SimpleText(BaseModel):
         return f"{type(self).__name__}({str(self)!r})"
 
 
+# Note: Text potentially referred to internally as "FormattedString"
 class TemplatedText(BaseModel):
     text: str
     is_templated: bool
     tracking_params: TrackingParams
 
 
-# Text: TypeAlias = Union[BasicText, ComplexText, SimpleText, TemplatedText]
+NoText: TypeAlias = Mapping[None, None]  # Literal: {}
+AnyText: TypeAlias = Union[BasicText, ComplexText, SimpleText, TemplatedText]
 Text: TypeAlias = Union[ComplexText, SimpleText]

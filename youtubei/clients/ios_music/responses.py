@@ -2,7 +2,7 @@ from typing import Sequence
 
 from typing_extensions import TypeAlias
 
-from youtubei.models.base import BaseModel
+from youtubei.models._base import BaseModel
 from youtubei.models.response import Response, ResponseContext
 from youtubei.parse import Dynamic
 from youtubei.renderers.pivot_bar import PivotBarRenderer

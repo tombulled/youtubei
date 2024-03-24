@@ -1,6 +1,12 @@
 from typing import Sequence
 
-from .base import BaseModel
+from ._base import BaseModel
+
+__all__ = (
+    "VerticalGradient",
+    "MusicItemThumbnailOverlayBackground",
+    "PlaylistItemData",
+)
 
 
 class VerticalGradient(BaseModel):

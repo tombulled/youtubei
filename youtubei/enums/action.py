@@ -4,6 +4,7 @@ from ._base import StrEnum
 
 __all__ = ("Action",)
 
+
 class Action(StrEnum):
     @staticmethod
     def _generate_next_value_(name: str, *_):

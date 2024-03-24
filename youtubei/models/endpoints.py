@@ -1,6 +1,4 @@
-from typing import Any, Optional, Sequence, Union
-
-from typing_extensions import TypeAlias
+from typing import Any, Optional, Sequence
 
 from youtubei._registries import (
     ANDROID_REGISTRY,
@@ -30,7 +28,120 @@ from youtubei.parse.validated_types import Dynamic
 from youtubei.types import BrowseId
 from youtubei.validated_types import DynamicCommand
 
-from .base import BaseModel
+from ._base import BaseModel
+
+__all__ = (
+    "BaseEndpoint",
+    "AdFeedbackEndpoint",
+    "AdInfoDialogEndpoint",
+    "AdPingingEndpoint",
+    "AddToPlaylistEndpoint",
+    "AddToPlaylistServiceEndpoint",
+    "AddUpcomingEventReminderEndpoint",
+    "AndroidAppEndpoint",
+    "AppStoreEndpoint",
+    "ApplicationHelpEndpoint",
+    "BackstageImageUploadEndpoint",
+    "BrowseEndpoint",
+    "CaptionPickerEndpoint",
+    "ChannelCreationFormEndpoint",
+    "ChannelCreationServiceEndpoint",
+    "ChannelThumbnailEndpoint",
+    "ClaimLegacyYoutubeChannelEndpoint",
+    "ClearSearchHistoryEndpoint",
+    "ClearWatchHistoryEndpoint",
+    "ConfirmDialogEndpoint",
+    "CopyTextEndpoint",
+    "CreateBackstagePostDialogEndpoint",
+    "CreateBackstagePostEndpoint",
+    "CreateCommentEndpoint",
+    "CreateCommentReplyDialogEndpoint",
+    "CreateCommentReplyEndpoint",
+    "CreateLiveChatPollEndpoint",
+    "CreatePlaylistServiceEndpoint",
+    "CrossAccountChannelTransferEndpoint",
+    "DecorateMessageEndpoint",
+    "DeletePlaylistEndpoint",
+    "DismissalEndpoint",
+    "FeedbackEndpoint",
+    "FlagEndpoint",
+    "GetAccountSwitcherEndpoint",
+    "GetAccountsListEndpoint",
+    "GetAccountsListInnertubeEndpoint",
+    "GetNotificationMenuEndpoint",
+    "GetPostVideoPreviewEndpoint",
+    "GetReportFormEndpoint",
+    "GetTranscriptEndpoint",
+    "HideEngagementPanelEndpoint",
+    "IosApplicationEndpoint",
+    "LikeEndpoint",
+    "LiveChatActionEndpoint",
+    "LiveChatEndpoint",
+    "LiveChatItemContextMenuEndpoint",
+    "LiveChatPurchaseMessageEndpoint",
+    "LiveChatReplayEndpoint",
+    "ManageLiveChatUserEndpoint",
+    "MenuEndpoint",
+    "ModalEndpoint",
+    "ModerateLiveChatEndpoint",
+    "ModifyChannelNotificationPreferenceEndpoint",
+    "NotificationOptOutEndpoint",
+    "PerformCommentActionEndpoint",
+    "PhoneDialerEndpoint",
+    "PingingEndpoint",
+    "PlaylistEditEndpoint",
+    "PlaylistEditorEndpoint",
+    "QueueAddEndpoint",
+    "RecordNotificationInteractionsEndpoint",
+    "ReelNonVideoContentEndpoint",
+    "ReelWatchEndpoint",
+    "RefreshPanelEndpoint",
+    "RemoveUpcomingEventReminderEndpoint",
+    "ScrollToSectionEndpoint",
+    "SearchEndpoint",
+    "SelectActiveIdentityEndpoint",
+    "SendLiveChatMessageEndpoint",
+    "SendLiveChatVoteEndpoint",
+    "SendSmsEndpoint",
+    "SetSettingEndpoint",
+    "ShareEntityServiceEndpoint",
+    "ShareEntityEndpoint",
+    "ShowEngagementPanelEndpoint",
+    "SignInEndpoint",
+    "SignOutEndpoint",
+    "SignalServiceEndpoint",
+    "SubscribeEndpoint",
+    "UndoFeedbackEndpoint",
+    "UnlimitedCreateFamilyEndpoint",
+    "UnsubscribeEndpoint",
+    "UpdateBackstagePostEndpoint",
+    "UpdateChannelPageSettingsEndpoint",
+    "UpdateCommentDialogEndpoint",
+    "UpdateCommentEndpoint",
+    "UpdateCommentReplyDialogEndpoint",
+    "UpdateCommentReplyEndpoint",
+    "UpdateCommentsSettingsEndpoint",
+    "UpdateKidsBlacklistEndpoint",
+    "UpdatedMetadataEndpoint",
+    "UrlEndpoint",
+    "UserFeedbackEndpoint",
+    "VerifyAgeEndpoint",
+    "WatchEndpoint",
+    "WatchPlaylistEndpoint",
+    "WebPlayerShareEntityServiceEndpoint",
+    "WebviewEndpoint",
+    "WhitelistEditEndpoint",
+    "YpcCancelRecurrenceEndpoint",
+    "YpcCompleteTransactionEndpoint",
+    "YpcGetCartEndpoint",
+    "YpcGetOffersEndpoint",
+    "YpcGetOfflineUpsellEndpoint",
+    "YpcHandleTransactionEndpoint",
+    "YpcLogWalletAnalyticDataEndpoint",
+    "YpcOffersEndpoint",
+    "YpcRedeemCodeEndpoint",
+    "YpcUpdateFopEndpoint",
+)
 
 
 class BaseEndpoint(BaseModel):
@@ -65,7 +176,7 @@ class AddUpcomingEventReminderEndpoint(BaseEndpoint):
 class AndroidAppEndpoint(BaseModel):
     android_package_name: str
     android_class_name: str
-    fallback_endpoint: DynamicCommand[Any]  # TODO: Be more specific?
+    fallback_endpoint: DynamicCommand[Any]
 
 
 @ANDROID_REGISTRY
@@ -96,12 +207,7 @@ class BackstageImageUploadEndpoint(BaseEndpoint):
 class BrowseEndpoint(BaseEndpoint):
     browse_id: BrowseId
     params: Optional[str] = None
-
     canonical_base_url: Optional[str] = None
-    # query
-    # nofollow
-
-    # Note: this looks like it should be Dynamic?
     browse_endpoint_context_supported_configs: Optional[
         Dynamic[BrowseEndpointContextMusicConfig]
     ] = None
@@ -233,7 +339,7 @@ class HideEngagementPanelEndpoint(BaseEndpoint):
 @IOS_REGISTRY
 class IosApplicationEndpoint(BaseModel):
     external_app_url: str
-    fallback_endpoint: DynamicCommand[Any]  # AppStoreEndpoint
+    fallback_endpoint: DynamicCommand[Any]  # Observed: AppStoreEndpoint
 
 
 class LikeEndpoint(BaseEndpoint):
@@ -271,7 +377,7 @@ class MenuEndpoint(BaseEndpoint):
 @WEB_REGISTRY
 @WEB_REMIX_REGISTRY
 class ModalEndpoint(BaseEndpoint):
-    modal: Dynamic[Any]  # ModalWithTitleAndButtonRenderer
+    modal: Dynamic[Any]  # Observed: ModalWithTitleAndButtonRenderer
 
 
 class ModerateLiveChatEndpoint(BaseEndpoint):
@@ -325,9 +431,7 @@ class ReelNonVideoContentEndpoint(BaseEndpoint):
 @WEB_REGISTRY
 class ReelWatchEndpoint(BaseEndpoint):
     player_params: str
-    overlay: Dynamic[
-        Any
-    ]  # Note: Is a ReelPlayerOverlayRenderer, but import causes cyclic dependency
+    overlay: Dynamic[Any]  # Observed: ReelPlayerOverlayRenderer
     params: str
     sequence_provider: ReelWatchSequenceProvider
     input_type: ReelWatchInputType
@@ -377,7 +481,7 @@ class SetSettingEndpoint(BaseEndpoint):
 @WEB_REGISTRY
 class ShareEntityServiceEndpoint(BaseEndpoint):
     serialized_share_entity: str
-    commands: Sequence[DynamicCommand[Any]]  # OpenPopupAction
+    commands: Sequence[DynamicCommand[Any]]  # Observed: OpenPopupAction
 
 
 @WEB_REMIX_REGISTRY
@@ -390,7 +494,7 @@ class ShareEntityEndpoint(BaseEndpoint):
 @ANDROID_REGISTRY
 class ShowEngagementPanelEndpoint(BaseEndpoint):
     panel_identifier: str
-    engagement_panel: Dynamic[Any]  # EngagementPanelSectionListRenderer
+    engagement_panel: Dynamic[Any]  # Observed: EngagementPanelSectionListRenderer
 
 
 @WEB_REGISTRY
@@ -410,7 +514,7 @@ class SignalServiceEndpoint(BaseEndpoint):
     signal: Signal
     actions: Sequence[
         DynamicCommand[Any]
-    ]  # TODO: Be more specific? (observed: signalAction, sendFeedbackAction, addToPlaylistCommand)
+    ]  # Observed: SignalAction, SendFeedbackAction, AddToPlaylistCommand
 
 
 class SubscribeEndpoint(BaseEndpoint):
@@ -560,108 +664,3 @@ class YpcRedeemCodeEndpoint(BaseEndpoint):
 
 class YpcUpdateFopEndpoint(BaseEndpoint):
     pass
-
-
-Endpoint: TypeAlias = Union[
-    AdFeedbackEndpoint,
-    AdInfoDialogEndpoint,
-    AdPingingEndpoint,
-    AddToPlaylistEndpoint,
-    AddToPlaylistServiceEndpoint,
-    AddUpcomingEventReminderEndpoint,
-    BackstageImageUploadEndpoint,
-    BrowseEndpoint,
-    CaptionPickerEndpoint,
-    ChannelCreationFormEndpoint,
-    ChannelCreationServiceEndpoint,
-    ChannelThumbnailEndpoint,
-    ClaimLegacyYoutubeChannelEndpoint,
-    ClearSearchHistoryEndpoint,
-    ClearWatchHistoryEndpoint,
-    ConfirmDialogEndpoint,
-    CopyTextEndpoint,
-    CreateBackstagePostDialogEndpoint,
-    CreateBackstagePostEndpoint,
-    CreateCommentEndpoint,
-    CreateCommentReplyDialogEndpoint,
-    CreateCommentReplyEndpoint,
-    CreateLiveChatPollEndpoint,
-    CreatePlaylistServiceEndpoint,
-    CrossAccountChannelTransferEndpoint,
-    DecorateMessageEndpoint,
-    DeletePlaylistEndpoint,
-    DismissalEndpoint,
-    FeedbackEndpoint,
-    FlagEndpoint,
-    GetAccountSwitcherEndpoint,
-    GetAccountsListEndpoint,
-    GetAccountsListInnertubeEndpoint,
-    GetNotificationMenuEndpoint,
-    GetPostVideoPreviewEndpoint,
-    GetReportFormEndpoint,
-    GetTranscriptEndpoint,
-    HideEngagementPanelEndpoint,
-    LikeEndpoint,
-    LiveChatActionEndpoint,
-    LiveChatEndpoint,
-    LiveChatItemContextMenuEndpoint,
-    LiveChatPurchaseMessageEndpoint,
-    LiveChatReplayEndpoint,
-    ManageLiveChatUserEndpoint,
-    MenuEndpoint,
-    ModalEndpoint,
-    ModerateLiveChatEndpoint,
-    ModifyChannelNotificationPreferenceEndpoint,
-    NotificationOptOutEndpoint,
-    PerformCommentActionEndpoint,
-    PhoneDialerEndpoint,
-    PingingEndpoint,
-    PlaylistEditEndpoint,
-    PlaylistEditorEndpoint,
-    RecordNotificationInteractionsEndpoint,
-    ReelNonVideoContentEndpoint,
-    ReelWatchEndpoint,
-    RefreshPanelEndpoint,
-    RemoveUpcomingEventReminderEndpoint,
-    ScrollToSectionEndpoint,
-    SearchEndpoint,
-    SelectActiveIdentityEndpoint,
-    SendLiveChatMessageEndpoint,
-    SendLiveChatVoteEndpoint,
-    SendSmsEndpoint,
-    SetSettingEndpoint,
-    ShareEntityServiceEndpoint,
-    ShowEngagementPanelEndpoint,
-    SignInEndpoint,
-    SignOutEndpoint,
-    SignalServiceEndpoint,
-    SubscribeEndpoint,
-    UndoFeedbackEndpoint,
-    UnlimitedCreateFamilyEndpoint,
-    UnsubscribeEndpoint,
-    UpdateBackstagePostEndpoint,
-    UpdateChannelPageSettingsEndpoint,
-    UpdateCommentDialogEndpoint,
-    UpdateCommentEndpoint,
-    UpdateCommentReplyDialogEndpoint,
-    UpdateCommentReplyEndpoint,
-    UpdateCommentsSettingsEndpoint,
-    UpdateKidsBlacklistEndpoint,
-    UpdatedMetadataEndpoint,
-    UrlEndpoint,
-    UserFeedbackEndpoint,
-    VerifyAgeEndpoint,
-    WatchEndpoint,
-    WatchPlaylistEndpoint,
-    WebPlayerShareEntityServiceEndpoint,
-    WhitelistEditEndpoint,
-    YpcCancelRecurrenceEndpoint,
-    YpcCompleteTransactionEndpoint,
-    YpcGetCartEndpoint,
-    YpcGetOffersEndpoint,
-    YpcHandleTransactionEndpoint,
-    YpcLogWalletAnalyticDataEndpoint,
-    YpcOffersEndpoint,
-    YpcRedeemCodeEndpoint,
-    YpcUpdateFopEndpoint,
-]

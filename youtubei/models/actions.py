@@ -1,12 +1,10 @@
-from typing import Any, Optional, Union
-
-from typing_extensions import TypeAlias
+from typing import Any, Optional
 
 from youtubei._registries import WEB_REGISTRY, WEB_REMIX_REGISTRY
 from youtubei.enums import EngagementPanelVisibility, PopupType, Signal, TargetId
 from youtubei.parse import Dynamic
 
-from .base import BaseModel
+from ._base import BaseModel
 
 __all__ = (
     "AddRendererToItemSectionAction",
@@ -68,7 +66,7 @@ class AddToRemoteQueueAction(BaseModel):
 
 @WEB_REMIX_REGISTRY
 class AddToToastAction(BaseModel):
-    item: Dynamic[Any]  # NotificationTextRenderer
+    item: Dynamic[Any]  # Observed: NotificationTextRenderer
 
 
 class AddVideoLinkAction(BaseModel):
@@ -134,7 +132,7 @@ class NavigateAction(BaseModel):
 
 @WEB_REGISTRY
 class OpenPopupAction(BaseModel):
-    popup: Dynamic  # ConfirmDialogRenderer
+    popup: Dynamic[Any]  # Observed: ConfirmDialogRenderer
     popup_type: PopupType
     be_reused: Optional[bool] = None
 
@@ -247,53 +245,3 @@ class UpdateToggleButtonTextAction(BaseModel):
 
 class UpdateViewershipAction(BaseModel):
     pass
-
-
-Action: TypeAlias = Union[
-    AddRendererToItemSectionAction,
-    AddToRemoteQueueAction,
-    AddToToastAction,
-    AddVideoLinkAction,
-    AppendContinuationItemsAction,
-    ButtonRefreshAction,
-    ChangeEngagementPanelVisibilityAction,
-    ClearCookieAction,
-    CreatePollAction,
-    DisablePersonalizationAction,
-    GetMultiPageMenuAction,
-    HideEnclosingAction,
-    HideEngagementPanelScrimAction,
-    HideIdentityChipAction,
-    HideReportedCommentAction,
-    InsertInRemoteQueueAction,
-    InvokeInstrumentManagerAction,
-    NavigateAction,
-    OpenPopupAction,
-    OpenUpdateCommentDialogAction,
-    RemoveFromGuideSectionAction,
-    RemoveFromRemoteQueueAction,
-    ReplaceEnclosingAction,
-    ReplaceFeedContentAction,
-    SaveCommandToSessionStorageAction,
-    SaveConsentAction,
-    SendFeedbackAction,
-    SetActivePanelItemAction,
-    SetLiveChatCollapsedStateAction,
-    ShowEngagementPanelScrimAction,
-    SignalAction,
-    UndoFeedbackAction,
-    UpdateBackstagePollAction,
-    UpdateButtonAction,
-    UpdateChannelSwitcherPageAction,
-    UpdateCommentVoteAction,
-    UpdateDateTextAction,
-    UpdateDescriptionAction,
-    UpdateEngagementPanelAction,
-    UpdateNotificationsUnseenCountAction,
-    UpdateSearchInVideoResultsAction,
-    UpdateSubscribeButtonAction,
-    UpdateTitleAction,
-    UpdateToggleAction,
-    UpdateToggleButtonTextAction,
-    UpdateViewershipAction,
-]
