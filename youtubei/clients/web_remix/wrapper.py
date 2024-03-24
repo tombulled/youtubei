@@ -20,7 +20,7 @@ class WebRemix:
     client: InnerTube = field(default=WEB_REMIX_CLIENT)
 
     def __repr__(self) -> str:
-        client_version: str = self.client.adaptor.context.client_version
+        client_version: str = self.client.adaptor.context.client_version  # type: ignore
 
         return f"{type(self).__name__}({client_version!r})"
 

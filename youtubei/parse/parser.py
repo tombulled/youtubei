@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from typing import Any, Optional, Type
+from typing import Any, Optional, Type, TypeVar
 
 from pydantic import BaseModel
 
@@ -8,14 +8,16 @@ from .types import RegistryMapping
 
 __all__ = ("parse", "Parser")
 
+M = TypeVar("M", bound=BaseModel)
+
 
 def parse(
     obj: Any,
-    typ: Type[BaseModel],
+    typ: Type[M],
     /,
     *,
     registry: Optional[RegistryMapping] = None,
-) -> BaseModel:
+) -> M:
     return typ.model_validate(
         obj,
         context={
@@ -30,5 +32,5 @@ def parse(
 class Parser:
     registry: Optional[RegistryMapping] = None
 
-    def parse(self, obj: Any, typ: Type[BaseModel], /) -> BaseModel:
+    def parse(self, obj: Any, typ: Type[M], /) -> M:
         return parse(obj, typ, registry=self.registry)
