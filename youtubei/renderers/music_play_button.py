@@ -3,8 +3,9 @@ from youtubei.models.accessibility import Accessibility
 from youtubei.models.endpoints import WatchEndpoint
 from youtubei.models.other import Icon
 from youtubei.validated_types import DynamicCommand
-from ._base import BaseRenderer
+
 from .._registries import WEB_REMIX_REGISTRY
+from ._base import BaseRenderer
 
 
 @WEB_REMIX_REGISTRY

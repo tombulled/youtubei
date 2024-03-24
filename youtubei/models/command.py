@@ -39,6 +39,6 @@ class Command(Generic[T]):
         ]
     ] = None
     # hack: Optional[bool] = None
-    command: Optional[T] = (
-        None  # Todo: Change to Union[BaseEndpoint, BaseAction, BaseCommand]?
-    )
+    command: Optional[
+        T
+    ] = None  # Todo: Change to Union[BaseEndpoint, BaseAction, BaseCommand]?

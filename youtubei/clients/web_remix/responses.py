@@ -9,7 +9,6 @@ from youtubei.renderers import (
     SingleColumnBrowseResultsRenderer,
 )
 
-
 from .types import GuideItem
 
 

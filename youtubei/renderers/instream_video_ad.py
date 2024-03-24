@@ -16,9 +16,9 @@ class InstreamVideoAdRenderer(BaseRenderer):
     player_overlay: Optional[Dynamic] = None  # InstreamAdPlayerOverlayRenderer
     skip_offset_milliseconds: Optional[int] = None
     pings: Optional[Pings] = None
-    clickthrough_endpoint: Optional[DynamicCommand[Any]] = (
-        None  # TODO: Type which commands expected?
-    )
+    clickthrough_endpoint: Optional[
+        DynamicCommand[Any]
+    ] = None  # TODO: Type which commands expected?
     csi_parameters: Optional[Sequence[CsiParameter]] = None
     player_vars: Optional[str] = None
     element_id: Optional[str] = None

@@ -13,9 +13,9 @@ from youtubei.enums import (
     QueueInsertPosition,
     ReelWatchInputType,
     ReelWatchSequenceProvider,
+    SharePanelType,
     Signal,
     Target,
-    SharePanelType,
 )
 from youtubei.models.actions import AddToToastAction
 from youtubei.models.config import (

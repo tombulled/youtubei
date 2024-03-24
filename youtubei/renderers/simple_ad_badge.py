@@ -12,9 +12,9 @@ from ._base import BaseRenderer
 
 class SimpleAdBadgeRenderer(BaseRenderer):
     text: Text  # ComplexText
-    navigation_endpoint: Optional[DynamicCommand[Any]] = (
-        None  # TODO: Type which commands expected?
-    )
+    navigation_endpoint: Optional[
+        DynamicCommand[Any]
+    ] = None  # TODO: Type which commands expected?
     tracking_params: TrackingParams
     icon: Optional[Icon] = None
     style: Optional[Style] = None

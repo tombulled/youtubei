@@ -20,7 +20,8 @@ class Text(BaseModel):
 I think YouTube might refer to "text" as a "FormattedString"
 """
 
-NoText: TypeAlias = Mapping[None, None] # Literal: {}
+NoText: TypeAlias = Mapping[None, None]  # Literal: {}
+
 
 class BasicText(BaseModel):
     text: str

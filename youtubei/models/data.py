@@ -1,5 +1,5 @@
-from .base import BaseModel
 from .._registries import WEB_REMIX_REGISTRY
+from .base import BaseModel
 
 
 @WEB_REMIX_REGISTRY

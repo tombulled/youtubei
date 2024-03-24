@@ -43,8 +43,8 @@ from .microformat_data import MicroformatDataRenderer
 from .miniplayer import MiniplayerRenderer
 from .mobile_topbar import MobileTopbarRenderer
 from .modal_with_title_and_button import ModalWithTitleAndButtonRenderer
-from .multi_page_menu_section import MultiPageMenuSectionRenderer
 from .multi_page_menu import MultiPageMenuRenderer
+from .multi_page_menu_section import MultiPageMenuSectionRenderer
 from .music_carousel_shelf import MusicCarouselShelfRenderer
 from .music_data_bound_menu import MusicDataBoundMenuRenderer
 from .music_detail_header import MusicDetailHeaderRenderer
@@ -52,9 +52,11 @@ from .music_item_thumbnail_overlay import MusicItemThumbnailOverlayRenderer
 from .music_play_button import MusicPlayButtonRenderer
 from .music_playlist_shelf import MusicPlaylistShelfRenderer
 from .music_responsive_list_item import MusicResponsiveListItemRenderer
-from .music_responsive_list_item_flex_column import MusicResponsiveListItemFlexColumnRenderer
-from .music_shelf_divider import MusicShelfDividerRenderer
+from .music_responsive_list_item_flex_column import (
+    MusicResponsiveListItemFlexColumnRenderer,
+)
 from .music_shelf import MusicShelfRenderer
+from .music_shelf_divider import MusicShelfDividerRenderer
 from .music_thumbnail import MusicThumbnailRenderer
 from .notification_text import NotificationTextRenderer
 from .pivot_bar import PivotBarRenderer

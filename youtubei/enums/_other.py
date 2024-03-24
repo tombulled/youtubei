@@ -528,8 +528,10 @@ class LayoutType(_StrEnum):
     COMPOSITE_PLAYER_BYTES = "LAYOUT_TYPE_COMPOSITE_PLAYER_BYTES"
     MEDIA = "LAYOUT_TYPE_MEDIA"
 
+
 class LikeStatus(_StrEnum):
     INDIFFERENT: str = "INDIFFERENT"
+
 
 class MultiPageMenuStyleType(_StrEnum):
     SYSTEM = "MULTI_PAGE_MENU_STYLE_TYPE_SYSTEM"

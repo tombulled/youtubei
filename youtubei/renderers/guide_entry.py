@@ -20,7 +20,7 @@ class GuideEntryRenderer(BaseRenderer):
         DynamicCommand[Union[BrowseEndpoint, UrlEndpoint]]
     ] = None
     is_primary: Optional[bool] = None
-    service_endpoint: Optional[DynamicCommand[Any]] = (
-        None  # TODO: Type which command expected?
-    )
+    service_endpoint: Optional[
+        DynamicCommand[Any]
+    ] = None  # TODO: Type which command expected?
     target_id: Optional[str] = None
