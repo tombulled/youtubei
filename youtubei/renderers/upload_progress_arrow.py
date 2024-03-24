@@ -6,6 +6,8 @@ from youtubei.models.other import (
 
 from ._base import BaseRenderer
 
+__all__ = ("UploadProgressArrowRenderer",)
+
 
 @IOS_REGISTRY
 class UploadProgressArrowRenderer(BaseRenderer):

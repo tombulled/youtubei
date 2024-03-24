@@ -4,6 +4,8 @@ from youtubei.models.thumbnail import Thumbnails
 
 from ._base import BaseRenderer
 
+__all__ = ("PlayerErrorMessageRenderer",)
+
 
 class PlayerErrorMessageRenderer(BaseRenderer):
     reason: Text

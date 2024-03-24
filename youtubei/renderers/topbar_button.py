@@ -6,6 +6,8 @@ from youtubei.renderers.button import ButtonRenderer
 
 from ._base import BaseRenderer
 
+__all__ = ("TopbarButtonRenderer",)
+
 
 @ANDROID_REGISTRY
 @IOS_REGISTRY

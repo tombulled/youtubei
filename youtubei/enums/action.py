@@ -1,9 +1,11 @@
 from enum import auto
 
-from ._other import _StrEnum
+from ._base import StrEnum
+
+__all__ = ("Action",)
 
 
-class Action(_StrEnum):
+class Action(StrEnum):
     @staticmethod
     def _generate_next_value_(name: str, *_):
         return f"ACTION_{name}"

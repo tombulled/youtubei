@@ -4,6 +4,8 @@ from youtubei.models.other import AudioTrack, CaptionTrack, TranslationLanguage
 
 from ._base import BaseRenderer
 
+__all__ = ("PlayerCaptionsTracklistRenderer",)
+
 
 class PlayerCaptionsTracklistRenderer(BaseRenderer):
     caption_tracks: Sequence[CaptionTrack]

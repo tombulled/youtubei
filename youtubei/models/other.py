@@ -19,7 +19,44 @@ from youtubei.parse import Dynamic
 from youtubei.types import BrowseId, TrackingParams
 from youtubei.validated_types import DynamicCommand
 
-from .base import BaseModel
+from ._base import BaseModel
+
+__all__ = (
+    "ActiveViewTracking",
+    "AdTemplatedCountdown",
+    "AudioTrack",
+    "BackgroundPromoStyle",
+    "InterpreterSafeUrl",
+    "BotguardData",
+    "CaptionTrack",
+    "CardCueRange",
+    "CompletionBehaviorDuration",
+    "CsiParameter",
+    "EditableDetails",
+    "Embed",
+    "ErrorBehaviorUntilPageOrContainerSelected",
+    "FeaturedChannel",
+    "AdTimeOffset",
+    "AdPlacementConfig",
+    "HasAdPlacementConfig",
+    "NotificationResponseConfig",
+    "HasNotificationResponseConfig",
+    "Icon",
+    "LinkAlternate",
+    "PageOwnerDetails",
+    "PingHeader",
+    "Ping",
+    "Pings",
+    "PlaylistEditAction",
+    "ShareData",
+    "SodarExtensionData",
+    "Style",
+    "Size",
+    "TranslationLanguage",
+    "VideoDetails",
+    "QueueTarget",
+    "LikeButtonTarget",
+)
 
 
 class ActiveViewTracking(BaseModel):
@@ -97,9 +134,9 @@ class FeaturedChannel(BaseModel):
     end_time_ms: str
     watermark: Thumbnails
     tracking_params: TrackingParams
-    navigation_endpoint: DynamicCommand[Any]  # TODO: Type which command(s) expected?
+    navigation_endpoint: DynamicCommand[Any]
     channel_name: str
-    subscribe_button: Dynamic  # SubscribeButtonRenderer
+    subscribe_button: Dynamic  # Observed: SubscribeButtonRenderer
 
 
 class AdTimeOffset(BaseModel):
@@ -126,9 +163,6 @@ class HasNotificationResponseConfig(BaseModel):
 
 
 class Icon(BaseModel):
-    # def __repr__(self) -> str:
-    #     return f"{type(self).__name__}({self.icon_type.value!r})"
-
     icon_type: IconType
 
 

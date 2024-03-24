@@ -7,6 +7,8 @@ from youtubei.renderers.section_list import SectionListRenderer
 
 from ._base import BaseRenderer
 
+__all__ = ("EngagementPanelSectionListRenderer",)
+
 
 @ANDROID_REGISTRY
 class EngagementPanelSectionListRenderer(BaseRenderer):

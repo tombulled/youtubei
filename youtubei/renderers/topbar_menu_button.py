@@ -10,6 +10,8 @@ from youtubei.validated_types import DynamicCommand
 
 from ._base import BaseRenderer
 
+__all__ = ("TopbarMenuButtonRenderer",)
+
 
 @WEB_REGISTRY
 @ANDROID_REGISTRY
@@ -18,7 +20,9 @@ class TopbarMenuButtonRenderer(BaseRenderer):
     icon: Icon
     menu_renderer: Optional[Dynamic[MultiPageMenuRenderer]] = None
     target_id: Optional[TargetId] = None
-    menu_request: Optional[DynamicCommand[Any]] = None  # SignalServiceEndpoint
+    menu_request: Optional[
+        DynamicCommand[Any]
+    ] = None  # Observed: SignalServiceEndpoint
     accessibility: Optional[Accessibility] = None
     tooltip: Optional[str] = None
     style: Optional[Style] = None

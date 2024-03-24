@@ -3,13 +3,14 @@ from typing import Optional, Sequence
 from youtubei.models.colour import Colour, ColourPalette
 from youtubei.types import TrackingParams
 
-from .base import BaseModel
+from ._base import BaseModel
 
 __all__ = (
     "Thumbnail",
     "Thumbnails",
     "ThumbnailMapEntry",
     "ThemedThumbnail",
+    "AdThumbnail",
 )
 
 
@@ -19,7 +20,7 @@ class Thumbnail(BaseModel):
     height: int
 
 
-# Rename to `Image`?
+# TODO: Rename to `Image`?
 class Thumbnails(BaseModel):
     thumbnails: Sequence[Thumbnail]
     sampled_thumbnail_color: Optional[Colour] = None

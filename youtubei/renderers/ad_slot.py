@@ -4,6 +4,8 @@ from youtubei.models.ad import AdSlotMetadata, FulfillmentContent, SlotTrigger
 
 from ._base import BaseRenderer
 
+__all__ = ("AdSlotRenderer",)
+
 
 class AdSlotRenderer(BaseRenderer):
     ad_slot_metadata: AdSlotMetadata

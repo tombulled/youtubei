@@ -4,7 +4,7 @@ from youtubei._registries import WEB_REGISTRY
 from youtubei.enums import WebPageType
 from youtubei.models.logging import LoggingExpectations
 
-from .base import BaseModel
+from ._base import BaseModel
 
 __all__ = (
     "InteractionLoggingCommandMetadata",

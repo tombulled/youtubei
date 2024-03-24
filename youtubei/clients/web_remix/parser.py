@@ -1,4 +1,4 @@
-from youtubei.abc import ClientParser
+from youtubei.parser import ClientParser
 
 from .responses import (
     WebRemixConfigResponse,
@@ -13,8 +13,10 @@ __all__ = ("WebRemixParser",)
 class WebRemixParser(ClientParser):
     def browse_album(self, response, /) -> WebRemixGetBrowseAlbumDetailPageResponse:
         return self._parse(response, WebRemixGetBrowseAlbumDetailPageResponse)
-    
-    def browse_playlist(self, response, /) -> WebRemixGetBrowsePlaylistDetailPageResponse:
+
+    def browse_playlist(
+        self, response, /
+    ) -> WebRemixGetBrowsePlaylistDetailPageResponse:
         return self._parse(response, WebRemixGetBrowsePlaylistDetailPageResponse)
 
     def config(self, response, /) -> WebRemixConfigResponse:

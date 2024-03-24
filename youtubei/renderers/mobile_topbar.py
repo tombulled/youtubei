@@ -12,6 +12,9 @@ from youtubei.renderers.topbar_menu_button import TopbarMenuButtonRenderer
 
 from ._base import BaseRenderer
 
+__all__ = ("MobileTopbarRenderer",)
+
+
 TopbarButton: TypeAlias = Dynamic[
     Union[
         ButtonRenderer,

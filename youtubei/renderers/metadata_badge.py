@@ -4,6 +4,8 @@ from youtubei.models.other import Icon
 
 from ._base import BaseRenderer
 
+__all__ = ("MetadataBadgeRenderer",)
+
 
 @WEB_REGISTRY
 class MetadataBadgeRenderer(BaseRenderer):

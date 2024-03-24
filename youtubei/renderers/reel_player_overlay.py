@@ -3,6 +3,8 @@ from youtubei.enums import ReelPlayerNavigationModel, ReelPlayerOverlayStyle
 
 from ._base import BaseRenderer
 
+__all__ = ("ReelPlayerOverlayRenderer",)
+
 
 @WEB_REGISTRY
 class ReelPlayerOverlayRenderer(BaseRenderer):

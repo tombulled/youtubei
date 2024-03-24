@@ -1,12 +1,15 @@
 from datetime import datetime
 from typing import Optional, Sequence
 
-from youtubei._registries import WEB_REMIX_REGISTRY, WEB_REGISTRY
+from youtubei._registries import WEB_REGISTRY, WEB_REMIX_REGISTRY
 from youtubei.enums import Category, CountryCode
 from youtubei.models.other import LinkAlternate, PageOwnerDetails, VideoDetails
 from youtubei.models.thumbnail import Thumbnails
 
 from ._base import BaseRenderer
+
+__all__ = ("MicroformatDataRenderer",)
+
 
 @WEB_REMIX_REGISTRY
 @WEB_REGISTRY

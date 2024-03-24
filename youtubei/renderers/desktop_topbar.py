@@ -11,6 +11,8 @@ from youtubei.renderers.topbar_menu_button import TopbarMenuButtonRenderer
 
 from ._base import BaseRenderer
 
+__all__ = ("DesktopTopbarRenderer",)
+
 
 @WEB_REGISTRY
 class DesktopTopbarRenderer(BaseRenderer):

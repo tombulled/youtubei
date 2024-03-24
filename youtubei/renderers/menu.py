@@ -11,6 +11,8 @@ from youtubei.renderers.toggle_button import ToggleButtonRenderer
 
 from ._base import BaseRenderer
 
+__all__ = ("MenuRenderer",)
+
 
 @WEB_REGISTRY
 @WEB_REMIX_REGISTRY

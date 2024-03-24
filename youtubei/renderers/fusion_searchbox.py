@@ -9,6 +9,8 @@ from youtubei.validated_types import DynamicCommand
 
 from ._base import BaseRenderer
 
+__all__ = ("FusionSearchboxRenderer",)
+
 
 @WEB_REGISTRY
 class FusionSearchboxRenderer(BaseRenderer):

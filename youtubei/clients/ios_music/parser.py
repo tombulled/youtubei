@@ -1,4 +1,4 @@
-from youtubei.abc import ClientParser
+from youtubei.parser import ClientParser
 
 from .responses import IosMusicGuideResponse
 

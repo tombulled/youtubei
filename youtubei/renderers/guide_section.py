@@ -7,6 +7,8 @@ from youtubei.renderers.guide_entry import GuideEntryRenderer
 
 from ._base import BaseRenderer
 
+__all__ = ("GuideSectionRenderer",)
+
 
 @WEB_REGISTRY
 @WEB_REMIX_REGISTRY

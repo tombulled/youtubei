@@ -4,6 +4,8 @@ from youtubei.models.text import SimpleText
 
 from ._base import BaseRenderer
 
+__all__ = ("ThumbnailOverlayHoverTextRenderer",)
+
 
 @WEB_REGISTRY
 class ThumbnailOverlayHoverTextRenderer(BaseRenderer):

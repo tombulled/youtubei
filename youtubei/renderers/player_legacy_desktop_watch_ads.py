@@ -2,6 +2,8 @@ from youtubei.models.params import GutParams, PlayerAdParams
 
 from ._base import BaseRenderer
 
+__all__ = ("PlayerLegacyDesktopWatchAdsRenderer",)
+
 
 class PlayerLegacyDesktopWatchAdsRenderer(BaseRenderer):
     playerAdParams: PlayerAdParams

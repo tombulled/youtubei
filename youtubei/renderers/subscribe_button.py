@@ -2,11 +2,12 @@ from typing import Any, Sequence
 
 from youtubei.enums import SubscribeButtonType
 from youtubei.models.accessibility import Accessibility
-from youtubei.models.command import Command
 from youtubei.models.text import Text
 from youtubei.validated_types import DynamicCommand
 
 from ._base import BaseRenderer
+
+__all__ = ("SubscribeButtonRenderer",)
 
 
 class SubscribeButtonRenderer(BaseRenderer):
@@ -19,9 +20,7 @@ class SubscribeButtonRenderer(BaseRenderer):
     subscribed_button_text: Text
     unsubscribed_button_text: Text
     unsubscribe_button_text: Text
-    service_endpoints: Sequence[
-        DynamicCommand[Any]
-    ]  # TODO: Type which commands expected
+    service_endpoints: Sequence[DynamicCommand[Any]]
     subscribe_accessibility: Accessibility
     unsubscribe_accessibility: Accessibility
-    sign_in_endpoint: DynamicCommand[Any]  # TODO: Type which commands expected
+    sign_in_endpoint: DynamicCommand[Any]

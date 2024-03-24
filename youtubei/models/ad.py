@@ -1,10 +1,20 @@
-from typing import Optional
+from typing import Any, Optional
 
 from youtubei.enums import LayoutType, SlotTriggerEvent, SlotType
 from youtubei.models.logging import AdLayoutLoggingData, AdSlotLoggingData
 from youtubei.parse import Dynamic
 
-from .base import BaseModel
+from ._base import BaseModel
+
+__all__ = (
+    "AdSlotMetadata",
+    "AdLayoutMetadata",
+    "FulfillmentContent",
+    "SlotIdTrigger",
+    "SlotTrigger",
+    "LayoutRequestedTrigger",
+    "LayoutTrigger",
+)
 
 
 class AdSlotMetadata(BaseModel):
@@ -21,7 +31,7 @@ class AdLayoutMetadata(BaseModel):
 
 
 class FulfillmentContent(BaseModel):
-    fulfilledLayout: Dynamic  # PlayerBytesAdLayoutRenderer
+    fulfilledLayout: Dynamic[Any]  # Observed: PlayerBytesAdLayoutRenderer
 
 
 class SlotIdTrigger(BaseModel):

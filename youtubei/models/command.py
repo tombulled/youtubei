@@ -8,7 +8,9 @@ from youtubei.models.metadata import (
 )
 from youtubei.parse.validated_types import Dynamic
 
-from .base import BaseModel
+from ._base import BaseModel
+
+__all__ = ("Command",)
 
 T = TypeVar("T")
 
@@ -22,12 +24,10 @@ class Command(Generic[T]):
     Command's contain either:
         * 1x endpoint
         * 1x action
-        * hack=True
+        * hack=True (handled by validate_command, which yields _HackEndpoint)
     Notes:
         * Only endpoints have been observed to have command metadata
     """
-
-    # Potential properties: is_endpoint, is_action, is_command, is_hack
 
     click_tracking_params: str
     command_metadata: Optional[
@@ -38,7 +38,4 @@ class Command(Generic[T]):
             ]
         ]
     ] = None
-    # hack: Optional[bool] = None
-    command: Optional[T] = (
-        None  # Todo: Change to Union[BaseEndpoint, BaseAction, BaseCommand]?
-    )
+    command: Optional[T] = None

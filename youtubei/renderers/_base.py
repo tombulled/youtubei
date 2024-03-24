@@ -1,6 +1,8 @@
 from typing import Optional
 
-from youtubei.models.base import BaseModel
+from youtubei.models._base import BaseModel
+
+__all__ = ("BaseRenderer",)
 
 
 class BaseRenderer(BaseModel):

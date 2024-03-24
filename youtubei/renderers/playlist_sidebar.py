@@ -8,6 +8,8 @@ from youtubei.renderers.playlist_sidebar_primary_info import (
 
 from ._base import BaseRenderer
 
+__all__ = ("PlaylistSidebarRenderer",)
+
 
 @WEB_REGISTRY
 class PlaylistSidebarRenderer(BaseRenderer):

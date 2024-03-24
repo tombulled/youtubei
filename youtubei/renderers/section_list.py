@@ -10,6 +10,8 @@ from youtubei.renderers.music_shelf import MusicShelfRenderer
 
 from ._base import BaseRenderer
 
+__all__ = ("SectionListRenderer",)
+
 
 @WEB_REMIX_REGISTRY
 @WEB_REGISTRY
@@ -26,4 +28,3 @@ class SectionListRenderer(BaseRenderer):
         ]
     ]
     continuations: Optional[Sequence[Dynamic[NextContinuationData]]] = None
-    # header: Optional[ChipCloudRenderer] = None

@@ -8,6 +8,8 @@ from youtubei.renderers.privacy_tos_footer import PrivacyTosFooterRenderer
 
 from ._base import BaseRenderer
 
+__all__ = ("MultiPageMenuRenderer",)
+
 
 @WEB_REGISTRY
 @ANDROID_REGISTRY

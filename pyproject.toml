@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "youtubei"
 version = "0.1.0"
-description = ""
+description = "InnerTube Parsing Library"
 authors = ["Tom Bulled <26026015+tombulled@users.noreply.github.com>"]
 license = "MIT"
 readme = "README.md"
