@@ -7,6 +7,13 @@ from youtubei.models.response import Response, ResponseContext
 from youtubei.parse import Dynamic
 from youtubei.renderers.pivot_bar import PivotBarRenderer
 
+__all__ = (
+    "GlobalConfigGroup",
+    "IosMusicResponseContext",
+    "IosMusicResponse",
+    "IosMusicGuideResponse",
+)
+
 GuideItem: TypeAlias = Dynamic[PivotBarRenderer]
 
 

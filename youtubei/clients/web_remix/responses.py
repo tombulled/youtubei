@@ -11,6 +11,15 @@ from youtubei.renderers import (
 
 from .types import GuideItem
 
+__all__ = (
+    "WebRemixResponseContext",
+    "WebRemixResponse",
+    "WebRemixConfigResponse",
+    "WebRemixGuideResponse",
+    "WebRemixGetBrowseAlbumDetailPageResponse",
+    "WebRemixGetBrowsePlaylistDetailPageResponse",
+)
+
 
 class WebRemixResponseContext(ResponseContext):
     global_config_group: Optional[GlobalConfigGroup] = None
@@ -23,7 +32,7 @@ class WebRemixResponse(Response):
 
 class WebRemixConfigResponse(WebRemixResponse):
     config_data: str
-    global_config: Mapping[None, None]  # Warn: only ever observed as a literal {}
+    global_config: Mapping[None, None]  # WARN: only ever observed as a literal {}
 
 
 class WebRemixGuideResponse(WebRemixResponse):

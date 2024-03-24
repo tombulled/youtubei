@@ -2,6 +2,14 @@ from youtubei.models._base import BaseModel
 from youtubei.parse.validated_types import Dynamic
 from youtubei.renderers.music_data_bound_menu import MusicDataBoundMenuRenderer
 
+__all__ = (
+    "MusicDisplayConfig",
+    "MusicColdConfig",
+    "MusicHotConfig",
+    "RawColdConfigGroup",
+    "RawHotConfigGroup",
+    "GlobalConfigGroup",
+)
 
 class MusicDisplayConfig(BaseModel):
     track_context_menu: Dynamic[MusicDataBoundMenuRenderer]

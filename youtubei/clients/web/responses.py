@@ -14,6 +14,15 @@ from youtubei.renderers.playlist_metadata import PlaylistMetadataRenderer
 from youtubei.renderers.playlist_sidebar import PlaylistSidebarRenderer
 from youtubei.renderers.two_column_browse_results import TwoColumnBrowseResultsRenderer
 
+__all__ = (
+    "MainAppWebResponseContext",
+    "WebResponseContextExtensionData",
+    "WebResponseContext",
+    "WebResponse",
+    "WebGuideResponse",
+    "WebBrowseResponse",
+)
+
 GuideSection: TypeAlias = Dynamic[GuideSectionRenderer]
 GuideSigninPromo: TypeAlias = Dynamic[GuideSigninPromoRenderer]
 
