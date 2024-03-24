@@ -1,6 +1,6 @@
 from typing import Sequence
 
-from youtubei._registries import WEB_REGISTRY
+from youtubei._registries import WEB_REGISTRY, WEB_REMIX_REGISTRY
 from youtubei.enums import PlaylistEditListType
 from youtubei.models.endpoints import CreatePlaylistServiceEndpoint
 from youtubei.validated_types import DynamicCommand
@@ -563,6 +563,12 @@ class UpdateFlowCommand(BaseCommand):
 
 class UpdateLocalAppSettingCommand(BaseCommand):
     pass
+
+
+@WEB_REMIX_REGISTRY
+class UpdateMultiSelectStateCommand(BaseCommand):
+    multi_select_params: str
+    multi_select_item: str
 
 
 class UpdatePdgFeatureEnablementCommand(BaseCommand):

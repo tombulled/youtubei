@@ -14,6 +14,6 @@ class MenuServiceItemRenderer(BaseRenderer):
     text: ComplexText
     icon: Icon
     service_endpoint: Optional[DynamicCommand[Any]] = (
-        None  # Observed: ShareEntityServiceEndpoint
+        None  # Observed: ShareEntityServiceEndpoint, QueueAddEndpoint
     )
     has_separator: Optional[bool] = None

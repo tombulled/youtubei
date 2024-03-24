@@ -15,14 +15,16 @@ from youtubei.enums import (
     ReelWatchSequenceProvider,
     Signal,
     Target,
+    SharePanelType,
 )
 from youtubei.models.actions import AddToToastAction
 from youtubei.models.config import (
     BrowseEndpointContextMusicConfig,
     Html5PlaybackOnesieConfig,
+    WatchEndpointMusicConfig,
 )
 from youtubei.models.contexts import LoggingContext
-from youtubei.models.other import PlaylistEditAction
+from youtubei.models.other import PlaylistEditAction, QueueTarget
 from youtubei.models.params import SkAdParameters
 from youtubei.parse.validated_types import Dynamic
 from youtubei.types import BrowseId
@@ -309,6 +311,7 @@ class PlaylistEditorEndpoint(BaseEndpoint):
 class QueueAddEndpoint(BaseEndpoint):
     queue_insert_position: QueueInsertPosition
     commands: Sequence[DynamicCommand[AddToToastAction]]
+    queue_target: Optional[QueueTarget] = None
 
 
 class RecordNotificationInteractionsEndpoint(BaseEndpoint):
@@ -379,7 +382,9 @@ class ShareEntityServiceEndpoint(BaseEndpoint):
 
 @WEB_REMIX_REGISTRY
 class ShareEntityEndpoint(BaseEndpoint):
-    hack: bool
+    hack: Optional[bool] = None
+    serialized_share_entity: Optional[str] = None
+    share_panel_type: Optional[SharePanelType] = None
 
 
 @ANDROID_REGISTRY
@@ -483,6 +488,7 @@ class VerifyAgeEndpoint(BaseEndpoint):
 class WatchEndpoint(BaseEndpoint):
     video_id: Optional[str] = None
     playlist_id: Optional[str] = None
+    playlist_set_video_id: Optional[str] = None
     index: Optional[int] = None
     params: Optional[str] = None
     player_params: Optional[str] = None
@@ -491,10 +497,15 @@ class WatchEndpoint(BaseEndpoint):
     watch_endpoint_supported_onesie_config: Optional[
         Dynamic[Html5PlaybackOnesieConfig]
     ] = None
+    watch_endpoint_music_supported_configs: Optional[
+        Dynamic[WatchEndpointMusicConfig]
+    ] = None
 
 
+@WEB_REMIX_REGISTRY
 class WatchPlaylistEndpoint(BaseEndpoint):
-    pass
+    playlist_id: str
+    params: Optional[str] = None
 
 
 class WebPlayerShareEntityServiceEndpoint(BaseEndpoint):

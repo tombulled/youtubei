@@ -214,3 +214,13 @@ class VideoDetails(BaseModel):
     external_video_id: str
     duration_seconds: str
     duration_iso8601: str
+
+
+class QueueTarget(BaseModel):
+    video_id: Optional[str] = None
+    playlist_id: Optional[str] = None
+    on_empty_queue: DynamicCommand[Any]  # Observed: WatchEndpoint
+
+
+class LikeButtonTarget(BaseModel):
+    video_id: str

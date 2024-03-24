@@ -1,4 +1,4 @@
-from typing import Any, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 
 from typing_extensions import TypeAlias
 
@@ -20,6 +20,7 @@ class Text(BaseModel):
 I think YouTube might refer to "text" as a "FormattedString"
 """
 
+NoText: TypeAlias = Mapping[None, None] # Literal: {}
 
 class BasicText(BaseModel):
     text: str
@@ -27,7 +28,13 @@ class BasicText(BaseModel):
 
 class ComplexTextRun(BaseModel):
     text: str
-    navigation_endpoint: Optional[DynamicCommand[Any]] = None  # WatchEndpoint
+    navigation_endpoint: Optional[DynamicCommand[Any]] = None  # Observed: WatchEndpoint
+
+    def __str__(self) -> str:
+        return self.text
+
+    def __repr__(self) -> str:
+        return f"{type(self).__name__}({str(self)!r})"
 
 
 class ComplexText(BaseModel):

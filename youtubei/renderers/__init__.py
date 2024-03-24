@@ -14,6 +14,7 @@ from .cinematic_container import CinematicContainerRenderer
 from .client_forecasting_ad import ClientForecastingAdRenderer
 from .compact_link import CompactLinkRenderer
 from .confirm_dialog import ConfirmDialogRenderer
+from .cropped_square_thumbnail import CroppedSquareThumbnailRenderer
 from .desktop_topbar import DesktopTopbarRenderer
 from .endscreen import EndscreenRenderer
 from .endscreen_element import EndscreenElementRenderer
@@ -42,9 +43,19 @@ from .microformat_data import MicroformatDataRenderer
 from .miniplayer import MiniplayerRenderer
 from .mobile_topbar import MobileTopbarRenderer
 from .modal_with_title_and_button import ModalWithTitleAndButtonRenderer
-from .multi_page_menu import MultiPageMenuRenderer
 from .multi_page_menu_section import MultiPageMenuSectionRenderer
+from .multi_page_menu import MultiPageMenuRenderer
+from .music_carousel_shelf import MusicCarouselShelfRenderer
 from .music_data_bound_menu import MusicDataBoundMenuRenderer
+from .music_detail_header import MusicDetailHeaderRenderer
+from .music_item_thumbnail_overlay import MusicItemThumbnailOverlayRenderer
+from .music_play_button import MusicPlayButtonRenderer
+from .music_playlist_shelf import MusicPlaylistShelfRenderer
+from .music_responsive_list_item import MusicResponsiveListItemRenderer
+from .music_responsive_list_item_flex_column import MusicResponsiveListItemFlexColumnRenderer
+from .music_shelf_divider import MusicShelfDividerRenderer
+from .music_shelf import MusicShelfRenderer
+from .music_thumbnail import MusicThumbnailRenderer
 from .notification_text import NotificationTextRenderer
 from .pivot_bar import PivotBarRenderer
 from .pivot_bar_item import PivotBarItemRenderer
@@ -70,6 +81,7 @@ from .reel_player_overlay import ReelPlayerOverlayRenderer
 from .section_list import SectionListRenderer
 from .simple_ad_badge import SimpleAdBadgeRenderer
 from .simple_card_teaser import SimpleCardTeaserRenderer
+from .single_column_browse_results import SingleColumnBrowseResultsRenderer
 from .skip_ad import SkipAdRenderer
 from .skip_button import SkipButtonRenderer
 from .subscribe_button import SubscribeButtonRenderer

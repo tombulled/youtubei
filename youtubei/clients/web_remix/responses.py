@@ -2,12 +2,20 @@ from typing import Mapping, Optional, Sequence
 
 from youtubei.clients.web_remix.models import GlobalConfigGroup
 from youtubei.models.response import Response, ResponseContext
+from youtubei.parse.validated_types import Dynamic
+from youtubei.renderers import (
+    MicroformatDataRenderer,
+    MusicDetailHeaderRenderer,
+    SingleColumnBrowseResultsRenderer,
+)
+
 
 from .types import GuideItem
 
 
 class WebRemixResponseContext(ResponseContext):
     global_config_group: Optional[GlobalConfigGroup] = None
+    max_age_seconds: Optional[int] = None
 
 
 class WebRemixResponse(Response):
@@ -21,3 +29,14 @@ class WebRemixConfigResponse(WebRemixResponse):
 
 class WebRemixGuideResponse(WebRemixResponse):
     items: Sequence[GuideItem]
+
+
+class WebRemixGetBrowseAlbumDetailPageResponse(WebRemixResponse):
+    contents: Dynamic[SingleColumnBrowseResultsRenderer]
+    header: Dynamic[MusicDetailHeaderRenderer]
+    microformat: Optional[Dynamic[MicroformatDataRenderer]] = None
+
+
+class WebRemixGetBrowsePlaylistDetailPageResponse(WebRemixResponse):
+    contents: Dynamic[SingleColumnBrowseResultsRenderer]
+    header: Optional[Dynamic[MusicDetailHeaderRenderer]] = None

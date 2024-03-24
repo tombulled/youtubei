@@ -1,42 +1,42 @@
 from datetime import datetime
 from typing import Optional, Sequence
 
-from youtubei._registries import WEB_REGISTRY
+from youtubei._registries import WEB_REMIX_REGISTRY, WEB_REGISTRY
 from youtubei.enums import Category, CountryCode
 from youtubei.models.other import LinkAlternate, PageOwnerDetails, VideoDetails
 from youtubei.models.thumbnail import Thumbnails
 
 from ._base import BaseRenderer
 
-
+@WEB_REMIX_REGISTRY
 @WEB_REGISTRY
 class MicroformatDataRenderer(BaseRenderer):
     url_canonical: str
-    title: str
-    description: str
-    thumbnail: Thumbnails
-    site_name: str
-    app_name: str
-    android_package: str
-    ios_app_store_id: str
-    ios_app_arguments: str
-    og_type: str
+    title: Optional[str] = None
+    description: Optional[str] = None
+    thumbnail: Optional[Thumbnails] = None
+    site_name: Optional[str] = None
+    app_name: Optional[str] = None
+    android_package: Optional[str] = None
+    ios_app_store_id: Optional[str] = None
+    ios_app_arguments: Optional[str] = None
+    og_type: Optional[str] = None
     url_applinks_web: Optional[str] = None
-    url_applinks_ios: str
-    url_applinks_android: str
-    url_twitter_ios: str
-    url_twitter_android: str
-    twitter_card_type: str
-    twitter_site_handle: str
-    schema_dot_org_type: str
-    noindex: bool
-    unlisted: bool
+    url_applinks_ios: Optional[str] = None
+    url_applinks_android: Optional[str] = None
+    url_twitter_ios: Optional[str] = None
+    url_twitter_android: Optional[str] = None
+    twitter_card_type: Optional[str] = None
+    twitter_site_handle: Optional[str] = None
+    schema_dot_org_type: Optional[str] = None
+    noindex: Optional[bool] = None
+    unlisted: Optional[bool] = None
     paid: Optional[bool] = None
     family_safe: Optional[bool] = None
     tags: Optional[Sequence[str]] = None
     page_owner_details: Optional[PageOwnerDetails] = None
     video_details: Optional[VideoDetails] = None
-    link_alternates: Sequence[LinkAlternate]
+    link_alternates: Optional[Sequence[LinkAlternate]] = None
     view_count: Optional[str] = None
     publish_date: Optional[datetime] = None
     category: Optional[Category] = None
