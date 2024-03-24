@@ -1,9 +1,9 @@
-from ._other import _StrEnum
+from ._base import StrEnum
 
 __all__ = ("IconType",)
 
 
-class IconType(_StrEnum):
+class IconType(StrEnum):
     UNKNOWN = "UNKNOWN"
     MY_CHANNEL = "MY_CHANNEL"
     WATCH_HISTORY = "WATCH_HISTORY"

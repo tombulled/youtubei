@@ -1,51 +1,64 @@
-from enum import Enum
+from ._base import StrEnum
 
-# __all__ = (
-#     "ActiveViewTrafficType",
-#     "AdPlacementKind",
-#     "BackgroundPromoStyleType",
-#     "CaptionsInitialState",
-#     "HeaderType",
-#     "MusicPageType",
-#     "LanguageCode",
-#     "PlaybackMode",
-#     "ReelPlayerNavigationModel",
-#     "ReelPlayerOverlayStyle",
-#     "ReelWatchInputType",
-#     "ReelWatchSequenceProvider",
-#     "Service",
-#     "SharePanelType",
-#     "Signal",
-#     "Size",
-#     "Style",
-#     "Target",
-#     "TargetId",
-#     "WebPageType",
-# )
+__all__ = (
+    "ActiveViewTrafficType",
+    "AdPlacementKind",
+    "BackgroundPromoStyleType",
+    "BadgeStyleType",
+    "CaptionsInitialState",
+    "Category",
+    "CheckboxCheckedState",
+    "CountryCode",
+    "EndscreenElementStyle",
+    "EngagementPanelVisibility",
+    "FeatureAvailability",
+    "HeaderType",
+    "LanguageCode",
+    "LayoutType",
+    "LikeStatus",
+    "MultiPageMenuStyleType",
+    "MusicPageType",
+    "PlaybackMode",
+    "PlaylistEditListType",
+    "PopupType",
+    "Privacy",
+    "QueueInsertPosition",
+    "ReelPlayerNavigationModel",
+    "ReelPlayerOverlayStyle",
+    "ReelWatchInputType",
+    "ReelWatchSequenceProvider",
+    "Service",
+    "SharePanelType",
+    "Signal",
+    "SlotTriggerEvent",
+    "SlotType",
+    "SubscribeButtonType",
+    "Size",
+    "Style",
+    "Target",
+    "TargetId",
+    "ThumbnailOverlayTimeStatusStyle",
+    "Visibility",
+    "WebPageType",
+    "WatchBreakType",
+)
 
 
-class _StrEnum(str, Enum):
-    def __str__(self) -> str:
-        return self.value
-
-
-class ActiveViewTrafficType(_StrEnum):
+class ActiveViewTrafficType(StrEnum):
     VIDEO = "ACTIVE_VIEW_TRAFFIC_TYPE_VIDEO"
 
 
-# E.g., {"adPlacementConfig": {"kind": "AD_PLACEMENT_KIND_START"}}
-class AdPlacementKind(_StrEnum):
+class AdPlacementKind(StrEnum):
     END = "AD_PLACEMENT_KIND_END"
     MILLISECONDS = "AD_PLACEMENT_KIND_MILLISECONDS"
     START = "AD_PLACEMENT_KIND_START"
 
 
-# E.g., {"backgroundPromoRenderer": {"style": {"value": "BACKGROUND_PROMO_STYLE_TYPE_EMPTY_STATE"}}}
-class BackgroundPromoStyleType(_StrEnum):
+class BackgroundPromoStyleType(StrEnum):
     EMPTY_STATE = "BACKGROUND_PROMO_STYLE_TYPE_EMPTY_STATE"
 
 
-class BadgeStyleType(_StrEnum):
+class BadgeStyleType(StrEnum):
     PREMIUM: str = "BADGE_STYLE_TYPE_PREMIUM"
     SIMPLE: str = "BADGE_STYLE_TYPE_SIMPLE"
     AD: str = "BADGE_STYLE_TYPE_AD"
@@ -54,22 +67,20 @@ class BadgeStyleType(_StrEnum):
     SHORTS_PLAYER: str = "BADGE_STYLE_TYPE_SHORTS_PLAYER"
 
 
-class CaptionsInitialState(_StrEnum):
+class CaptionsInitialState(StrEnum):
     OFF_RECOMMENDED = "CAPTIONS_INITIAL_STATE_OFF_RECOMMENDED"
 
 
-# E.g., {"playerMicroformatRenderer": {"category": "Entertainment"}}
-class Category(_StrEnum):
+class Category(StrEnum):
     ENTERTAINMENT: str = "Entertainment"
     MUSIC: str = "Music"
 
 
-class CheckboxCheckedState(_StrEnum):
+class CheckboxCheckedState(StrEnum):
     UNCHECKED: str = "CHECKBOX_CHECKED_STATE_UNCHECKED"
 
 
-# E.g., {"playerMicroformatRenderer": {"availableCountries": ["AD", "AE", ...]}}
-class CountryCode(_StrEnum):
+class CountryCode(StrEnum):
     AD: str = "AD"
     AE: str = "AE"
     AF: str = "AF"
@@ -321,81 +332,26 @@ class CountryCode(_StrEnum):
     ZW: str = "ZW"
 
 
-class EndscreenElementStyle(_StrEnum):
+class EndscreenElementStyle(StrEnum):
     VIDEO = "VIDEO"
     PLAYLIST = "PLAYLIST"
 
 
-# E.g., {"changeEngagementPanelVisibilityAction": {"visibility": "ENGAGEMENT_PANEL_VISIBILITY_EXPANDED"}}
-class EngagementPanelVisibility(_StrEnum):
+class EngagementPanelVisibility(StrEnum):
     EXPANDED: str = "ENGAGEMENT_PANEL_VISIBILITY_EXPANDED"
 
 
-# E.g., {"audioOnlyPlayabilityRenderer": {"audioOnlyAvailability": "FEATURE_AVAILABILITY_ALLOWED"}}
-class FeatureAvailability(_StrEnum):
+class FeatureAvailability(StrEnum):
     ALLOWED = "FEATURE_AVAILABILITY_ALLOWED"
 
 
-class HeaderType(_StrEnum):
+class HeaderType(StrEnum):
     USER_AUTH: str = "USER_AUTH"
     VISITOR_ID: str = "VISITOR_ID"
     PLUS_PAGE_ID: str = "PLUS_PAGE_ID"
 
 
-# E.g., {"icon": {"iconType": "TAB_HOME"}}
-# class IconType(_StrEnum):
-#     # WEB_REMIX
-#     LIBRARY_MUSIC = "LIBRARY_MUSIC"
-#     TAB_EXPLORE = "TAB_EXPLORE"
-#     TAB_HOME = "TAB_HOME"
-#     ERROR_OUTLINE = "ERROR_OUTLINE"
-#     OPEN_IN_NEW = "OPEN_IN_NEW"
-#     INFO_OUTLINE = "INFO_OUTLINE"
-#     # WEB
-#     WHAT_TO_WATCH = "WHAT_TO_WATCH"
-#     TAB_SHORTS = "TAB_SHORTS"
-#     SUBSCRIPTIONS = "SUBSCRIPTIONS"
-#     HELP = "HELP"
-#     SETTINGS = "SETTINGS"
-#     VIDEO_LIBRARY_WHITE = "VIDEO_LIBRARY_WHITE"
-#     WATCH_HISTORY = "WATCH_HISTORY"
-#     YOUTUBE_ROUND = "YOUTUBE_ROUND"
-#     AVATAR_LOGGED_OUT = "AVATAR_LOGGED_OUT"
-#     TRENDING = "TRENDING"
-#     SHOPPING_BAG = "SHOPPING_BAG"
-#     MUSIC = "MUSIC"
-#     CLAPPERBOARD = "CLAPPERBOARD"
-#     LIVE = "LIVE"
-#     GAMING_LOGO = "GAMING_LOGO"
-#     NEWS = "NEWS"
-#     TROPHY = "TROPHY"
-#     COURSE = "COURSE"
-#     FASHION_LOGO = "FASHION_LOGO"
-#     BROADCAST = "BROADCAST"
-#     ADD_CIRCLE = "ADD_CIRCLE"
-#     UNPLUGGED_LOGO = "UNPLUGGED_LOGO"
-#     YOUTUBE_MUSIC = "YOUTUBE_MUSIC"
-#     YOUTUBE_KIDS_ROUND = "YOUTUBE_KIDS_ROUND"
-#     FLAG = "FLAG"
-#     FEEDBACK = "FEEDBACK"
-#     INFO = "INFO"
-#     # IOS
-#     TAB_SUBSCRIPTIONS = "TAB_SUBSCRIPTIONS"
-#     TAB_ACTIVITY = "TAB_ACTIVITY"
-#     SEARCH = "SEARCH"
-#     ACCOUNT_CIRCLE = "ACCOUNT_CIRCLE"
-#     UNPLUGGED_RED_LOGO = "UNPLUGGED_RED_LOGO"
-#     MUSIC_RED_LOGO = "MUSIC_RED_LOGO"
-#     KIDS_RED_LOGO = "KIDS_RED_LOGO"
-#     YOUTUBE_LOGO = "YOUTUBE_LOGO"
-#     # IOS_MUSIC
-#     TAB_SAMPLES = "TAB_SAMPLES"
-#     # ANDROID
-#     PIVOT_HOME = "PIVOT_HOME"
-#     PIVOT_SUBSCRIPTIONS = "PIVOT_SUBSCRIPTIONS"
-
-
-class LanguageCode(_StrEnum):
+class LanguageCode(StrEnum):
     AF = "af"  # Afrikaans
     AK = "ak"  # Akan
     SQ = "sq"  # Albanian
@@ -523,74 +479,65 @@ class LanguageCode(_StrEnum):
     ZU = "zu"  # Zulu
 
 
-# E.g., {"adLayoutMetadata": {"layoutType": "LAYOUT_TYPE_COMPOSITE_PLAYER_BYTES"}}
-class LayoutType(_StrEnum):
+class LayoutType(StrEnum):
     COMPOSITE_PLAYER_BYTES = "LAYOUT_TYPE_COMPOSITE_PLAYER_BYTES"
     MEDIA = "LAYOUT_TYPE_MEDIA"
 
 
-class LikeStatus(_StrEnum):
+class LikeStatus(StrEnum):
     INDIFFERENT: str = "INDIFFERENT"
 
 
-class MultiPageMenuStyleType(_StrEnum):
+class MultiPageMenuStyleType(StrEnum):
     SYSTEM = "MULTI_PAGE_MENU_STYLE_TYPE_SYSTEM"
     REPORT_CHANNEL = "MULTI_PAGE_MENU_STYLE_TYPE_REPORT_CHANNEL"
 
 
-# E.g., {"browseEndpointContextMusicConfig": {"pageType": "MUSIC_PAGE_TYPE_METRONOME"}}
-class MusicPageType(_StrEnum):
+class MusicPageType(StrEnum):
     METRONOME = "MUSIC_PAGE_TYPE_METRONOME"
     ALBUM = "MUSIC_PAGE_TYPE_ALBUM"
     ARTIST = "MUSIC_PAGE_TYPE_ARTIST"
 
 
-# E.g. {'miniplayerRenderer': {'playbackMode': 'PLAYBACK_MODE_ALLOW'}}
-class PlaybackMode(_StrEnum):
+class PlaybackMode(StrEnum):
     ALLOW = "PLAYBACK_MODE_ALLOW"
 
 
-class PlaylistEditListType(_StrEnum):
+class PlaylistEditListType(StrEnum):
     QUEUE = "PLAYLIST_EDIT_LIST_TYPE_QUEUE"
 
 
-# E.g., {"openPopupAction": {"type": "DIALOG"}}
-class PopupType(_StrEnum):
+class PopupType(StrEnum):
     DIALOG = "DIALOG"
     DROPDOWN = "DROPDOWN"
 
 
-class Privacy(_StrEnum):
+class Privacy(StrEnum):
     UNLISTED: str = "UNLISTED"
 
 
-class QueueInsertPosition(_StrEnum):
+class QueueInsertPosition(StrEnum):
     INSERT_AFTER_CURRENT_VIDEO: str = "INSERT_AFTER_CURRENT_VIDEO"
     INSERT_AT_END: str = "INSERT_AT_END"
 
 
-# E.g., {"reelPlayerOverlayRenderer": {"reelPlayerNavigationModel": "REEL_PLAYER_NAVIGATION_MODEL_UNSPECIFIED"}}
-class ReelPlayerNavigationModel(_StrEnum):
+class ReelPlayerNavigationModel(StrEnum):
     UNSPECIFIED: str = "REEL_PLAYER_NAVIGATION_MODEL_UNSPECIFIED"
 
 
-# E.g., {"reelPlayerOverlayRenderer": {"style": "REEL_PLAYER_OVERLAY_STYLE_SHORTS"}}
-class ReelPlayerOverlayStyle(_StrEnum):
+class ReelPlayerOverlayStyle(StrEnum):
     SHORTS: str = "REEL_PLAYER_OVERLAY_STYLE_SHORTS"
 
 
-# E.g., {"reelWatchEndpoint": {"inputType": "REEL_WATCH_INPUT_TYPE_SEEDLESS"}}
-class ReelWatchInputType(_StrEnum):
+class ReelWatchInputType(StrEnum):
     SEEDLESS: str = "REEL_WATCH_INPUT_TYPE_SEEDLESS"
 
 
-# E.g., {"reelWatchEndpoint": {"sequenceProvider": "REEL_WATCH_SEQUENCE_PROVIDER_RPC"}}
-class ReelWatchSequenceProvider(_StrEnum):
+class ReelWatchSequenceProvider(StrEnum):
     RPC: str = "REEL_WATCH_SEQUENCE_PROVIDER_RPC"
 
 
-# A "service" as listed under "responseContext.serviceTrackingParams"
-class Service(_StrEnum):
+class Service(StrEnum):
     CSI: str = "CSI"
     GFEEDBACK: str = "GFEEDBACK"
     GUIDED_HELP: str = "GUIDED_HELP"
@@ -600,12 +547,11 @@ class Service(_StrEnum):
     LISTNR: str = "LISTNR"
 
 
-class SharePanelType(Enum):
+class SharePanelType(StrEnum):
     UNIFIED_SHARE_PANEL = "SHARE_PANEL_TYPE_UNIFIED_SHARE_PANEL"
 
 
-# E.g., {"signalAction": {"signal": "HELP"}}
-class Signal(_StrEnum):
+class Signal(StrEnum):
     HELP: str = "HELP"
     CLIENT_SIGNAL: str = "CLIENT_SIGNAL"
     HISTORY_BACK: str = "HISTORY_BACK"
@@ -622,27 +568,24 @@ class Signal(_StrEnum):
     GET_ACCOUNT_MENU: str = "GET_ACCOUNT_MENU"
 
 
-# E.g., {"adSlotMetadata": {"triggerEvent": "SLOT_TRIGGER_EVENT_BEFORE_CONTENT"}}
-class SlotTriggerEvent(_StrEnum):
+class SlotTriggerEvent(StrEnum):
     BEFORE_CONTENT = "SLOT_TRIGGER_EVENT_BEFORE_CONTENT"
 
 
-# E.g., {"adSlotMetadata": {"slotType": "SLOT_TYPE_PLAYER_BYTES"}}
-class SlotType(_StrEnum):
+class SlotType(StrEnum):
     PLAYER_BYTES = "SLOT_TYPE_PLAYER_BYTES"
 
 
-# E.g., {"subscribeButtonRenderer": {..., "type": "FREE"}}
-class SubscribeButtonType(_StrEnum):
+class SubscribeButtonType(StrEnum):
     FREE: str = "FREE"
 
 
-class Size(_StrEnum):
+class Size(StrEnum):
     DEFAULT: str = "SIZE_DEFAULT"
     SMALL: str = "SIZE_SMALL"
 
 
-class Style(_StrEnum):
+class Style(StrEnum):
     BLUE_TEXT: str = "STYLE_BLUE_TEXT"
     DEFAULT: str = "STYLE_DEFAULT"
     PRIMARY: str = "STYLE_PRIMARY"
@@ -657,14 +600,11 @@ class Style(_StrEnum):
     DARK_ON_WHITE: str = "STYLE_DARK_ON_WHITE"
 
 
-# E.g., {"urlEndpoint": {"target": "TARGET_NEW_WINDOW"}}
-class Target(_StrEnum):
+class Target(StrEnum):
     NEW_WINDOW: str = "TARGET_NEW_WINDOW"
 
 
-# E.g., {"guideEntryRenderer": {"targetId": "library-guide-item"}}
-# Note: unsure whether this should be an enum or just a str
-class TargetId(_StrEnum):
+class TargetId(StrEnum):
     # YouTube Web
     LIBRARY_GUIDE_ITEM = "library-guide-item"
     ENGAGEMENT_PANEL_ERROR_CORRECTIONS = "engagement-panel-error-corrections"
@@ -683,18 +623,15 @@ class TargetId(_StrEnum):
     PIVOT_MUSIC_LIBRARY = "pivot-music-library"
 
 
-# E.g., {"thumbnailOverlayTimeStatusRenderer": {"style": "DEFAULT"}}
-class ThumbnailOverlayTimeStatusStyle(_StrEnum):
+class ThumbnailOverlayTimeStatusStyle(StrEnum):
     DEFAULT = "DEFAULT"
 
 
-# E.g., {"audioTracks": [{..., "visibility": "UNKNOWN"}]}
-class Visibility(_StrEnum):
+class Visibility(StrEnum):
     UNKNOWN = "UNKNOWN"
 
 
-# E.g., {"webCommandMetadata": {"webPageType": "WEB_PAGE_TYPE_BROWSE"}}
-class WebPageType(_StrEnum):
+class WebPageType(StrEnum):
     BROWSE: str = "WEB_PAGE_TYPE_BROWSE"
     CHANNEL: str = "WEB_PAGE_TYPE_CHANNEL"
     SETTINGS: str = "WEB_PAGE_TYPE_SETTINGS"
@@ -707,5 +644,5 @@ class WebPageType(_StrEnum):
     MINI_APP: str = "WEB_PAGE_TYPE_MINI_APP"
 
 
-class WatchBreakType(_StrEnum):
+class WatchBreakType(StrEnum):
     DATA_REMINDER = "WATCH_BREAK_TYPE_DATA_REMINDER"
