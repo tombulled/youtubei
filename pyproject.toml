@@ -8,7 +8,7 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.10"
-innertube = "^2.1.10"
+innertube = "^2.1.13"
 pyhumps = "^3.8.0"
 pydantic = "^2.5.3"
 typing-extensions = "^4.9.0"
