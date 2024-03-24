@@ -14,9 +14,9 @@ class InstreamVideoAdRenderer(BaseRenderer):
     tracking_params: str
     layout_id: str
     associated_player_bytes_layout_id: Optional[str] = None
-    player_overlay: Optional[
-        Dynamic
-    ] = None  # Observed: InstreamAdPlayerOverlayRenderer
+    player_overlay: Optional[Dynamic] = (
+        None  # Observed: InstreamAdPlayerOverlayRenderer
+    )
     skip_offset_milliseconds: Optional[int] = None
     pings: Optional[Pings] = None
     clickthrough_endpoint: Optional[DynamicCommand[Any]] = None

@@ -20,9 +20,9 @@ class TopbarMenuButtonRenderer(BaseRenderer):
     icon: Icon
     menu_renderer: Optional[Dynamic[MultiPageMenuRenderer]] = None
     target_id: Optional[TargetId] = None
-    menu_request: Optional[
-        DynamicCommand[Any]
-    ] = None  # Observed: SignalServiceEndpoint
+    menu_request: Optional[DynamicCommand[Any]] = (
+        None  # Observed: SignalServiceEndpoint
+    )
     accessibility: Optional[Accessibility] = None
     tooltip: Optional[str] = None
     style: Optional[Style] = None

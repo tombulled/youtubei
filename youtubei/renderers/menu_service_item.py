@@ -15,7 +15,7 @@ __all__ = ("MenuServiceItemRenderer",)
 class MenuServiceItemRenderer(BaseRenderer):
     text: ComplexText
     icon: Icon
-    service_endpoint: Optional[
-        DynamicCommand[Any]
-    ] = None  # Observed: ShareEntityServiceEndpoint, QueueAddEndpoint
+    service_endpoint: Optional[DynamicCommand[Any]] = (
+        None  # Observed: ShareEntityServiceEndpoint, QueueAddEndpoint
+    )
     has_separator: Optional[bool] = None

@@ -32,7 +32,7 @@ class ButtonRenderer(BaseRenderer):
     accessibility: Optional[Accessibility] = None
     accessibility_data: Optional[Accessibility] = None
     target_id: Optional[TargetId] = None
-    command: Optional[
-        DynamicCommand[Any]
-    ] = None  # Observed: HideEngagementPanelEndpoint
+    command: Optional[DynamicCommand[Any]] = (
+        None  # Observed: HideEngagementPanelEndpoint
+    )
     tooltip: Optional[str] = None

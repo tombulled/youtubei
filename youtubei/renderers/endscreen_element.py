@@ -24,7 +24,7 @@ class EndscreenElementRenderer(BaseRenderer):
     metadata: Text
     endpoint: DynamicCommand[Any]
     id: str
-    thumbnail_overlays: Optional[
-        Sequence[Dynamic[Any]]
-    ] = None  # Observed: Sequence[ThumbnailOverlayTimeStatusRenderer]
+    thumbnail_overlays: Optional[Sequence[Dynamic[Any]]] = (
+        None  # Observed: Sequence[ThumbnailOverlayTimeStatusRenderer]
+    )
     playlist_length: Optional[Text] = None
