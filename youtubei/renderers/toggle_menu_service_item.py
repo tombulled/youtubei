@@ -18,4 +18,3 @@ class ToggleMenuServiceItemRenderer(BaseRenderer):
     toggled_text: ComplexText
     toggled_icon: Icon
     toggled_service_endpoint: Optional[DynamicCommand[LikeEndpoint]] = None
-

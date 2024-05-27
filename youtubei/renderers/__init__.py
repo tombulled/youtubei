@@ -58,8 +58,9 @@ from .music_item_thumbnail_overlay import MusicItemThumbnailOverlayRenderer
 from .music_play_button import MusicPlayButtonRenderer
 from .music_playlist_shelf import MusicPlaylistShelfRenderer
 from .music_responsive_list_item import MusicResponsiveListItemRenderer
-from .music_responsive_list_item_flex_column import \
-    MusicResponsiveListItemFlexColumnRenderer
+from .music_responsive_list_item_flex_column import (
+    MusicResponsiveListItemFlexColumnRenderer,
+)
 from .music_shelf import MusicShelfRenderer
 from .music_shelf_divider import MusicShelfDividerRenderer
 from .music_thumbnail import MusicThumbnailRenderer
@@ -72,8 +73,7 @@ from .player_bytes_ad_layout import PlayerBytesAdLayoutRenderer
 from .player_bytes_sequential_layout import PlayerBytesSequentialLayoutRenderer
 from .player_captions_tracklist import PlayerCaptionsTracklistRenderer
 from .player_error_message import PlayerErrorMessageRenderer
-from .player_legacy_desktop_watch_ads import \
-    PlayerLegacyDesktopWatchAdsRenderer
+from .player_legacy_desktop_watch_ads import PlayerLegacyDesktopWatchAdsRenderer
 from .player_microformat import PlayerMicroformatRenderer
 from .player_storyboard_spec import PlayerStoryboardSpecRenderer
 from .playlist_byline import PlaylistBylineRenderer

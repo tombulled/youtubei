@@ -13,7 +13,9 @@ __all__ = ("MusicPlayButtonRenderer",)
 
 @WEB_REMIX_REGISTRY
 class MusicPlayButtonRenderer(BaseRenderer):
-    play_navigation_endpoint: DynamicCommand[Union[WatchEndpoint, WatchPlaylistEndpoint]]
+    play_navigation_endpoint: DynamicCommand[
+        Union[WatchEndpoint, WatchPlaylistEndpoint]
+    ]
     play_icon: Icon
     pause_icon: Icon
     icon_color: int

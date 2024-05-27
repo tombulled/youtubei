@@ -25,4 +25,3 @@ class MusicShelfRenderer(BaseRenderer):
     bottom_text: Optional[ComplexText] = None
     bottom_endpoint: Optional[DynamicCommand[SearchEndpoint]] = None
     continuations: Optional[Sequence[Dynamic[NextContinuationData]]] = None
-    

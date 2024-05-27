@@ -25,6 +25,6 @@ class WebRemixParser(ClientParser):
 
     def guide(self, response, /) -> WebRemixGuideResponse:
         return self._parse(response, WebRemixGuideResponse)
-    
+
     def search(self, response, /) -> WebRemixGetSearchResponse:
         return self._parse(response, WebRemixGetSearchResponse)

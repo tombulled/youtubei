@@ -1,6 +1,9 @@
 from typing import Optional, Sequence
 
-from youtubei.enums.music import MusicResponsiveListItemFlexColumnDisplayStyle, MusicResponsiveListItemHeight
+from youtubei.enums.music import (
+    MusicResponsiveListItemFlexColumnDisplayStyle,
+    MusicResponsiveListItemHeight,
+)
 from youtubei.models.endpoints import BrowseEndpoint
 from youtubei.models.music import PlaylistItemData
 from youtubei.models.text import ComplexText
@@ -31,12 +34,16 @@ class MusicResponsiveListItemRenderer(BaseRenderer):
     thumbnail: Optional[Dynamic[MusicThumbnailRenderer]] = None
     overlay: Optional[Dynamic[MusicItemThumbnailOverlayRenderer]] = None
     flex_columns: Sequence[Dynamic[MusicResponsiveListItemFlexColumnRenderer]]
-    fixed_columns: Optional[Sequence[Dynamic[MusicResponsiveListItemFixedColumnRenderer]]] = None
+    fixed_columns: Optional[
+        Sequence[Dynamic[MusicResponsiveListItemFixedColumnRenderer]]
+    ] = None
     menu: Dynamic[MenuRenderer]
     playlist_item_data: Optional[PlaylistItemData] = None
     item_height: Optional[MusicResponsiveListItemHeight] = None
     index: Optional[ComplexText] = None
     multi_select_checkbox: Optional[Dynamic[CheckboxRenderer]] = None
     navigation_endpoint: Optional[DynamicCommand[BrowseEndpoint]] = None
-    flex_column_display_style: Optional[MusicResponsiveListItemFlexColumnDisplayStyle] = None
+    flex_column_display_style: Optional[
+        MusicResponsiveListItemFlexColumnDisplayStyle
+    ] = None
     badges: Optional[Sequence[Dynamic[MusicInlineBadgeRenderer]]] = None
