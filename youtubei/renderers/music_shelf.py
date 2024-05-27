@@ -1,5 +1,6 @@
 from typing import Optional, Sequence
 
+from youtubei.models.data import NextContinuationData
 from youtubei.models.endpoints import SearchEndpoint
 from youtubei.models.text import ComplexText
 from youtubei.parse.validated_types import Dynamic
@@ -22,5 +23,6 @@ class MusicShelfRenderer(BaseRenderer):
     contents_multi_selectable: Optional[bool] = None
     title: Optional[ComplexText] = None
     bottom_text: Optional[ComplexText] = None
-    bottom_endpoint: Optional[DynamicCommand[SearchEndpoint]]
+    bottom_endpoint: Optional[DynamicCommand[SearchEndpoint]] = None
+    continuations: Optional[Sequence[Dynamic[NextContinuationData]]] = None
     

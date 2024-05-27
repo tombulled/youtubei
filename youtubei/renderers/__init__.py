@@ -53,6 +53,7 @@ from .music_card_shelf_header_basic import MusicCardShelfHeaderBasicRenderer
 from .music_carousel_shelf import MusicCarouselShelfRenderer
 from .music_data_bound_menu import MusicDataBoundMenuRenderer
 from .music_detail_header import MusicDetailHeaderRenderer
+from .music_inline_badge import MusicInlineBadgeRenderer
 from .music_item_thumbnail_overlay import MusicItemThumbnailOverlayRenderer
 from .music_play_button import MusicPlayButtonRenderer
 from .music_playlist_shelf import MusicPlaylistShelfRenderer

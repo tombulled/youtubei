@@ -50,5 +50,5 @@ class WebRemixGetBrowsePlaylistDetailPageResponse(WebRemixResponse):
     header: Optional[Dynamic[MusicDetailHeaderRenderer]] = None
 
 
-class WebRemixSearchResponse(WebRemixResponse):
+class WebRemixGetSearchResponse(WebRemixResponse):
     contents: Dynamic[TabbedSearchResultsRenderer]

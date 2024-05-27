@@ -7,6 +7,7 @@ from youtubei.models.text import ComplexText
 from youtubei.parse.validated_types import Dynamic
 from youtubei.renderers.checkbox import CheckboxRenderer
 from youtubei.renderers.menu import MenuRenderer
+from youtubei.renderers.music_inline_badge import MusicInlineBadgeRenderer
 from youtubei.renderers.music_item_thumbnail_overlay import (
     MusicItemThumbnailOverlayRenderer,
 )
@@ -38,3 +39,4 @@ class MusicResponsiveListItemRenderer(BaseRenderer):
     multi_select_checkbox: Optional[Dynamic[CheckboxRenderer]] = None
     navigation_endpoint: Optional[DynamicCommand[BrowseEndpoint]] = None
     flex_column_display_style: Optional[MusicResponsiveListItemFlexColumnDisplayStyle] = None
+    badges: Optional[Sequence[Dynamic[MusicInlineBadgeRenderer]]] = None

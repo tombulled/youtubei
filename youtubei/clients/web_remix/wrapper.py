@@ -1,6 +1,8 @@
 from dataclasses import dataclass, field
+from typing import Optional
 
-from innertube import InnerTube
+from innertube import InnerTube, utils
+from innertube.enums import Endpoint
 
 from .constants import WEB_REMIX_CLIENT, WEB_REMIX_PARSER
 from .parser import WebRemixParser
@@ -54,7 +56,22 @@ class WebRemix:
 
         return self.parser.guide(response)
 
-    def search(self, query: str):
-        response: dict = self.client.adaptor.dispatch("search", body={"query": query})
+    def search(
+        self,
+        query: Optional[str] = None,
+        *,
+        params: Optional[str] = None,
+        continuation: Optional[str] = None,
+    ):
+        response: dict = self.client.adaptor.dispatch(
+            Endpoint.SEARCH,
+            body=utils.filter(
+                dict(
+                    query=query or "",
+                    params=params,
+                    continuation=continuation,
+                )
+            ),
+        )
 
         return self.parser.search(response)
