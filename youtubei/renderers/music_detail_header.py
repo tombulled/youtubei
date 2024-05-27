@@ -22,4 +22,4 @@ class MusicDetailHeaderRenderer(BaseRenderer):
     description: Optional[ComplexText] = None
     more_button: Dynamic[ToggleButtonRenderer]
     second_subtitle: ComplexText
-    subtitle_badges: Optional[Sequence[Dynamic[MusicInlineBadgeRenderer]]]
+    subtitle_badges: Optional[Sequence[Dynamic[MusicInlineBadgeRenderer]]] = None
