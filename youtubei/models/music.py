@@ -1,4 +1,4 @@
-from typing import Sequence
+from typing import Optional, Sequence
 
 from ._base import BaseModel
 
@@ -18,5 +18,5 @@ class MusicItemThumbnailOverlayBackground(BaseModel):
 
 
 class PlaylistItemData(BaseModel):
-    playlist_set_video_id: str
     video_id: str
+    playlist_set_video_id: Optional[str] = None

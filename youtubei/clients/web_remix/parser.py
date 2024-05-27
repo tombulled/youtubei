@@ -5,6 +5,7 @@ from .responses import (
     WebRemixGetBrowseAlbumDetailPageResponse,
     WebRemixGetBrowsePlaylistDetailPageResponse,
     WebRemixGuideResponse,
+    WebRemixSearchResponse,
 )
 
 __all__ = ("WebRemixParser",)
@@ -24,3 +25,6 @@ class WebRemixParser(ClientParser):
 
     def guide(self, response, /) -> WebRemixGuideResponse:
         return self._parse(response, WebRemixGuideResponse)
+    
+    def search(self, response, /) -> WebRemixSearchResponse:
+        return self._parse(response, WebRemixSearchResponse)

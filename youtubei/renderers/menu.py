@@ -8,6 +8,7 @@ from youtubei.renderers.like_button import LikeButtonRenderer
 from youtubei.renderers.menu_navigation_item import MenuNavigationItemRenderer
 from youtubei.renderers.menu_service_item import MenuServiceItemRenderer
 from youtubei.renderers.toggle_button import ToggleButtonRenderer
+from youtubei.renderers.toggle_menu_service_item import ToggleMenuServiceItemRenderer
 
 from ._base import BaseRenderer
 
@@ -18,7 +19,15 @@ __all__ = ("MenuRenderer",)
 @WEB_REMIX_REGISTRY
 class MenuRenderer(BaseRenderer):
     items: Optional[
-        Sequence[Dynamic[Union[MenuNavigationItemRenderer, MenuServiceItemRenderer]]]
+        Sequence[
+            Dynamic[
+                Union[
+                    MenuNavigationItemRenderer,
+                    MenuServiceItemRenderer,
+                    ToggleMenuServiceItemRenderer,
+                ]
+            ]
+        ]
     ] = None
     open_immediately: Optional[bool] = None
     top_level_buttons: Optional[

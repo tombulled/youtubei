@@ -55,6 +55,7 @@ __all__ = (
     "TranslationLanguage",
     "VideoDetails",
     "QueueTarget",
+    "LikeTarget",
     "LikeButtonTarget",
 )
 
@@ -254,6 +255,10 @@ class QueueTarget(BaseModel):
     video_id: Optional[str] = None
     playlist_id: Optional[str] = None
     on_empty_queue: DynamicCommand[Any]  # Observed: WatchEndpoint
+
+
+class LikeTarget(BaseModel):
+    playlist_id: str
 
 
 class LikeButtonTarget(BaseModel):

@@ -53,3 +53,8 @@ class WebRemix:
         response: dict = self.client.adaptor.dispatch("guide")
 
         return self.parser.guide(response)
+
+    def search(self, query: str):
+        response: dict = self.client.adaptor.dispatch("search", body={"query": query})
+
+        return self.parser.search(response)

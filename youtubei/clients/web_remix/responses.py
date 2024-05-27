@@ -7,8 +7,8 @@ from youtubei.renderers import (
     MicroformatDataRenderer,
     MusicDetailHeaderRenderer,
     SingleColumnBrowseResultsRenderer,
+    TabbedSearchResultsRenderer,
 )
-
 from .types import GuideItem
 
 __all__ = (
@@ -48,3 +48,7 @@ class WebRemixGetBrowseAlbumDetailPageResponse(WebRemixResponse):
 class WebRemixGetBrowsePlaylistDetailPageResponse(WebRemixResponse):
     contents: Dynamic[SingleColumnBrowseResultsRenderer]
     header: Optional[Dynamic[MusicDetailHeaderRenderer]] = None
+
+
+class WebRemixSearchResponse(WebRemixResponse):
+    contents: Dynamic[TabbedSearchResultsRenderer]
