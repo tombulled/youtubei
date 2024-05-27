@@ -5,7 +5,9 @@ from youtubei.models.text import ComplexText
 from youtubei.parse.validated_types import Dynamic
 from youtubei.renderers.menu import MenuRenderer
 from youtubei.renderers.music_inline_badge import MusicInlineBadgeRenderer
-from youtubei.renderers.music_item_thumbnail_overlay import MusicItemThumbnailOverlayRenderer
+from youtubei.renderers.music_item_thumbnail_overlay import (
+    MusicItemThumbnailOverlayRenderer,
+)
 from youtubei.renderers.music_thumbnail import MusicThumbnailRenderer
 from youtubei.validated_types import DynamicCommand
 from .._registries import WEB_REMIX_REGISTRY

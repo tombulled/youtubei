@@ -51,8 +51,7 @@ from .multi_page_menu_section import MultiPageMenuSectionRenderer
 from .music_card_shelf import MusicCardShelfRenderer
 from .music_card_shelf_header_basic import MusicCardShelfHeaderBasicRenderer
 from .music_carousel_shelf import MusicCarouselShelfRenderer
-from .music_carousel_shelf_basic_header import \
-    MusicCarouselShelfBasicHeaderRenderer
+from .music_carousel_shelf_basic_header import MusicCarouselShelfBasicHeaderRenderer
 from .music_data_bound_menu import MusicDataBoundMenuRenderer
 from .music_detail_header import MusicDetailHeaderRenderer
 from .music_inline_badge import MusicInlineBadgeRenderer
@@ -60,8 +59,9 @@ from .music_item_thumbnail_overlay import MusicItemThumbnailOverlayRenderer
 from .music_play_button import MusicPlayButtonRenderer
 from .music_playlist_shelf import MusicPlaylistShelfRenderer
 from .music_responsive_list_item import MusicResponsiveListItemRenderer
-from .music_responsive_list_item_flex_column import \
-    MusicResponsiveListItemFlexColumnRenderer
+from .music_responsive_list_item_flex_column import (
+    MusicResponsiveListItemFlexColumnRenderer,
+)
 from .music_shelf import MusicShelfRenderer
 from .music_shelf_divider import MusicShelfDividerRenderer
 from .music_thumbnail import MusicThumbnailRenderer
@@ -75,8 +75,7 @@ from .player_bytes_ad_layout import PlayerBytesAdLayoutRenderer
 from .player_bytes_sequential_layout import PlayerBytesSequentialLayoutRenderer
 from .player_captions_tracklist import PlayerCaptionsTracklistRenderer
 from .player_error_message import PlayerErrorMessageRenderer
-from .player_legacy_desktop_watch_ads import \
-    PlayerLegacyDesktopWatchAdsRenderer
+from .player_legacy_desktop_watch_ads import PlayerLegacyDesktopWatchAdsRenderer
 from .player_microformat import PlayerMicroformatRenderer
 from .player_storyboard_spec import PlayerStoryboardSpecRenderer
 from .playlist_byline import PlaylistBylineRenderer
