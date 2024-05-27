@@ -24,7 +24,7 @@ class MusicPlayButtonRenderer(BaseRenderer):
     loading_indicator_color: int
     playing_icon: Icon
     icon_loading_color: int
-    active_scale_factor: int
+    active_scale_factor: float
     button_size: MusicPlayButtonSize
     ripple_target: MusicPlayButtonRippleTarget
     accessibility_play_data: Accessibility

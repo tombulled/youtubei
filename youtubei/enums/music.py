@@ -1,6 +1,7 @@
 from ._base import StrEnum
 
 __all__ = (
+    "MusicCarouselShelfBasicHeaderStyle",
     "MusicItemThumbnailOverlayContentPosition",
     "MusicItemThumbnailOverlayDisplayStyle",
     "MusicPlayButtonRippleTarget",
@@ -11,16 +12,23 @@ __all__ = (
     "MusicResponsiveListItemFlexColumnDisplayStyle",
     "MusicThumbnailCrop",
     "MusicThumbnailScale",
+    "MusicTwoRowItemThumbnailAspectRatio",
     "MusicVideoType",
 )
 
 
+class MusicCarouselShelfBasicHeaderStyle(StrEnum):
+    DEFAULT: str = "MUSIC_CAROUSEL_SHELF_BASIC_HEADER_STYLE_DEFAULT"
+
+
 class MusicItemThumbnailOverlayContentPosition(StrEnum):
     CENTERED: str = "MUSIC_ITEM_THUMBNAIL_OVERLAY_CONTENT_POSITION_CENTERED"
+    BOTTOM_RIGHT: str = "MUSIC_ITEM_THUMBNAIL_OVERLAY_CONTENT_POSITION_BOTTOM_RIGHT"
 
 
 class MusicItemThumbnailOverlayDisplayStyle(StrEnum):
     PERSISTENT: str = "MUSIC_ITEM_THUMBNAIL_OVERLAY_DISPLAY_STYLE_PERSISTENT"
+    HOVER: str = "MUSIC_ITEM_THUMBNAIL_OVERLAY_DISPLAY_STYLE_HOVER"
 
 
 class MusicPlayButtonRippleTarget(StrEnum):
@@ -29,6 +37,7 @@ class MusicPlayButtonRippleTarget(StrEnum):
 
 class MusicPlayButtonSize(StrEnum):
     SMALL: str = "MUSIC_PLAY_BUTTON_SIZE_SMALL"
+    MEDIUM: str = "MUSIC_PLAY_BUTTON_SIZE_MEDIUM"
 
 
 class MusicResponsiveListItemColumnDisplayPriority(StrEnum):
@@ -60,6 +69,10 @@ class MusicThumbnailScale(StrEnum):
     ASPECT_FIT: str = "MUSIC_THUMBNAIL_SCALE_ASPECT_FIT"
     ASPECT_FILL: str = "MUSIC_THUMBNAIL_SCALE_ASPECT_FILL"
     UNSPECIFIED: str = "MUSIC_THUMBNAIL_SCALE_UNSPECIFIED"
+
+
+class MusicTwoRowItemThumbnailAspectRatio(StrEnum):
+    SQUARE: str = "MUSIC_TWO_ROW_ITEM_THUMBNAIL_ASPECT_RATIO_SQUARE"
 
 
 class MusicVideoType(StrEnum):
