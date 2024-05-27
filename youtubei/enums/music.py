@@ -8,6 +8,7 @@ __all__ = (
     "MusicResponsiveListItemColumnDisplayPriority",
     "MusicResponsiveListItemFixedColumnSize",
     "MusicResponsiveListItemHeight",
+    "MusicResponsiveListItemFlexColumnDisplayStyle",
     "MusicThumbnailCrop",
     "MusicThumbnailScale",
     "MusicVideoType",
@@ -41,17 +42,24 @@ class MusicResponsiveListItemFixedColumnSize(StrEnum):
 
 class MusicResponsiveListItemHeight(StrEnum):
     MEDIUM: str = "MUSIC_RESPONSIVE_LIST_ITEM_HEIGHT_MEDIUM"
+    TALL: str = "MUSIC_RESPONSIVE_LIST_ITEM_HEIGHT_TALL"
 
+class MusicResponsiveListItemFlexColumnDisplayStyle(StrEnum):
+    TWO_LINE_STACK: str = "MUSIC_RESPONSIVE_LIST_ITEM_FLEX_COLUMN_DISPLAY_STYLE_TWO_LINE_STACK"
 
 class MusicThumbnailCrop(StrEnum):
     UNSPECIFIED: str = "MUSIC_THUMBNAIL_CROP_UNSPECIFIED"
+    CIRCLE: str = "MUSIC_THUMBNAIL_CROP_CIRCLE"
 
 
 class MusicThumbnailScale(StrEnum):
     ASPECT_FIT: str = "MUSIC_THUMBNAIL_SCALE_ASPECT_FIT"
+    ASPECT_FILL: str = "MUSIC_THUMBNAIL_SCALE_ASPECT_FILL"
     UNSPECIFIED: str = "MUSIC_THUMBNAIL_SCALE_UNSPECIFIED"
 
 
 class MusicVideoType(StrEnum):
     ATV: str = "MUSIC_VIDEO_TYPE_ATV"
     OMV: str = "MUSIC_VIDEO_TYPE_OMV"
+    UGC: str = "MUSIC_VIDEO_TYPE_UGC"
+    PODCAST_EPISODE: str = "MUSIC_VIDEO_TYPE_PODCAST_EPISODE"

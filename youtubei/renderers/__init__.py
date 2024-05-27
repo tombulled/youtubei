@@ -10,6 +10,9 @@ from .background_promo import BackgroundPromoRenderer
 from .button import ButtonRenderer
 from .card import CardRenderer
 from .card_collection import CardCollectionRenderer
+from .checkbox import CheckboxRenderer
+from .chip_cloud import ChipCloudRenderer
+from .chip_cloud_chip import ChipCloudChipRenderer
 from .cinematic_container import CinematicContainerRenderer
 from .client_forecasting_ad import ClientForecastingAdRenderer
 from .compact_link import CompactLinkRenderer
@@ -45,16 +48,18 @@ from .mobile_topbar import MobileTopbarRenderer
 from .modal_with_title_and_button import ModalWithTitleAndButtonRenderer
 from .multi_page_menu import MultiPageMenuRenderer
 from .multi_page_menu_section import MultiPageMenuSectionRenderer
+from .music_card_shelf import MusicCardShelfRenderer
+from .music_card_shelf_header_basic import MusicCardShelfHeaderBasicRenderer
 from .music_carousel_shelf import MusicCarouselShelfRenderer
 from .music_data_bound_menu import MusicDataBoundMenuRenderer
 from .music_detail_header import MusicDetailHeaderRenderer
+from .music_inline_badge import MusicInlineBadgeRenderer
 from .music_item_thumbnail_overlay import MusicItemThumbnailOverlayRenderer
 from .music_play_button import MusicPlayButtonRenderer
 from .music_playlist_shelf import MusicPlaylistShelfRenderer
 from .music_responsive_list_item import MusicResponsiveListItemRenderer
-from .music_responsive_list_item_flex_column import (
-    MusicResponsiveListItemFlexColumnRenderer,
-)
+from .music_responsive_list_item_flex_column import \
+    MusicResponsiveListItemFlexColumnRenderer
 from .music_shelf import MusicShelfRenderer
 from .music_shelf_divider import MusicShelfDividerRenderer
 from .music_thumbnail import MusicThumbnailRenderer
@@ -67,7 +72,8 @@ from .player_bytes_ad_layout import PlayerBytesAdLayoutRenderer
 from .player_bytes_sequential_layout import PlayerBytesSequentialLayoutRenderer
 from .player_captions_tracklist import PlayerCaptionsTracklistRenderer
 from .player_error_message import PlayerErrorMessageRenderer
-from .player_legacy_desktop_watch_ads import PlayerLegacyDesktopWatchAdsRenderer
+from .player_legacy_desktop_watch_ads import \
+    PlayerLegacyDesktopWatchAdsRenderer
 from .player_microformat import PlayerMicroformatRenderer
 from .player_storyboard_spec import PlayerStoryboardSpecRenderer
 from .playlist_byline import PlaylistBylineRenderer
@@ -88,11 +94,13 @@ from .skip_ad import SkipAdRenderer
 from .skip_button import SkipButtonRenderer
 from .subscribe_button import SubscribeButtonRenderer
 from .tab import TabRenderer
+from .tabbed_search_results import TabbedSearchResultsRenderer
 from .thumbnail_overlay_hover_text import ThumbnailOverlayHoverTextRenderer
 from .thumbnail_overlay_now_playing import ThumbnailOverlayNowPlayingRenderer
 from .thumbnail_overlay_side_panel import ThumbnailOverlaySidePanelRenderer
 from .thumbnail_overlay_time_status import ThumbnailOverlayTimeStatusRenderer
 from .toggle_button import ToggleButtonRenderer
+from .toggle_menu_service_item import ToggleMenuServiceItemRenderer
 from .topbar_button import TopbarButtonRenderer
 from .topbar_logo import TopbarLogoRenderer
 from .topbar_menu_button import TopbarMenuButtonRenderer

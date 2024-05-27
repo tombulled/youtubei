@@ -14,3 +14,5 @@ __all__ = ("TabRenderer",)
 class TabRenderer(BaseRenderer):
     selected: Optional[bool] = None
     content: Dynamic[SectionListRenderer]
+    tab_identifier: Optional[str] = None
+    title: Optional[str] = None

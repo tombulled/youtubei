@@ -15,6 +15,7 @@ from youtubei.enums import (
     Signal,
     Target,
 )
+from youtubei.enums.other import LikeStatus
 from youtubei.models.actions import AddToToastAction
 from youtubei.models.config import (
     BrowseEndpointContextMusicConfig,
@@ -22,7 +23,7 @@ from youtubei.models.config import (
     WatchEndpointMusicConfig,
 )
 from youtubei.models.contexts import LoggingContext
-from youtubei.models.other import PlaylistEditAction, QueueTarget
+from youtubei.models.other import LikeTarget, PlaylistEditAction, QueueTarget
 from youtubei.models.params import SkAdParameters
 from youtubei.parse.validated_types import Dynamic
 from youtubei.types import BrowseId
@@ -342,8 +343,10 @@ class IosApplicationEndpoint(BaseModel):
     fallback_endpoint: DynamicCommand[Any]  # Observed: AppStoreEndpoint
 
 
+@WEB_REMIX_REGISTRY
 class LikeEndpoint(BaseEndpoint):
-    pass
+    status: LikeStatus
+    target: LikeTarget
 
 
 class LiveChatActionEndpoint(BaseEndpoint):
@@ -451,11 +454,13 @@ class ScrollToSectionEndpoint(BaseEndpoint):
     pass
 
 
+@WEB_REMIX_REGISTRY
 @WEB_REGISTRY
 @ANDROID_REGISTRY
 @IOS_REGISTRY
 class SearchEndpoint(BaseEndpoint):
     query: str
+    params: Optional[str] = None
 
 
 class SelectActiveIdentityEndpoint(BaseEndpoint):

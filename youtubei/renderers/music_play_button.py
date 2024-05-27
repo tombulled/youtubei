@@ -1,6 +1,7 @@
+from typing import Union
 from youtubei.enums.music import MusicPlayButtonRippleTarget, MusicPlayButtonSize
 from youtubei.models.accessibility import Accessibility
-from youtubei.models.endpoints import WatchEndpoint
+from youtubei.models.endpoints import WatchEndpoint, WatchPlaylistEndpoint
 from youtubei.models.other import Icon
 from youtubei.validated_types import DynamicCommand
 
@@ -12,7 +13,7 @@ __all__ = ("MusicPlayButtonRenderer",)
 
 @WEB_REMIX_REGISTRY
 class MusicPlayButtonRenderer(BaseRenderer):
-    play_navigation_endpoint: DynamicCommand[WatchEndpoint]
+    play_navigation_endpoint: DynamicCommand[Union[WatchEndpoint, WatchPlaylistEndpoint]]
     play_icon: Icon
     pause_icon: Icon
     icon_color: int
