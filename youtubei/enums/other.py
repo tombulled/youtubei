@@ -8,6 +8,7 @@ __all__ = (
     "CaptionsInitialState",
     "Category",
     "CheckboxCheckedState",
+    "CollectionStyleItemSize",
     "CountryCode",
     "EndscreenElementStyle",
     "EngagementPanelVisibility",
@@ -78,6 +79,10 @@ class Category(StrEnum):
 
 class CheckboxCheckedState(StrEnum):
     UNCHECKED: str = "CHECKBOX_CHECKED_STATE_UNCHECKED"
+
+
+class CollectionStyleItemSize(StrEnum):
+    MEDIUM: str = "COLLECTION_STYLE_ITEM_SIZE_MEDIUM"
 
 
 class CountryCode(StrEnum):
